@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3759371f-a095-4585-b437-50529a0eb248
 management:
-  docChecksum: b4cf8a9c43b759607edff1a0326e1367
+  docChecksum: fa93dd7c63cad4c356bc40dd60cdaab6
   docVersion: 1.0.0
   speakeasyVersion: 1.411.1
   generationVersion: 2.436.1
-  releaseVersion: 0.7.0
-  configChecksum: 6e29f3a9a61536f752f2ae6863fde46f
+  releaseVersion: 0.9.0
+  configChecksum: 60b495ae46f854de2dbe0f5c15fcd48f
   repoURL: https://github.com/StackOneHQ/stackone-client-php.git
   installationURL: https://github.com/StackOneHQ/stackone-client-php
   published: true
