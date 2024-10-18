@@ -23,4 +23,9 @@ enum TimeOffTypeValue: string
     case LeaveOfAbsence = 'leave_of_absence';
     case Break = 'break';
     case ChildCareLeave = 'child_care_leave';
+    case MaternityLeave = 'maternity_leave';
+    case JuryDuty = 'jury_duty';
+    case BereavementLeave = 'bereavement_leave';
+    case Sabbatical = 'sabbatical';
+    case Accident = 'accident';
 }
