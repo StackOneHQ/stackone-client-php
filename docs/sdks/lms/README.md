@@ -771,7 +771,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 $request = new Operations\LmsListUserCompletionsRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference',
+    fields: 'id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference',
     filter: new Operations\LmsListUserCompletionsQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
     ),
@@ -940,7 +940,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 
 $request = new Operations\LmsListCompletionsRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference',
+    fields: 'id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference',
     filter: new Operations\LmsListCompletionsQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
     ),
