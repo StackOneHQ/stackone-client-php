@@ -10,3 +10,6 @@ The type of the description.
 | `Responsibilities` | responsibilities   |
 | `Skills`           | skills             |
 | `Benefits`         | benefits           |
+| `CompanyOverview`  | company_overview   |
+| `Description`      | description        |
+| `Other`            | other              |

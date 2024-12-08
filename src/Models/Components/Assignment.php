@@ -58,7 +58,7 @@ class Assignment
     public ?string $remoteLearningObjectId = null;
 
     /**
-     * The learning_object_external_reference associated with this assignment
+     * The external reference of the learning object associated with this assignment
      *
      * @var ?string $learningObjectExternalReference
      */

@@ -9,32 +9,32 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
-/** Type - The type of the group */
+/** Type - The type of the custom field. */
 class Type
 {
     /**
      *
-     * @var ?HRISGroupValue $value
+     * @var ?CustomFieldDefinitionValue $value
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HRISGroupValue|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CustomFieldDefinitionValue|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?HRISGroupValue $value = null;
+    public ?CustomFieldDefinitionValue $value = null;
 
     /**
      *
-     * @var string|float|bool|HRISGroupSourceValue4|array<mixed>|null $sourceValue
+     * @var string|float|bool|CustomFieldDefinitionSourceValue4|array<mixed>|null $sourceValue
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source_value')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\HRISGroupSourceValue4|array<mixed>')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\CustomFieldDefinitionSourceValue4|array<mixed>')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|float|bool|HRISGroupSourceValue4|array|null $sourceValue = null;
+    public string|float|bool|CustomFieldDefinitionSourceValue4|array|null $sourceValue = null;
 
     /**
-     * @param  ?HRISGroupValue  $value
-     * @param  string|float|bool|HRISGroupSourceValue4|array<mixed>|null  $sourceValue
+     * @param  ?CustomFieldDefinitionValue  $value
+     * @param  string|float|bool|CustomFieldDefinitionSourceValue4|array<mixed>|null  $sourceValue
      */
-    public function __construct(?HRISGroupValue $value = null, string|float|bool|HRISGroupSourceValue4|array|null $sourceValue = null)
+    public function __construct(?CustomFieldDefinitionValue $value = null, string|float|bool|CustomFieldDefinitionSourceValue4|array|null $sourceValue = null)
     {
         $this->value = $value;
         $this->sourceValue = $sourceValue;

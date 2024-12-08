@@ -77,7 +77,7 @@ class Completion
     public ?string $updatedAt = null;
 
     /**
-     * The learning object type of the assignment
+     * The learning object type of the completion
      *
      * @var ?CompletionLearningObjectType $learningObjectType
      */
@@ -87,7 +87,7 @@ class Completion
     public ?CompletionLearningObjectType $learningObjectType = null;
 
     /**
-     * The learning_object_id associated with this assignment
+     * The id of the learning object associated with this completion
      *
      * @var ?string $learningObjectId
      */
@@ -96,7 +96,7 @@ class Completion
     public ?string $learningObjectId = null;
 
     /**
-     * Provider's unique identifier of the learning object related to the assignment
+     * Provider's unique identifier of the learning object related to the completion
      *
      * @var ?string $remoteLearningObjectId
      */
@@ -105,7 +105,7 @@ class Completion
     public ?string $remoteLearningObjectId = null;
 
     /**
-     * The learning_object_external_reference associated with this assignment
+     * The external reference of the learning object associated with this completion
      *
      * @var ?string $learningObjectExternalReference
      */

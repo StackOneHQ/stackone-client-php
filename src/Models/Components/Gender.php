@@ -23,18 +23,18 @@ class Gender
 
     /**
      *
-     * @var string|float|bool|EmployeeSourceValueGender4|array<mixed>|null $sourceValue
+     * @var string|float|bool|EmployeeSourceValue4|array<mixed>|null $sourceValue
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source_value')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\EmployeeSourceValueGender4|array<mixed>')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\EmployeeSourceValue4|array<mixed>')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|float|bool|EmployeeSourceValueGender4|array|null $sourceValue = null;
+    public string|float|bool|EmployeeSourceValue4|array|null $sourceValue = null;
 
     /**
      * @param  ?EmployeeValue  $value
-     * @param  string|float|bool|EmployeeSourceValueGender4|array<mixed>|null  $sourceValue
+     * @param  string|float|bool|EmployeeSourceValue4|array<mixed>|null  $sourceValue
      */
-    public function __construct(?EmployeeValue $value = null, string|float|bool|EmployeeSourceValueGender4|array|null $sourceValue = null)
+    public function __construct(?EmployeeValue $value = null, string|float|bool|EmployeeSourceValue4|array|null $sourceValue = null)
     {
         $this->value = $value;
         $this->sourceValue = $sourceValue;
