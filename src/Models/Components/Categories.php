@@ -19,5 +19,5 @@ enum Categories: string
     case Marketing = 'marketing';
     case Lms = 'lms';
     case Stackone = 'stackone';
-    case FileStorage = 'file-storage';
+    case Documents = 'documents';
 }

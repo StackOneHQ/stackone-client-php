@@ -34,10 +34,10 @@ class AtsUpdateApplicationRequestDto
     /**
      * The application custom fields
      *
-     * @var ?array<ApplicationCustomFields> $customFields
+     * @var ?array<CustomFields> $customFields
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('custom_fields')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\ApplicationCustomFields>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\CustomFields>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $customFields = null;
 
@@ -71,7 +71,7 @@ class AtsUpdateApplicationRequestDto
     /**
      * @param  ?array<string, mixed>  $passthrough
      * @param  ?string  $rejectedReasonId
-     * @param  ?array<ApplicationCustomFields>  $customFields
+     * @param  ?array<CustomFields>  $customFields
      * @param  ?AtsUpdateApplicationRequestDtoApplicationStatus  $applicationStatus
      * @param  ?AtsUpdateApplicationRequestDtoSource  $source
      * @param  ?string  $interviewStageId

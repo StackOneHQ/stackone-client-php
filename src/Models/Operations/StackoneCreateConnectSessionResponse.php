@@ -33,23 +33,23 @@ class StackoneCreateConnectSessionResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
-     * The details of the connect session created with token.
+     * The details of the connect session created with token and auth link
      *
-     * @var ?Components\ConnectSessionToken $connectSessionToken
+     * @var ?Components\ConnectSessionTokenAuthLink $connectSessionTokenAuthLink
      */
-    public ?Components\ConnectSessionToken $connectSessionToken = null;
+    public ?Components\ConnectSessionTokenAuthLink $connectSessionTokenAuthLink = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?Components\ConnectSessionToken  $connectSessionToken
+     * @param  ?Components\ConnectSessionTokenAuthLink  $connectSessionTokenAuthLink
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\ConnectSessionToken $connectSessionToken = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\ConnectSessionTokenAuthLink $connectSessionTokenAuthLink = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->connectSessionToken = $connectSessionToken;
+        $this->connectSessionTokenAuthLink = $connectSessionTokenAuthLink;
     }
 }

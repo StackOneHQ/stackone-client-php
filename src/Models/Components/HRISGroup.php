@@ -91,12 +91,12 @@ class HRISGroup
     /**
      * The type of the group
      *
-     * @var ?Type $type
+     * @var ?HRISGroupType $type
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Type|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HRISGroupType|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Type $type = null;
+    public ?HRISGroupType $type = null;
 
     /**
      * @param  ?string  $id
@@ -107,9 +107,9 @@ class HRISGroup
      * @param  ?array<string>  $remoteParentIds
      * @param  ?array<string>  $ownerIds
      * @param  ?array<string>  $remoteOwnerIds
-     * @param  ?Type  $type
+     * @param  ?HRISGroupType  $type
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $name = null, ?array $parentIds = null, ?array $remoteParentIds = null, ?array $ownerIds = null, ?array $remoteOwnerIds = null, ?Type $type = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $name = null, ?array $parentIds = null, ?array $remoteParentIds = null, ?array $ownerIds = null, ?array $remoteOwnerIds = null, ?HRISGroupType $type = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;

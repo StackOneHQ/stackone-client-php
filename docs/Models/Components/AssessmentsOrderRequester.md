@@ -1,0 +1,10 @@
+# AssessmentsOrderRequester
+
+
+## Fields
+
+| Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   | Example                                                                       |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `id`                                                                          | *?string*                                                                     | :heavy_minus_sign:                                                            | Unique identifier                                                             | 8187e5da-dc77-475e-9949-af0f1fa4e4e3                                          |
+| `emails`                                                                      | array<[Components\CandidateEmail](../../Models/Components/CandidateEmail.md)> | :heavy_minus_sign:                                                            | List of candidate emails                                                      |                                                                               |
+| `passthrough`                                                                 | array<string, *mixed*>                                                        | :heavy_minus_sign:                                                            | Value to pass through to the provider                                         | {<br/>"other_known_names": "John Doe"<br/>}                                   |

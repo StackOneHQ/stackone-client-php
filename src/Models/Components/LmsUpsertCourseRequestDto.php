@@ -115,16 +115,6 @@ class LmsUpsertCourseRequestDto
     public ?array $skills = null;
 
     /**
-     * The categories associated with this course
-     *
-     * @var ?array<CreateCategoriesApiModel> $categories
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('categories')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\CreateCategoriesApiModel>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $categories = null;
-
-    /**
      * The content associated with this course
      *
      * @var ?array<CreateContentApiModel> $content
@@ -133,6 +123,16 @@ class LmsUpsertCourseRequestDto
     #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\CreateContentApiModel>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $content = null;
+
+    /**
+     * The categories associated with this course
+     *
+     * @var ?array<CreateCategoriesApiModel> $categories
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('categories')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\CreateCategoriesApiModel>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $categories = null;
 
     /**
      * @param  ?array<string, mixed>  $unifiedCustomFields
@@ -146,10 +146,10 @@ class LmsUpsertCourseRequestDto
      * @param  ?bool  $active
      * @param  ?string  $duration
      * @param  ?array<CreateSkillsApiModel>  $skills
-     * @param  ?array<CreateCategoriesApiModel>  $categories
      * @param  ?array<CreateContentApiModel>  $content
+     * @param  ?array<CreateCategoriesApiModel>  $categories
      */
-    public function __construct(?array $unifiedCustomFields = null, ?string $externalReference = null, ?array $contentIds = null, ?string $title = null, ?string $description = null, ?array $languages = null, ?string $coverUrl = null, ?string $url = null, ?bool $active = null, ?string $duration = null, ?array $skills = null, ?array $categories = null, ?array $content = null)
+    public function __construct(?array $unifiedCustomFields = null, ?string $externalReference = null, ?array $contentIds = null, ?string $title = null, ?string $description = null, ?array $languages = null, ?string $coverUrl = null, ?string $url = null, ?bool $active = null, ?string $duration = null, ?array $skills = null, ?array $content = null, ?array $categories = null)
     {
         $this->unifiedCustomFields = $unifiedCustomFields;
         $this->externalReference = $externalReference;
@@ -162,7 +162,7 @@ class LmsUpsertCourseRequestDto
         $this->active = $active;
         $this->duration = $duration;
         $this->skills = $skills;
-        $this->categories = $categories;
         $this->content = $content;
+        $this->categories = $categories;
     }
 }

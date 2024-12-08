@@ -81,6 +81,14 @@ $lmsBatchUpsertCourseRequestDto = new Components\LmsBatchUpsertCourseRequestDto(
                     name: 'Software Engineering',
                 ),
             ],
+            content: [
+                new Components\CreateContentApiModel(
+                    title: 'Software Engineering',
+                    description: 'This is a software engineering course',
+                    contentUrl: 'https://www.google.com',
+                    order: 1,
+                ),
+            ],
             categories: [
                 new Components\CreateCategoriesApiModel(
                     unifiedCustomFields: [
@@ -88,14 +96,6 @@ $lmsBatchUpsertCourseRequestDto = new Components\LmsBatchUpsertCourseRequestDto(
                         'my_project_custom_field_2' => 'some other value',
                     ],
                     name: 'Technology',
-                ),
-            ],
-            content: [
-                new Components\CreateContentApiModel(
-                    title: 'Software Engineer Lv 1',
-                    description: 'This video acts as learning content for software engineers.',
-                    contentUrl: 'https://www.youtube.com/watch?v=16873',
-                    order: 1,
                 ),
             ],
         ),
@@ -233,6 +233,14 @@ $lmsUpsertCourseRequestDto = new Components\LmsUpsertCourseRequestDto(
             name: 'Software Engineering',
         ),
     ],
+    content: [
+        new Components\CreateContentApiModel(
+            title: 'Software Engineering',
+            description: 'This is a software engineering course',
+            contentUrl: 'https://www.google.com',
+            order: 1,
+        ),
+    ],
     categories: [
         new Components\CreateCategoriesApiModel(
             unifiedCustomFields: [
@@ -240,14 +248,6 @@ $lmsUpsertCourseRequestDto = new Components\LmsUpsertCourseRequestDto(
                 'my_project_custom_field_2' => 'some other value',
             ],
             name: 'Technology',
-        ),
-    ],
-    content: [
-        new Components\CreateContentApiModel(
-            title: 'Software Engineer Lv 1',
-            description: 'This video acts as learning content for software engineers.',
-            contentUrl: 'https://www.youtube.com/watch?v=16873',
-            order: 1,
         ),
     ],
 );
@@ -478,6 +478,7 @@ $lmsBatchUpsertContentRequestDto = new Components\LmsBatchUpsertContentRequestDt
             ],
             title: 'Software Engineer Lv 1',
             description: 'This video acts as learning content for software engineers.',
+            shortDescription: 'This course is a valuable resource and acts as learning content for...',
             languages: [
                 new Components\LanguageEnum(
                     value: Components\LanguageEnumValue::EnGB,
@@ -494,7 +495,6 @@ $lmsBatchUpsertContentRequestDto = new Components\LmsBatchUpsertContentRequestDt
                     name: 'Software Engineering',
                 ),
             ],
-            contentLaunchMethod: new Components\ContentLaunchMethod(),
             order: 1,
             categories: [
                 new Components\CreateCategoriesApiModel(
@@ -561,7 +561,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 
 $request = new Operations\LmsListContentRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,content_launch_method,categories,skills,updated_at,created_at',
+    fields: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at',
     filter: new Operations\LmsListContentQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
     ),
@@ -624,6 +624,7 @@ $lmsUpsertContentRequestDto = new Components\LmsUpsertContentRequestDto(
     ],
     title: 'Software Engineer Lv 1',
     description: 'This video acts as learning content for software engineers.',
+    shortDescription: 'This course is a valuable resource and acts as learning content for...',
     languages: [
         new Components\LanguageEnum(
             value: Components\LanguageEnumValue::EnGB,
@@ -640,7 +641,6 @@ $lmsUpsertContentRequestDto = new Components\LmsUpsertContentRequestDto(
             name: 'Software Engineering',
         ),
     ],
-    contentLaunchMethod: new Components\ContentLaunchMethod(),
     order: 1,
     categories: [
         new Components\CreateCategoriesApiModel(
@@ -706,7 +706,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 $request = new Operations\LmsGetContentRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,content_launch_method,categories,skills,updated_at,created_at',
+    fields: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at',
 );
 
 $response = $sdk->lms->getContent(

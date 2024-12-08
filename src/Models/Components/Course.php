@@ -153,6 +153,16 @@ class Course
     public ?array $skills = null;
 
     /**
+     * The content associated with this course
+     *
+     * @var ?array<Content> $content
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('content')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\Content>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $content = null;
+
+    /**
      * The date on which the course was last updated.
      *
      * @var ?string $updatedAt
@@ -186,10 +196,11 @@ class Course
      * @param  ?string  $duration
      * @param  ?array<Category>  $categories
      * @param  ?array<Skills>  $skills
+     * @param  ?array<Content>  $content
      * @param  ?string  $updatedAt
      * @param  ?string  $createdAt
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $externalReference = null, ?array $contentIds = null, ?array $remoteContentIds = null, ?string $title = null, ?string $description = null, ?array $languages = null, ?string $coverUrl = null, ?string $url = null, ?bool $active = null, ?string $duration = null, ?array $categories = null, ?array $skills = null, ?string $updatedAt = null, ?string $createdAt = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $externalReference = null, ?array $contentIds = null, ?array $remoteContentIds = null, ?string $title = null, ?string $description = null, ?array $languages = null, ?string $coverUrl = null, ?string $url = null, ?bool $active = null, ?string $duration = null, ?array $categories = null, ?array $skills = null, ?array $content = null, ?string $updatedAt = null, ?string $createdAt = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -206,6 +217,7 @@ class Course
         $this->duration = $duration;
         $this->categories = $categories;
         $this->skills = $skills;
+        $this->content = $content;
         $this->updatedAt = $updatedAt;
         $this->createdAt = $createdAt;
     }

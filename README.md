@@ -57,8 +57,8 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 
 $request = new Operations\HrisListEmployeesRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number',
-    filter: new Operations\QueryParamFilter(
+    fields: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number',
+    filter: new Operations\HrisListEmployeesQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
     ),
     expand: 'company,employments,work_location,home_location,custom_fields,groups',
@@ -147,6 +147,12 @@ if ($response->employeesPaginated !== null) {
 * [getAssessmentsPackage](docs/sdks/ats/README.md#getassessmentspackage) - Get Assessments Package
 * [getAssessmentsRequest](docs/sdks/ats/README.md#getassessmentsrequest) - Get Assessments Requests
 * [getAssessmentsResult](docs/sdks/ats/README.md#getassessmentsresult) - Get Assessments Results
+* [listBackgroundCheckPackages](docs/sdks/ats/README.md#listbackgroundcheckpackages) - List Background Check Packages
+* [createBackgroundCheckPackage](docs/sdks/ats/README.md#createbackgroundcheckpackage) - Create Background Check Package
+* [getBackgroundCheckPackage](docs/sdks/ats/README.md#getbackgroundcheckpackage) - Get Background Check Package
+* [listBackgroundCheckRequest](docs/sdks/ats/README.md#listbackgroundcheckrequest) - List Background Check Request
+* [getBackgroundCheckRequest](docs/sdks/ats/README.md#getbackgroundcheckrequest) - Get Background Check Request
+* [getBackgroundCheckResult](docs/sdks/ats/README.md#getbackgroundcheckresult) - Get Background Check Results
 
 ### [connectors](docs/sdks/connectors/README.md)
 
@@ -175,6 +181,8 @@ if ($response->employeesPaginated !== null) {
 
 * [listCompanies](docs/sdks/hris/README.md#listcompanies) - List Companies
 * [getCompany](docs/sdks/hris/README.md#getcompany) - Get Company
+* [listEmployeeCustomFieldDefinitions](docs/sdks/hris/README.md#listemployeecustomfielddefinitions) - List employee Custom Field Definitions
+* [getEmployeeCustomFieldDefinition](docs/sdks/hris/README.md#getemployeecustomfielddefinition) - Get employee Custom Field Definition
 * [listEmployees](docs/sdks/hris/README.md#listemployees) - List Employees
 * [createEmployee](docs/sdks/hris/README.md#createemployee) - Creates an employee
 * [getEmployee](docs/sdks/hris/README.md#getemployee) - Get Employee
@@ -348,7 +356,7 @@ try {
             Components\Categories::Marketing,
             Components\Categories::Lms,
             Components\Categories::Ats,
-            Components\Categories::Lms,
+            Components\Categories::Documents,
         ],
     );
 
@@ -356,7 +364,7 @@ try {
         request: $request
     );
 
-    if ($response->connectSessionToken !== null) {
+    if ($response->connectSessionTokenAuthLink !== null) {
         // handle response
     }
 } catch (Errors\SDKException $e) {
@@ -401,7 +409,7 @@ $request = new Components\ConnectSessionCreate(
         Components\Categories::Marketing,
         Components\Categories::Lms,
         Components\Categories::Ats,
-        Components\Categories::Lms,
+        Components\Categories::Documents,
     ],
 );
 
@@ -409,7 +417,7 @@ $response = $sdk->connectSessions->createConnectSession(
     request: $request
 );
 
-if ($response->connectSessionToken !== null) {
+if ($response->connectSessionTokenAuthLink !== null) {
     // handle response
 }
 ```

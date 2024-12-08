@@ -268,10 +268,10 @@ class Application
     /**
      * The application custom fields
      *
-     * @var ?array<ApplicationCustomFields> $customFields
+     * @var ?array<CustomFields> $customFields
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('custom_fields')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\ApplicationCustomFields>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\CustomFields>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $customFields = null;
 
@@ -303,7 +303,7 @@ class Application
      * @param  ?Source  $source
      * @param  ?\DateTime  $createdAt
      * @param  ?\DateTime  $updatedAt
-     * @param  ?array<ApplicationCustomFields>  $customFields
+     * @param  ?array<CustomFields>  $customFields
      */
     public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $candidateId = null, ?string $remoteCandidateId = null, ?string $jobId = null, ?string $remoteJobId = null, ?ApplicationInterviewStage $interviewStage = null, ?string $interviewStageId = null, ?string $remoteInterviewStageId = null, ?array $rejectedReasons = null, ?array $rejectedReasonIds = null, ?array $remoteRejectedReasonIds = null, ?\DateTime $rejectedAt = null, ?string $locationId = null, ?string $remoteLocationId = null, ?array $locationIds = null, ?array $remoteLocationIds = null, ?ApplicationStatus $applicationStatus = null, ?array $questionnaires = null, ?ApplicationCandidate $candidate = null, ?array $attachments = null, ?array $documents = null, ?array $resultLinks = null, ?Source $source = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?array $customFields = null)
     {

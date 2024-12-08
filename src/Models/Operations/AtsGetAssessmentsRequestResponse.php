@@ -35,21 +35,21 @@ class AtsGetAssessmentsRequestResponse
     /**
      * The assessments order with the given identifier was retrieved.
      *
-     * @var ?Components\AssessmentsResultsResult $assessmentsResultsResult
+     * @var ?Components\AssessmentsOrderResult $assessmentsOrderResult
      */
-    public ?Components\AssessmentsResultsResult $assessmentsResultsResult = null;
+    public ?Components\AssessmentsOrderResult $assessmentsOrderResult = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?Components\AssessmentsResultsResult  $assessmentsResultsResult
+     * @param  ?Components\AssessmentsOrderResult  $assessmentsOrderResult
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\AssessmentsResultsResult $assessmentsResultsResult = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\AssessmentsOrderResult $assessmentsOrderResult = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->assessmentsResultsResult = $assessmentsResultsResult;
+        $this->assessmentsOrderResult = $assessmentsOrderResult;
     }
 }

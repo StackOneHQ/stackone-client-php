@@ -23,16 +23,16 @@ class LmsListCompletionsQueryParamFilter
     /**
      * Filter to select completions by learning object type.
      *
-     * @var ?string $learningObjectType
+     * @var ?LmsListCompletionsQueryParamLearningObjectType $learningObjectType
      */
     #[SpeakeasyMetadata('queryParam:name=learning_object_type')]
-    public ?string $learningObjectType = null;
+    public ?LmsListCompletionsQueryParamLearningObjectType $learningObjectType = null;
 
     /**
      * @param  ?string  $updatedAfter
-     * @param  ?string  $learningObjectType
+     * @param  ?LmsListCompletionsQueryParamLearningObjectType  $learningObjectType
      */
-    public function __construct(?string $updatedAfter = null, ?string $learningObjectType = null)
+    public function __construct(?string $updatedAfter = null, ?LmsListCompletionsQueryParamLearningObjectType $learningObjectType = null)
     {
         $this->updatedAfter = $updatedAfter;
         $this->learningObjectType = $learningObjectType;

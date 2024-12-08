@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Operations;
 
 use StackOne\client\Utils\SpeakeasyMetadata;
-/** QueryParamFilter - HRIS Employees filters */
+/** QueryParamFilter - Filter parameters that allow greater customisation of the list response */
 class QueryParamFilter
 {
     /**
@@ -21,20 +21,10 @@ class QueryParamFilter
     public ?string $updatedAfter = null;
 
     /**
-     * Filter to select employees by employee_number
-     *
-     * @var ?string $employeeNumber
-     */
-    #[SpeakeasyMetadata('queryParam:name=employee_number')]
-    public ?string $employeeNumber = null;
-
-    /**
      * @param  ?string  $updatedAfter
-     * @param  ?string  $employeeNumber
      */
-    public function __construct(?string $updatedAfter = null, ?string $employeeNumber = null)
+    public function __construct(?string $updatedAfter = null)
     {
         $this->updatedAfter = $updatedAfter;
-        $this->employeeNumber = $employeeNumber;
     }
 }
