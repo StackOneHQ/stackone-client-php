@@ -30,15 +30,6 @@ class AssessmentsResults
     public ?string $remoteId = null;
 
     /**
-     * The id of the candidate assessment
-     *
-     * @var ?string $assessmentId
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('assessment_id')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $assessmentId = null;
-
-    /**
      *
      * @var ?AssessmentsResultsCandidate $candidate
      */
@@ -49,24 +40,24 @@ class AssessmentsResults
 
     /**
      *
-     * @var ?Score $score
+     * @var ?AssessmentsResultsScore $score
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('score')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Score|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\AssessmentsResultsScore|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Score $score = null;
+    public ?AssessmentsResultsScore $score = null;
 
     /**
-     * The start date of the candidate assessment
+     * The start date of the candidate test
      *
-     * @var ?\DateTime $assessmentDate
+     * @var ?\DateTime $startDate
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('assessment_date')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('start_date')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $assessmentDate = null;
+    public ?\DateTime $startDate = null;
 
     /**
-     * The submission date of the candidate assessment
+     * The submission date of the candidate test
      *
      * @var ?\DateTime $submissionDate
      */
@@ -75,7 +66,7 @@ class AssessmentsResults
     public ?\DateTime $submissionDate = null;
 
     /**
-     * The summary about the result of the assessments
+     * The summary about the result of the test
      *
      * @var ?string $summary
      */
@@ -85,15 +76,15 @@ class AssessmentsResults
 
     /**
      *
-     * @var ?Result $result
+     * @var ?AssessmentsResultsResult1 $result
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('result')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Result|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\AssessmentsResultsResult1|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Result $result = null;
+    public ?AssessmentsResultsResult1 $result = null;
 
     /**
-     * The assessment`s result url
+     * The test`s result url
      *
      * @var ?string $resultUrl
      */
@@ -102,35 +93,34 @@ class AssessmentsResults
     public ?string $resultUrl = null;
 
     /**
+     * $attachments
      *
-     * @var ?Attachments $attachments
+     * @var ?array<AssessmentsAttachment> $attachments
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('attachments')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Attachments|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\AssessmentsAttachment>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Attachments $attachments = null;
+    public ?array $attachments = null;
 
     /**
      * @param  ?string  $id
      * @param  ?string  $remoteId
-     * @param  ?string  $assessmentId
      * @param  ?AssessmentsResultsCandidate  $candidate
-     * @param  ?Score  $score
-     * @param  ?\DateTime  $assessmentDate
+     * @param  ?AssessmentsResultsScore  $score
+     * @param  ?\DateTime  $startDate
      * @param  ?\DateTime  $submissionDate
      * @param  ?string  $summary
-     * @param  ?Result  $result
+     * @param  ?AssessmentsResultsResult1  $result
      * @param  ?string  $resultUrl
-     * @param  ?Attachments  $attachments
+     * @param  ?array<AssessmentsAttachment>  $attachments
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $assessmentId = null, ?AssessmentsResultsCandidate $candidate = null, ?Score $score = null, ?\DateTime $assessmentDate = null, ?\DateTime $submissionDate = null, ?string $summary = null, ?Result $result = null, ?string $resultUrl = null, ?Attachments $attachments = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?AssessmentsResultsCandidate $candidate = null, ?AssessmentsResultsScore $score = null, ?\DateTime $startDate = null, ?\DateTime $submissionDate = null, ?string $summary = null, ?AssessmentsResultsResult1 $result = null, ?string $resultUrl = null, ?array $attachments = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
-        $this->assessmentId = $assessmentId;
         $this->candidate = $candidate;
         $this->score = $score;
-        $this->assessmentDate = $assessmentDate;
+        $this->startDate = $startDate;
         $this->submissionDate = $submissionDate;
         $this->summary = $summary;
         $this->result = $result;

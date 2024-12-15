@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
-/** CompletionLearningObjectType - The learning object type of the assignment */
+/** CompletionLearningObjectType - The learning object type of the completion */
 class CompletionLearningObjectType
 {
     /**

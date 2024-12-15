@@ -41,7 +41,7 @@ class LmsCreateCompletionRequestDto
     public ?string $completedAt = null;
 
     /**
-     * The learning_object_id associated with this assignment
+     * The id of the learning object associated with this completion
      *
      * @var ?string $learningObjectId
      */
@@ -50,7 +50,7 @@ class LmsCreateCompletionRequestDto
     public ?string $learningObjectId = null;
 
     /**
-     * The learning_object_external_reference associated with this assignment
+     * The external reference of the learning object associated with this completion
      *
      * @var ?string $learningObjectExternalReference
      */

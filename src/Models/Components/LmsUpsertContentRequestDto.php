@@ -59,6 +59,15 @@ class LmsUpsertContentRequestDto
     public ?string $description = null;
 
     /**
+     * A short description or summary for the content
+     *
+     * @var ?string $shortDescription
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('short_description')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $shortDescription = null;
+
+    /**
      * The languages associated with this content
      *
      * @var ?array<LanguageEnum> $languages
@@ -125,16 +134,6 @@ class LmsUpsertContentRequestDto
     public ?array $skills = null;
 
     /**
-     * The content launch method associated with this content
-     *
-     * @var ?ContentLaunchMethod $contentLaunchMethod
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('content_launch_method')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\ContentLaunchMethod|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?ContentLaunchMethod $contentLaunchMethod = null;
-
-    /**
      * The order of the individual content within a content grouping. This is not applicable for pushing individual content.
      *
      * @var ?float $order
@@ -159,6 +158,7 @@ class LmsUpsertContentRequestDto
      * @param  ?array<string>  $courseIds
      * @param  ?string  $title
      * @param  ?string  $description
+     * @param  ?string  $shortDescription
      * @param  ?array<LanguageEnum>  $languages
      * @param  ?string  $contentUrl
      * @param  ?LmsUpsertContentRequestDtoContentType  $contentType
@@ -166,17 +166,17 @@ class LmsUpsertContentRequestDto
      * @param  ?bool  $active
      * @param  ?string  $duration
      * @param  ?array<CreateSkillsApiModel>  $skills
-     * @param  ?ContentLaunchMethod  $contentLaunchMethod
      * @param  ?float  $order
      * @param  ?array<CreateCategoriesApiModel>  $categories
      */
-    public function __construct(?array $unifiedCustomFields = null, ?string $externalReference = null, ?array $courseIds = null, ?string $title = null, ?string $description = null, ?array $languages = null, ?string $contentUrl = null, ?LmsUpsertContentRequestDtoContentType $contentType = null, ?string $coverUrl = null, ?bool $active = null, ?string $duration = null, ?array $skills = null, ?ContentLaunchMethod $contentLaunchMethod = null, ?float $order = null, ?array $categories = null)
+    public function __construct(?array $unifiedCustomFields = null, ?string $externalReference = null, ?array $courseIds = null, ?string $title = null, ?string $description = null, ?string $shortDescription = null, ?array $languages = null, ?string $contentUrl = null, ?LmsUpsertContentRequestDtoContentType $contentType = null, ?string $coverUrl = null, ?bool $active = null, ?string $duration = null, ?array $skills = null, ?float $order = null, ?array $categories = null)
     {
         $this->unifiedCustomFields = $unifiedCustomFields;
         $this->externalReference = $externalReference;
         $this->courseIds = $courseIds;
         $this->title = $title;
         $this->description = $description;
+        $this->shortDescription = $shortDescription;
         $this->languages = $languages;
         $this->contentUrl = $contentUrl;
         $this->contentType = $contentType;
@@ -184,7 +184,6 @@ class LmsUpsertContentRequestDto
         $this->active = $active;
         $this->duration = $duration;
         $this->skills = $skills;
-        $this->contentLaunchMethod = $contentLaunchMethod;
         $this->order = $order;
         $this->categories = $categories;
     }

@@ -61,6 +61,12 @@
 * [getAssessmentsPackage](#getassessmentspackage) - Get Assessments Package
 * [getAssessmentsRequest](#getassessmentsrequest) - Get Assessments Requests
 * [getAssessmentsResult](#getassessmentsresult) - Get Assessments Results
+* [listBackgroundCheckPackages](#listbackgroundcheckpackages) - List Background Check Packages
+* [createBackgroundCheckPackage](#createbackgroundcheckpackage) - Create Background Check Package
+* [getBackgroundCheckPackage](#getbackgroundcheckpackage) - Get Background Check Package
+* [listBackgroundCheckRequest](#listbackgroundcheckrequest) - List Background Check Request
+* [getBackgroundCheckRequest](#getbackgroundcheckrequest) - Get Background Check Request
+* [getBackgroundCheckResult](#getbackgroundcheckresult) - Get Background Check Results
 
 ## listApplications
 
@@ -86,7 +92,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 
 $request = new Operations\AtsListApplicationsRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate',
+    fields: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate',
     filter: new Operations\AtsListApplicationsQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
     ),
@@ -146,6 +152,7 @@ $atsCreateApplicationRequestDto = new Components\AtsCreateApplicationRequestDto(
         'other_known_names' => 'John Doe',
     ],
     jobId: '4071538b-3cac-4fbf-ac76-f78ed250ffdd',
+    jobPostingId: '1c702a20-8de8-4d03-ac18-cbf4ac42eb51',
     locationId: 'dd8d41d1-5eb8-4408-9c87-9ba44604eae4',
     applicationStatus: new Components\AtsCreateApplicationRequestDtoApplicationStatus(
         value: Components\AtsCreateApplicationRequestDtoValue::Hired,
@@ -262,7 +269,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 $request = new Operations\AtsGetApplicationRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate',
+    fields: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate',
     expand: 'documents',
     include: 'attachments,custom_fields',
 );
@@ -318,7 +325,7 @@ $atsUpdateApplicationRequestDto = new Components\AtsUpdateApplicationRequestDto(
         'other_known_names' => 'John Doe',
     ],
     customFields: [
-        new Components\ApplicationCustomFields(
+        new Components\CustomFields(
             id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
             remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
             name: 'Training Completion Status',
@@ -786,7 +793,7 @@ $request = new Operations\AtsGetApplicationScheduledInterviewRequest(
     xAccountId: '<id>',
     id: '<id>',
     subResourceId: '<id>',
-    fields: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate',
+    fields: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate',
 );
 
 $response = $sdk->ats->getApplicationScheduledInterview(
@@ -1073,7 +1080,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 
 $request = new Operations\AtsListCandidatesRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at',
+    fields: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at',
     filter: new Operations\AtsListCandidatesQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
     ),
@@ -1215,7 +1222,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 $request = new Operations\AtsGetCandidateRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at',
+    fields: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at',
     include: 'custom_fields',
 );
 
@@ -3358,14 +3365,14 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 $request = new Operations\AtsGetAssessmentsRequestRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'assessment_id,remote_assessment_id,candidate,score,assessment_date,submission_date,summary,result,result_url,attachments',
+    fields: 'id,remote_id,package,application,job,candidate,requester,results_update_url',
 );
 
 $response = $sdk->ats->getAssessmentsRequest(
     request: $request
 );
 
-if ($response->assessmentsResultsResult !== null) {
+if ($response->assessmentsOrderResult !== null) {
     // handle response
 }
 ```
@@ -3411,7 +3418,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 $request = new Operations\AtsGetAssessmentsResultRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'assessment_id,remote_assessment_id,candidate,score,assessment_date,submission_date,summary,result,result_url,attachments',
+    fields: 'id,remote_id,candidate,score,start_date,submission_date,summary,result,result_url,attachments',
 );
 
 $response = $sdk->ats->getAssessmentsResult(
@@ -3432,6 +3439,338 @@ if ($response->assessmentsResultsResult !== null) {
 ### Response
 
 **[?Operations\AtsGetAssessmentsResultResponse](../../Models/Operations/AtsGetAssessmentsResultResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## listBackgroundCheckPackages
+
+List Background Check Packages
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+
+$security = new Components\Security(
+    username: '',
+    password: '',
+);
+
+$sdk = client\StackOne::builder()->setSecurity($security)->build();
+
+$request = new Operations\AtsListBackgroundCheckPackagesRequest(
+    xAccountId: '<id>',
+    fields: 'id,remote_id,name,description,tests',
+    filter: new Operations\AtsListBackgroundCheckPackagesQueryParamFilter(
+        updatedAfter: '2020-01-01T00:00:00.000Z',
+    ),
+);
+
+$response = $sdk->ats->listBackgroundCheckPackages(
+    request: $request
+);
+
+if ($response->backgroundCheckPackagePaginated !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                            | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                           | [Operations\AtsListBackgroundCheckPackagesRequest](../../Models/Operations/AtsListBackgroundCheckPackagesRequest.md) | :heavy_check_mark:                                                                                                   | The request object to use for the request.                                                                           |
+
+### Response
+
+**[?Operations\AtsListBackgroundCheckPackagesResponse](../../Models/Operations/AtsListBackgroundCheckPackagesResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## createBackgroundCheckPackage
+
+Create Background Check Package
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+
+$security = new Components\Security(
+    username: '',
+    password: '',
+);
+
+$sdk = client\StackOne::builder()->setSecurity($security)->build();
+
+$atsCreateBackgroundCheckPackagesRequestDto = new Components\AtsCreateBackgroundCheckPackagesRequestDto(
+    name: 'Standard Background Check',
+    description: 'Standard background package for hires',
+    tests: [
+        new Components\CreateAssessmentsPackages(
+            name: 'Test 1',
+            description: 'Skills test to gauge a candidate\'s proficiency in job-specific skills',
+        ),
+    ],
+    passthrough: [
+        'other_known_names' => 'John Doe',
+    ],
+);
+
+$response = $sdk->ats->createBackgroundCheckPackage(
+    xAccountId: '<id>',
+    atsCreateBackgroundCheckPackagesRequestDto: $atsCreateBackgroundCheckPackagesRequestDto
+
+);
+
+if ($response->createResult !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                      | Type                                                                                                                           | Required                                                                                                                       | Description                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                   | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | The account identifier                                                                                                         |
+| `atsCreateBackgroundCheckPackagesRequestDto`                                                                                   | [Components\AtsCreateBackgroundCheckPackagesRequestDto](../../Models/Components/AtsCreateBackgroundCheckPackagesRequestDto.md) | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |
+
+### Response
+
+**[?Operations\AtsCreateBackgroundCheckPackageResponse](../../Models/Operations/AtsCreateBackgroundCheckPackageResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## getBackgroundCheckPackage
+
+Get Background Check Package
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+
+$security = new Components\Security(
+    username: '',
+    password: '',
+);
+
+$sdk = client\StackOne::builder()->setSecurity($security)->build();
+
+$request = new Operations\AtsGetBackgroundCheckPackageRequest(
+    xAccountId: '<id>',
+    id: '<id>',
+    fields: 'id,remote_id,name,description,tests',
+);
+
+$response = $sdk->ats->getBackgroundCheckPackage(
+    request: $request
+);
+
+if ($response->backgroundCheckPackageResult !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                       | [Operations\AtsGetBackgroundCheckPackageRequest](../../Models/Operations/AtsGetBackgroundCheckPackageRequest.md) | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
+
+### Response
+
+**[?Operations\AtsGetBackgroundCheckPackageResponse](../../Models/Operations/AtsGetBackgroundCheckPackageResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## listBackgroundCheckRequest
+
+List Background Check Request
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+
+$security = new Components\Security(
+    username: '',
+    password: '',
+);
+
+$sdk = client\StackOne::builder()->setSecurity($security)->build();
+
+$request = new Operations\AtsListBackgroundCheckRequestRequest(
+    xAccountId: '<id>',
+    fields: 'id,remote_id,package,application,job,candidate,requester,results_update_url',
+    filter: new Operations\AtsListBackgroundCheckRequestQueryParamFilter(
+        updatedAfter: '2020-01-01T00:00:00.000Z',
+    ),
+);
+
+$response = $sdk->ats->listBackgroundCheckRequest(
+    request: $request
+);
+
+if ($response->backgroundCheckOrderPaginated !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                                         | [Operations\AtsListBackgroundCheckRequestRequest](../../Models/Operations/AtsListBackgroundCheckRequestRequest.md) | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
+
+### Response
+
+**[?Operations\AtsListBackgroundCheckRequestResponse](../../Models/Operations/AtsListBackgroundCheckRequestResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## getBackgroundCheckRequest
+
+Get Background Check Request
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+
+$security = new Components\Security(
+    username: '',
+    password: '',
+);
+
+$sdk = client\StackOne::builder()->setSecurity($security)->build();
+
+$request = new Operations\AtsGetBackgroundCheckRequestRequest(
+    xAccountId: '<id>',
+    id: '<id>',
+    fields: 'id,remote_id,package,application,job,candidate,requester,results_update_url',
+);
+
+$response = $sdk->ats->getBackgroundCheckRequest(
+    request: $request
+);
+
+if ($response->backgroundCheckOrderResult !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                       | [Operations\AtsGetBackgroundCheckRequestRequest](../../Models/Operations/AtsGetBackgroundCheckRequestRequest.md) | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
+
+### Response
+
+**[?Operations\AtsGetBackgroundCheckRequestResponse](../../Models/Operations/AtsGetBackgroundCheckRequestResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## getBackgroundCheckResult
+
+Get Background Check Results
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+
+$security = new Components\Security(
+    username: '',
+    password: '',
+);
+
+$sdk = client\StackOne::builder()->setSecurity($security)->build();
+
+$request = new Operations\AtsGetBackgroundCheckResultRequest(
+    xAccountId: '<id>',
+    id: '<id>',
+    fields: 'id,remote_id,candidate,score,start_date,submission_date,summary,result,result_url,attachments',
+);
+
+$response = $sdk->ats->getBackgroundCheckResult(
+    request: $request
+);
+
+if ($response->backgroundCheckResultsResult !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                     | [Operations\AtsGetBackgroundCheckResultRequest](../../Models/Operations/AtsGetBackgroundCheckResultRequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+
+### Response
+
+**[?Operations\AtsGetBackgroundCheckResultResponse](../../Models/Operations/AtsGetBackgroundCheckResultResponse.md)**
 
 ### Errors
 

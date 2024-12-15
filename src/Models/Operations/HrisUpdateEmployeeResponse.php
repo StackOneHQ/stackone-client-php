@@ -40,16 +40,25 @@ class HrisUpdateEmployeeResponse
     public ?Components\CreateResult $createResult = null;
 
     /**
+     * $headers
+     *
+     * @var array<string, array<string>> $headers
+     */
+    public array $headers;
+
+    /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  array<string, array<string>>  $headers
      * @param  ?Components\CreateResult  $createResult
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\CreateResult $createResult = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\CreateResult $createResult = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
+        $this->headers = $headers;
         $this->createResult = $createResult;
     }
 }
