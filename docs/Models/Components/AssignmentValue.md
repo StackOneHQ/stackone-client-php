@@ -5,6 +5,6 @@
 
 | Name         | Value        |
 | ------------ | ------------ |
-| `Content`    | content      |
-| `Course`     | course       |
-| `Collection` | collection   |
+| `Pending`    | pending      |
+| `InProgress` | in_progress  |
+| `Completed`  | completed    |

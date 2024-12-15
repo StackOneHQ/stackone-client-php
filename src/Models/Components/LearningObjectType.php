@@ -14,27 +14,27 @@ class LearningObjectType
 {
     /**
      *
-     * @var ?AssignmentValue $value
+     * @var ?AssignmentLearningObjectTypeValue $value
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\AssignmentValue|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\AssignmentLearningObjectTypeValue|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?AssignmentValue $value = null;
+    public ?AssignmentLearningObjectTypeValue $value = null;
 
     /**
      *
-     * @var string|float|bool|AssignmentSourceValue4|array<mixed>|null $sourceValue
+     * @var string|float|bool|AssignmentSourceValueLearningObjectType4|array<mixed>|null $sourceValue
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source_value')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\AssignmentSourceValue4|array<mixed>')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\AssignmentSourceValueLearningObjectType4|array<mixed>')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|float|bool|AssignmentSourceValue4|array|null $sourceValue = null;
+    public string|float|bool|AssignmentSourceValueLearningObjectType4|array|null $sourceValue = null;
 
     /**
-     * @param  ?AssignmentValue  $value
-     * @param  string|float|bool|AssignmentSourceValue4|array<mixed>|null  $sourceValue
+     * @param  ?AssignmentLearningObjectTypeValue  $value
+     * @param  string|float|bool|AssignmentSourceValueLearningObjectType4|array<mixed>|null  $sourceValue
      */
-    public function __construct(?AssignmentValue $value = null, string|float|bool|AssignmentSourceValue4|array|null $sourceValue = null)
+    public function __construct(?AssignmentLearningObjectTypeValue $value = null, string|float|bool|AssignmentSourceValueLearningObjectType4|array|null $sourceValue = null)
     {
         $this->value = $value;
         $this->sourceValue = $sourceValue;

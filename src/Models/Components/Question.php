@@ -74,6 +74,15 @@ class Question
     public ?array $multipleChoiceAnswers = null;
 
     /**
+     *
+     * @var ?ParentQuestion $parentQuestion
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parent_question')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\ParentQuestion|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?ParentQuestion $parentQuestion = null;
+
+    /**
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?string  $name
@@ -81,8 +90,9 @@ class Question
      * @param  ?string  $text
      * @param  bool|QuestionRequired2|null  $required
      * @param  ?array<QuestionMultipleChoiceAnswers>  $multipleChoiceAnswers
+     * @param  ?ParentQuestion  $parentQuestion
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?QuestionType $type = null, ?string $text = null, bool|QuestionRequired2|null $required = null, ?array $multipleChoiceAnswers = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?QuestionType $type = null, ?string $text = null, bool|QuestionRequired2|null $required = null, ?array $multipleChoiceAnswers = null, ?ParentQuestion $parentQuestion = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -91,5 +101,6 @@ class Question
         $this->text = $text;
         $this->required = $required;
         $this->multipleChoiceAnswers = $multipleChoiceAnswers;
+        $this->parentQuestion = $parentQuestion;
     }
 }

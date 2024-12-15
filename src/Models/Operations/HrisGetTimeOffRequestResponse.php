@@ -40,16 +40,25 @@ class HrisGetTimeOffRequestResponse
     public ?Components\TimeOffResult $timeOffResult = null;
 
     /**
+     * $headers
+     *
+     * @var array<string, array<string>> $headers
+     */
+    public array $headers;
+
+    /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  array<string, array<string>>  $headers
      * @param  ?Components\TimeOffResult  $timeOffResult
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\TimeOffResult $timeOffResult = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\TimeOffResult $timeOffResult = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
+        $this->headers = $headers;
         $this->timeOffResult = $timeOffResult;
     }
 }

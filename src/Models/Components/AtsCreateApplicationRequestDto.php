@@ -31,6 +31,15 @@ class AtsCreateApplicationRequestDto
     public ?string $jobId = null;
 
     /**
+     * Unique identifier of the job posting that is associated with application
+     *
+     * @var ?string $jobPostingId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('job_posting_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $jobPostingId = null;
+
+    /**
      * Unique identifier of the location
      *
      * @var ?string $locationId
@@ -89,6 +98,7 @@ class AtsCreateApplicationRequestDto
     /**
      * @param  ?array<string, mixed>  $passthrough
      * @param  ?string  $jobId
+     * @param  ?string  $jobPostingId
      * @param  ?string  $locationId
      * @param  ?AtsCreateApplicationRequestDtoApplicationStatus  $applicationStatus
      * @param  ?array<CreateQuestionnaire>  $questionnaires
@@ -96,10 +106,11 @@ class AtsCreateApplicationRequestDto
      * @param  ?string  $candidateId
      * @param  ?AtsCreateApplicationRequestDtoCandidate  $candidate
      */
-    public function __construct(?array $passthrough = null, ?string $jobId = null, ?string $locationId = null, ?AtsCreateApplicationRequestDtoApplicationStatus $applicationStatus = null, ?array $questionnaires = null, ?AtsCreateApplicationRequestDtoSource $source = null, ?string $candidateId = null, ?AtsCreateApplicationRequestDtoCandidate $candidate = null)
+    public function __construct(?array $passthrough = null, ?string $jobId = null, ?string $jobPostingId = null, ?string $locationId = null, ?AtsCreateApplicationRequestDtoApplicationStatus $applicationStatus = null, ?array $questionnaires = null, ?AtsCreateApplicationRequestDtoSource $source = null, ?string $candidateId = null, ?AtsCreateApplicationRequestDtoCandidate $candidate = null)
     {
         $this->passthrough = $passthrough;
         $this->jobId = $jobId;
+        $this->jobPostingId = $jobPostingId;
         $this->locationId = $locationId;
         $this->applicationStatus = $applicationStatus;
         $this->questionnaires = $questionnaires;

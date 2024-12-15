@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3759371f-a095-4585-b437-50529a0eb248
 management:
-  docChecksum: 196917f058bf87c71bde12bc7d2e711b
+  docChecksum: ea769e3c1e07286a0c5cacb403810870
   docVersion: 1.0.0
   speakeasyVersion: 1.438.1
   generationVersion: 2.457.2
-  releaseVersion: 0.22.2
-  configChecksum: 78910c8b1e197c1c43bd687a1ef6acf9
+  releaseVersion: 0.24.0
+  configChecksum: 9d99a4238bc191e06ac39568392c0e9c
   repoURL: https://github.com/StackOneHQ/stackone-client-php.git
   installationURL: https://github.com/StackOneHQ/stackone-client-php
   published: true
@@ -58,9 +58,6 @@ generatedFiles:
   - docs/Models/Components/ApplicationAttachmentSourceValue4.md
   - docs/Models/Components/ApplicationAttachmentValue.md
   - docs/Models/Components/ApplicationCandidate.md
-  - docs/Models/Components/ApplicationCustomFields.md
-  - docs/Models/Components/ApplicationCustomFieldsValue.md
-  - docs/Models/Components/ApplicationCustomFieldsValue4.md
   - docs/Models/Components/ApplicationInterviewStage.md
   - docs/Models/Components/ApplicationResult.md
   - docs/Models/Components/ApplicationSourceValue.md
@@ -70,31 +67,43 @@ generatedFiles:
   - docs/Models/Components/ApplicationsPaginated.md
   - docs/Models/Components/Archived.md
   - docs/Models/Components/Archived2.md
+  - docs/Models/Components/AssessmentsAttachment.md
+  - docs/Models/Components/AssessmentsAttachmentContentType.md
+  - docs/Models/Components/AssessmentsAttachmentSourceValue.md
+  - docs/Models/Components/AssessmentsAttachmentSourceValue4.md
+  - docs/Models/Components/AssessmentsAttachmentValue.md
+  - docs/Models/Components/AssessmentsOrder.md
+  - docs/Models/Components/AssessmentsOrderApplication.md
+  - docs/Models/Components/AssessmentsOrderApplicationStatus.md
+  - docs/Models/Components/AssessmentsOrderCandidate.md
+  - docs/Models/Components/AssessmentsOrderJob.md
+  - docs/Models/Components/AssessmentsOrderPackage.md
+  - docs/Models/Components/AssessmentsOrderRequester.md
+  - docs/Models/Components/AssessmentsOrderResult.md
+  - docs/Models/Components/AssessmentsOrderSourceValue.md
+  - docs/Models/Components/AssessmentsOrderSourceValue4.md
+  - docs/Models/Components/AssessmentsOrderValue.md
   - docs/Models/Components/AssessmentsPackages.md
   - docs/Models/Components/AssessmentsPackagesPaginated.md
   - docs/Models/Components/AssessmentsPackagesResult.md
-  - docs/Models/Components/AssessmentsPackagesSourceValue.md
-  - docs/Models/Components/AssessmentsPackagesSourceValue4.md
-  - docs/Models/Components/AssessmentsPackagesType.md
-  - docs/Models/Components/AssessmentsPackagesValue.md
+  - docs/Models/Components/AssessmentsPackagesTestApiModel.md
+  - docs/Models/Components/AssessmentsRequestsJobHiringTeamApiModel.md
   - docs/Models/Components/AssessmentsResults.md
-  - docs/Models/Components/AssessmentsResultsAttachmentsSourceValue.md
-  - docs/Models/Components/AssessmentsResultsAttachmentsValue.md
   - docs/Models/Components/AssessmentsResultsCandidate.md
-  - docs/Models/Components/AssessmentsResultsContentType.md
   - docs/Models/Components/AssessmentsResultsResult.md
+  - docs/Models/Components/AssessmentsResultsResult1.md
+  - docs/Models/Components/AssessmentsResultsScore.md
   - docs/Models/Components/AssessmentsResultsSourceValue.md
   - docs/Models/Components/AssessmentsResultsSourceValue4.md
-  - docs/Models/Components/AssessmentsResultsSourceValueAttachments4.md
   - docs/Models/Components/AssessmentsResultsValue.md
   - docs/Models/Components/Assignment.md
+  - docs/Models/Components/AssignmentLearningObjectTypeSourceValue.md
+  - docs/Models/Components/AssignmentLearningObjectTypeValue.md
   - docs/Models/Components/AssignmentResult.md
   - docs/Models/Components/AssignmentSourceValue.md
   - docs/Models/Components/AssignmentSourceValue4.md
-  - docs/Models/Components/AssignmentStatusEnum.md
-  - docs/Models/Components/AssignmentStatusEnumSourceValue.md
-  - docs/Models/Components/AssignmentStatusEnumSourceValue4.md
-  - docs/Models/Components/AssignmentStatusEnumValue.md
+  - docs/Models/Components/AssignmentSourceValueLearningObjectType4.md
+  - docs/Models/Components/AssignmentStatus.md
   - docs/Models/Components/AssignmentValue.md
   - docs/Models/Components/AssignmentsPaginated.md
   - docs/Models/Components/AtsCreateApplicationRequestDto.md
@@ -104,6 +113,7 @@ generatedFiles:
   - docs/Models/Components/AtsCreateApplicationRequestDtoSourceValue.md
   - docs/Models/Components/AtsCreateApplicationRequestDtoSourceValue4.md
   - docs/Models/Components/AtsCreateApplicationRequestDtoValue.md
+  - docs/Models/Components/AtsCreateBackgroundCheckPackagesRequestDto.md
   - docs/Models/Components/AtsCreateCandidateRequestDto.md
   - docs/Models/Components/AtsCreateJobRequestDto.md
   - docs/Models/Components/AtsCreateJobRequestDtoConfidential.md
@@ -150,8 +160,29 @@ generatedFiles:
   - docs/Models/Components/AtsUpdateJobRequestDtoSourceValue.md
   - docs/Models/Components/AtsUpdateJobRequestDtoSourceValue4.md
   - docs/Models/Components/AtsUpdateJobRequestDtoValue.md
-  - docs/Models/Components/Attachments.md
   - docs/Models/Components/Avatar.md
+  - docs/Models/Components/BackgroundCheckOrder.md
+  - docs/Models/Components/BackgroundCheckOrderApplication.md
+  - docs/Models/Components/BackgroundCheckOrderApplicationStatus.md
+  - docs/Models/Components/BackgroundCheckOrderCandidate.md
+  - docs/Models/Components/BackgroundCheckOrderJob.md
+  - docs/Models/Components/BackgroundCheckOrderPackage.md
+  - docs/Models/Components/BackgroundCheckOrderPaginated.md
+  - docs/Models/Components/BackgroundCheckOrderRequester.md
+  - docs/Models/Components/BackgroundCheckOrderResult.md
+  - docs/Models/Components/BackgroundCheckOrderSourceValue.md
+  - docs/Models/Components/BackgroundCheckOrderSourceValue4.md
+  - docs/Models/Components/BackgroundCheckOrderValue.md
+  - docs/Models/Components/BackgroundCheckPackage.md
+  - docs/Models/Components/BackgroundCheckPackagePaginated.md
+  - docs/Models/Components/BackgroundCheckPackageResult.md
+  - docs/Models/Components/BackgroundCheckResultsResult.md
+  - docs/Models/Components/BackgroundCheckResultsResultCandidate.md
+  - docs/Models/Components/BackgroundCheckResultsResultResult.md
+  - docs/Models/Components/BackgroundCheckResultsResultScore.md
+  - docs/Models/Components/BackgroundCheckResultsResultSourceValue.md
+  - docs/Models/Components/BackgroundCheckResultsResultSourceValue4.md
+  - docs/Models/Components/BackgroundCheckResultsResultValue.md
   - docs/Models/Components/BatchResultApiModel.md
   - docs/Models/Components/BenefitType.md
   - docs/Models/Components/Campaign.md
@@ -193,13 +224,14 @@ generatedFiles:
   - docs/Models/Components/CompletionSourceValueLearningObjectType4.md
   - docs/Models/Components/CompletionValue.md
   - docs/Models/Components/CompletionsPaginated.md
+  - docs/Models/Components/ConditionType.md
   - docs/Models/Components/Confidential.md
   - docs/Models/Components/ConnectSession.md
   - docs/Models/Components/ConnectSessionAuthenticate.md
   - docs/Models/Components/ConnectSessionCategories.md
   - docs/Models/Components/ConnectSessionCreate.md
-  - docs/Models/Components/ConnectSessionToken.md
-  - docs/Models/Components/ConnectSessionTokenCategories.md
+  - docs/Models/Components/ConnectSessionTokenAuthLink.md
+  - docs/Models/Components/ConnectSessionTokenAuthLinkCategories.md
   - docs/Models/Components/ConnectorsMeta.md
   - docs/Models/Components/ConnectorsMetaCategory.md
   - docs/Models/Components/Contact.md
@@ -218,7 +250,6 @@ generatedFiles:
   - docs/Models/Components/ContentBlockValue.md
   - docs/Models/Components/ContentBlocksPaginated.md
   - docs/Models/Components/ContentFileFormat.md
-  - docs/Models/Components/ContentLaunchMethod.md
   - docs/Models/Components/ContentPaginated.md
   - docs/Models/Components/ContentResult.md
   - docs/Models/Components/ContentSourceValue.md
@@ -236,8 +267,10 @@ generatedFiles:
   - docs/Models/Components/CreateAnswerSourceValue4.md
   - docs/Models/Components/CreateAnswerType.md
   - docs/Models/Components/CreateAnswerValue.md
+  - docs/Models/Components/CreateAssessmentsPackages.md
   - docs/Models/Components/CreateCategoriesApiModel.md
   - docs/Models/Components/CreateContentApiModel.md
+  - docs/Models/Components/CreateCostCenterApiModel.md
   - docs/Models/Components/CreateEmploymentApiModel.md
   - docs/Models/Components/CreateEmploymentApiModelEmploymentContractType.md
   - docs/Models/Components/CreateEmploymentApiModelEmploymentContractTypeSourceValue.md
@@ -278,7 +311,6 @@ generatedFiles:
   - docs/Models/Components/CustomFieldDefinitionResultApiModel.md
   - docs/Models/Components/CustomFieldDefinitionSourceValue.md
   - docs/Models/Components/CustomFieldDefinitionSourceValue4.md
-  - docs/Models/Components/CustomFieldDefinitionType.md
   - docs/Models/Components/CustomFieldDefinitionValue.md
   - docs/Models/Components/CustomFieldDefinitionsPaginated.md
   - docs/Models/Components/CustomFields.md
@@ -331,12 +363,12 @@ generatedFiles:
   - docs/Models/Components/EmployeeSourceValueEmploymentStatus4.md
   - docs/Models/Components/EmployeeSourceValueEmploymentType4.md
   - docs/Models/Components/EmployeeSourceValueEthnicity4.md
-  - docs/Models/Components/EmployeeSourceValueGender4.md
   - docs/Models/Components/EmployeeSourceValueHomeLocation4.md
   - docs/Models/Components/EmployeeSourceValueHomeLocationLocationType4.md
   - docs/Models/Components/EmployeeSourceValueMaritalStatus4.md
   - docs/Models/Components/EmployeeSourceValueNationalIdentityNumber4.md
   - docs/Models/Components/EmployeeSourceValueNationalIdentityNumberCountry4.md
+  - docs/Models/Components/EmployeeSourceValuePreferredLanguage4.md
   - docs/Models/Components/EmployeeSourceValueWorkLocation4.md
   - docs/Models/Components/EmployeeSourceValueWorkLocationLocationType4.md
   - docs/Models/Components/EmployeeType.md
@@ -397,6 +429,7 @@ generatedFiles:
   - docs/Models/Components/HRISGroup.md
   - docs/Models/Components/HRISGroupSourceValue.md
   - docs/Models/Components/HRISGroupSourceValue4.md
+  - docs/Models/Components/HRISGroupType.md
   - docs/Models/Components/HRISGroupValue.md
   - docs/Models/Components/HRISGroupsPaginated.md
   - docs/Models/Components/HRISGroupsResult.md
@@ -667,6 +700,7 @@ generatedFiles:
   - docs/Models/Components/Label.md
   - docs/Models/Components/LanguageEnum.md
   - docs/Models/Components/LanguageEnumSourceValue.md
+  - docs/Models/Components/LanguageEnumSourceValue4.md
   - docs/Models/Components/LanguageEnumValue.md
   - docs/Models/Components/LearningObjectType.md
   - docs/Models/Components/Level.md
@@ -683,6 +717,11 @@ generatedFiles:
   - docs/Models/Components/ListsPaginated.md
   - docs/Models/Components/LmsBatchUpsertContentRequestDto.md
   - docs/Models/Components/LmsBatchUpsertCourseRequestDto.md
+  - docs/Models/Components/LmsCreateAssignmentRequestDto.md
+  - docs/Models/Components/LmsCreateAssignmentRequestDtoSourceValue.md
+  - docs/Models/Components/LmsCreateAssignmentRequestDtoSourceValue4.md
+  - docs/Models/Components/LmsCreateAssignmentRequestDtoStatus.md
+  - docs/Models/Components/LmsCreateAssignmentRequestDtoValue.md
   - docs/Models/Components/LmsCreateCollectionRequestDto.md
   - docs/Models/Components/LmsCreateCompletionRequestDto.md
   - docs/Models/Components/LmsCreateCompletionRequestDtoResult.md
@@ -690,12 +729,9 @@ generatedFiles:
   - docs/Models/Components/LmsCreateCompletionRequestDtoSourceValue4.md
   - docs/Models/Components/LmsCreateCompletionRequestDtoValue.md
   - docs/Models/Components/LmsUpsertContentRequestDto.md
-  - docs/Models/Components/LmsUpsertContentRequestDtoContentLaunchMethodSourceValue.md
-  - docs/Models/Components/LmsUpsertContentRequestDtoContentLaunchMethodValue.md
   - docs/Models/Components/LmsUpsertContentRequestDtoContentType.md
   - docs/Models/Components/LmsUpsertContentRequestDtoSourceValue.md
   - docs/Models/Components/LmsUpsertContentRequestDtoSourceValue4.md
-  - docs/Models/Components/LmsUpsertContentRequestDtoSourceValueContentLaunchMethod4.md
   - docs/Models/Components/LmsUpsertContentRequestDtoValue.md
   - docs/Models/Components/LmsUpsertCourseRequestDto.md
   - docs/Models/Components/LmsUser.md
@@ -742,8 +778,8 @@ generatedFiles:
   - docs/Models/Components/OffersPaginated.md
   - docs/Models/Components/OffersResult.md
   - docs/Models/Components/Options.md
-  - docs/Models/Components/Options4.md
   - docs/Models/Components/OverallRecommendation.md
+  - docs/Models/Components/ParentQuestion.md
   - docs/Models/Components/PatchAccountExternalDto.md
   - docs/Models/Components/PatchAccountExternalDtoCredentials.md
   - docs/Models/Components/PatchAccountExternalDtoSetupInformation.md
@@ -766,10 +802,13 @@ generatedFiles:
   - docs/Models/Components/PushTemplatesPaginated.md
   - docs/Models/Components/Question.md
   - docs/Models/Components/QuestionMultipleChoiceAnswers.md
+  - docs/Models/Components/QuestionParentQuestionSourceValue.md
+  - docs/Models/Components/QuestionParentQuestionValue.md
   - docs/Models/Components/QuestionRequired.md
   - docs/Models/Components/QuestionRequired2.md
   - docs/Models/Components/QuestionSourceValue.md
   - docs/Models/Components/QuestionSourceValue4.md
+  - docs/Models/Components/QuestionSourceValueParentQuestion4.md
   - docs/Models/Components/QuestionType.md
   - docs/Models/Components/QuestionValue.md
   - docs/Models/Components/Questionnaire.md
@@ -789,7 +828,6 @@ generatedFiles:
   - docs/Models/Components/Required.md
   - docs/Models/Components/Required2.md
   - docs/Models/Components/Resources.md
-  - docs/Models/Components/Result.md
   - docs/Models/Components/ResultLink.md
   - docs/Models/Components/ScheduleType.md
   - docs/Models/Components/ScheduledInterview.md
@@ -799,7 +837,6 @@ generatedFiles:
   - docs/Models/Components/ScheduledInterviewValue.md
   - docs/Models/Components/ScheduledInterviewsPaginated.md
   - docs/Models/Components/ScheduledInterviewsResult.md
-  - docs/Models/Components/Score.md
   - docs/Models/Components/Scorecard.md
   - docs/Models/Components/ScorecardSection.md
   - docs/Models/Components/ScorecardsPaginated.md
@@ -888,6 +925,8 @@ generatedFiles:
   - docs/Models/Components/WriteResultApiModel.md
   - docs/Models/Operations/AtsCreateApplicationRequest.md
   - docs/Models/Operations/AtsCreateApplicationResponse.md
+  - docs/Models/Operations/AtsCreateBackgroundCheckPackageRequest.md
+  - docs/Models/Operations/AtsCreateBackgroundCheckPackageResponse.md
   - docs/Models/Operations/AtsCreateCandidateNoteRequest.md
   - docs/Models/Operations/AtsCreateCandidateNoteResponse.md
   - docs/Models/Operations/AtsCreateCandidateRequest.md
@@ -917,6 +956,12 @@ generatedFiles:
   - docs/Models/Operations/AtsGetAssessmentsRequestResponse.md
   - docs/Models/Operations/AtsGetAssessmentsResultRequest.md
   - docs/Models/Operations/AtsGetAssessmentsResultResponse.md
+  - docs/Models/Operations/AtsGetBackgroundCheckPackageRequest.md
+  - docs/Models/Operations/AtsGetBackgroundCheckPackageResponse.md
+  - docs/Models/Operations/AtsGetBackgroundCheckRequestRequest.md
+  - docs/Models/Operations/AtsGetBackgroundCheckRequestResponse.md
+  - docs/Models/Operations/AtsGetBackgroundCheckResultRequest.md
+  - docs/Models/Operations/AtsGetBackgroundCheckResultResponse.md
   - docs/Models/Operations/AtsGetCandidateCustomFieldDefinitionQueryParamFilter.md
   - docs/Models/Operations/AtsGetCandidateCustomFieldDefinitionRequest.md
   - docs/Models/Operations/AtsGetCandidateCustomFieldDefinitionResponse.md
@@ -968,6 +1013,12 @@ generatedFiles:
   - docs/Models/Operations/AtsListAssessmentsPackagesQueryParamFilter.md
   - docs/Models/Operations/AtsListAssessmentsPackagesRequest.md
   - docs/Models/Operations/AtsListAssessmentsPackagesResponse.md
+  - docs/Models/Operations/AtsListBackgroundCheckPackagesQueryParamFilter.md
+  - docs/Models/Operations/AtsListBackgroundCheckPackagesRequest.md
+  - docs/Models/Operations/AtsListBackgroundCheckPackagesResponse.md
+  - docs/Models/Operations/AtsListBackgroundCheckRequestQueryParamFilter.md
+  - docs/Models/Operations/AtsListBackgroundCheckRequestRequest.md
+  - docs/Models/Operations/AtsListBackgroundCheckRequestResponse.md
   - docs/Models/Operations/AtsListCandidateCustomFieldDefinitionsQueryParamFilter.md
   - docs/Models/Operations/AtsListCandidateCustomFieldDefinitionsRequest.md
   - docs/Models/Operations/AtsListCandidateCustomFieldDefinitionsResponse.md
@@ -1072,6 +1123,9 @@ generatedFiles:
   - docs/Models/Operations/HrisGetCostCenterGroupResponse.md
   - docs/Models/Operations/HrisGetDepartmentGroupRequest.md
   - docs/Models/Operations/HrisGetDepartmentGroupResponse.md
+  - docs/Models/Operations/HrisGetEmployeeCustomFieldDefinitionQueryParamFilter.md
+  - docs/Models/Operations/HrisGetEmployeeCustomFieldDefinitionRequest.md
+  - docs/Models/Operations/HrisGetEmployeeCustomFieldDefinitionResponse.md
   - docs/Models/Operations/HrisGetEmployeeDocumentCategoryRequest.md
   - docs/Models/Operations/HrisGetEmployeeDocumentCategoryResponse.md
   - docs/Models/Operations/HrisGetEmployeeDocumentRequest.md
@@ -1110,6 +1164,8 @@ generatedFiles:
   - docs/Models/Operations/HrisListEmployeeCategoriesQueryParamFilter.md
   - docs/Models/Operations/HrisListEmployeeCategoriesRequest.md
   - docs/Models/Operations/HrisListEmployeeCategoriesResponse.md
+  - docs/Models/Operations/HrisListEmployeeCustomFieldDefinitionsRequest.md
+  - docs/Models/Operations/HrisListEmployeeCustomFieldDefinitionsResponse.md
   - docs/Models/Operations/HrisListEmployeeDocumentsQueryParamFilter.md
   - docs/Models/Operations/HrisListEmployeeDocumentsRequest.md
   - docs/Models/Operations/HrisListEmployeeDocumentsResponse.md
@@ -1122,6 +1178,7 @@ generatedFiles:
   - docs/Models/Operations/HrisListEmployeeWorkEligibilityQueryParamFilter.md
   - docs/Models/Operations/HrisListEmployeeWorkEligibilityRequest.md
   - docs/Models/Operations/HrisListEmployeeWorkEligibilityResponse.md
+  - docs/Models/Operations/HrisListEmployeesQueryParamFilter.md
   - docs/Models/Operations/HrisListEmployeesRequest.md
   - docs/Models/Operations/HrisListEmployeesResponse.md
   - docs/Models/Operations/HrisListEmploymentsQueryParamFilter.md
@@ -1172,12 +1229,15 @@ generatedFiles:
   - docs/Models/Operations/IamListUsersQueryParamFilter.md
   - docs/Models/Operations/IamListUsersRequest.md
   - docs/Models/Operations/IamListUsersResponse.md
+  - docs/Models/Operations/LearningObjectType.md
   - docs/Models/Operations/LmsBatchUpsertContentRequest.md
   - docs/Models/Operations/LmsBatchUpsertContentResponse.md
   - docs/Models/Operations/LmsBatchUpsertCourseRequest.md
   - docs/Models/Operations/LmsBatchUpsertCourseResponse.md
   - docs/Models/Operations/LmsCreateCollectionRequest.md
   - docs/Models/Operations/LmsCreateCollectionResponse.md
+  - docs/Models/Operations/LmsCreateUserAssignmentRequest.md
+  - docs/Models/Operations/LmsCreateUserAssignmentResponse.md
   - docs/Models/Operations/LmsCreateUserCompletionRequest.md
   - docs/Models/Operations/LmsCreateUserCompletionResponse.md
   - docs/Models/Operations/LmsGetAssignmentRequest.md
@@ -1199,12 +1259,14 @@ generatedFiles:
   - docs/Models/Operations/LmsGetUserRequest.md
   - docs/Models/Operations/LmsGetUserResponse.md
   - docs/Models/Operations/LmsListAssignmentsQueryParamFilter.md
+  - docs/Models/Operations/LmsListAssignmentsQueryParamLearningObjectType.md
   - docs/Models/Operations/LmsListAssignmentsRequest.md
   - docs/Models/Operations/LmsListAssignmentsResponse.md
   - docs/Models/Operations/LmsListCategoriesQueryParamFilter.md
   - docs/Models/Operations/LmsListCategoriesRequest.md
   - docs/Models/Operations/LmsListCategoriesResponse.md
   - docs/Models/Operations/LmsListCompletionsQueryParamFilter.md
+  - docs/Models/Operations/LmsListCompletionsQueryParamLearningObjectType.md
   - docs/Models/Operations/LmsListCompletionsRequest.md
   - docs/Models/Operations/LmsListCompletionsResponse.md
   - docs/Models/Operations/LmsListContentQueryParamFilter.md
@@ -1291,6 +1353,7 @@ generatedFiles:
   - docs/Models/Operations/MarketingUpdateSmsTemplateRequest.md
   - docs/Models/Operations/MarketingUpdateSmsTemplateResponse.md
   - docs/Models/Operations/QueryParamFilter.md
+  - docs/Models/Operations/QueryParamLearningObjectType.md
   - docs/Models/Operations/StackoneAuthenticateConnectSessionResponse.md
   - docs/Models/Operations/StackoneCreateConnectSessionResponse.md
   - docs/Models/Operations/StackoneDeleteAccountRequest.md
@@ -1358,8 +1421,6 @@ generatedFiles:
   - src/Models/Components/ApplicationAttachmentSourceValue4.php
   - src/Models/Components/ApplicationAttachmentValue.php
   - src/Models/Components/ApplicationCandidate.php
-  - src/Models/Components/ApplicationCustomFields.php
-  - src/Models/Components/ApplicationCustomFieldsValue4.php
   - src/Models/Components/ApplicationInterviewStage.php
   - src/Models/Components/ApplicationResult.php
   - src/Models/Components/ApplicationSourceValue4.php
@@ -1367,26 +1428,38 @@ generatedFiles:
   - src/Models/Components/ApplicationValue.php
   - src/Models/Components/ApplicationsPaginated.php
   - src/Models/Components/Archived2.php
+  - src/Models/Components/AssessmentsAttachment.php
+  - src/Models/Components/AssessmentsAttachmentContentType.php
+  - src/Models/Components/AssessmentsAttachmentSourceValue4.php
+  - src/Models/Components/AssessmentsAttachmentValue.php
+  - src/Models/Components/AssessmentsOrder.php
+  - src/Models/Components/AssessmentsOrderApplication.php
+  - src/Models/Components/AssessmentsOrderApplicationStatus.php
+  - src/Models/Components/AssessmentsOrderCandidate.php
+  - src/Models/Components/AssessmentsOrderJob.php
+  - src/Models/Components/AssessmentsOrderPackage.php
+  - src/Models/Components/AssessmentsOrderRequester.php
+  - src/Models/Components/AssessmentsOrderResult.php
+  - src/Models/Components/AssessmentsOrderSourceValue4.php
+  - src/Models/Components/AssessmentsOrderValue.php
   - src/Models/Components/AssessmentsPackages.php
   - src/Models/Components/AssessmentsPackagesPaginated.php
   - src/Models/Components/AssessmentsPackagesResult.php
-  - src/Models/Components/AssessmentsPackagesSourceValue4.php
-  - src/Models/Components/AssessmentsPackagesType.php
-  - src/Models/Components/AssessmentsPackagesValue.php
+  - src/Models/Components/AssessmentsPackagesTestApiModel.php
+  - src/Models/Components/AssessmentsRequestsJobHiringTeamApiModel.php
   - src/Models/Components/AssessmentsResults.php
-  - src/Models/Components/AssessmentsResultsAttachmentsValue.php
   - src/Models/Components/AssessmentsResultsCandidate.php
-  - src/Models/Components/AssessmentsResultsContentType.php
   - src/Models/Components/AssessmentsResultsResult.php
+  - src/Models/Components/AssessmentsResultsResult1.php
+  - src/Models/Components/AssessmentsResultsScore.php
   - src/Models/Components/AssessmentsResultsSourceValue4.php
-  - src/Models/Components/AssessmentsResultsSourceValueAttachments4.php
   - src/Models/Components/AssessmentsResultsValue.php
   - src/Models/Components/Assignment.php
+  - src/Models/Components/AssignmentLearningObjectTypeValue.php
   - src/Models/Components/AssignmentResult.php
   - src/Models/Components/AssignmentSourceValue4.php
-  - src/Models/Components/AssignmentStatusEnum.php
-  - src/Models/Components/AssignmentStatusEnumSourceValue4.php
-  - src/Models/Components/AssignmentStatusEnumValue.php
+  - src/Models/Components/AssignmentSourceValueLearningObjectType4.php
+  - src/Models/Components/AssignmentStatus.php
   - src/Models/Components/AssignmentValue.php
   - src/Models/Components/AssignmentsPaginated.php
   - src/Models/Components/AtsCreateApplicationRequestDto.php
@@ -1395,6 +1468,7 @@ generatedFiles:
   - src/Models/Components/AtsCreateApplicationRequestDtoSource.php
   - src/Models/Components/AtsCreateApplicationRequestDtoSourceValue4.php
   - src/Models/Components/AtsCreateApplicationRequestDtoValue.php
+  - src/Models/Components/AtsCreateBackgroundCheckPackagesRequestDto.php
   - src/Models/Components/AtsCreateCandidateRequestDto.php
   - src/Models/Components/AtsCreateJobRequestDto.php
   - src/Models/Components/AtsCreateJobRequestDtoConfidential.php
@@ -1433,8 +1507,27 @@ generatedFiles:
   - src/Models/Components/AtsUpdateJobRequestDtoJobStatus.php
   - src/Models/Components/AtsUpdateJobRequestDtoSourceValue4.php
   - src/Models/Components/AtsUpdateJobRequestDtoValue.php
-  - src/Models/Components/Attachments.php
   - src/Models/Components/Avatar.php
+  - src/Models/Components/BackgroundCheckOrder.php
+  - src/Models/Components/BackgroundCheckOrderApplication.php
+  - src/Models/Components/BackgroundCheckOrderApplicationStatus.php
+  - src/Models/Components/BackgroundCheckOrderCandidate.php
+  - src/Models/Components/BackgroundCheckOrderJob.php
+  - src/Models/Components/BackgroundCheckOrderPackage.php
+  - src/Models/Components/BackgroundCheckOrderPaginated.php
+  - src/Models/Components/BackgroundCheckOrderRequester.php
+  - src/Models/Components/BackgroundCheckOrderResult.php
+  - src/Models/Components/BackgroundCheckOrderSourceValue4.php
+  - src/Models/Components/BackgroundCheckOrderValue.php
+  - src/Models/Components/BackgroundCheckPackage.php
+  - src/Models/Components/BackgroundCheckPackagePaginated.php
+  - src/Models/Components/BackgroundCheckPackageResult.php
+  - src/Models/Components/BackgroundCheckResultsResult.php
+  - src/Models/Components/BackgroundCheckResultsResultCandidate.php
+  - src/Models/Components/BackgroundCheckResultsResultResult.php
+  - src/Models/Components/BackgroundCheckResultsResultScore.php
+  - src/Models/Components/BackgroundCheckResultsResultSourceValue4.php
+  - src/Models/Components/BackgroundCheckResultsResultValue.php
   - src/Models/Components/BatchResultApiModel.php
   - src/Models/Components/BenefitType.php
   - src/Models/Components/Campaign.php
@@ -1470,13 +1563,14 @@ generatedFiles:
   - src/Models/Components/CompletionSourceValueLearningObjectType4.php
   - src/Models/Components/CompletionValue.php
   - src/Models/Components/CompletionsPaginated.php
+  - src/Models/Components/ConditionType.php
   - src/Models/Components/Confidential.php
   - src/Models/Components/ConnectSession.php
   - src/Models/Components/ConnectSessionAuthenticate.php
   - src/Models/Components/ConnectSessionCategories.php
   - src/Models/Components/ConnectSessionCreate.php
-  - src/Models/Components/ConnectSessionToken.php
-  - src/Models/Components/ConnectSessionTokenCategories.php
+  - src/Models/Components/ConnectSessionTokenAuthLink.php
+  - src/Models/Components/ConnectSessionTokenAuthLinkCategories.php
   - src/Models/Components/ConnectorsMeta.php
   - src/Models/Components/ConnectorsMetaCategory.php
   - src/Models/Components/Contact.php
@@ -1493,7 +1587,6 @@ generatedFiles:
   - src/Models/Components/ContentBlockValue.php
   - src/Models/Components/ContentBlocksPaginated.php
   - src/Models/Components/ContentFileFormat.php
-  - src/Models/Components/ContentLaunchMethod.php
   - src/Models/Components/ContentPaginated.php
   - src/Models/Components/ContentResult.php
   - src/Models/Components/ContentSourceValue4.php
@@ -1509,8 +1602,10 @@ generatedFiles:
   - src/Models/Components/CreateAnswerSourceValue4.php
   - src/Models/Components/CreateAnswerType.php
   - src/Models/Components/CreateAnswerValue.php
+  - src/Models/Components/CreateAssessmentsPackages.php
   - src/Models/Components/CreateCategoriesApiModel.php
   - src/Models/Components/CreateContentApiModel.php
+  - src/Models/Components/CreateCostCenterApiModel.php
   - src/Models/Components/CreateEmploymentApiModel.php
   - src/Models/Components/CreateEmploymentApiModelEmploymentContractType.php
   - src/Models/Components/CreateEmploymentApiModelEmploymentContractTypeValue.php
@@ -1543,7 +1638,6 @@ generatedFiles:
   - src/Models/Components/CustomFieldDefinition.php
   - src/Models/Components/CustomFieldDefinitionResultApiModel.php
   - src/Models/Components/CustomFieldDefinitionSourceValue4.php
-  - src/Models/Components/CustomFieldDefinitionType.php
   - src/Models/Components/CustomFieldDefinitionValue.php
   - src/Models/Components/CustomFieldDefinitionsPaginated.php
   - src/Models/Components/CustomFields.php
@@ -1582,12 +1676,12 @@ generatedFiles:
   - src/Models/Components/EmployeeSourceValueEmploymentStatus4.php
   - src/Models/Components/EmployeeSourceValueEmploymentType4.php
   - src/Models/Components/EmployeeSourceValueEthnicity4.php
-  - src/Models/Components/EmployeeSourceValueGender4.php
   - src/Models/Components/EmployeeSourceValueHomeLocation4.php
   - src/Models/Components/EmployeeSourceValueHomeLocationLocationType4.php
   - src/Models/Components/EmployeeSourceValueMaritalStatus4.php
   - src/Models/Components/EmployeeSourceValueNationalIdentityNumber4.php
   - src/Models/Components/EmployeeSourceValueNationalIdentityNumberCountry4.php
+  - src/Models/Components/EmployeeSourceValuePreferredLanguage4.php
   - src/Models/Components/EmployeeSourceValueWorkLocation4.php
   - src/Models/Components/EmployeeSourceValueWorkLocationLocationType4.php
   - src/Models/Components/EmployeeType.php
@@ -1637,6 +1731,7 @@ generatedFiles:
   - src/Models/Components/HRISDepartmentsResult.php
   - src/Models/Components/HRISGroup.php
   - src/Models/Components/HRISGroupSourceValue4.php
+  - src/Models/Components/HRISGroupType.php
   - src/Models/Components/HRISGroupValue.php
   - src/Models/Components/HRISGroupsPaginated.php
   - src/Models/Components/HRISGroupsResult.php
@@ -1853,6 +1948,7 @@ generatedFiles:
   - src/Models/Components/JobsPaginated.php
   - src/Models/Components/Label.php
   - src/Models/Components/LanguageEnum.php
+  - src/Models/Components/LanguageEnumSourceValue4.php
   - src/Models/Components/LanguageEnumValue.php
   - src/Models/Components/LearningObjectType.php
   - src/Models/Components/Level.php
@@ -1868,16 +1964,18 @@ generatedFiles:
   - src/Models/Components/ListsPaginated.php
   - src/Models/Components/LmsBatchUpsertContentRequestDto.php
   - src/Models/Components/LmsBatchUpsertCourseRequestDto.php
+  - src/Models/Components/LmsCreateAssignmentRequestDto.php
+  - src/Models/Components/LmsCreateAssignmentRequestDtoSourceValue4.php
+  - src/Models/Components/LmsCreateAssignmentRequestDtoStatus.php
+  - src/Models/Components/LmsCreateAssignmentRequestDtoValue.php
   - src/Models/Components/LmsCreateCollectionRequestDto.php
   - src/Models/Components/LmsCreateCompletionRequestDto.php
   - src/Models/Components/LmsCreateCompletionRequestDtoResult.php
   - src/Models/Components/LmsCreateCompletionRequestDtoSourceValue4.php
   - src/Models/Components/LmsCreateCompletionRequestDtoValue.php
   - src/Models/Components/LmsUpsertContentRequestDto.php
-  - src/Models/Components/LmsUpsertContentRequestDtoContentLaunchMethodValue.php
   - src/Models/Components/LmsUpsertContentRequestDtoContentType.php
   - src/Models/Components/LmsUpsertContentRequestDtoSourceValue4.php
-  - src/Models/Components/LmsUpsertContentRequestDtoSourceValueContentLaunchMethod4.php
   - src/Models/Components/LmsUpsertContentRequestDtoValue.php
   - src/Models/Components/LmsUpsertCourseRequestDto.php
   - src/Models/Components/LmsUser.php
@@ -1918,8 +2016,8 @@ generatedFiles:
   - src/Models/Components/OfferValue.php
   - src/Models/Components/OffersPaginated.php
   - src/Models/Components/OffersResult.php
-  - src/Models/Components/Options4.php
   - src/Models/Components/OverallRecommendation.php
+  - src/Models/Components/ParentQuestion.php
   - src/Models/Components/PatchAccountExternalDto.php
   - src/Models/Components/PatchAccountExternalDtoCredentials.php
   - src/Models/Components/PatchAccountExternalDtoSetupInformation.php
@@ -1941,8 +2039,10 @@ generatedFiles:
   - src/Models/Components/PushTemplatesPaginated.php
   - src/Models/Components/Question.php
   - src/Models/Components/QuestionMultipleChoiceAnswers.php
+  - src/Models/Components/QuestionParentQuestionValue.php
   - src/Models/Components/QuestionRequired2.php
   - src/Models/Components/QuestionSourceValue4.php
+  - src/Models/Components/QuestionSourceValueParentQuestion4.php
   - src/Models/Components/QuestionType.php
   - src/Models/Components/QuestionValue.php
   - src/Models/Components/Questionnaire.php
@@ -1960,7 +2060,6 @@ generatedFiles:
   - src/Models/Components/RejectedReasonsPaginated.php
   - src/Models/Components/Required2.php
   - src/Models/Components/Resources.php
-  - src/Models/Components/Result.php
   - src/Models/Components/ResultLink.php
   - src/Models/Components/ScheduleType.php
   - src/Models/Components/ScheduledInterview.php
@@ -1969,7 +2068,6 @@ generatedFiles:
   - src/Models/Components/ScheduledInterviewValue.php
   - src/Models/Components/ScheduledInterviewsPaginated.php
   - src/Models/Components/ScheduledInterviewsResult.php
-  - src/Models/Components/Score.php
   - src/Models/Components/Scorecard.php
   - src/Models/Components/ScorecardSection.php
   - src/Models/Components/ScorecardsPaginated.php
@@ -2047,6 +2145,8 @@ generatedFiles:
   - src/Models/Errors/SDKException.php
   - src/Models/Operations/AtsCreateApplicationRequest.php
   - src/Models/Operations/AtsCreateApplicationResponse.php
+  - src/Models/Operations/AtsCreateBackgroundCheckPackageRequest.php
+  - src/Models/Operations/AtsCreateBackgroundCheckPackageResponse.php
   - src/Models/Operations/AtsCreateCandidateNoteRequest.php
   - src/Models/Operations/AtsCreateCandidateNoteResponse.php
   - src/Models/Operations/AtsCreateCandidateRequest.php
@@ -2076,6 +2176,12 @@ generatedFiles:
   - src/Models/Operations/AtsGetAssessmentsRequestResponse.php
   - src/Models/Operations/AtsGetAssessmentsResultRequest.php
   - src/Models/Operations/AtsGetAssessmentsResultResponse.php
+  - src/Models/Operations/AtsGetBackgroundCheckPackageRequest.php
+  - src/Models/Operations/AtsGetBackgroundCheckPackageResponse.php
+  - src/Models/Operations/AtsGetBackgroundCheckRequestRequest.php
+  - src/Models/Operations/AtsGetBackgroundCheckRequestResponse.php
+  - src/Models/Operations/AtsGetBackgroundCheckResultRequest.php
+  - src/Models/Operations/AtsGetBackgroundCheckResultResponse.php
   - src/Models/Operations/AtsGetCandidateCustomFieldDefinitionQueryParamFilter.php
   - src/Models/Operations/AtsGetCandidateCustomFieldDefinitionRequest.php
   - src/Models/Operations/AtsGetCandidateCustomFieldDefinitionResponse.php
@@ -2127,6 +2233,12 @@ generatedFiles:
   - src/Models/Operations/AtsListAssessmentsPackagesQueryParamFilter.php
   - src/Models/Operations/AtsListAssessmentsPackagesRequest.php
   - src/Models/Operations/AtsListAssessmentsPackagesResponse.php
+  - src/Models/Operations/AtsListBackgroundCheckPackagesQueryParamFilter.php
+  - src/Models/Operations/AtsListBackgroundCheckPackagesRequest.php
+  - src/Models/Operations/AtsListBackgroundCheckPackagesResponse.php
+  - src/Models/Operations/AtsListBackgroundCheckRequestQueryParamFilter.php
+  - src/Models/Operations/AtsListBackgroundCheckRequestRequest.php
+  - src/Models/Operations/AtsListBackgroundCheckRequestResponse.php
   - src/Models/Operations/AtsListCandidateCustomFieldDefinitionsQueryParamFilter.php
   - src/Models/Operations/AtsListCandidateCustomFieldDefinitionsRequest.php
   - src/Models/Operations/AtsListCandidateCustomFieldDefinitionsResponse.php
@@ -2231,6 +2343,9 @@ generatedFiles:
   - src/Models/Operations/HrisGetCostCenterGroupResponse.php
   - src/Models/Operations/HrisGetDepartmentGroupRequest.php
   - src/Models/Operations/HrisGetDepartmentGroupResponse.php
+  - src/Models/Operations/HrisGetEmployeeCustomFieldDefinitionQueryParamFilter.php
+  - src/Models/Operations/HrisGetEmployeeCustomFieldDefinitionRequest.php
+  - src/Models/Operations/HrisGetEmployeeCustomFieldDefinitionResponse.php
   - src/Models/Operations/HrisGetEmployeeDocumentCategoryRequest.php
   - src/Models/Operations/HrisGetEmployeeDocumentCategoryResponse.php
   - src/Models/Operations/HrisGetEmployeeDocumentRequest.php
@@ -2269,6 +2384,8 @@ generatedFiles:
   - src/Models/Operations/HrisListEmployeeCategoriesQueryParamFilter.php
   - src/Models/Operations/HrisListEmployeeCategoriesRequest.php
   - src/Models/Operations/HrisListEmployeeCategoriesResponse.php
+  - src/Models/Operations/HrisListEmployeeCustomFieldDefinitionsRequest.php
+  - src/Models/Operations/HrisListEmployeeCustomFieldDefinitionsResponse.php
   - src/Models/Operations/HrisListEmployeeDocumentsQueryParamFilter.php
   - src/Models/Operations/HrisListEmployeeDocumentsRequest.php
   - src/Models/Operations/HrisListEmployeeDocumentsResponse.php
@@ -2281,6 +2398,7 @@ generatedFiles:
   - src/Models/Operations/HrisListEmployeeWorkEligibilityQueryParamFilter.php
   - src/Models/Operations/HrisListEmployeeWorkEligibilityRequest.php
   - src/Models/Operations/HrisListEmployeeWorkEligibilityResponse.php
+  - src/Models/Operations/HrisListEmployeesQueryParamFilter.php
   - src/Models/Operations/HrisListEmployeesRequest.php
   - src/Models/Operations/HrisListEmployeesResponse.php
   - src/Models/Operations/HrisListEmploymentsQueryParamFilter.php
@@ -2331,12 +2449,15 @@ generatedFiles:
   - src/Models/Operations/IamListUsersQueryParamFilter.php
   - src/Models/Operations/IamListUsersRequest.php
   - src/Models/Operations/IamListUsersResponse.php
+  - src/Models/Operations/LearningObjectType.php
   - src/Models/Operations/LmsBatchUpsertContentRequest.php
   - src/Models/Operations/LmsBatchUpsertContentResponse.php
   - src/Models/Operations/LmsBatchUpsertCourseRequest.php
   - src/Models/Operations/LmsBatchUpsertCourseResponse.php
   - src/Models/Operations/LmsCreateCollectionRequest.php
   - src/Models/Operations/LmsCreateCollectionResponse.php
+  - src/Models/Operations/LmsCreateUserAssignmentRequest.php
+  - src/Models/Operations/LmsCreateUserAssignmentResponse.php
   - src/Models/Operations/LmsCreateUserCompletionRequest.php
   - src/Models/Operations/LmsCreateUserCompletionResponse.php
   - src/Models/Operations/LmsGetAssignmentRequest.php
@@ -2358,12 +2479,14 @@ generatedFiles:
   - src/Models/Operations/LmsGetUserRequest.php
   - src/Models/Operations/LmsGetUserResponse.php
   - src/Models/Operations/LmsListAssignmentsQueryParamFilter.php
+  - src/Models/Operations/LmsListAssignmentsQueryParamLearningObjectType.php
   - src/Models/Operations/LmsListAssignmentsRequest.php
   - src/Models/Operations/LmsListAssignmentsResponse.php
   - src/Models/Operations/LmsListCategoriesQueryParamFilter.php
   - src/Models/Operations/LmsListCategoriesRequest.php
   - src/Models/Operations/LmsListCategoriesResponse.php
   - src/Models/Operations/LmsListCompletionsQueryParamFilter.php
+  - src/Models/Operations/LmsListCompletionsQueryParamLearningObjectType.php
   - src/Models/Operations/LmsListCompletionsRequest.php
   - src/Models/Operations/LmsListCompletionsResponse.php
   - src/Models/Operations/LmsListContentQueryParamFilter.php
@@ -2450,6 +2573,7 @@ generatedFiles:
   - src/Models/Operations/MarketingUpdateSmsTemplateRequest.php
   - src/Models/Operations/MarketingUpdateSmsTemplateResponse.php
   - src/Models/Operations/QueryParamFilter.php
+  - src/Models/Operations/QueryParamLearningObjectType.php
   - src/Models/Operations/StackoneAuthenticateConnectSessionResponse.php
   - src/Models/Operations/StackoneCreateConnectSessionResponse.php
   - src/Models/Operations/StackoneDeleteAccountRequest.php
@@ -2504,17 +2628,17 @@ examples:
   stackone_create_connect_session:
     speakeasy-default-stackone-create-connect-session:
       requestBody:
-        application/json: {"categories": ["ats", "hris", "crm", "crm", "iam", "marketing", "lms", "ats", "lms"], "origin_owner_id": "<id>", "origin_owner_name": "<value>"}
+        application/json: {"categories": ["ats", "hris", "crm", "crm", "iam", "marketing", "lms", "ats", "documents"], "origin_owner_id": "<id>", "origin_owner_name": "<value>"}
       responses:
         "201":
-          application/json: {"id": "6908.66", "organization_id": "6497.42", "project_id": "<id>", "categories": ["ats", "hris", "marketing", "crm", "iam", "marketing", "lms", "ats", "ats"], "origin_owner_id": "<id>", "origin_owner_name": "<value>", "created_at": "2024-12-16T09:37:09.059Z", "token": "<value>"}
+          application/json: {"id": "6908.66", "organization_id": "6497.42", "project_id": "<id>", "categories": ["ats", "hris", "lms", "crm", "iam", "marketing", "lms", "marketing", "documents"], "origin_owner_id": "<id>", "origin_owner_name": "<value>", "created_at": "2024-12-16T09:37:09.059Z", "token": "<value>", "auth_link_url": "https://brisk-widow.biz/"}
   stackone_authenticate_connect_session:
     speakeasy-default-stackone-authenticate-connect-session:
       requestBody:
         application/json: {"token": "<value>"}
       responses:
         "201":
-          application/json: {"id": "3607.71", "organization_id": "2827.51", "project_id": "<id>", "categories": ["ats", "hris", "crm", "crm", "iam", "marketing", "lms", "hris-legacy", "marketing"], "origin_owner_id": "<id>", "origin_owner_name": "<value>", "created_at": "2024-04-16T14:12:57.983Z"}
+          application/json: {"id": "3607.71", "organization_id": "2827.51", "project_id": "<id>", "categories": ["ats", "hris", "crm", "crm", "iam", "marketing", "lms", "hris-legacy", "documents"], "origin_owner_id": "<id>", "origin_owner_name": "<value>", "created_at": "2024-04-16T14:12:57.983Z"}
   stackone_list_linked_accounts:
     speakeasy-default-stackone-list-linked-accounts:
       responses:
@@ -2605,10 +2729,10 @@ examples:
     "":
       parameters:
         query:
-          fields: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number"
+          fields: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
-          expand: "company,employments,work_location,home_location,custom_fields,groups"
+          expand: "company,employments,work_location,home_location,groups"
           include: "avatar_url,avatar,custom_fields,job_description,benefits"
         header:
           x-account-id: "<id>"
@@ -2621,7 +2745,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"first_name": "Issac", "last_name": "Newton", "name": "Issac Newton", "display_name": "Sir Issac Newton", "avatar_url": "https://example.com/avatar.png", "personal_email": "isaac.newton@example.com", "personal_phone_number": "+1234567890", "work_email": "newton@example.com", "work_phone_number": "+1234567890", "job_id": "R-6789", "job_title": "Physicist", "department_id": "3093", "department": "Physics", "manager_id": "67890", "preferred_language": {"value": "eng"}, "date_of_birth": "1990-01-01T00:00.000Z", "birthday": "2021-01-01T00:00:00Z", "hire_date": "2021-01-01T00:00.000Z", "start_date": "2021-01-01T00:00.000Z", "tenure": 2, "work_anniversary": "2021-01-01T00:00:00Z", "employment_type": {"value": "permanent", "source_value": "Permanent"}, "termination_date": "2021-01-01T00:00:00Z", "company_name": "Example Corp", "citizenships": [{"value": "US"}], "employments": [], "custom_fields": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "value": "Completed", "value_id": "value_456", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "value": "Completed", "value_id": "value_456", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "value": "Completed", "value_id": "value_456", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}], "benefits": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Health Insurance", "provider": "Aetna", "description": "Health insurance for employees", "created_at": "2021-01-01T00:00:00Z", "updated_at": "2021-01-01T00:00:00Z"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Health Insurance", "provider": "Aetna", "description": "Health insurance for employees", "created_at": "2021-01-01T00:00:00Z", "updated_at": "2021-01-01T00:00:00Z"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Health Insurance", "provider": "Aetna", "description": "Health insurance for employees", "created_at": "2021-01-01T00:00:00Z", "updated_at": "2021-01-01T00:00:00Z"}], "national_identity_number": {"value": "123456789", "type": {"value": "ssn"}, "country": {"value": "US"}}, "home_location": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "city": "Grantham", "zip_code": "NG33 5NR", "country": {"value": "US"}, "passthrough": {"other_known_names": "John Doe"}}, "work_location": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "city": "Grantham", "zip_code": "NG33 5NR", "country": {"value": "US"}, "passthrough": {"other_known_names": "John Doe"}}, "passthrough": {"other_known_names": "John Doe"}}
+        application/json: {"first_name": "Issac", "last_name": "Newton", "name": "Issac Newton", "display_name": "Sir Issac Newton", "avatar_url": "https://example.com/avatar.png", "personal_email": "isaac.newton@example.com", "personal_phone_number": "+1234567890", "work_email": "newton@example.com", "work_phone_number": "+1234567890", "job_id": "R-6789", "job_title": "Physicist", "department_id": "3093", "department": "Physics", "manager_id": "67890", "preferred_language": {"value": "eng"}, "date_of_birth": "1990-01-01T00:00.000Z", "birthday": "2021-01-01T00:00:00Z", "hire_date": "2021-01-01T00:00.000Z", "start_date": "2021-01-01T00:00.000Z", "tenure": 2, "work_anniversary": "2021-01-01T00:00:00Z", "employment_type": {"value": "permanent", "source_value": "Permanent"}, "termination_date": "2021-01-01T00:00:00Z", "company_name": "Example Corp", "citizenships": [{"value": "US"}], "employments": [], "custom_fields": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "value": "Completed", "value_id": "value_456", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "value": "Completed", "value_id": "value_456", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "value": "Completed", "value_id": "value_456", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}], "benefits": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Health Insurance", "provider": "Aetna", "description": "Health insurance for employees", "created_at": "2021-01-01T00:00:00Z", "updated_at": "2021-01-01T00:00:00Z"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Health Insurance", "provider": "Aetna", "description": "Health insurance for employees", "created_at": "2021-01-01T00:00:00Z", "updated_at": "2021-01-01T00:00:00Z"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Health Insurance", "provider": "Aetna", "description": "Health insurance for employees", "created_at": "2021-01-01T00:00:00Z", "updated_at": "2021-01-01T00:00:00Z"}], "employee_number": "125", "national_identity_number": {"value": "123456789", "type": {"value": "ssn"}, "country": {"value": "US"}}, "home_location": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "city": "Grantham", "zip_code": "NG33 5NR", "country": {"value": "US"}, "passthrough": {"other_known_names": "John Doe"}}, "work_location": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "city": "Grantham", "zip_code": "NG33 5NR", "country": {"value": "US"}, "passthrough": {"other_known_names": "John Doe"}}, "cost_centers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "R&D", "distribution_percentage": 100}], "passthrough": {"other_known_names": "John Doe"}}
       responses:
         "201":
           application/json: {"statusCode": 201, "message": "Record created successfully.", "timestamp": "2021-01-01T01:01:01.000Z", "data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}}
@@ -2631,8 +2755,8 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number"
-          expand: "company,employments,work_location,home_location,custom_fields,groups"
+          fields: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number"
+          expand: "company,employments,work_location,home_location,groups"
           include: "avatar_url,avatar,custom_fields,job_description,benefits"
         header:
           x-account-id: "<id>"
@@ -2647,7 +2771,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"first_name": "Issac", "last_name": "Newton", "name": "Issac Newton", "display_name": "Sir Issac Newton", "avatar_url": "https://example.com/avatar.png", "personal_email": "isaac.newton@example.com", "personal_phone_number": "+1234567890", "work_email": "newton@example.com", "work_phone_number": "+1234567890", "job_id": "R-6789", "job_title": "Physicist", "department_id": "3093", "department": "Physics", "manager_id": "67890", "preferred_language": {"value": "eng"}, "date_of_birth": "1990-01-01T00:00.000Z", "birthday": "2021-01-01T00:00:00Z", "hire_date": "2021-01-01T00:00.000Z", "start_date": "2021-01-01T00:00.000Z", "tenure": 2, "work_anniversary": "2021-01-01T00:00:00Z", "employment_type": {"value": "permanent", "source_value": "Permanent"}, "termination_date": "2021-01-01T00:00:00Z", "company_name": "Example Corp", "citizenships": [{"value": "US"}], "employments": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "employee_id": "1687-3", "job_title": "Software Engineer", "pay_rate": "40.00", "pay_period": {"value": "hour", "source_value": "Hour"}, "pay_frequency": {"value": "hourly", "source_value": "Hourly"}, "pay_currency": "USD", "effective_date": "2021-01-01T01:01:01.000Z", "employment_type": {"value": "permanent", "source_value": "Permanent"}, "time_worked": "P0Y0M0DT8H0M0S"}], "custom_fields": [], "benefits": [], "national_identity_number": {"value": "123456789", "type": {"value": "ssn"}, "country": {"value": "US"}}, "home_location": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "city": "Grantham", "zip_code": "NG33 5NR", "country": {"value": "US"}, "passthrough": {"other_known_names": "John Doe"}}, "work_location": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "city": "Grantham", "zip_code": "NG33 5NR", "country": {"value": "US"}, "passthrough": {"other_known_names": "John Doe"}}, "passthrough": {"other_known_names": "John Doe"}}
+        application/json: {"first_name": "Issac", "last_name": "Newton", "name": "Issac Newton", "display_name": "Sir Issac Newton", "avatar_url": "https://example.com/avatar.png", "personal_email": "isaac.newton@example.com", "personal_phone_number": "+1234567890", "work_email": "newton@example.com", "work_phone_number": "+1234567890", "job_id": "R-6789", "job_title": "Physicist", "department_id": "3093", "department": "Physics", "manager_id": "67890", "preferred_language": {"value": "eng"}, "date_of_birth": "1990-01-01T00:00.000Z", "birthday": "2021-01-01T00:00:00Z", "hire_date": "2021-01-01T00:00.000Z", "start_date": "2021-01-01T00:00.000Z", "tenure": 2, "work_anniversary": "2021-01-01T00:00:00Z", "employment_type": {"value": "permanent", "source_value": "Permanent"}, "termination_date": "2021-01-01T00:00:00Z", "company_name": "Example Corp", "citizenships": [{"value": "US"}], "employments": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "employee_id": "1687-3", "job_title": "Software Engineer", "pay_rate": "40.00", "pay_period": {"value": "hour", "source_value": "Hour"}, "pay_frequency": {"value": "hourly", "source_value": "Hourly"}, "pay_currency": "USD", "effective_date": "2021-01-01T01:01:01.000Z", "employment_type": {"value": "permanent", "source_value": "Permanent"}, "time_worked": "P0Y0M0DT8H0M0S"}], "custom_fields": [], "benefits": [], "employee_number": "125", "national_identity_number": {"value": "123456789", "type": {"value": "ssn"}, "country": {"value": "US"}}, "home_location": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "city": "Grantham", "zip_code": "NG33 5NR", "country": {"value": "US"}, "passthrough": {"other_known_names": "John Doe"}}, "work_location": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "city": "Grantham", "zip_code": "NG33 5NR", "country": {"value": "US"}, "passthrough": {"other_known_names": "John Doe"}}, "cost_centers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "R&D", "distribution_percentage": 100}], "passthrough": {"other_known_names": "John Doe"}}
       responses:
         "200":
           application/json: {"statusCode": 201, "message": "Record created successfully.", "timestamp": "2021-01-01T01:01:01.000Z", "data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}}
@@ -3052,7 +3176,7 @@ examples:
     "":
       parameters:
         query:
-          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate"
+          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
           expand: "documents"
@@ -3069,7 +3193,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"passthrough": {"other_known_names": "John Doe"}, "job_id": "4071538b-3cac-4fbf-ac76-f78ed250ffdd", "location_id": "dd8d41d1-5eb8-4408-9c87-9ba44604eae4", "application_status": {"value": "hired", "source_value": "Hired"}, "questionnaires": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "Short Text"}, "values": ["Yes", "No Travel", "It sounds pretty cool.", "Excel", "Power Point"]}]}], "source": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "LinkedIn"}, "candidate_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "candidate": {"passthrough": {"other_known_names": "John Doe"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "phone_number": "+1234567890", "name": "Romain Sestier", "first_name": "Romain", "last_name": "Sestier", "email": "sestier.romain123@gmail.com", "social_links": [{"type": "linkedin", "url": "https://www.linkedin.com/in/romainsestier/"}, {"type": "linkedin", "url": "https://www.linkedin.com/in/romainsestier/"}], "company": "Company Inc.", "title": "Software Engineer", "hired_at": "2021-01-01T01:01:01.000Z", "country": "United States", "custom_fields": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "value": "Completed", "value_id": "value_456", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "value": "Completed", "value_id": "value_456", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}]}}
+        application/json: {"passthrough": {"other_known_names": "John Doe"}, "job_id": "4071538b-3cac-4fbf-ac76-f78ed250ffdd", "job_posting_id": "1c702a20-8de8-4d03-ac18-cbf4ac42eb51", "location_id": "dd8d41d1-5eb8-4408-9c87-9ba44604eae4", "application_status": {"value": "hired", "source_value": "Hired"}, "questionnaires": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "Short Text"}, "values": ["Yes", "No Travel", "It sounds pretty cool.", "Excel", "Power Point"]}]}], "source": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "LinkedIn"}, "candidate_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "candidate": {"passthrough": {"other_known_names": "John Doe"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "phone_number": "+1234567890", "name": "Romain Sestier", "first_name": "Romain", "last_name": "Sestier", "email": "sestier.romain123@gmail.com", "social_links": [{"type": "linkedin", "url": "https://www.linkedin.com/in/romainsestier/"}, {"type": "linkedin", "url": "https://www.linkedin.com/in/romainsestier/"}], "company": "Company Inc.", "title": "Software Engineer", "hired_at": "2021-01-01T01:01:01.000Z", "country": "United States", "custom_fields": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "value": "Completed", "value_id": "value_456", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "value": "Completed", "value_id": "value_456", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}]}}
       responses:
         "201":
           application/json: {"statusCode": 201, "message": "Record created successfully.", "timestamp": "2021-01-01T01:01:01.000Z", "data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}}
@@ -3079,7 +3203,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate"
+          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate"
           expand: "documents"
           include: "attachments,custom_fields"
         header:
@@ -3198,7 +3322,7 @@ examples:
           id: "<id>"
           subResourceId: "<id>"
         query:
-          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate"
+          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate"
         header:
           x-account-id: "<id>"
       responses:
@@ -3260,7 +3384,7 @@ examples:
     "":
       parameters:
         query:
-          fields: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at"
+          fields: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
           include: "custom_fields"
@@ -3285,7 +3409,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at"
+          fields: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at"
           include: "custom_fields"
         header:
           x-account-id: "<id>"
@@ -3651,7 +3775,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "title": "Software Engineer", "locations": [{"id": "12345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "New York"}, {"id": "67890", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Remote"}], "internal": "true", "status": {"value": "live", "source_value": "Live"}, "job_id": "job001", "remote_job_posting_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "content": {"plain": "This is a plain text description", "html": "<p>This is an HTML description</p>", "sections": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "responsibilities", "source_value": "key_responsibilities"}, "label": "Key Responsibilities", "content": "This is a plain description"}]}, "compensation": [{"name": "Base Salary", "type": {"value": "salary", "source_value": "Salary"}, "pay_period": {"value": "hour", "source_value": "Hour"}, "pay_frequency": {"value": "hourly", "source_value": "Hourly"}, "currency": "USD", "value": "50000", "min_value": "45000", "max_value": "55000"}, {"name": "Bonus", "type": {"value": "salary", "source_value": "Salary"}, "pay_period": {"value": "hour", "source_value": "Hour"}, "pay_frequency": {"value": "hourly", "source_value": "Hourly"}, "currency": "USD", "value": "10%"}], "employment_type": {"value": "permanent", "source_value": "Permanent"}, "employment_contract_type": {"value": "full_time", "source_value": "FullTime"}, "external_url": "https://www.example.com/job-posting/abcd1234", "external_apply_url": "https://www.example.com/job-posting/abcd1234/apply", "questionnaires": [{"id": "about001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "About", "internal": "false", "questions": [{"id": "question001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What is your name?", "required": true, "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, {"id": "question002", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What are your hobbies?", "required": "true", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, {"id": "question003", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What is your favorite animal?", "required": true, "multiple_choice_answers": [{"id": "1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Dog"}, {"id": "2", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Cat"}, {"id": "3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Bird"}, {"id": "4", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Other"}]}]}, {"id": "experience001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Experience", "internal": "false", "questions": [{"id": "question004", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Please upload your resume.", "required": true, "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, {"id": "question005", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Select the programming languages you are proficient in.", "required": true, "multiple_choice_answers": [{"id": "1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "JavaScript"}, {"id": "2", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Python"}, {"id": "3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Java"}]}, {"id": "question006", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Are you willing to relocate?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, {"id": "question007", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "How many years of experience do you have?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, {"id": "question008", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "When did you start your most recent position?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}]}], "created_at": "2021-01-01T01:01:01.000Z", "updated_at": "2021-01-01T01:01:01.000Z"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "title": "Software Engineer", "locations": [{"id": "12345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "New York"}, {"id": "67890", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Remote"}], "internal": "true", "status": {"value": "live", "source_value": "Live"}, "job_id": "job001", "remote_job_posting_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "content": {"plain": "This is a plain text description", "html": "<p>This is an HTML description</p>", "sections": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "responsibilities", "source_value": "key_responsibilities"}, "label": "Key Responsibilities", "content": "This is a plain description"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "responsibilities", "source_value": "key_responsibilities"}, "label": "Key Responsibilities", "content": "This is a plain description"}]}, "compensation": [{"name": "Base Salary", "type": {"value": "salary", "source_value": "Salary"}, "pay_period": {"value": "hour", "source_value": "Hour"}, "pay_frequency": {"value": "hourly", "source_value": "Hourly"}, "currency": "USD", "value": "50000", "min_value": "45000", "max_value": "55000"}, {"name": "Bonus", "type": {"value": "salary", "source_value": "Salary"}, "pay_period": {"value": "hour", "source_value": "Hour"}, "pay_frequency": {"value": "hourly", "source_value": "Hourly"}, "currency": "USD", "value": "10%"}], "employment_type": {"value": "permanent", "source_value": "Permanent"}, "employment_contract_type": {"value": "full_time", "source_value": "FullTime"}, "external_url": "https://www.example.com/job-posting/abcd1234", "external_apply_url": "https://www.example.com/job-posting/abcd1234/apply", "questionnaires": [{"id": "about001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "About", "internal": "false", "questions": [{"id": "question001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What is your name?", "required": true, "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, {"id": "question002", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What are your hobbies?", "required": true, "multiple_choice_answers": []}, {"id": "question003", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What is your favorite animal?", "required": true, "multiple_choice_answers": [{"id": "1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Dog"}, {"id": "2", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Cat"}, {"id": "3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Bird"}, {"id": "4", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Other"}]}]}, {"id": "experience001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Experience", "internal": "false", "questions": [{"id": "question004", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Please upload your resume.", "required": true, "multiple_choice_answers": []}, {"id": "question005", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Select the programming languages you are proficient in.", "required": true, "multiple_choice_answers": [{"id": "1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "JavaScript"}, {"id": "2", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Python"}, {"id": "3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Java"}]}, {"id": "question006", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Are you willing to relocate?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, {"id": "question007", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "How many years of experience do you have?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, {"id": "question008", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "When did you start your most recent position?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}]}], "created_at": "2021-01-01T01:01:01.000Z", "updated_at": "2021-01-01T01:01:01.000Z"}]}
+          application/json: {"data": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "title": "Software Engineer", "locations": [{"id": "12345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "New York"}, {"id": "67890", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Remote"}], "internal": "true", "status": {"value": "live", "source_value": "Live"}, "job_id": "job001", "remote_job_posting_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "content": {"plain": "This is a plain text description", "html": "<p>This is an HTML description</p>", "sections": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "responsibilities", "source_value": "key_responsibilities"}, "label": "Key Responsibilities", "content": "This is a plain description"}]}, "compensation": [{"name": "Base Salary", "type": {"value": "salary", "source_value": "Salary"}, "pay_period": {"value": "hour", "source_value": "Hour"}, "pay_frequency": {"value": "hourly", "source_value": "Hourly"}, "currency": "USD", "value": "50000", "min_value": "45000", "max_value": "55000"}, {"name": "Bonus", "type": {"value": "salary", "source_value": "Salary"}, "pay_period": {"value": "hour", "source_value": "Hour"}, "pay_frequency": {"value": "hourly", "source_value": "Hourly"}, "currency": "USD", "value": "10%"}], "employment_type": {"value": "permanent", "source_value": "Permanent"}, "employment_contract_type": {"value": "full_time", "source_value": "FullTime"}, "external_url": "https://www.example.com/job-posting/abcd1234", "external_apply_url": "https://www.example.com/job-posting/abcd1234/apply", "questionnaires": [{"id": "about001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "About", "internal": "false", "questions": [{"id": "question001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What is your name?", "required": true, "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question002", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What are your hobbies?", "required": "true", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question003", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What is your favorite animal?", "required": true, "multiple_choice_answers": [{"id": "1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Dog"}, {"id": "2", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Cat"}, {"id": "3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Bird"}, {"id": "4", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Other"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}]}, {"id": "experience001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Experience", "internal": "false", "questions": [{"id": "question004", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Please upload your resume.", "required": true, "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question005", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Select the programming languages you are proficient in.", "required": true, "multiple_choice_answers": [{"id": "1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "JavaScript"}, {"id": "2", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Python"}, {"id": "3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Java"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question006", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Are you willing to relocate?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question007", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "How many years of experience do you have?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question008", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "When did you start your most recent position?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}]}], "created_at": "2021-01-01T01:01:01.000Z", "updated_at": "2021-01-01T01:01:01.000Z"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "title": "Software Engineer", "locations": [{"id": "12345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "New York"}, {"id": "67890", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Remote"}], "internal": "true", "status": {"value": "live", "source_value": "Live"}, "job_id": "job001", "remote_job_posting_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "content": {"plain": "This is a plain text description", "html": "<p>This is an HTML description</p>", "sections": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "responsibilities", "source_value": "key_responsibilities"}, "label": "Key Responsibilities", "content": "This is a plain description"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "responsibilities", "source_value": "key_responsibilities"}, "label": "Key Responsibilities", "content": "This is a plain description"}]}, "compensation": [{"name": "Base Salary", "type": {"value": "salary", "source_value": "Salary"}, "pay_period": {"value": "hour", "source_value": "Hour"}, "pay_frequency": {"value": "hourly", "source_value": "Hourly"}, "currency": "USD", "value": "50000", "min_value": "45000", "max_value": "55000"}, {"name": "Bonus", "type": {"value": "salary", "source_value": "Salary"}, "pay_period": {"value": "hour", "source_value": "Hour"}, "pay_frequency": {"value": "hourly", "source_value": "Hourly"}, "currency": "USD", "value": "10%"}], "employment_type": {"value": "permanent", "source_value": "Permanent"}, "employment_contract_type": {"value": "full_time", "source_value": "FullTime"}, "external_url": "https://www.example.com/job-posting/abcd1234", "external_apply_url": "https://www.example.com/job-posting/abcd1234/apply", "questionnaires": [{"id": "about001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "About", "internal": "false", "questions": [{"id": "question001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What is your name?", "required": true, "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question002", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What are your hobbies?", "required": true, "multiple_choice_answers": [], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question003", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What is your favorite animal?", "required": true, "multiple_choice_answers": [{"id": "1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Dog"}, {"id": "2", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Cat"}, {"id": "3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Bird"}, {"id": "4", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Other"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}]}, {"id": "experience001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Experience", "internal": "false", "questions": [{"id": "question004", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Please upload your resume.", "required": true, "multiple_choice_answers": [], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question005", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Select the programming languages you are proficient in.", "required": true, "multiple_choice_answers": [{"id": "1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "JavaScript"}, {"id": "2", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Python"}, {"id": "3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Java"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question006", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Are you willing to relocate?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question007", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "How many years of experience do you have?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question008", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "When did you start your most recent position?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}]}], "created_at": "2021-01-01T01:01:01.000Z", "updated_at": "2021-01-01T01:01:01.000Z"}]}
   ats_get_job_posting:
     "":
       parameters:
@@ -3664,7 +3788,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "title": "Software Engineer", "locations": [{"id": "12345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "New York"}, {"id": "67890", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Remote"}], "internal": "true", "status": {"value": "live", "source_value": "Live"}, "job_id": "job001", "remote_job_posting_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "content": {"plain": "This is a plain text description", "html": "<p>This is an HTML description</p>", "sections": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "responsibilities", "source_value": "key_responsibilities"}, "label": "Key Responsibilities", "content": "This is a plain description"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "responsibilities", "source_value": "key_responsibilities"}, "label": "Key Responsibilities", "content": "This is a plain description"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "responsibilities", "source_value": "key_responsibilities"}, "label": "Key Responsibilities", "content": "This is a plain description"}]}, "compensation": [{"name": "Base Salary", "type": {"value": "salary", "source_value": "Salary"}, "pay_period": {"value": "hour", "source_value": "Hour"}, "pay_frequency": {"value": "hourly", "source_value": "Hourly"}, "currency": "USD", "value": "50000", "min_value": "45000", "max_value": "55000"}, {"name": "Bonus", "type": {"value": "salary", "source_value": "Salary"}, "pay_period": {"value": "hour", "source_value": "Hour"}, "pay_frequency": {"value": "hourly", "source_value": "Hourly"}, "currency": "USD", "value": "10%"}], "employment_type": {"value": "permanent", "source_value": "Permanent"}, "employment_contract_type": {"value": "full_time", "source_value": "FullTime"}, "external_url": "https://www.example.com/job-posting/abcd1234", "external_apply_url": "https://www.example.com/job-posting/abcd1234/apply", "questionnaires": [{"id": "about001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "About", "internal": "false", "questions": [{"id": "question001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What is your name?", "required": true, "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, {"id": "question002", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What are your hobbies?", "required": "true", "multiple_choice_answers": []}, {"id": "question003", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What is your favorite animal?", "required": true, "multiple_choice_answers": [{"id": "1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Dog"}, {"id": "2", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Cat"}, {"id": "3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Bird"}, {"id": "4", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Other"}]}]}, {"id": "experience001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Experience", "internal": "false", "questions": [{"id": "question004", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Please upload your resume.", "required": true, "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, {"id": "question005", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Select the programming languages you are proficient in.", "required": true, "multiple_choice_answers": [{"id": "1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "JavaScript"}, {"id": "2", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Python"}, {"id": "3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Java"}]}, {"id": "question006", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Are you willing to relocate?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, {"id": "question007", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "How many years of experience do you have?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, {"id": "question008", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "When did you start your most recent position?", "multiple_choice_answers": []}]}], "created_at": "2021-01-01T01:01:01.000Z", "updated_at": "2021-01-01T01:01:01.000Z"}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "title": "Software Engineer", "locations": [{"id": "12345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "New York"}, {"id": "67890", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Remote"}], "internal": "true", "status": {"value": "live", "source_value": "Live"}, "job_id": "job001", "remote_job_posting_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "content": {"plain": "This is a plain text description", "html": "<p>This is an HTML description</p>", "sections": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "responsibilities", "source_value": "key_responsibilities"}, "label": "Key Responsibilities", "content": "This is a plain description"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "responsibilities", "source_value": "key_responsibilities"}, "label": "Key Responsibilities", "content": "This is a plain description"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "responsibilities", "source_value": "key_responsibilities"}, "label": "Key Responsibilities", "content": "This is a plain description"}]}, "compensation": [{"name": "Base Salary", "type": {"value": "salary", "source_value": "Salary"}, "pay_period": {"value": "hour", "source_value": "Hour"}, "pay_frequency": {"value": "hourly", "source_value": "Hourly"}, "currency": "USD", "value": "50000", "min_value": "45000", "max_value": "55000"}, {"name": "Bonus", "type": {"value": "salary", "source_value": "Salary"}, "pay_period": {"value": "hour", "source_value": "Hour"}, "pay_frequency": {"value": "hourly", "source_value": "Hourly"}, "currency": "USD", "value": "10%"}], "employment_type": {"value": "permanent", "source_value": "Permanent"}, "employment_contract_type": {"value": "full_time", "source_value": "FullTime"}, "external_url": "https://www.example.com/job-posting/abcd1234", "external_apply_url": "https://www.example.com/job-posting/abcd1234/apply", "questionnaires": [{"id": "about001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "About", "internal": "false", "questions": [{"id": "question001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What is your name?", "required": true, "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question002", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What are your hobbies?", "required": "true", "multiple_choice_answers": [], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question003", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "What is your favorite animal?", "required": true, "multiple_choice_answers": [{"id": "1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Dog"}, {"id": "2", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Cat"}, {"id": "3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Bird"}, {"id": "4", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Other"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}]}, {"id": "experience001", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Experience", "internal": "false", "questions": [{"id": "question004", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Please upload your resume.", "required": true, "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question005", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Select the programming languages you are proficient in.", "required": true, "multiple_choice_answers": [{"id": "1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "JavaScript"}, {"id": "2", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Python"}, {"id": "3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "text": "Java"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question006", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "Are you willing to relocate?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question007", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "How many years of experience do you have?", "multiple_choice_answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}, {"id": "question008", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "short_text", "source_value": "ShortText"}, "text": "When did you start your most recent position?", "multiple_choice_answers": [], "parent_question": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "remote_option_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "condition_type": {"value": "equals_to", "source_value": "EqualsTo"}}}]}], "created_at": "2021-01-01T01:01:01.000Z", "updated_at": "2021-01-01T01:01:01.000Z"}}
   ats_list_offers:
     "":
       parameters:
@@ -3720,31 +3844,31 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Skill Assessment", "type": {"value": "responsibilities", "source_value": "key_responsibilities"}, "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}}
   ats_get_assessments_request:
     "":
       parameters:
         path:
           id: "<id>"
         query:
-          fields: "assessment_id,remote_assessment_id,candidate,score,assessment_date,submission_date,summary,result,result_url,attachments"
+          fields: "id,remote_id,package,application,job,candidate,requester,results_update_url"
         header:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "assessment_id": "f15aad8e-8db6-4194-8299-a525eb8fc30f", "candidate": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "profile_url": "https://exmaple.com/candidate?id=xyz"}, "score": {"label": "Percentage", "value": "80", "min": "0", "max": "100"}, "assessment_date": "2021-01-01T01:01:01.000Z", "submission_date": "2021-01-01T01:01:01.000Z", "summary": "Candidate demonstrates strong understanding of core concepts, but struggles with application", "result": {"value": "passed", "source_value": "Passed"}, "result_url": "https://exmaple.com/result?id=xyz", "attachments": {"url": "http://example.com/resume.pdf", "content_type": {"value": "text", "source_value": "Text"}}}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "package": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}, "application": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "application_status": {"value": "hired", "source_value": "Hired"}, "passthrough": {"other_known_names": "John Doe"}}, "job": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "title": "Software Engineer", "passthrough": {"other_known_names": "John Doe"}, "hiring_team": [{"user_id": "123456", "first_name": "John", "last_name": "Doe", "email": "john.doe@gmail.com", "role": "Software Engineer"}, {"user_id": "123456", "first_name": "John", "last_name": "Doe", "email": "john.doe@gmail.com", "role": "Software Engineer"}, {"user_id": "123456", "first_name": "John", "last_name": "Doe", "email": "john.doe@gmail.com", "role": "Software Engineer"}]}, "candidate": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "first_name": "Romain", "last_name": "Sestier", "emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "requester": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update"}}
   ats_get_assessments_result:
     "":
       parameters:
         path:
           id: "<id>"
         query:
-          fields: "assessment_id,remote_assessment_id,candidate,score,assessment_date,submission_date,summary,result,result_url,attachments"
+          fields: "id,remote_id,candidate,score,start_date,submission_date,summary,result,result_url,attachments"
         header:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "assessment_id": "f15aad8e-8db6-4194-8299-a525eb8fc30f", "candidate": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "profile_url": "https://exmaple.com/candidate?id=xyz"}, "score": {"label": "Percentage", "value": "80", "min": "0", "max": "100"}, "assessment_date": "2021-01-01T01:01:01.000Z", "submission_date": "2021-01-01T01:01:01.000Z", "summary": "Candidate demonstrates strong understanding of core concepts, but struggles with application", "result": {"value": "passed", "source_value": "Passed"}, "result_url": "https://exmaple.com/result?id=xyz", "attachments": {"url": "http://example.com/resume.pdf", "content_type": {"value": "text", "source_value": "Text"}}}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "candidate": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "profile_url": "https://exmaple.com/candidate?id=xyz"}, "score": {"label": "Percentage", "value": "80", "min": "0", "max": "100"}, "start_date": "2021-01-01T01:01:01.000Z", "submission_date": "2021-01-01T01:01:01.000Z", "summary": "Candidate demonstrates strong understanding of core concepts, but struggles with application", "result": {"value": "passed", "source_value": "Passed"}, "result_url": "https://exmaple.com/result?id=xyz", "attachments": [{"url": "http://example.com/resume.pdf", "content_type": {"value": "text", "source_value": "Text"}}]}}
   crm_list_contacts:
     "":
       parameters:
@@ -4256,7 +4380,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": [{"id": "16873-ENG-VIDEO-1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "content_ids": ["16873-SOFTWARE-ENG-COURSE", "16874-SOFTWARE-ENG-COURSE"], "remote_content_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "title": "Software Engineer Lv 1", "description": "This course acts as learning content for software engineers.", "languages": [{"value": "en_GB"}], "cover_url": "https://www.googledrive.com/?v=16873", "url": "https://www.linkedinlearning.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "categories": [{"id": "12345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Technology", "active": true}], "skills": [{"id": "12345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Sales Techniques", "active": true}], "updated_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z"}]}
+          application/json: {"data": [{"id": "16873-ENG-VIDEO-1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "content_ids": ["16873-SOFTWARE-ENG-COURSE", "16874-SOFTWARE-ENG-COURSE"], "remote_content_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "title": "Software Engineer Lv 1", "description": "This course acts as learning content for software engineers.", "languages": [{"value": "en_GB"}], "cover_url": "https://www.googledrive.com/?v=16873", "url": "https://www.linkedinlearning.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "categories": [{"id": "12345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Technology", "active": true}], "skills": [{"id": "12345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Sales Techniques", "active": true}], "content": [{"url": "https://example.com/file.pdf", "unified_url": "https://api.stackone.com/unified/hris/employees/12345/documents/67890/download", "file_format": {"value": "pdf", "source_value": "abc"}}], "updated_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z"}]}
   lms_get_course:
     "":
       parameters:
@@ -4268,7 +4392,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "16873-ENG-VIDEO-1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "content_ids": ["16873-SOFTWARE-ENG-COURSE", "16874-SOFTWARE-ENG-COURSE"], "remote_content_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "title": "Software Engineer Lv 1", "description": "This course acts as learning content for software engineers.", "languages": [], "cover_url": "https://www.googledrive.com/?v=16873", "url": "https://www.linkedinlearning.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "categories": [{"id": "12345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Technology", "active": true}], "skills": [{"id": "12345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Sales Techniques", "active": true}], "updated_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z"}}
+          application/json: {"data": {"id": "16873-ENG-VIDEO-1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "content_ids": ["16873-SOFTWARE-ENG-COURSE", "16874-SOFTWARE-ENG-COURSE"], "remote_content_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "title": "Software Engineer Lv 1", "description": "This course acts as learning content for software engineers.", "languages": [], "cover_url": "https://www.googledrive.com/?v=16873", "url": "https://www.linkedinlearning.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "categories": [{"id": "12345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Technology", "active": true}], "skills": [{"id": "12345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Sales Techniques", "active": true}], "content": [{"url": "https://example.com/file.pdf", "unified_url": "https://api.stackone.com/unified/hris/employees/12345/documents/67890/download", "file_format": {"value": "pdf", "source_value": "abc"}}], "updated_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z"}}
   lms_list_user_assignments:
     "":
       parameters:
@@ -4284,7 +4408,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": [{"id": "123456", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "learning_object_external_reference": "e3gd34-23tr21-er234-345er56", "progress": "40", "updated_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "course_id": "16873-ENG-1", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}, {"id": "123456", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "learning_object_external_reference": "e3gd34-23tr21-er234-345er56", "progress": "40", "updated_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "course_id": "16873-ENG-1", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}]}
+          application/json: {"data": [{"id": "123456", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "learning_object_external_reference": "e3gd34-23tr21-er234-345er56", "progress": "40", "updated_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "status": {"value": "in_progress"}, "user_id": "c28xyrc55866bvuv", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "course_id": "16873-ENG-1", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}, {"id": "123456", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "learning_object_external_reference": "e3gd34-23tr21-er234-345er56", "progress": "40", "updated_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "status": {"value": "in_progress"}, "user_id": "c28xyrc55866bvuv", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "course_id": "16873-ENG-1", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}]}
   lms_get_user_assignment:
     speakeasy-default-lms-get-user-assignment:
       parameters:
@@ -4296,14 +4420,14 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "123456", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "learning_object_external_reference": "learning-content-123", "progress": "40", "updated_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "course_id": "16873-ENG-1", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}}
+          application/json: {"data": {"id": "123456", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "learning_object_external_reference": "learning-content-123", "progress": "40", "updated_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "status": {"value": "completed"}, "user_id": "c28xyrc55866bvuv", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "course_id": "16873-ENG-1", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}}
   lms_batch_upsert_content:
     speakeasy-default-lms-batch-upsert-content:
       parameters:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"items": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "course_ids": ["16873-SOFTWARE-ENG-COURSE"], "title": "Software Engineer Lv 1", "description": "This video acts as learning content for software engineers.", "languages": [{"value": "en_GB"}, {"value": "en_GB"}], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "skills": [{"id": "16873-IT345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Information-Technology"}], "order": 1, "categories": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Information-Technology"}]}, {"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "course_ids": ["16873-SOFTWARE-ENG-COURSE"], "title": "Software Engineer Lv 1", "description": "This video acts as learning content for software engineers.", "languages": [], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "skills": [{"id": "16873-IT345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Information-Technology"}], "order": 1, "categories": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Information-Technology"}]}]}
+        application/json: {"items": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "course_ids": ["16873-SOFTWARE-ENG-COURSE"], "title": "Software Engineer Lv 1", "description": "This video acts as learning content for software engineers.", "short_description": "This course is a valuable resource and acts as learning content for...", "languages": [{"value": "en_GB"}, {"value": "en_GB"}], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "skills": [{"id": "16873-IT345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Information-Technology"}], "order": 1, "categories": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Information-Technology"}]}, {"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "course_ids": ["16873-SOFTWARE-ENG-COURSE"], "title": "Software Engineer Lv 1", "description": "This video acts as learning content for software engineers.", "short_description": "This course is a valuable resource and acts as learning content for...", "languages": [], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "skills": [{"id": "16873-IT345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Information-Technology"}], "order": 1, "categories": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Information-Technology"}]}]}
       responses:
         "202":
           application/json: {"statusCode": 202, "message": "Batch operation accepted", "timestamp": "2021-01-01T01:01:01.000Z", "errors": [["Missing field: name"], [], []]}
@@ -4311,7 +4435,7 @@ examples:
     "":
       parameters:
         query:
-          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,content_launch_method,categories,skills,updated_at,created_at"
+          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
         header:
@@ -4325,7 +4449,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "course_ids": ["16873-SOFTWARE-ENG-COURSE"], "title": "Software Engineer Lv 1", "description": "This video acts as learning content for software engineers.", "languages": [{"value": "en_GB"}], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "skills": [{"id": "16873-IT345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Information-Technology"}], "order": 1, "categories": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Information-Technology"}]}
+        application/json: {"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "course_ids": ["16873-SOFTWARE-ENG-COURSE"], "title": "Software Engineer Lv 1", "description": "This video acts as learning content for software engineers.", "short_description": "This course is a valuable resource and acts as learning content for...", "languages": [{"value": "en_GB"}], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "skills": [{"id": "16873-IT345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Information-Technology"}], "order": 1, "categories": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Information-Technology"}]}
       responses:
         "201":
           application/json: {"statusCode": 201, "message": "Record created successfully.", "timestamp": "2021-01-01T01:01:01.000Z", "data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1"}}
@@ -4345,7 +4469,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,content_launch_method,categories,skills,updated_at,created_at"
+          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at"
         header:
           x-account-id: "<id>"
       responses:
@@ -4520,7 +4644,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "123456", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "learning_object_external_reference": "learning-content-123", "progress": "40", "updated_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "course_id": "16873-ENG-1", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}}
+          application/json: {"data": {"id": "123456", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "learning_object_external_reference": "learning-content-123", "progress": "40", "updated_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "status": {"value": "completed"}, "user_id": "c28xyrc55866bvuv", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "course_id": "16873-ENG-1", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48"}}
   hris_list_cost_center_groups:
     "":
       parameters:
@@ -4624,7 +4748,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"items": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "content_ids": ["16873-SOFTWARE-ENG-Content"], "title": "Software Engineer Lv 1", "description": "This course acts as learning content for software engineers.", "languages": [], "cover_url": "https://www.googledrive.com/?v=16873", "url": "https://www.linkedinlearning.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "skills": [{"id": "16873-IT345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Information-Technology"}], "categories": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Information-Technology"}], "content": [{"title": "Software Engineer Lv 1", "description": "This video acts as learning content for software engineers.", "content_url": "https://www.youtube.com/watch?v=16873", "order": 1}, {"title": "Software Engineer Lv 1", "description": "This video acts as learning content for software engineers.", "content_url": "https://www.youtube.com/watch?v=16873", "order": 1}]}, {"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "content_ids": ["16873-SOFTWARE-ENG-Content"], "title": "Software Engineer Lv 1", "description": "This course acts as learning content for software engineers.", "languages": [{"value": "en_GB"}, {"value": "en_GB"}], "cover_url": "https://www.googledrive.com/?v=16873", "url": "https://www.linkedinlearning.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "skills": [{"id": "16873-IT345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Information-Technology"}], "categories": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Information-Technology"}], "content": []}]}
+        application/json: {"items": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "content_ids": ["16873-SOFTWARE-ENG-Content"], "title": "Software Engineer Lv 1", "description": "This course acts as learning content for software engineers.", "languages": [], "cover_url": "https://www.googledrive.com/?v=16873", "url": "https://www.linkedinlearning.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "skills": [{"id": "16873-IT345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Information-Technology"}], "content": [{"title": "Software Engineer Lv 1", "description": "This video acts as learning content for software engineers.", "content_url": "https://www.youtube.com/watch?v=16873", "order": 1}], "categories": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Information-Technology"}]}, {"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "content_ids": ["16873-SOFTWARE-ENG-Content"], "title": "Software Engineer Lv 1", "description": "This course acts as learning content for software engineers.", "languages": [{"value": "en_GB"}, {"value": "en_GB"}], "cover_url": "https://www.googledrive.com/?v=16873", "url": "https://www.linkedinlearning.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "skills": [{"id": "16873-IT345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Information-Technology"}], "content": [{"title": "Software Engineer Lv 1", "description": "This video acts as learning content for software engineers.", "content_url": "https://www.youtube.com/watch?v=16873", "order": 1}], "categories": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Information-Technology"}]}]}
       responses:
         "202":
           application/json: {"statusCode": 202, "message": "Batch operation accepted", "timestamp": "2021-01-01T01:01:01.000Z", "errors": [["Missing field: name"], [], []]}
@@ -4634,7 +4758,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "content_ids": ["16873-SOFTWARE-ENG-Content"], "title": "Software Engineer Lv 1", "description": "This course acts as learning content for software engineers.", "languages": [{"value": "en_GB"}], "cover_url": "https://www.googledrive.com/?v=16873", "url": "https://www.linkedinlearning.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "skills": [{"id": "16873-IT345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Information-Technology"}], "categories": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Information-Technology"}], "content": [{"title": "Software Engineer Lv 1", "description": "This video acts as learning content for software engineers.", "content_url": "https://www.youtube.com/watch?v=16873", "order": 1}]}
+        application/json: {"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "content_ids": ["16873-SOFTWARE-ENG-Content"], "title": "Software Engineer Lv 1", "description": "This course acts as learning content for software engineers.", "languages": [{"value": "en_GB"}], "cover_url": "https://www.googledrive.com/?v=16873", "url": "https://www.linkedinlearning.com/?v=16873", "active": true, "duration": "P3Y6M4DT12H30M5S", "skills": [{"id": "16873-IT345", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Information-Technology"}], "content": [{"title": "Software Engineer Lv 1", "description": "This video acts as learning content for software engineers.", "content_url": "https://www.youtube.com/watch?v=16873", "order": 1}], "categories": [{"unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "name": "Information-Technology"}]}
       responses:
         "201":
           application/json: {"statusCode": 201, "message": "Record created successfully.", "timestamp": "2021-01-01T01:01:01.000Z", "data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1"}}
@@ -4684,3 +4808,112 @@ examples:
       responses:
         "200":
           application/json: {"data": {"id": "1687-3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "1687-4", "active": true}}
+  hris_list_employee_custom_field_definitions:
+    "":
+      parameters:
+        query:
+          fields: "id,remote_id,name,description,type,options"
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": []}
+  hris_get_employee_custom_field_definition:
+    "":
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          fields: "id,remote_id,name,description,type,options"
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": ["Not Started", "In Progress", "Completed", "Overdue"]}}
+  ats_list_background_check_packages:
+    "":
+      parameters:
+        query:
+          fields: "id,remote_id,name,description,tests"
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "description": "Standard background package for hires", "tests": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}]}]}
+  ats_create_background_check_package:
+    speakeasy-default-ats-create-background-check-package:
+      parameters:
+        header:
+          x-account-id: "<id>"
+      requestBody:
+        application/json: {"name": "Standard Background Check", "description": "Standard background package for hires", "tests": [{"name": "Test 1", "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}, {"name": "Test 1", "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}], "passthrough": {"other_known_names": "John Doe"}}
+      responses:
+        "201":
+          application/json: {"statusCode": 201, "message": "Record created successfully.", "timestamp": "2021-01-01T01:01:01.000Z", "data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}}
+  ats_get_background_check_package:
+    "":
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          fields: "id,remote_id,name,description,tests"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "description": "Standard background package for hires", "tests": []}}
+  ats_list_background_check_request:
+    "":
+      parameters:
+        query:
+          fields: "id,remote_id,package,application,job,candidate,requester,results_update_url"
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "application": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "application_status": {"value": "hired", "source_value": "Hired"}, "passthrough": {"other_known_names": "John Doe"}}, "job": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "title": "Software Engineer", "passthrough": {"other_known_names": "John Doe"}, "hiring_team": [{"user_id": "123456", "first_name": "John", "last_name": "Doe", "email": "john.doe@gmail.com", "role": "Software Engineer"}]}, "candidate": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "first_name": "Romain", "last_name": "Sestier", "emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "requester": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update", "package": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "description": "Standard background package for hires", "tests": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}]}}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "application": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "application_status": {"value": "hired", "source_value": "Hired"}, "passthrough": {"other_known_names": "John Doe"}}, "job": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "title": "Software Engineer", "passthrough": {"other_known_names": "John Doe"}, "hiring_team": [{"user_id": "123456", "first_name": "John", "last_name": "Doe", "email": "john.doe@gmail.com", "role": "Software Engineer"}, {"user_id": "123456", "first_name": "John", "last_name": "Doe", "email": "john.doe@gmail.com", "role": "Software Engineer"}]}, "candidate": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "first_name": "Romain", "last_name": "Sestier", "emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "requester": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update", "package": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "description": "Standard background package for hires", "tests": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}]}}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "application": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "application_status": {"value": "hired", "source_value": "Hired"}, "passthrough": {"other_known_names": "John Doe"}}, "job": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "title": "Software Engineer", "passthrough": {"other_known_names": "John Doe"}, "hiring_team": [{"user_id": "123456", "first_name": "John", "last_name": "Doe", "email": "john.doe@gmail.com", "role": "Software Engineer"}, {"user_id": "123456", "first_name": "John", "last_name": "Doe", "email": "john.doe@gmail.com", "role": "Software Engineer"}]}, "candidate": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "first_name": "Romain", "last_name": "Sestier", "emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "requester": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}], "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update", "package": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "description": "Standard background package for hires", "tests": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}]}}]}
+  ats_get_background_check_request:
+    "":
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          fields: "id,remote_id,package,application,job,candidate,requester,results_update_url"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "application": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "application_status": {"value": "hired", "source_value": "Hired"}, "passthrough": {"other_known_names": "John Doe"}}, "job": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "title": "Software Engineer", "passthrough": {"other_known_names": "John Doe"}, "hiring_team": [{"user_id": "123456", "first_name": "John", "last_name": "Doe", "email": "john.doe@gmail.com", "role": "Software Engineer"}]}, "candidate": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "first_name": "Romain", "last_name": "Sestier", "emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "requester": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update", "package": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "description": "Standard background package for hires", "tests": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "description": "Skills test to gauge a candidate's proficiency in job-specific skills"}]}}}
+  ats_get_background_check_result:
+    "":
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          fields: "id,remote_id,candidate,score,start_date,submission_date,summary,result,result_url,attachments"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "candidate": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "profile_url": "https://exmaple.com/candidate?id=xyz"}, "score": {"label": "Percentage", "value": "80", "min": "0", "max": "100"}, "start_date": "2021-01-01T01:01:01.000Z", "submission_date": "2021-01-01T01:01:01.000Z", "summary": "Test is passed", "result": {"value": "passed", "source_value": "Passed"}, "result_url": "https://exmaple.com/result?id=xyz", "attachments": [{"url": "http://example.com/resume.pdf", "content_type": {"value": "text", "source_value": "Text"}}, {"url": "http://example.com/resume.pdf", "content_type": {"value": "text", "source_value": "Text"}}, {"url": "http://example.com/resume.pdf", "content_type": {"value": "text", "source_value": "Text"}}]}
+  lms_create_user_assignment:
+    speakeasy-default-lms-create-user-assignment:
+      parameters:
+        path:
+          id: "<id>"
+        header:
+          x-account-id: "<id>"
+      requestBody:
+        application/json: {"passthrough": {"other_known_names": "John Doe"}, "learning_object_id": "e3gd34-23tr21-er234-345er56", "learning_object_external_reference": "learning-content-123", "progress": "40", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "status": {"value": "pending"}}
+      responses:
+        "201":
+          application/json: {"statusCode": 201, "message": "Record created successfully.", "timestamp": "2021-01-01T01:01:01.000Z", "data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}}
+generatedTests: {}

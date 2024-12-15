@@ -46,10 +46,10 @@ class HrisListEmployeesRequest
     /**
      * HRIS Employees filters
      *
-     * @var ?QueryParamFilter $filter
+     * @var ?HrisListEmployeesQueryParamFilter $filter
      */
     #[SpeakeasyMetadata('queryParam:style=deepObject,explode=true,name=filter')]
-    public ?QueryParamFilter $filter = null;
+    public ?HrisListEmployeesQueryParamFilter $filter = null;
 
     /**
      * The page number of the results to fetch
@@ -106,7 +106,7 @@ class HrisListEmployeesRequest
      * @param  ?bool  $raw
      * @param  ?array<string, mixed>  $proxy
      * @param  ?string  $fields
-     * @param  ?QueryParamFilter  $filter
+     * @param  ?HrisListEmployeesQueryParamFilter  $filter
      * @param  ?string  $page
      * @param  ?string  $pageSize
      * @param  ?string  $next
@@ -114,7 +114,7 @@ class HrisListEmployeesRequest
      * @param  ?string  $expand
      * @param  ?string  $include
      */
-    public function __construct(string $xAccountId, ?array $proxy = null, ?string $fields = null, ?QueryParamFilter $filter = null, ?string $page = null, ?string $next = null, ?string $updatedAfter = null, ?string $expand = null, ?string $include = null, ?bool $raw = false, ?string $pageSize = '25')
+    public function __construct(string $xAccountId, ?array $proxy = null, ?string $fields = null, ?HrisListEmployeesQueryParamFilter $filter = null, ?string $page = null, ?string $next = null, ?string $updatedAfter = null, ?string $expand = null, ?string $include = null, ?bool $raw = false, ?string $pageSize = '25')
     {
         $this->xAccountId = $xAccountId;
         $this->raw = $raw;

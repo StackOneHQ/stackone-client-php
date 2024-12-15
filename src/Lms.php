@@ -74,6 +74,8 @@ class Lms
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -120,6 +122,8 @@ class Lms
                 throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -177,6 +181,8 @@ class Lms
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -223,6 +229,8 @@ class Lms
                 throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -271,6 +279,68 @@ class Lms
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
+     * Create User Assignment
+     *
+     * @param  Components\LmsCreateAssignmentRequestDto  $lmsCreateAssignmentRequestDto
+     * @param  string  $xAccountId
+     * @param  string  $id
+     * @return Operations\LmsCreateUserAssignmentResponse
+     * @throws \StackOne\client\Models\Errors\SDKException
+     */
+    public function createUserAssignment(Components\LmsCreateAssignmentRequestDto $lmsCreateAssignmentRequestDto, string $xAccountId, string $id): Operations\LmsCreateUserAssignmentResponse
+    {
+        $request = new Operations\LmsCreateUserAssignmentRequest(
+            xAccountId: $xAccountId,
+            id: $id,
+            lmsCreateAssignmentRequestDto: $lmsCreateAssignmentRequestDto,
+        );
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/unified/lms/users/{id}/assignments', Operations\LmsCreateUserAssignmentRequest::class, $request);
+        $options = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request, 'lmsCreateAssignmentRequestDto', 'json');
+        if ($body === null) {
+            throw new \Exception('Request body is required');
+        }
+        $options = array_merge_recursive($options, $body);
+        $options = array_merge_recursive($options, Utils\Utils::getHeaders($request));
+        if (! array_key_exists('headers', $options)) {
+            $options['headers'] = [];
+        }
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
+
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode == 201) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\StackOne\client\Models\Components\CreateResult', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\LmsCreateUserAssignmentResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    createResult: $obj);
+
+                return $response;
+            } else {
+                throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -317,6 +387,8 @@ class Lms
                 throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -374,6 +446,8 @@ class Lms
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -420,6 +494,8 @@ class Lms
                 throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -477,6 +553,8 @@ class Lms
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -524,6 +602,8 @@ class Lms
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -570,6 +650,8 @@ class Lms
                 throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -629,6 +711,8 @@ class Lms
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -675,6 +759,8 @@ class Lms
                 throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -723,6 +809,8 @@ class Lms
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -769,6 +857,8 @@ class Lms
                 throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -817,6 +907,8 @@ class Lms
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -863,6 +955,8 @@ class Lms
                 throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -911,6 +1005,8 @@ class Lms
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -957,6 +1053,8 @@ class Lms
                 throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -1005,6 +1103,8 @@ class Lms
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -1051,6 +1151,8 @@ class Lms
                 throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -1099,6 +1201,8 @@ class Lms
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -1145,6 +1249,8 @@ class Lms
                 throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -1201,6 +1307,8 @@ class Lms
                 throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
@@ -1259,6 +1367,8 @@ class Lms
                 throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
         } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode == 412 || $statusCode == 429 || $statusCode >= 400 && $statusCode < 500 || $statusCode == 500 || $statusCode == 501 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif ($statusCode == 408) {
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);

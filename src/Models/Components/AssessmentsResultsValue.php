@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
-/** The result of the assessment. */
+/** The result of the test. */
 enum AssessmentsResultsValue: string
 {
     case Cancelled = 'cancelled';

@@ -22,5 +22,5 @@ targets:
                 token: $PACKAGIST_TOKEN
         codeSamples:
             registry:
-                location: registry.speakeasyapi.dev/stackone/stackone/stackone-specs-code-samples
+                location: registry.speakeasyapi.dev/stackone/stackone/stackone-specs-php-code-samples
             blocking: false

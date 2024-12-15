@@ -30,7 +30,7 @@ class AssessmentsPackages
     public ?string $remoteId = null;
 
     /**
-     * Assessment name
+     * Package name
      *
      * @var ?string $name
      */
@@ -39,16 +39,7 @@ class AssessmentsPackages
     public ?string $name = null;
 
     /**
-     *
-     * @var ?AssessmentsPackagesType $type
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\AssessmentsPackagesType|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?AssessmentsPackagesType $type = null;
-
-    /**
-     * Assessment description
+     * Package description
      *
      * @var ?string $description
      */
@@ -60,15 +51,13 @@ class AssessmentsPackages
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?string  $name
-     * @param  ?AssessmentsPackagesType  $type
      * @param  ?string  $description
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?AssessmentsPackagesType $type = null, ?string $description = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?string $description = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
         $this->name = $name;
-        $this->type = $type;
         $this->description = $description;
     }
 }

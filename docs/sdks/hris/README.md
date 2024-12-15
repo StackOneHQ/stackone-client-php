@@ -7,6 +7,8 @@
 
 * [listCompanies](#listcompanies) - List Companies
 * [getCompany](#getcompany) - Get Company
+* [listEmployeeCustomFieldDefinitions](#listemployeecustomfielddefinitions) - List employee Custom Field Definitions
+* [getEmployeeCustomFieldDefinition](#getemployeecustomfielddefinition) - Get employee Custom Field Definition
 * [listEmployees](#listemployees) - List Employees
 * [createEmployee](#createemployee) - Creates an employee
 * [getEmployee](#getemployee) - Get Employee
@@ -158,6 +160,117 @@ if ($response->companyResult !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\SDKException | 4XX, 5XX            | \*/\*               |
 
+## listEmployeeCustomFieldDefinitions
+
+List employee Custom Field Definitions
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+
+$security = new Components\Security(
+    username: '',
+    password: '',
+);
+
+$sdk = client\StackOne::builder()->setSecurity($security)->build();
+
+$request = new Operations\HrisListEmployeeCustomFieldDefinitionsRequest(
+    xAccountId: '<id>',
+    fields: 'id,remote_id,name,description,type,options',
+    filter: new Operations\QueryParamFilter(
+        updatedAfter: '2020-01-01T00:00:00.000Z',
+    ),
+);
+
+$response = $sdk->hris->listEmployeeCustomFieldDefinitions(
+    request: $request
+);
+
+if ($response->customFieldDefinitionsPaginated !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                            | Type                                                                                                                                 | Required                                                                                                                             | Description                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                                                           | [Operations\HrisListEmployeeCustomFieldDefinitionsRequest](../../Models/Operations/HrisListEmployeeCustomFieldDefinitionsRequest.md) | :heavy_check_mark:                                                                                                                   | The request object to use for the request.                                                                                           |
+
+### Response
+
+**[?Operations\HrisListEmployeeCustomFieldDefinitionsResponse](../../Models/Operations/HrisListEmployeeCustomFieldDefinitionsResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## getEmployeeCustomFieldDefinition
+
+Get employee Custom Field Definition
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+
+$security = new Components\Security(
+    username: '',
+    password: '',
+);
+
+$sdk = client\StackOne::builder()->setSecurity($security)->build();
+
+$request = new Operations\HrisGetEmployeeCustomFieldDefinitionRequest(
+    xAccountId: '<id>',
+    id: '<id>',
+    fields: 'id,remote_id,name,description,type,options',
+    filter: new Operations\HrisGetEmployeeCustomFieldDefinitionQueryParamFilter(
+        updatedAfter: '2020-01-01T00:00:00.000Z',
+    ),
+);
+
+$response = $sdk->hris->getEmployeeCustomFieldDefinition(
+    request: $request
+);
+
+if ($response->customFieldDefinitionResultApiModel !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                        | Type                                                                                                                             | Required                                                                                                                         | Description                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                                       | [Operations\HrisGetEmployeeCustomFieldDefinitionRequest](../../Models/Operations/HrisGetEmployeeCustomFieldDefinitionRequest.md) | :heavy_check_mark:                                                                                                               | The request object to use for the request.                                                                                       |
+
+### Response
+
+**[?Operations\HrisGetEmployeeCustomFieldDefinitionResponse](../../Models/Operations/HrisGetEmployeeCustomFieldDefinitionResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
 ## listEmployees
 
 List Employees
@@ -182,11 +295,11 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 
 $request = new Operations\HrisListEmployeesRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number',
-    filter: new Operations\QueryParamFilter(
+    fields: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number',
+    filter: new Operations\HrisListEmployeesQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
     ),
-    expand: 'company,employments,work_location,home_location,custom_fields,groups',
+    expand: 'company,employments,work_location,home_location,groups',
     include: 'avatar_url,avatar,custom_fields,job_description,benefits',
 );
 
@@ -326,6 +439,7 @@ $hrisCreateEmployeeRequestDto = new Components\HrisCreateEmployeeRequestDto(
             updatedAt: Utils\Utils::parseDateTime('2021-01-01T00:00:00Z'),
         ),
     ],
+    employeeNumber: '125',
     nationalIdentityNumber: new Components\HrisCreateEmployeeRequestDtoNationalIdentityNumber(
         value: '123456789',
         type: new Components\HrisCreateEmployeeRequestDtoType(
@@ -367,6 +481,13 @@ $hrisCreateEmployeeRequestDto = new Components\HrisCreateEmployeeRequestDto(
         ],
         state: new Components\HrisCreateEmployeeRequestDtoState(),
     ),
+    costCenters: [
+        new Components\CreateCostCenterApiModel(
+            id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+            name: 'R&D',
+            distributionPercentage: 100,
+        ),
+    ],
     passthrough: [
         'other_known_names' => 'John Doe',
     ],
@@ -425,8 +546,8 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 $request = new Operations\HrisGetEmployeeRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number',
-    expand: 'company,employments,work_location,home_location,custom_fields,groups',
+    fields: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number',
+    expand: 'company,employments,work_location,home_location,groups',
     include: 'avatar_url,avatar,custom_fields,job_description,benefits',
 );
 
@@ -566,6 +687,7 @@ $hrisCreateEmployeeRequestDto = new Components\HrisCreateEmployeeRequestDto(
             updatedAt: Utils\Utils::parseDateTime('2021-01-01T00:00:00Z'),
         ),
     ],
+    employeeNumber: '125',
     nationalIdentityNumber: new Components\HrisCreateEmployeeRequestDtoNationalIdentityNumber(
         value: '123456789',
         type: new Components\HrisCreateEmployeeRequestDtoType(
@@ -607,6 +729,13 @@ $hrisCreateEmployeeRequestDto = new Components\HrisCreateEmployeeRequestDto(
         ],
         state: new Components\HrisCreateEmployeeRequestDtoState(),
     ),
+    costCenters: [
+        new Components\CreateCostCenterApiModel(
+            id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+            name: 'R&D',
+            distributionPercentage: 100,
+        ),
+    ],
     passthrough: [
         'other_known_names' => 'John Doe',
     ],

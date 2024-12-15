@@ -41,7 +41,7 @@ $request = new Components\ConnectSessionCreate(
         Components\Categories::Marketing,
         Components\Categories::Lms,
         Components\Categories::Ats,
-        Components\Categories::Lms,
+        Components\Categories::Documents,
     ],
 );
 
@@ -49,7 +49,7 @@ $response = $sdk->connectSessions->createConnectSession(
     request: $request
 );
 
-if ($response->connectSessionToken !== null) {
+if ($response->connectSessionTokenAuthLink !== null) {
     // handle response
 }
 ```

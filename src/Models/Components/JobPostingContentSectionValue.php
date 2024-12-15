@@ -15,4 +15,7 @@ enum JobPostingContentSectionValue: string
     case Responsibilities = 'responsibilities';
     case Skills = 'skills';
     case Benefits = 'benefits';
+    case CompanyOverview = 'company_overview';
+    case Description = 'description';
+    case Other = 'other';
 }

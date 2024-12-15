@@ -58,7 +58,7 @@ class Assignment
     public ?string $remoteLearningObjectId = null;
 
     /**
-     * The learning_object_external_reference associated with this assignment
+     * The external reference of the learning object associated with this assignment
      *
      * @var ?string $learningObjectExternalReference
      */
@@ -105,12 +105,12 @@ class Assignment
     /**
      * The status of the assignment
      *
-     * @var ?array<AssignmentStatusEnum> $status
+     * @var ?AssignmentStatus $status
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\AssignmentStatusEnum>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\AssignmentStatus|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $status = null;
+    public ?AssignmentStatus $status = null;
 
     /**
      * The learning object type of the assignment
@@ -171,14 +171,14 @@ class Assignment
      * @param  ?string  $updatedAt
      * @param  ?string  $createdAt
      * @param  ?string  $dueDate
-     * @param  ?array<AssignmentStatusEnum>  $status
+     * @param  ?AssignmentStatus  $status
      * @param  ?LearningObjectType  $learningObjectType
      * @param  ?string  $userId
      * @param  ?string  $remoteUserId
      * @param  ?string  $courseId
      * @param  ?string  $remoteCourseId
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $learningObjectId = null, ?string $remoteLearningObjectId = null, ?string $learningObjectExternalReference = null, ?float $progress = null, ?string $updatedAt = null, ?string $createdAt = null, ?string $dueDate = null, ?array $status = null, ?LearningObjectType $learningObjectType = null, ?string $userId = null, ?string $remoteUserId = null, ?string $courseId = null, ?string $remoteCourseId = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $learningObjectId = null, ?string $remoteLearningObjectId = null, ?string $learningObjectExternalReference = null, ?float $progress = null, ?string $updatedAt = null, ?string $createdAt = null, ?string $dueDate = null, ?AssignmentStatus $status = null, ?LearningObjectType $learningObjectType = null, ?string $userId = null, ?string $remoteUserId = null, ?string $courseId = null, ?string $remoteCourseId = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;

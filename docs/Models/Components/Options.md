@@ -21,10 +21,10 @@ float $value = /* values here */
 bool $value = /* values here */
 ```
 
-### `Components\Options4`
+### `Components\Four`
 
 ```php
-Components\Options4 $value = /* values here */
+Components\Four $value = /* values here */
 ```
 
 ### `array<mixed>`

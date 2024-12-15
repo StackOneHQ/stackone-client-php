@@ -11,7 +11,7 @@ namespace StackOne\client\Models\Components;
 
 enum AssignmentValue: string
 {
-    case Content = 'content';
-    case Course = 'course';
-    case Collection = 'collection';
+    case Pending = 'pending';
+    case InProgress = 'in_progress';
+    case Completed = 'completed';
 }

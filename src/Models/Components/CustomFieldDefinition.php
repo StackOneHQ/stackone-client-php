@@ -48,12 +48,12 @@ class CustomFieldDefinition
     /**
      * The type of the custom field.
      *
-     * @var ?CustomFieldDefinitionType $type
+     * @var ?Type $type
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CustomFieldDefinitionType|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Type|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CustomFieldDefinitionType $type = null;
+    public ?Type $type = null;
 
     /**
      * An array of possible options for the custom field.
@@ -70,10 +70,10 @@ class CustomFieldDefinition
      * @param  ?string  $remoteId
      * @param  ?string  $name
      * @param  ?string  $description
-     * @param  ?CustomFieldDefinitionType  $type
+     * @param  ?Type  $type
      * @param  ?array<mixed>  $options
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?string $description = null, ?CustomFieldDefinitionType $type = null, ?array $options = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?string $description = null, ?Type $type = null, ?array $options = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
