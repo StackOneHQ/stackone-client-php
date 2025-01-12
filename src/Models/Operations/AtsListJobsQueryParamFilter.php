@@ -24,17 +24,28 @@ class AtsListJobsQueryParamFilter
      * The status of the job
      *
      * @var ?Status $status
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[SpeakeasyMetadata('queryParam:name=status')]
     public ?Status $status = null;
 
     /**
+     * The job_status of the job
+     *
+     * @var ?JobStatus $jobStatus
+     */
+    #[SpeakeasyMetadata('queryParam:name=job_status')]
+    public ?JobStatus $jobStatus = null;
+
+    /**
      * @param  ?string  $updatedAfter
      * @param  ?Status  $status
+     * @param  ?JobStatus  $jobStatus
      */
-    public function __construct(?string $updatedAfter = null, ?Status $status = null)
+    public function __construct(?string $updatedAfter = null, ?Status $status = null, ?JobStatus $jobStatus = null)
     {
         $this->updatedAfter = $updatedAfter;
         $this->status = $status;
+        $this->jobStatus = $jobStatus;
     }
 }
