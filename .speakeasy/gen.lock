@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3759371f-a095-4585-b437-50529a0eb248
 management:
-  docChecksum: 81d85fcf17f0a74b6832fd03461f60ea
+  docChecksum: 4fc9787b0a1bd471c20f5b1109dcafd7
   docVersion: 1.0.0
   speakeasyVersion: 1.462.2
   generationVersion: 2.486.1
-  releaseVersion: 0.23.0
-  configChecksum: a0bb5cce24065648c01cfc40ad2a76d3
+  releaseVersion: 0.23.2
+  configChecksum: 4c593310728e806d154cfa7715cb2238
   repoURL: https://github.com/StackOneHQ/stackone-client-php.git
   installationURL: https://github.com/StackOneHQ/stackone-client-php
   published: true
@@ -1352,6 +1352,7 @@ generatedFiles:
   - docs/Models/Operations/IamListUsersQueryParamFilter.md
   - docs/Models/Operations/IamListUsersRequest.md
   - docs/Models/Operations/IamListUsersResponse.md
+  - docs/Models/Operations/JobStatus.md
   - docs/Models/Operations/LearningObjectType.md
   - docs/Models/Operations/LmsBatchUpsertContentRequest.md
   - docs/Models/Operations/LmsBatchUpsertContentResponse.md
@@ -2684,6 +2685,7 @@ generatedFiles:
   - src/Models/Operations/IamListUsersQueryParamFilter.php
   - src/Models/Operations/IamListUsersRequest.php
   - src/Models/Operations/IamListUsersResponse.php
+  - src/Models/Operations/JobStatus.php
   - src/Models/Operations/LearningObjectType.php
   - src/Models/Operations/LmsBatchUpsertContentRequest.php
   - src/Models/Operations/LmsBatchUpsertContentResponse.php
