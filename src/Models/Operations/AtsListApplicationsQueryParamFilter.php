@@ -21,6 +21,14 @@ class AtsListApplicationsQueryParamFilter
     public ?string $updatedAfter = null;
 
     /**
+     * Use a string with a date to only select results created after that given date
+     *
+     * @var ?string $createdAfter
+     */
+    #[SpeakeasyMetadata('queryParam:name=created_after')]
+    public ?string $createdAfter = null;
+
+    /**
      * Filter to select applications by job_id
      *
      * @var ?string $jobId
@@ -38,12 +46,14 @@ class AtsListApplicationsQueryParamFilter
 
     /**
      * @param  ?string  $updatedAfter
+     * @param  ?string  $createdAfter
      * @param  ?string  $jobId
      * @param  ?string  $stage
      */
-    public function __construct(?string $updatedAfter = null, ?string $jobId = null, ?string $stage = null)
+    public function __construct(?string $updatedAfter = null, ?string $createdAfter = null, ?string $jobId = null, ?string $stage = null)
     {
         $this->updatedAfter = $updatedAfter;
+        $this->createdAfter = $createdAfter;
         $this->jobId = $jobId;
         $this->stage = $stage;
     }

@@ -153,6 +153,15 @@ class Course
     public ?array $skills = null;
 
     /**
+     * The name of the course provider
+     *
+     * @var ?string $provider
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('provider')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $provider = null;
+
+    /**
      * The date on which the course was last updated.
      *
      * @var ?string $updatedAt
@@ -186,10 +195,11 @@ class Course
      * @param  ?string  $duration
      * @param  ?array<Category>  $categories
      * @param  ?array<Skills>  $skills
+     * @param  ?string  $provider
      * @param  ?string  $updatedAt
      * @param  ?string  $createdAt
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $externalReference = null, ?array $contentIds = null, ?array $remoteContentIds = null, ?string $title = null, ?string $description = null, ?array $languages = null, ?string $coverUrl = null, ?string $url = null, ?bool $active = null, ?string $duration = null, ?array $categories = null, ?array $skills = null, ?string $updatedAt = null, ?string $createdAt = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $externalReference = null, ?array $contentIds = null, ?array $remoteContentIds = null, ?string $title = null, ?string $description = null, ?array $languages = null, ?string $coverUrl = null, ?string $url = null, ?bool $active = null, ?string $duration = null, ?array $categories = null, ?array $skills = null, ?string $provider = null, ?string $updatedAt = null, ?string $createdAt = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -206,6 +216,7 @@ class Course
         $this->duration = $duration;
         $this->categories = $categories;
         $this->skills = $skills;
+        $this->provider = $provider;
         $this->updatedAt = $updatedAt;
         $this->createdAt = $createdAt;
     }

@@ -143,6 +143,15 @@ class LmsUpsertContentRequestDto
     public ?float $order = null;
 
     /**
+     * The name of the content provider
+     *
+     * @var ?string $provider
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('provider')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $provider = null;
+
+    /**
      * The categories associated with this content
      *
      * @var ?array<CreateCategoriesApiModel> $categories
@@ -167,9 +176,10 @@ class LmsUpsertContentRequestDto
      * @param  ?string  $duration
      * @param  ?array<CreateSkillsApiModel>  $skills
      * @param  ?float  $order
+     * @param  ?string  $provider
      * @param  ?array<CreateCategoriesApiModel>  $categories
      */
-    public function __construct(?array $unifiedCustomFields = null, ?string $externalReference = null, ?array $courseIds = null, ?string $title = null, ?string $description = null, ?string $shortDescription = null, ?array $languages = null, ?string $contentUrl = null, ?LmsUpsertContentRequestDtoContentType $contentType = null, ?string $coverUrl = null, ?bool $active = null, ?string $duration = null, ?array $skills = null, ?float $order = null, ?array $categories = null)
+    public function __construct(?array $unifiedCustomFields = null, ?string $externalReference = null, ?array $courseIds = null, ?string $title = null, ?string $description = null, ?string $shortDescription = null, ?array $languages = null, ?string $contentUrl = null, ?LmsUpsertContentRequestDtoContentType $contentType = null, ?string $coverUrl = null, ?bool $active = null, ?string $duration = null, ?array $skills = null, ?float $order = null, ?string $provider = null, ?array $categories = null)
     {
         $this->unifiedCustomFields = $unifiedCustomFields;
         $this->externalReference = $externalReference;
@@ -185,6 +195,7 @@ class LmsUpsertContentRequestDto
         $this->duration = $duration;
         $this->skills = $skills;
         $this->order = $order;
+        $this->provider = $provider;
         $this->categories = $categories;
     }
 }

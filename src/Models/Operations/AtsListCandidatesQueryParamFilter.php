@@ -21,6 +21,14 @@ class AtsListCandidatesQueryParamFilter
     public ?string $updatedAfter = null;
 
     /**
+     * Use a string with a date to only select results created after that given date
+     *
+     * @var ?string $createdAfter
+     */
+    #[SpeakeasyMetadata('queryParam:name=created_after')]
+    public ?string $createdAfter = null;
+
+    /**
      * Filter to select candidates by email
      *
      * @var ?string $email
@@ -30,11 +38,13 @@ class AtsListCandidatesQueryParamFilter
 
     /**
      * @param  ?string  $updatedAfter
+     * @param  ?string  $createdAfter
      * @param  ?string  $email
      */
-    public function __construct(?string $updatedAfter = null, ?string $email = null)
+    public function __construct(?string $updatedAfter = null, ?string $createdAfter = null, ?string $email = null)
     {
         $this->updatedAfter = $updatedAfter;
+        $this->createdAfter = $createdAfter;
         $this->email = $email;
     }
 }

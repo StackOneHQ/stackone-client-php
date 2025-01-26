@@ -50,16 +50,28 @@ class CreateCategoriesApiModel
     public ?Level $level = null;
 
     /**
+     * The language associated with this category
+     *
+     * @var ?Language $language
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('language')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Language|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Language $language = null;
+
+    /**
      * @param  ?string  $id
      * @param  ?array<string, mixed>  $unifiedCustomFields
      * @param  ?string  $name
      * @param  ?Level  $level
+     * @param  ?Language  $language
      */
-    public function __construct(?string $id = null, ?array $unifiedCustomFields = null, ?string $name = null, ?Level $level = null)
+    public function __construct(?string $id = null, ?array $unifiedCustomFields = null, ?string $name = null, ?Level $level = null, ?Language $language = null)
     {
         $this->id = $id;
         $this->unifiedCustomFields = $unifiedCustomFields;
         $this->name = $name;
         $this->level = $level;
+        $this->language = $language;
     }
 }

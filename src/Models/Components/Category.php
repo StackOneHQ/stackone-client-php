@@ -68,14 +68,25 @@ class Category
     public ?CategoryLevel $level = null;
 
     /**
+     * The language associated with this category
+     *
+     * @var ?CategoryLanguage $language
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('language')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CategoryLanguage|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CategoryLanguage $language = null;
+
+    /**
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?array<string, mixed>  $unifiedCustomFields
      * @param  ?string  $name
      * @param  ?bool  $active
      * @param  ?CategoryLevel  $level
+     * @param  ?CategoryLanguage  $language
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $name = null, ?bool $active = null, ?CategoryLevel $level = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $name = null, ?bool $active = null, ?CategoryLevel $level = null, ?CategoryLanguage $language = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -83,5 +94,6 @@ class Category
         $this->name = $name;
         $this->active = $active;
         $this->level = $level;
+        $this->language = $language;
     }
 }

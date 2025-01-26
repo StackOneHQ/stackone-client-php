@@ -19,6 +19,7 @@ Marketing: The documentation for the StackOne Unified API - MARKETING
 * [stackone/client-sdk](#stackoneclient-sdk)
   * [SDK Installation](#sdk-installation)
   * [SDK Example Usage](#sdk-example-usage)
+  * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Pagination](#pagination)
   * [Error Handling](#error-handling)
@@ -84,6 +85,49 @@ foreach ($responses as $response) {
 ```
 <!-- End SDK Example Usage [usage] -->
 
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name                      | Type | Scheme     |
+| ------------------------- | ---- | ---------- |
+| `username`<br/>`password` | http | HTTP Basic |
+
+You can set the security parameters through the `setSecurity` function on the `SDKBuilder` when initializing the SDK. For example:
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+
+$sdk = client\StackOne::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$request = new Components\ConnectSessionAuthenticate(
+    token: '<value>',
+);
+
+$response = $sdk->connectSessions->authenticateConnectSession(
+    request: $request
+);
+
+if ($response->connectSession !== null) {
+    // handle response
+}
+```
+<!-- End Authentication [security] -->
+
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
@@ -101,6 +145,7 @@ foreach ($responses as $response) {
 ### [ats](docs/sdks/ats/README.md)
 
 * [createApplication](docs/sdks/ats/README.md#createapplication) - Create Application
+* [createApplicationNote](docs/sdks/ats/README.md#createapplicationnote) - Create Application Note
 * [createBackgroundCheckPackage](docs/sdks/ats/README.md#createbackgroundcheckpackage) - Create Background Check Package
 * [createCandidate](docs/sdks/ats/README.md#createcandidate) - Create Candidate
 * [createCandidateNote](docs/sdks/ats/README.md#createcandidatenote) - Create Candidate Note
@@ -110,6 +155,7 @@ foreach ($responses as $response) {
 * [getApplication](docs/sdks/ats/README.md#getapplication) - Get Application
 * [getApplicationCustomFieldDefinition](docs/sdks/ats/README.md#getapplicationcustomfielddefinition) - Get Application Custom Field Definition
 * [getApplicationDocument](docs/sdks/ats/README.md#getapplicationdocument) - Get Application Document
+* [getApplicationNote](docs/sdks/ats/README.md#getapplicationnote) - Get Application Note
 * [getApplicationOffer](docs/sdks/ats/README.md#getapplicationoffer) - Get Application Offer
 * [getApplicationScheduledInterview](docs/sdks/ats/README.md#getapplicationscheduledinterview) - Get Applications scheduled interview
 * [getApplicationScorecard](docs/sdks/ats/README.md#getapplicationscorecard) - Get Application Scorecard
@@ -135,6 +181,7 @@ foreach ($responses as $response) {
 * [getUser](docs/sdks/ats/README.md#getuser) - Get User
 * [listApplicationCustomFieldDefinitions](docs/sdks/ats/README.md#listapplicationcustomfielddefinitions) - List Application Custom Field Definitions
 * [listApplicationDocuments](docs/sdks/ats/README.md#listapplicationdocuments) - List Application Documents
+* [listApplicationNotes](docs/sdks/ats/README.md#listapplicationnotes) - List Application Notes
 * [listApplicationScorecards](docs/sdks/ats/README.md#listapplicationscorecards) - List Application Scorecards
 * [listApplications](docs/sdks/ats/README.md#listapplications) - List Applications
 * [listApplicationsOffers](docs/sdks/ats/README.md#listapplicationsoffers) - List Application Offers
@@ -159,6 +206,7 @@ foreach ($responses as $response) {
 * [moveApplication](docs/sdks/ats/README.md#moveapplication) - Move Application
 * [rejectApplication](docs/sdks/ats/README.md#rejectapplication) - Reject Application
 * [updateApplication](docs/sdks/ats/README.md#updateapplication) - Update an Application
+* [updateApplicationNote](docs/sdks/ats/README.md#updateapplicationnote) - Update an Application Note
 * [updateCandidate](docs/sdks/ats/README.md#updatecandidate) - Update Candidate
 * [updateJob](docs/sdks/ats/README.md#updatejob) - Update Job
 * [uploadApplicationDocument](docs/sdks/ats/README.md#uploadapplicationdocument) - Upload Application Document

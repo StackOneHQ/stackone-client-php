@@ -6,6 +6,7 @@
 ### Available Operations
 
 * [createApplication](#createapplication) - Create Application
+* [createApplicationNote](#createapplicationnote) - Create Application Note
 * [createBackgroundCheckPackage](#createbackgroundcheckpackage) - Create Background Check Package
 * [createCandidate](#createcandidate) - Create Candidate
 * [createCandidateNote](#createcandidatenote) - Create Candidate Note
@@ -15,6 +16,7 @@
 * [getApplication](#getapplication) - Get Application
 * [getApplicationCustomFieldDefinition](#getapplicationcustomfielddefinition) - Get Application Custom Field Definition
 * [getApplicationDocument](#getapplicationdocument) - Get Application Document
+* [getApplicationNote](#getapplicationnote) - Get Application Note
 * [getApplicationOffer](#getapplicationoffer) - Get Application Offer
 * [getApplicationScheduledInterview](#getapplicationscheduledinterview) - Get Applications scheduled interview
 * [getApplicationScorecard](#getapplicationscorecard) - Get Application Scorecard
@@ -40,6 +42,7 @@
 * [getUser](#getuser) - Get User
 * [listApplicationCustomFieldDefinitions](#listapplicationcustomfielddefinitions) - List Application Custom Field Definitions
 * [listApplicationDocuments](#listapplicationdocuments) - List Application Documents
+* [listApplicationNotes](#listapplicationnotes) - List Application Notes
 * [listApplicationScorecards](#listapplicationscorecards) - List Application Scorecards
 * [listApplications](#listapplications) - List Applications
 * [listApplicationsOffers](#listapplicationsoffers) - List Application Offers
@@ -64,6 +67,7 @@
 * [moveApplication](#moveapplication) - Move Application
 * [rejectApplication](#rejectapplication) - Reject Application
 * [updateApplication](#updateapplication) - Update an Application
+* [updateApplicationNote](#updateapplicationnote) - Update an Application Note
 * [updateCandidate](#updatecandidate) - Update Candidate
 * [updateJob](#updatejob) - Update Job
 * [uploadApplicationDocument](#uploadapplicationdocument) - Upload Application Document
@@ -177,6 +181,70 @@ if ($response->createResult !== null) {
 ### Response
 
 **[?Operations\AtsCreateApplicationResponse](../../Models/Operations/AtsCreateApplicationResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## createApplicationNote
+
+Create Application Note
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+
+$security = new Components\Security(
+    username: '',
+    password: '',
+);
+
+$sdk = client\StackOne::builder()->setSecurity($security)->build();
+
+$atsCreateNotesRequestDto = new Components\AtsCreateNotesRequestDto(
+    content: [
+        new Components\NoteContentApiModel(
+            body: 'This candidate seems like a good fit for the role',
+        ),
+    ],
+    authorId: '1234567890',
+    visibility: new Components\AtsCreateNotesRequestDtoVisibility(),
+    passthrough: [
+        'other_known_names' => 'John Doe',
+    ],
+);
+
+$response = $sdk->ats->createApplicationNote(
+    xAccountId: '<id>',
+    id: '<id>',
+    atsCreateNotesRequestDto: $atsCreateNotesRequestDto
+
+);
+
+if ($response->createResult !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                               | *string*                                                                                   | :heavy_check_mark:                                                                         | The account identifier                                                                     |
+| `id`                                                                                       | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `atsCreateNotesRequestDto`                                                                 | [Components\AtsCreateNotesRequestDto](../../Models/Components/AtsCreateNotesRequestDto.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |
+
+### Response
+
+**[?Operations\AtsCreateApplicationNoteResponse](../../Models/Operations/AtsCreateApplicationNoteResponse.md)**
 
 ### Errors
 
@@ -785,6 +853,60 @@ if ($response->atsDocumentResult !== null) {
 ### Response
 
 **[?Operations\AtsGetApplicationDocumentResponse](../../Models/Operations/AtsGetApplicationDocumentResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## getApplicationNote
+
+Get Application Note
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+
+$security = new Components\Security(
+    username: '',
+    password: '',
+);
+
+$sdk = client\StackOne::builder()->setSecurity($security)->build();
+
+$request = new Operations\AtsGetApplicationNoteRequest(
+    xAccountId: '<id>',
+    id: '<id>',
+    subResourceId: '<id>',
+    fields: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at',
+);
+
+$response = $sdk->ats->getApplicationNote(
+    request: $request
+);
+
+if ($response->noteResult !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                         | [Operations\AtsGetApplicationNoteRequest](../../Models/Operations/AtsGetApplicationNoteRequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+
+### Response
+
+**[?Operations\AtsGetApplicationNoteResponse](../../Models/Operations/AtsGetApplicationNoteResponse.md)**
 
 ### Errors
 
@@ -2135,6 +2257,62 @@ if ($response->atsDocumentsPaginated !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\SDKException | 4XX, 5XX            | \*/\*               |
 
+## listApplicationNotes
+
+List Application Notes
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+
+$security = new Components\Security(
+    username: '',
+    password: '',
+);
+
+$sdk = client\StackOne::builder()->setSecurity($security)->build();
+
+$request = new Operations\AtsListApplicationNotesRequest(
+    xAccountId: '<id>',
+    id: '<id>',
+    fields: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at',
+    filter: new Operations\AtsListApplicationNotesQueryParamFilter(
+        updatedAfter: '2020-01-01T00:00:00.000Z',
+    ),
+);
+
+$response = $sdk->ats->listApplicationNotes(
+    request: $request
+);
+
+if ($response->notesPaginated !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                             | [Operations\AtsListApplicationNotesRequest](../../Models/Operations/AtsListApplicationNotesRequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+
+### Response
+
+**[?Operations\AtsListApplicationNotesResponse](../../Models/Operations/AtsListApplicationNotesResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
 ## listApplicationScorecards
 
 List Application Scorecards
@@ -2218,6 +2396,7 @@ $request = new Operations\AtsListApplicationsRequest(
     fields: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate',
     filter: new Operations\AtsListApplicationsQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
+        createdAfter: '2020-01-01T00:00:00.000Z',
     ),
     expand: 'documents',
     include: 'attachments,custom_fields',
@@ -2662,6 +2841,7 @@ $request = new Operations\AtsListCandidatesRequest(
     fields: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at',
     filter: new Operations\AtsListCandidatesQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
+        createdAfter: '2020-01-01T00:00:00.000Z',
     ),
     include: 'custom_fields',
 );
@@ -2828,6 +3008,7 @@ $request = new Operations\AtsListInterviewsRequest(
     fields: 'id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at',
     filter: new Operations\AtsListInterviewsQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
+        createdAfter: '2020-01-01T00:00:00.000Z',
     ),
 );
 
@@ -2938,6 +3119,7 @@ $request = new Operations\AtsListJobPostingsRequest(
     fields: 'id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,updated_at,created_at',
     filter: new Operations\AtsListJobPostingsQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
+        createdAfter: '2020-01-01T00:00:00.000Z',
     ),
     include: 'questionnaires',
 );
@@ -2994,6 +3176,7 @@ $request = new Operations\AtsListJobsRequest(
     fields: 'id,remote_id,code,title,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at',
     filter: new Operations\AtsListJobsQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
+        createdAfter: '2020-01-01T00:00:00.000Z',
     ),
     expand: 'job_postings,interview_stages',
     include: 'custom_fields',
@@ -3484,6 +3667,72 @@ if ($response->updateResult !== null) {
 ### Response
 
 **[?Operations\AtsUpdateApplicationResponse](../../Models/Operations/AtsUpdateApplicationResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## updateApplicationNote
+
+Update an Application Note
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+
+$security = new Components\Security(
+    username: '',
+    password: '',
+);
+
+$sdk = client\StackOne::builder()->setSecurity($security)->build();
+
+$atsUpdateNotesRequestDto = new Components\AtsUpdateNotesRequestDto(
+    content: [
+        new Components\NoteContentApiModel(
+            body: 'This candidate seems like a good fit for the role',
+        ),
+    ],
+    authorId: '1234567890',
+    visibility: new Components\AtsUpdateNotesRequestDtoVisibility(),
+    passthrough: [
+        'other_known_names' => 'John Doe',
+    ],
+);
+
+$response = $sdk->ats->updateApplicationNote(
+    xAccountId: '<id>',
+    id: '<id>',
+    subResourceId: '<id>',
+    atsUpdateNotesRequestDto: $atsUpdateNotesRequestDto
+
+);
+
+if ($response->updateResult !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                               | *string*                                                                                   | :heavy_check_mark:                                                                         | The account identifier                                                                     |
+| `id`                                                                                       | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `subResourceId`                                                                            | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `atsUpdateNotesRequestDto`                                                                 | [Components\AtsUpdateNotesRequestDto](../../Models/Components/AtsUpdateNotesRequestDto.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |
+
+### Response
+
+**[?Operations\AtsUpdateApplicationNoteResponse](../../Models/Operations/AtsUpdateApplicationNoteResponse.md)**
 
 ### Errors
 

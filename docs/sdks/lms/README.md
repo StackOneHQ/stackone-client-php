@@ -83,6 +83,7 @@ $lmsBatchUpsertContentRequestDto = new Components\LmsBatchUpsertContentRequestDt
                 ),
             ],
             order: 1,
+            provider: 'Content Provider',
             categories: [
                 new Components\CreateCategoriesApiModel(
                     id: '16873-IT345',
@@ -91,6 +92,9 @@ $lmsBatchUpsertContentRequestDto = new Components\LmsBatchUpsertContentRequestDt
                         'my_project_custom_field_2' => 'some other value',
                     ],
                     name: 'Information-Technology',
+                    language: new Components\Language(
+                        value: Components\CreateCategoriesApiModelLanguageValue::EnGB,
+                    ),
                 ),
             ],
         ),
@@ -168,6 +172,7 @@ $lmsBatchUpsertCourseRequestDto = new Components\LmsBatchUpsertCourseRequestDto(
             url: 'https://www.linkedinlearning.com/?v=16873',
             active: true,
             duration: 'P3Y6M4DT12H30M5S',
+            provider: 'Course Provider',
             categories: [
                 new Components\CreateCategoriesApiModel(
                     id: '16873-IT345',
@@ -176,6 +181,9 @@ $lmsBatchUpsertCourseRequestDto = new Components\LmsBatchUpsertCourseRequestDto(
                         'my_project_custom_field_2' => 'some other value',
                     ],
                     name: 'Information-Technology',
+                    language: new Components\Language(
+                        value: Components\CreateCategoriesApiModelLanguageValue::EnGB,
+                    ),
                 ),
             ],
             skills: [
@@ -270,6 +278,9 @@ $lmsCreateCollectionRequestDto = new Components\LmsCreateCollectionRequestDto(
                 'my_project_custom_field_2' => 'some other value',
             ],
             name: 'Information-Technology',
+            language: new Components\Language(
+                value: Components\CreateCategoriesApiModelLanguageValue::EnGB,
+            ),
         ),
     ],
     skills: [
@@ -512,7 +523,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 $request = new Operations\LmsGetCategoryRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,name,active,level',
+    fields: 'id,remote_id,name,active,level,language',
 );
 
 $response = $sdk->lms->getCategory(
@@ -617,7 +628,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 $request = new Operations\LmsGetContentRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at',
+    fields: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider',
 );
 
 $response = $sdk->lms->getContent(
@@ -670,7 +681,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 $request = new Operations\LmsGetCourseRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content',
+    fields: 'id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider',
 );
 
 $response = $sdk->lms->getCourse(
@@ -991,7 +1002,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 
 $request = new Operations\LmsListCategoriesRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,name,active,level',
+    fields: 'id,remote_id,name,active,level,language',
     filter: new Operations\LmsListCategoriesQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
     ),
@@ -1101,7 +1112,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 
 $request = new Operations\LmsListContentRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at',
+    fields: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider',
     filter: new Operations\LmsListContentQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
     ),
@@ -1156,7 +1167,7 @@ $sdk = client\StackOne::builder()->setSecurity($security)->build();
 
 $request = new Operations\LmsListCoursesRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content',
+    fields: 'id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider',
     filter: new Operations\LmsListCoursesQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
     ),
@@ -1457,6 +1468,9 @@ $lmsCreateCollectionRequestDto = new Components\LmsCreateCollectionRequestDto(
                 'my_project_custom_field_2' => 'some other value',
             ],
             name: 'Information-Technology',
+            language: new Components\Language(
+                value: Components\CreateCategoriesApiModelLanguageValue::EnGB,
+            ),
         ),
     ],
     skills: [
@@ -1546,6 +1560,7 @@ $lmsUpsertContentRequestDto = new Components\LmsUpsertContentRequestDto(
         ),
     ],
     order: 1,
+    provider: 'Content Provider',
     categories: [
         new Components\CreateCategoriesApiModel(
             id: '16873-IT345',
@@ -1554,6 +1569,9 @@ $lmsUpsertContentRequestDto = new Components\LmsUpsertContentRequestDto(
                 'my_project_custom_field_2' => 'some other value',
             ],
             name: 'Information-Technology',
+            language: new Components\Language(
+                value: Components\CreateCategoriesApiModelLanguageValue::EnGB,
+            ),
         ),
     ],
 );
@@ -1627,6 +1645,7 @@ $lmsUpsertCourseRequestDto = new Components\LmsUpsertCourseRequestDto(
     url: 'https://www.linkedinlearning.com/?v=16873',
     active: true,
     duration: 'P3Y6M4DT12H30M5S',
+    provider: 'Course Provider',
     categories: [
         new Components\CreateCategoriesApiModel(
             id: '16873-IT345',
@@ -1635,6 +1654,9 @@ $lmsUpsertCourseRequestDto = new Components\LmsUpsertCourseRequestDto(
                 'my_project_custom_field_2' => 'some other value',
             ],
             name: 'Information-Technology',
+            language: new Components\Language(
+                value: Components\CreateCategoriesApiModelLanguageValue::EnGB,
+            ),
         ),
     ],
     skills: [

@@ -9,7 +9,11 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Operations;
 
 
-/** The status of the job */
+/**
+ * The status of the job
+ *
+ * @deprecated  enum: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
 enum Status: string
 {
     case Open = 'open';

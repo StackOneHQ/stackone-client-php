@@ -36,7 +36,7 @@ class AtsListInterviewsRequest
     public ?string $fields = null;
 
     /**
-     * Filter parameters that allow greater customisation of the list response
+     * ATS Interviews Filter
      *
      * @var ?AtsListInterviewsQueryParamFilter $filter
      */

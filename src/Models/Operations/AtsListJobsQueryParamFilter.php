@@ -21,20 +21,41 @@ class AtsListJobsQueryParamFilter
     public ?string $updatedAfter = null;
 
     /**
+     * Use a string with a date to only select results created after that given date
+     *
+     * @var ?string $createdAfter
+     */
+    #[SpeakeasyMetadata('queryParam:name=created_after')]
+    public ?string $createdAfter = null;
+
+    /**
      * The status of the job
      *
      * @var ?Status $status
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[SpeakeasyMetadata('queryParam:name=status')]
     public ?Status $status = null;
 
     /**
-     * @param  ?string  $updatedAfter
-     * @param  ?Status  $status
+     * The job_status of the job
+     *
+     * @var ?JobStatus $jobStatus
      */
-    public function __construct(?string $updatedAfter = null, ?Status $status = null)
+    #[SpeakeasyMetadata('queryParam:name=job_status')]
+    public ?JobStatus $jobStatus = null;
+
+    /**
+     * @param  ?string  $updatedAfter
+     * @param  ?string  $createdAfter
+     * @param  ?Status  $status
+     * @param  ?JobStatus  $jobStatus
+     */
+    public function __construct(?string $updatedAfter = null, ?string $createdAfter = null, ?Status $status = null, ?JobStatus $jobStatus = null)
     {
         $this->updatedAfter = $updatedAfter;
+        $this->createdAfter = $createdAfter;
         $this->status = $status;
+        $this->jobStatus = $jobStatus;
     }
 }

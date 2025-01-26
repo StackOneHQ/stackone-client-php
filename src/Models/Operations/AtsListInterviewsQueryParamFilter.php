@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Operations;
 
 use StackOne\client\Utils\SpeakeasyMetadata;
-/** AtsListInterviewsQueryParamFilter - Filter parameters that allow greater customisation of the list response */
+/** AtsListInterviewsQueryParamFilter - ATS Interviews Filter */
 class AtsListInterviewsQueryParamFilter
 {
     /**
@@ -21,10 +21,20 @@ class AtsListInterviewsQueryParamFilter
     public ?string $updatedAfter = null;
 
     /**
-     * @param  ?string  $updatedAfter
+     * Use a string with a date to only select results created after that given date
+     *
+     * @var ?string $createdAfter
      */
-    public function __construct(?string $updatedAfter = null)
+    #[SpeakeasyMetadata('queryParam:name=created_after')]
+    public ?string $createdAfter = null;
+
+    /**
+     * @param  ?string  $updatedAfter
+     * @param  ?string  $createdAfter
+     */
+    public function __construct(?string $updatedAfter = null, ?string $createdAfter = null)
     {
         $this->updatedAfter = $updatedAfter;
+        $this->createdAfter = $createdAfter;
     }
 }
