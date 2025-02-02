@@ -8,6 +8,7 @@ The result of the test.
 | Name        | Value       |
 | ----------- | ----------- |
 | `Cancelled` | cancelled   |
+| `Completed` | completed   |
 | `Expired`   | expired     |
 | `Failed`    | failed      |
 | `Passed`    | passed      |

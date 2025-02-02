@@ -32,19 +32,19 @@ class AdditionalData
     /**
      * The value of the additional data
      *
-     * @var ?AdditionalDataValue $value
+     * @var string|array<string>|null $value
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\AdditionalDataValue|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|array<string>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?AdditionalDataValue $value = null;
+    public string|array|null $value = null;
 
     /**
      * @param  ?string  $id
      * @param  ?string  $remoteId
-     * @param  ?AdditionalDataValue  $value
+     * @param  string|array<string>|null  $value
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?AdditionalDataValue $value = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, string|array|null $value = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;

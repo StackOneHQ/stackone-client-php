@@ -13,6 +13,7 @@ namespace StackOne\client\Models\Components;
 enum BackgroundCheckResultValue: string
 {
     case Cancelled = 'cancelled';
+    case Completed = 'completed';
     case Expired = 'expired';
     case Failed = 'failed';
     case Passed = 'passed';

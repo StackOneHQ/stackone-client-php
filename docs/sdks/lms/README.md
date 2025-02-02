@@ -72,7 +72,7 @@ $lmsBatchUpsertContentRequestDto = new Components\LmsBatchUpsertContentRequestDt
                 new Components\AdditionalData(
                     id: 'learning_outcomes',
                     remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-                    value: new Components\AdditionalDataValue(),
+                    value: 'This is additional data',
                 ),
             ],
             languages: [
@@ -1603,7 +1603,7 @@ $lmsUpsertContentRequestDto = new Components\LmsUpsertContentRequestDto(
         new Components\AdditionalData(
             id: 'learning_outcomes',
             remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-            value: new Components\AdditionalDataValue(),
+            value: 'This is additional data',
         ),
     ],
     languages: [

@@ -3,7 +3,23 @@
 The value of the additional data
 
 
-## Fields
+## Supported Types
 
-| Field       | Type        | Required    | Description |
-| ----------- | ----------- | ----------- | ----------- |
+### `string`
+
+```php
+/**
+* @var string
+*/
+string $value = /* values here */
+```
+
+### `array`
+
+```php
+/**
+* @var array<string>
+*/
+array $value = /* values here */
+```
+
