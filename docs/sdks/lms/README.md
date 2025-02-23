@@ -816,7 +816,7 @@ $sdk = client\StackOne::builder()
 $request = new Operations\LmsGetSkillRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,name,active,level,language,hierarchy,proficiency',
+    fields: 'id,remote_id,name,active,hierarchy,language',
 );
 
 $response = $sdk->lms->getSkill(
@@ -1337,7 +1337,7 @@ $sdk = client\StackOne::builder()
 
 $request = new Operations\LmsListSkillsRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,name,active,level,language,hierarchy,proficiency',
+    fields: 'id,remote_id,name,active,hierarchy,language',
     filter: new Operations\LmsListSkillsQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
     ),
