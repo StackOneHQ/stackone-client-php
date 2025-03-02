@@ -89,6 +89,15 @@ class HRISCostCenter
     public ?array $remoteOwnerIds = null;
 
     /**
+     * The distribution percentage for cost_center
+     *
+     * @var ?float $distributionPercentage
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('distribution_percentage')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?float $distributionPercentage = null;
+
+    /**
      * The type of the group
      *
      * @var ?HRISCostCenterType $type
@@ -107,10 +116,11 @@ class HRISCostCenter
      * @param  ?array<string>  $remoteParentIds
      * @param  ?array<string>  $ownerIds
      * @param  ?array<string>  $remoteOwnerIds
+     * @param  ?float  $distributionPercentage
      * @param  ?HRISCostCenterType  $type
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $name = null, ?array $parentIds = null, ?array $remoteParentIds = null, ?array $ownerIds = null, ?array $remoteOwnerIds = null, ?HRISCostCenterType $type = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $name = null, ?array $parentIds = null, ?array $remoteParentIds = null, ?array $ownerIds = null, ?array $remoteOwnerIds = null, ?float $distributionPercentage = null, ?HRISCostCenterType $type = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -120,6 +130,7 @@ class HRISCostCenter
         $this->remoteParentIds = $remoteParentIds;
         $this->ownerIds = $ownerIds;
         $this->remoteOwnerIds = $remoteOwnerIds;
+        $this->distributionPercentage = $distributionPercentage;
         $this->type = $type;
     }
 }

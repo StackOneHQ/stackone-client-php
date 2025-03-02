@@ -104,4 +104,5 @@ The ISO639-2 Code of the language
 | `Tha`           | tha             |
 | `Tir`           | tir             |
 | `Tig`           | tig             |
+| `Zho`           | zho             |
 | `UnmappedValue` | unmapped_value  |

@@ -13,6 +13,7 @@ namespace StackOne\client\Models\Components;
 class TimeOffPoliciesType
 {
     /**
+     * The unified value for the type of the time off policy. If the provider does not specify this unit, the value will be set to unmapped_value
      *
      * @var ?TimeOffPoliciesValue $value
      */

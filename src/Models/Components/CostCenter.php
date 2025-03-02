@@ -9,7 +9,11 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
-/** CostCenter - The employee cost_center */
+/**
+ * CostCenter - The employee cost_center
+ *
+ * @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
 class CostCenter
 {
     /**
@@ -90,6 +94,16 @@ class CostCenter
     public ?array $remoteOwnerIds = null;
 
     /**
+     * The type of the group
+     *
+     * @var ?EmploymentCostCenterType $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\EmploymentCostCenterType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?EmploymentCostCenterType $type = null;
+
+    /**
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?array<string, mixed>  $unifiedCustomFields
@@ -98,9 +112,10 @@ class CostCenter
      * @param  ?array<string>  $remoteParentIds
      * @param  ?array<string>  $ownerIds
      * @param  ?array<string>  $remoteOwnerIds
+     * @param  ?EmploymentCostCenterType  $type
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $name = null, ?array $parentIds = null, ?array $remoteParentIds = null, ?array $ownerIds = null, ?array $remoteOwnerIds = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $name = null, ?array $parentIds = null, ?array $remoteParentIds = null, ?array $ownerIds = null, ?array $remoteOwnerIds = null, ?EmploymentCostCenterType $type = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -110,5 +125,6 @@ class CostCenter
         $this->remoteParentIds = $remoteParentIds;
         $this->ownerIds = $ownerIds;
         $this->remoteOwnerIds = $remoteOwnerIds;
+        $this->type = $type;
     }
 }

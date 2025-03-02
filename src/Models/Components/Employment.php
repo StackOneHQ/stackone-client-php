@@ -204,11 +204,22 @@ class Employment
      * The employee cost_center
      *
      * @var ?CostCenter $costCenter
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('cost_center')]
     #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CostCenter|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CostCenter $costCenter = null;
+
+    /**
+     * The employee cost_centers
+     *
+     * @var ?array<HRISCostCenter> $costCenters
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cost_centers')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\HRISCostCenter>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $costCenters = null;
 
     /**
      * The employee division
@@ -282,6 +293,7 @@ class Employment
      * @param  ?bool  $active
      * @param  ?EmploymentDepartment  $department
      * @param  ?CostCenter  $costCenter
+     * @param  ?array<HRISCostCenter>  $costCenters
      * @param  ?Division  $division
      * @param  ?EmploymentJob  $job
      * @param  ?EmploymentType1  $type
@@ -289,7 +301,7 @@ class Employment
      * @param  ?array<EmploymentManagerApiModel>  $manager
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?string $jobTitle = null, ?string $payRate = null, ?PayPeriod $payPeriod = null, ?PayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $effectiveDate = null, ?EmploymentEmploymentType $employmentType = null, ?EmploymentEmploymentContractType $employmentContractType = null, ?string $timeWorked = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?\DateTime $startDate = null, ?\DateTime $endDate = null, ?bool $active = null, ?EmploymentDepartment $department = null, ?CostCenter $costCenter = null, ?Division $division = null, ?EmploymentJob $job = null, ?EmploymentType1 $type = null, ?ContractType $contractType = null, ?array $manager = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?string $jobTitle = null, ?string $payRate = null, ?PayPeriod $payPeriod = null, ?PayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $effectiveDate = null, ?EmploymentEmploymentType $employmentType = null, ?EmploymentEmploymentContractType $employmentContractType = null, ?string $timeWorked = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?\DateTime $startDate = null, ?\DateTime $endDate = null, ?bool $active = null, ?EmploymentDepartment $department = null, ?CostCenter $costCenter = null, ?array $costCenters = null, ?Division $division = null, ?EmploymentJob $job = null, ?EmploymentType1 $type = null, ?ContractType $contractType = null, ?array $manager = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -312,6 +324,7 @@ class Employment
         $this->active = $active;
         $this->department = $department;
         $this->costCenter = $costCenter;
+        $this->costCenters = $costCenters;
         $this->division = $division;
         $this->job = $job;
         $this->type = $type;

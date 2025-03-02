@@ -18,28 +18,28 @@ class Level
 {
     /**
      *
-     * @var ?CreateCategoriesApiModelLevelValue $value
+     * @var ?CategoryLevelValue $value
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CreateCategoriesApiModelLevelValue|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CategoryLevelValue|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CreateCategoriesApiModelLevelValue $value = null;
+    public ?CategoryLevelValue $value = null;
 
     /**
      *
-     * @var string|float|bool|CreateCategoriesApiModelSourceValueLevel4|array<mixed>|null $sourceValue
+     * @var string|float|bool|CategorySourceValueLevel4|array<mixed>|null $sourceValue
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source_value')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\CreateCategoriesApiModelSourceValueLevel4|array<mixed>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\CategorySourceValueLevel4|array<mixed>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|float|bool|CreateCategoriesApiModelSourceValueLevel4|array|null $sourceValue = null;
+    public string|float|bool|CategorySourceValueLevel4|array|null $sourceValue = null;
 
     /**
-     * @param  ?CreateCategoriesApiModelLevelValue  $value
-     * @param  string|float|bool|CreateCategoriesApiModelSourceValueLevel4|array<mixed>|null  $sourceValue
+     * @param  ?CategoryLevelValue  $value
+     * @param  string|float|bool|CategorySourceValueLevel4|array<mixed>|null  $sourceValue
      * @phpstan-pure
      */
-    public function __construct(?CreateCategoriesApiModelLevelValue $value = null, string|float|bool|CreateCategoriesApiModelSourceValueLevel4|array|null $sourceValue = null)
+    public function __construct(?CategoryLevelValue $value = null, string|float|bool|CategorySourceValueLevel4|array|null $sourceValue = null)
     {
         $this->value = $value;
         $this->sourceValue = $sourceValue;

@@ -48,6 +48,15 @@ class CreateContentApiModel
     public ?string $contentUrl = null;
 
     /**
+     * The mobile friendly URL of the content
+     *
+     * @var ?string $mobileLaunchContentUrl
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mobile_launch_content_url')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $mobileLaunchContentUrl = null;
+
+    /**
      * The order of the individual content within a content grouping. This is not applicable for pushing individual content.
      *
      * @var ?float $order
@@ -61,15 +70,17 @@ class CreateContentApiModel
      * @param  ?string  $title
      * @param  ?string  $description
      * @param  ?string  $contentUrl
+     * @param  ?string  $mobileLaunchContentUrl
      * @param  ?float  $order
      * @phpstan-pure
      */
-    public function __construct(?string $externalReference = null, ?string $title = null, ?string $description = null, ?string $contentUrl = null, ?float $order = null)
+    public function __construct(?string $externalReference = null, ?string $title = null, ?string $description = null, ?string $contentUrl = null, ?string $mobileLaunchContentUrl = null, ?float $order = null)
     {
         $this->externalReference = $externalReference;
         $this->title = $title;
         $this->description = $description;
         $this->contentUrl = $contentUrl;
+        $this->mobileLaunchContentUrl = $mobileLaunchContentUrl;
         $this->order = $order;
     }
 }

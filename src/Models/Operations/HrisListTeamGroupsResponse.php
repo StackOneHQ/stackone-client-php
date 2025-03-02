@@ -47,6 +47,10 @@ class HrisListTeamGroupsResponse
     public ?Components\HRISTeamsPaginated $hrisTeamsPaginated = null;
 
     /**
+     * @var \Closure(string): ?HrisListTeamGroupsResponse $next
+     */
+    public \Closure $next;
+    /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
@@ -61,5 +65,18 @@ class HrisListTeamGroupsResponse
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
         $this->hrisTeamsPaginated = $hrisTeamsPaginated;
+    }
+    /**
+     * @param  string  $name
+     * @param  array<mixed>  $args
+     * @return ?HrisListTeamGroupsResponse
+     */
+    public function __call($name, $args): ?HrisListTeamGroupsResponse
+    {
+        if ($name === 'next') {
+            return call_user_func_array($this->next, $args);
+        }
+
+        return null;
     }
 }

@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
+/** The unified value for the type of the time off policy. If the provider does not specify this unit, the value will be set to unmapped_value */
 enum TimeOffPoliciesValue: string
 {
     case Paid = 'paid';

@@ -90,6 +90,16 @@ class EmploymentDepartment
     public ?array $remoteOwnerIds = null;
 
     /**
+     * The type of the group
+     *
+     * @var ?EmploymentDepartmentType $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\EmploymentDepartmentType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?EmploymentDepartmentType $type = null;
+
+    /**
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?array<string, mixed>  $unifiedCustomFields
@@ -98,9 +108,10 @@ class EmploymentDepartment
      * @param  ?array<string>  $remoteParentIds
      * @param  ?array<string>  $ownerIds
      * @param  ?array<string>  $remoteOwnerIds
+     * @param  ?EmploymentDepartmentType  $type
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $name = null, ?array $parentIds = null, ?array $remoteParentIds = null, ?array $ownerIds = null, ?array $remoteOwnerIds = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $name = null, ?array $parentIds = null, ?array $remoteParentIds = null, ?array $ownerIds = null, ?array $remoteOwnerIds = null, ?EmploymentDepartmentType $type = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -110,5 +121,6 @@ class EmploymentDepartment
         $this->remoteParentIds = $remoteParentIds;
         $this->ownerIds = $ownerIds;
         $this->remoteOwnerIds = $remoteOwnerIds;
+        $this->type = $type;
     }
 }

@@ -48,6 +48,24 @@ class InAppTemplate
     public ?array $tags = null;
 
     /**
+     * Date of creation
+     *
+     * @var ?\DateTime $createdAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $createdAt = null;
+
+    /**
+     * Date of last update
+     *
+     * @var ?\DateTime $updatedAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updated_at')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $updatedAt = null;
+
+    /**
      * $messages
      *
      * @var ?array<InAppMessages> $messages
@@ -62,15 +80,19 @@ class InAppTemplate
      * @param  ?string  $remoteId
      * @param  ?string  $name
      * @param  ?array<string>  $tags
+     * @param  ?\DateTime  $createdAt
+     * @param  ?\DateTime  $updatedAt
      * @param  ?array<InAppMessages>  $messages
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?array $tags = null, ?array $messages = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?array $tags = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?array $messages = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
         $this->name = $name;
         $this->tags = $tags;
+        $this->createdAt = $createdAt;
+        $this->updatedAt = $updatedAt;
         $this->messages = $messages;
     }
 }

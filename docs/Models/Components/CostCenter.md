@@ -1,6 +1,8 @@
-# CostCenter
+# ~~CostCenter~~
 
 The employee cost_center
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 
 ## Fields
@@ -15,3 +17,4 @@ The employee cost_center
 | `remoteParentIds`                                                                            | array<*string*>                                                                              | :heavy_minus_sign:                                                                           | Provider's list of parent group remote ids of the given group                                | [<br/>"652434",<br/>"6437241"<br/>]                                                          |
 | `ownerIds`                                                                                   | array<*string*>                                                                              | :heavy_minus_sign:                                                                           | The list of group owner ids of the given group                                               | [<br/>"cxIQNjUyEDM0",<br/>"cxIQNjQzNzA0MQ"<br/>]                                             |
 | `remoteOwnerIds`                                                                             | array<*string*>                                                                              | :heavy_minus_sign:                                                                           | The list of remote group owner ids of the given group                                        | [<br/>"475364",<br/>"4327652"<br/>]                                                          |
+| `type`                                                                                       | [?Components\EmploymentCostCenterType](../../Models/Components/EmploymentCostCenterType.md)  | :heavy_minus_sign:                                                                           | The type of the group                                                                        |                                                                                              |
