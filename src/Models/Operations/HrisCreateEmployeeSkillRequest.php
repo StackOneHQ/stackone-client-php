@@ -29,21 +29,21 @@ class HrisCreateEmployeeSkillRequest
 
     /**
      *
-     * @var Components\HrisSkillsCreateRequestDto $hrisSkillsCreateRequestDto
+     * @var Components\EntitySkillsCreateRequestDto $entitySkillsCreateRequestDto
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public Components\HrisSkillsCreateRequestDto $hrisSkillsCreateRequestDto;
+    public Components\EntitySkillsCreateRequestDto $entitySkillsCreateRequestDto;
 
     /**
      * @param  string  $xAccountId
      * @param  string  $id
-     * @param  Components\HrisSkillsCreateRequestDto  $hrisSkillsCreateRequestDto
+     * @param  Components\EntitySkillsCreateRequestDto  $entitySkillsCreateRequestDto
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, Components\HrisSkillsCreateRequestDto $hrisSkillsCreateRequestDto)
+    public function __construct(string $xAccountId, string $id, Components\EntitySkillsCreateRequestDto $entitySkillsCreateRequestDto)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
-        $this->hrisSkillsCreateRequestDto = $hrisSkillsCreateRequestDto;
+        $this->entitySkillsCreateRequestDto = $entitySkillsCreateRequestDto;
     }
 }

@@ -416,15 +416,25 @@ $sdk = client\StackOne::builder()
     )
     ->build();
 
-$hrisSkillsCreateRequestDto = new Components\HrisSkillsCreateRequestDto(
+$entitySkillsCreateRequestDto = new Components\EntitySkillsCreateRequestDto(
     id: '16873-IT345',
     name: 'Information-Technology',
+    maximumProficiency: new Components\MaximumProficiency(
+        id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+        remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+        name: 'Expert',
+    ),
+    minimumProficiency: new Components\MinimumProficiency(
+        id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+        remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+        name: 'Expert',
+    ),
 );
 
 $response = $sdk->hris->createEmployeeSkill(
     xAccountId: '<id>',
     id: '<id>',
-    hrisSkillsCreateRequestDto: $hrisSkillsCreateRequestDto
+    entitySkillsCreateRequestDto: $entitySkillsCreateRequestDto
 
 );
 
@@ -435,11 +445,11 @@ if ($response->createResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                   | *string*                                                                                       | :heavy_check_mark:                                                                             | The account identifier                                                                         |
-| `id`                                                                                           | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `hrisSkillsCreateRequestDto`                                                                   | [Components\HrisSkillsCreateRequestDto](../../Models/Components/HrisSkillsCreateRequestDto.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `xAccountId`                                                                                       | *string*                                                                                           | :heavy_check_mark:                                                                                 | The account identifier                                                                             |
+| `id`                                                                                               | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `entitySkillsCreateRequestDto`                                                                     | [Components\EntitySkillsCreateRequestDto](../../Models/Components/EntitySkillsCreateRequestDto.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 
 ### Response
 
@@ -858,7 +868,7 @@ $sdk = client\StackOne::builder()
 $request = new Operations\HrisGetCostCenterGroupRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids',
+    fields: 'id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids',
 );
 
 $response = $sdk->hris->getCostCenterGroup(
@@ -1195,7 +1205,7 @@ $request = new Operations\HrisGetEmployeeEmploymentRequest(
     xAccountId: '<id>',
     id: '<id>',
     subResourceId: '<id>',
-    fields: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,division,job,type,contract_type,manager',
+    fields: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager',
     expand: 'groups',
 );
 
@@ -1420,7 +1430,7 @@ $sdk = client\StackOne::builder()
 $request = new Operations\HrisGetEmploymentRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,division,job,type,contract_type,manager',
+    fields: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager',
     expand: 'groups',
 );
 
@@ -2094,7 +2104,7 @@ $sdk = client\StackOne::builder()
 
 $request = new Operations\HrisListCostCenterGroupsRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids',
+    fields: 'id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids',
     filter: new Operations\HrisListCostCenterGroupsQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
     ),
@@ -2393,7 +2403,7 @@ $sdk = client\StackOne::builder()
 $request = new Operations\HrisListEmployeeEmploymentsRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,division,job,type,contract_type,manager',
+    fields: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager',
     filter: new Operations\HrisListEmployeeEmploymentsQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
     ),
@@ -2700,7 +2710,7 @@ $sdk = client\StackOne::builder()
 
 $request = new Operations\HrisListEmploymentsRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,division,job,type,contract_type,manager',
+    fields: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager',
     filter: new Operations\HrisListEmploymentsQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
     ),
@@ -2947,12 +2957,15 @@ $request = new Operations\HrisListTeamGroupsRequest(
     ),
 );
 
-$response = $sdk->hris->listTeamGroups(
+$responses = $sdk->hris->listTeamGroups(
     request: $request
 );
 
-if ($response->hrisTeamsPaginated !== null) {
-    // handle response
+
+foreach ($responses as $response) {
+    if ($response->statusCode === 200) {
+        // handle response
+    }
 }
 ```
 

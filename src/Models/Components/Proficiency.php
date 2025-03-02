@@ -14,28 +14,28 @@ class Proficiency
 {
     /**
      *
-     * @var ?CreateSkillsApiModelProficiencyValue $value
+     * @var ?SkillsProficiencyValue $value
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CreateSkillsApiModelProficiencyValue|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\SkillsProficiencyValue|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CreateSkillsApiModelProficiencyValue $value = null;
+    public ?SkillsProficiencyValue $value = null;
 
     /**
      *
-     * @var string|float|bool|CreateSkillsApiModelSourceValueProficiency4|array<mixed>|null $sourceValue
+     * @var string|float|bool|SkillsSourceValueProficiency4|array<mixed>|null $sourceValue
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source_value')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\CreateSkillsApiModelSourceValueProficiency4|array<mixed>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\SkillsSourceValueProficiency4|array<mixed>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|float|bool|CreateSkillsApiModelSourceValueProficiency4|array|null $sourceValue = null;
+    public string|float|bool|SkillsSourceValueProficiency4|array|null $sourceValue = null;
 
     /**
-     * @param  ?CreateSkillsApiModelProficiencyValue  $value
-     * @param  string|float|bool|CreateSkillsApiModelSourceValueProficiency4|array<mixed>|null  $sourceValue
+     * @param  ?SkillsProficiencyValue  $value
+     * @param  string|float|bool|SkillsSourceValueProficiency4|array<mixed>|null  $sourceValue
      * @phpstan-pure
      */
-    public function __construct(?CreateSkillsApiModelProficiencyValue $value = null, string|float|bool|CreateSkillsApiModelSourceValueProficiency4|array|null $sourceValue = null)
+    public function __construct(?SkillsProficiencyValue $value = null, string|float|bool|SkillsSourceValueProficiency4|array|null $sourceValue = null)
     {
         $this->value = $value;
         $this->sourceValue = $sourceValue;

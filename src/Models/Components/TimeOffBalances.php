@@ -39,6 +39,15 @@ class TimeOffBalances
     public ?string $employeeId = null;
 
     /**
+     * Provider's unique identifier of the employee associated with this balance
+     *
+     * @var ?string $remoteEmployeeId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('remote_employee_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $remoteEmployeeId = null;
+
+    /**
      * The time off policy id associated with this balance
      *
      * @var ?string $policyId
@@ -46,6 +55,15 @@ class TimeOffBalances
     #[\Speakeasy\Serializer\Annotation\SerializedName('policy_id')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $policyId = null;
+
+    /**
+     * Provider's unique identifier of the time off policy id associated with this balance
+     *
+     * @var ?string $remotePolicyId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('remote_policy_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $remotePolicyId = null;
 
     /**
      * The time off policy associated with this balance
@@ -116,7 +134,9 @@ class TimeOffBalances
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?string  $employeeId
+     * @param  ?string  $remoteEmployeeId
      * @param  ?string  $policyId
+     * @param  ?string  $remotePolicyId
      * @param  ?Policy  $policy
      * @param  ?float  $currentBalance
      * @param  ?float  $initialBalance
@@ -126,12 +146,14 @@ class TimeOffBalances
      * @param  ?\DateTime  $updatedAt
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $employeeId = null, ?string $policyId = null, ?Policy $policy = null, ?float $currentBalance = null, ?float $initialBalance = null, ?BalanceUnit $balanceUnit = null, ?\DateTime $balanceStartDate = null, ?\DateTime $balanceExpiryDate = null, ?\DateTime $updatedAt = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?string $policyId = null, ?string $remotePolicyId = null, ?Policy $policy = null, ?float $currentBalance = null, ?float $initialBalance = null, ?BalanceUnit $balanceUnit = null, ?\DateTime $balanceStartDate = null, ?\DateTime $balanceExpiryDate = null, ?\DateTime $updatedAt = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
         $this->employeeId = $employeeId;
+        $this->remoteEmployeeId = $remoteEmployeeId;
         $this->policyId = $policyId;
+        $this->remotePolicyId = $remotePolicyId;
         $this->policy = $policy;
         $this->currentBalance = $currentBalance;
         $this->initialBalance = $initialBalance;

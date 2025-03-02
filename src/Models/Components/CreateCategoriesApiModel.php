@@ -42,44 +42,44 @@ class CreateCategoriesApiModel
     /**
      * The hierarchal level of the category
      *
-     * @var ?Hierarchy $hierarchy
+     * @var ?CreateCategoriesApiModelHierarchy $hierarchy
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('hierarchy')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Hierarchy|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CreateCategoriesApiModelHierarchy|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Hierarchy $hierarchy = null;
+    public ?CreateCategoriesApiModelHierarchy $hierarchy = null;
 
     /**
      * The hierarchal level of the category
      *
-     * @var ?Level $level
+     * @var ?CreateCategoriesApiModelLevel $level
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('level')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Level|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CreateCategoriesApiModelLevel|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Level $level = null;
+    public ?CreateCategoriesApiModelLevel $level = null;
 
     /**
      * The language associated with this category
      *
-     * @var ?Language $language
+     * @var ?CreateCategoriesApiModelLanguage $language
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('language')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Language|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CreateCategoriesApiModelLanguage|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Language $language = null;
+    public ?CreateCategoriesApiModelLanguage $language = null;
 
     /**
      * @param  ?string  $id
      * @param  ?array<string, mixed>  $unifiedCustomFields
      * @param  ?string  $name
-     * @param  ?Hierarchy  $hierarchy
-     * @param  ?Level  $level
-     * @param  ?Language  $language
+     * @param  ?CreateCategoriesApiModelHierarchy  $hierarchy
+     * @param  ?CreateCategoriesApiModelLevel  $level
+     * @param  ?CreateCategoriesApiModelLanguage  $language
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?array $unifiedCustomFields = null, ?string $name = null, ?Hierarchy $hierarchy = null, ?Level $level = null, ?Language $language = null)
+    public function __construct(?string $id = null, ?array $unifiedCustomFields = null, ?string $name = null, ?CreateCategoriesApiModelHierarchy $hierarchy = null, ?CreateCategoriesApiModelLevel $level = null, ?CreateCategoriesApiModelLanguage $language = null)
     {
         $this->id = $id;
         $this->unifiedCustomFields = $unifiedCustomFields;

@@ -36,10 +36,21 @@ class AtsCreateApplicationRequestDtoCandidate
      * The candidate personal phone number
      *
      * @var ?string $phoneNumber
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('phone_number')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $phoneNumber = null;
+
+    /**
+     * List of candidate phone numbers including the type of the number when available
+     *
+     * @var ?array<PhoneNumber> $phoneNumbers
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('phone_numbers')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\PhoneNumber>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $phoneNumbers = null;
 
     /**
      * Candidate name
@@ -137,6 +148,7 @@ class AtsCreateApplicationRequestDtoCandidate
      * @param  ?array<string, mixed>  $passthrough
      * @param  ?array<string, mixed>  $unifiedCustomFields
      * @param  ?string  $phoneNumber
+     * @param  ?array<PhoneNumber>  $phoneNumbers
      * @param  ?string  $name
      * @param  ?string  $firstName
      * @param  ?string  $lastName
@@ -149,11 +161,12 @@ class AtsCreateApplicationRequestDtoCandidate
      * @param  ?array<CustomFields>  $customFields
      * @phpstan-pure
      */
-    public function __construct(?array $passthrough = null, ?array $unifiedCustomFields = null, ?string $phoneNumber = null, ?string $name = null, ?string $firstName = null, ?string $lastName = null, ?string $email = null, ?array $socialLinks = null, ?string $company = null, ?string $title = null, ?\DateTime $hiredAt = null, ?string $country = null, ?array $customFields = null)
+    public function __construct(?array $passthrough = null, ?array $unifiedCustomFields = null, ?string $phoneNumber = null, ?array $phoneNumbers = null, ?string $name = null, ?string $firstName = null, ?string $lastName = null, ?string $email = null, ?array $socialLinks = null, ?string $company = null, ?string $title = null, ?\DateTime $hiredAt = null, ?string $country = null, ?array $customFields = null)
     {
         $this->passthrough = $passthrough;
         $this->unifiedCustomFields = $unifiedCustomFields;
         $this->phoneNumber = $phoneNumber;
+        $this->phoneNumbers = $phoneNumbers;
         $this->name = $name;
         $this->firstName = $firstName;
         $this->lastName = $lastName;

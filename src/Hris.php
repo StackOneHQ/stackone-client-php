@@ -354,13 +354,13 @@ class Hris
     /**
      * Create Employee Skill
      *
-     * @param  Components\HrisSkillsCreateRequestDto  $hrisSkillsCreateRequestDto
+     * @param  Components\EntitySkillsCreateRequestDto  $entitySkillsCreateRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
      * @return Operations\HrisCreateEmployeeSkillResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createEmployeeSkill(Components\HrisSkillsCreateRequestDto $hrisSkillsCreateRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\HrisCreateEmployeeSkillResponse
+    public function createEmployeeSkill(Components\EntitySkillsCreateRequestDto $entitySkillsCreateRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\HrisCreateEmployeeSkillResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -390,13 +390,13 @@ class Hris
         $request = new Operations\HrisCreateEmployeeSkillRequest(
             xAccountId: $xAccountId,
             id: $id,
-            hrisSkillsCreateRequestDto: $hrisSkillsCreateRequestDto,
+            entitySkillsCreateRequestDto: $entitySkillsCreateRequestDto,
         );
         $baseUrl = $this->sdkConfiguration->getServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/skills', Operations\HrisCreateEmployeeSkillRequest::class, $request);
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'hrisSkillsCreateRequestDto', 'json');
+        $body = Utils\Utils::serializeRequestBody($request, 'entitySkillsCreateRequestDto', 'json');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
@@ -5076,7 +5076,7 @@ class Hris
      * @return Operations\HrisListTeamGroupsResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function listTeamGroups(Operations\HrisListTeamGroupsRequest $request, ?Options $options = null): Operations\HrisListTeamGroupsResponse
+    private function listTeamGroupsIndividual(Operations\HrisListTeamGroupsRequest $request, ?Options $options = null): Operations\HrisListTeamGroupsResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -5146,6 +5146,35 @@ class Hris
                     contentType: $contentType,
                     rawResponse: $httpResponse,
                     hrisTeamsPaginated: $obj);
+                $sdk = $this;
+
+                $response->next = function () use ($sdk, $responseData, $request): ?Operations\HrisListTeamGroupsResponse {
+                    $jsonObject = new \JsonPath\JsonObject($responseData);
+                    $nextCursor = $jsonObject->get('$.next');
+                    if ($nextCursor == null) {
+                        return null;
+                    } else {
+                        $nextCursor = $nextCursor[0];
+                        if ($nextCursor == null) {
+                            return null;
+                        }
+                    }
+
+                    return $sdk->listTeamGroupsIndividual(
+                        request: new Operations\HrisListTeamGroupsRequest(
+                            xAccountId: $request != null ? $request->xAccountId : '',
+                            raw: $request != null ? $request->raw : null,
+                            proxy: $request != null ? $request->proxy : null,
+                            fields: $request != null ? $request->fields : null,
+                            filter: $request != null ? $request->filter : null,
+                            page: $request != null ? $request->page : null,
+                            pageSize: $request != null ? $request->pageSize : null,
+                            next: $nextCursor,
+                            updatedAfter: $request != null ? $request->updatedAfter : null,
+                        ),
+                    );
+                };
+
 
                 return $response;
             } else {
@@ -5159,6 +5188,21 @@ class Hris
             throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+    /**
+     * List Team Groups
+     *
+     * @param  Operations\HrisListTeamGroupsRequest  $request
+     * @return \Generator<Operations\HrisListTeamGroupsResponse>
+     * @throws \StackOne\client\Models\Errors\SDKException
+     */
+    public function listTeamGroups(Operations\HrisListTeamGroupsRequest $request, ?Options $options = null): \Generator
+    {
+        $res = $this->listTeamGroupsIndividual($request, $options);
+        while ($res !== null) {
+            yield $res;
+            $res = $res->next($res);
         }
     }
 

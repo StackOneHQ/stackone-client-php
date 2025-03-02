@@ -138,7 +138,11 @@ $atsCreateApplicationRequestDto = new Components\AtsCreateApplicationRequestDto(
             'my_project_custom_field_1' => 'REF-1236',
             'my_project_custom_field_2' => 'some other value',
         ],
-        phoneNumber: '+1234567890',
+        phoneNumbers: [
+            new Components\PhoneNumber(
+                phone: '+447700112233',
+            ),
+        ],
         name: 'Romain Sestier',
         firstName: 'Romain',
         lastName: 'Sestier',
@@ -357,7 +361,11 @@ $atsCreateCandidateRequestDto = new Components\AtsCreateCandidateRequestDto(
         'my_project_custom_field_1' => 'REF-1236',
         'my_project_custom_field_2' => 'some other value',
     ],
-    phoneNumber: '+1234567890',
+    phoneNumbers: [
+        new Components\PhoneNumber(
+            phone: '+447700112233',
+        ),
+    ],
     name: 'Romain Sestier',
     firstName: 'Romain',
     lastName: 'Sestier',

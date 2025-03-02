@@ -14,4 +14,6 @@ enum LmsUpsertContentRequestDtoValue: string
     case Video = 'video';
     case Quiz = 'quiz';
     case Document = 'document';
+    case Audio = 'audio';
+    case Article = 'article';
 }

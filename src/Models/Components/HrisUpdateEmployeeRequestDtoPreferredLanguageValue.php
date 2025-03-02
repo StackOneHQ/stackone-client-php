@@ -109,5 +109,6 @@ enum HrisUpdateEmployeeRequestDtoPreferredLanguageValue: string
     case Tha = 'tha';
     case Tir = 'tir';
     case Tig = 'tig';
+    case Zho = 'zho';
     case UnmappedValue = 'unmapped_value';
 }

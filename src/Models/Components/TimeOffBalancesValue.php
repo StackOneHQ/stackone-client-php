@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
+/** The unified value for the duration unit of the time off balance. If the provider does not specify this unit, the value will be set to unknown */
 enum TimeOffBalancesValue: string
 {
     case Minutes = 'minutes';
@@ -17,4 +18,5 @@ enum TimeOffBalancesValue: string
     case Weeks = 'weeks';
     case Months = 'months';
     case Years = 'years';
+    case Unknown = 'unknown';
 }

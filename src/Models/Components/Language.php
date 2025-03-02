@@ -15,28 +15,28 @@ class Language
     /**
      * The Locale Code of the language
      *
-     * @var ?CreateCategoriesApiModelLanguageValue $value
+     * @var ?CategoryLanguageValue $value
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CreateCategoriesApiModelLanguageValue|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CategoryLanguageValue|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CreateCategoriesApiModelLanguageValue $value = null;
+    public ?CategoryLanguageValue $value = null;
 
     /**
      *
-     * @var string|float|bool|CreateCategoriesApiModelSourceValueLanguage4|array<mixed>|null $sourceValue
+     * @var string|float|bool|CategorySourceValueLanguage4|array<mixed>|null $sourceValue
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source_value')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\CreateCategoriesApiModelSourceValueLanguage4|array<mixed>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\CategorySourceValueLanguage4|array<mixed>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|float|bool|CreateCategoriesApiModelSourceValueLanguage4|array|null $sourceValue = null;
+    public string|float|bool|CategorySourceValueLanguage4|array|null $sourceValue = null;
 
     /**
-     * @param  ?CreateCategoriesApiModelLanguageValue  $value
-     * @param  string|float|bool|CreateCategoriesApiModelSourceValueLanguage4|array<mixed>|null  $sourceValue
+     * @param  ?CategoryLanguageValue  $value
+     * @param  string|float|bool|CategorySourceValueLanguage4|array<mixed>|null  $sourceValue
      * @phpstan-pure
      */
-    public function __construct(?CreateCategoriesApiModelLanguageValue $value = null, string|float|bool|CreateCategoriesApiModelSourceValueLanguage4|array|null $sourceValue = null)
+    public function __construct(?CategoryLanguageValue $value = null, string|float|bool|CategorySourceValueLanguage4|array|null $sourceValue = null)
     {
         $this->value = $value;
         $this->sourceValue = $sourceValue;

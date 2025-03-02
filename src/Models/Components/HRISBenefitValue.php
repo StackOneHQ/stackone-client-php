@@ -17,4 +17,5 @@ enum HRISBenefitValue: string
     case Other = 'other';
     case HealthInsurance = 'health_insurance';
     case Insurance = 'insurance';
+    case UnmappedValue = 'unmapped_value';
 }
