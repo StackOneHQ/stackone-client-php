@@ -5,6 +5,7 @@
 
 ### Available Operations
 
+* [deleteUser](#deleteuser) - Delete User
 * [getGroup](#getgroup) - Get Group
 * [getPolicy](#getpolicy) - Get Policy
 * [getRole](#getrole) - Get Role
@@ -13,6 +14,60 @@
 * [listPolicies](#listpolicies) - List Policies
 * [listRoles](#listroles) - List Roles
 * [listUsers](#listusers) - List Users
+* [updateUser](#updateuser) - Update User
+
+## deleteUser
+
+Delete User
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+
+$sdk = client\StackOne::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+
+
+$response = $sdk->iam->deleteUser(
+    xAccountId: '<id>',
+    id: '<id>'
+
+);
+
+if ($response->deleteResult !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter              | Type                   | Required               | Description            |
+| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
+| `xAccountId`           | *string*               | :heavy_check_mark:     | The account identifier |
+| `id`                   | *string*               | :heavy_check_mark:     | N/A                    |
+
+### Response
+
+**[?Operations\IamDeleteUserResponse](../../Models/Operations/IamDeleteUserResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
 
 ## getGroup
 
@@ -475,6 +530,74 @@ foreach ($responses as $response) {
 ### Response
 
 **[?Operations\IamListUsersResponse](../../Models/Operations/IamListUsersResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## updateUser
+
+Update User
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+
+$sdk = client\StackOne::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$iamUpdateUserRequestDto = new Components\IamUpdateUserRequestDto(
+    primaryEmailAddress: 'han@stackone.com',
+    firstName: 'Han',
+    lastName: 'Solo',
+    name: 'Han Solo',
+    username: 'hansolo1977',
+    isBotUser: true,
+    status: new Components\IamUpdateUserRequestDtoStatus(
+        value: Components\IamUpdateUserRequestDtoValue::Enabled,
+    ),
+    passthrough: [
+        'other_known_names' => 'John Doe',
+    ],
+);
+
+$response = $sdk->iam->updateUser(
+    xAccountId: '<id>',
+    id: '<id>',
+    iamUpdateUserRequestDto: $iamUpdateUserRequestDto
+
+);
+
+if ($response->updateUserApiModel !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `xAccountId`                                                                             | *string*                                                                                 | :heavy_check_mark:                                                                       | The account identifier                                                                   |
+| `id`                                                                                     | *string*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| `iamUpdateUserRequestDto`                                                                | [Components\IamUpdateUserRequestDto](../../Models/Components/IamUpdateUserRequestDto.md) | :heavy_check_mark:                                                                       | N/A                                                                                      |
+
+### Response
+
+**[?Operations\IamUpdateUserResponse](../../Models/Operations/IamUpdateUserResponse.md)**
 
 ### Errors
 

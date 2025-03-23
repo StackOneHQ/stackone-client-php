@@ -43,6 +43,7 @@ class HrisCreateTimeOffRequestDto
      * The type of the time off request
      *
      * @var ?HrisCreateTimeOffRequestDtoType $type
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisCreateTimeOffRequestDtoType|null')]

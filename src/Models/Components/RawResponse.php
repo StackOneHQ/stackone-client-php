@@ -27,11 +27,12 @@ class RawResponse
 
     /**
      *
-     * @var ?string $body
+     * @var mixed $body
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('body')]
+    #[\Speakeasy\Serializer\Annotation\Type('mixed')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $body = null;
+    public mixed $body = null;
 
     /**
      * $response
@@ -46,11 +47,11 @@ class RawResponse
     /**
      * @param  string  $method
      * @param  string  $url
-     * @param  ?string  $body
+     * @param  mixed  $body
      * @param  ?array<string, mixed>  $response
      * @phpstan-pure
      */
-    public function __construct(string $method, string $url, ?string $body = null, ?array $response = null)
+    public function __construct(string $method, string $url, mixed $body = null, ?array $response = null)
     {
         $this->method = $method;
         $this->url = $url;

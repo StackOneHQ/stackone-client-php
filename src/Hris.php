@@ -664,9 +664,11 @@ class Hris
      * @param  string  $xAccountId
      * @return Operations\HrisCreateTimeOffRequestResponse
      * @throws \StackOne\client\Models\Errors\SDKException
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     public function createTimeOffRequest(Components\HrisCreateTimeOffRequestDto $hrisCreateTimeOffRequestDto, string $xAccountId, ?Options $options = null): Operations\HrisCreateTimeOffRequestResponse
     {
+        trigger_error('Method '.__METHOD__.' is deprecated', E_USER_DEPRECATED);
         $retryConfig = null;
         if ($options) {
             $retryConfig = $options->retryConfig;
@@ -2815,9 +2817,11 @@ class Hris
      * @param  Operations\HrisGetTimeOffTypeRequest  $request
      * @return Operations\HrisGetTimeOffTypeResponse
      * @throws \StackOne\client\Models\Errors\SDKException
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     public function getTimeOffType(Operations\HrisGetTimeOffTypeRequest $request, ?Options $options = null): Operations\HrisGetTimeOffTypeResponse
     {
+        trigger_error('Method '.__METHOD__.' is deprecated', E_USER_DEPRECATED);
         $retryConfig = null;
         if ($options) {
             $retryConfig = $options->retryConfig;
@@ -5854,9 +5858,11 @@ class Hris
      * @param  Operations\HrisListTimeOffTypesRequest  $request
      * @return Operations\HrisListTimeOffTypesResponse
      * @throws \StackOne\client\Models\Errors\SDKException
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     private function listTimeOffTypesIndividual(Operations\HrisListTimeOffTypesRequest $request, ?Options $options = null): Operations\HrisListTimeOffTypesResponse
     {
+        trigger_error('Method '.__METHOD__.' is deprecated', E_USER_DEPRECATED);
         $retryConfig = null;
         if ($options) {
             $retryConfig = $options->retryConfig;
@@ -5975,6 +5981,7 @@ class Hris
      * @param  Operations\HrisListTimeOffTypesRequest  $request
      * @return \Generator<Operations\HrisListTimeOffTypesResponse>
      * @throws \StackOne\client\Models\Errors\SDKException
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     public function listTimeOffTypes(Operations\HrisListTimeOffTypesRequest $request, ?Options $options = null): \Generator
     {
@@ -6192,6 +6199,110 @@ class Hris
     }
 
     /**
+     * Update Employee Time Off Request
+     *
+     * @param  Components\HrisCreateTimeOffRequestDto  $hrisCreateTimeOffRequestDto
+     * @param  string  $xAccountId
+     * @param  string  $id
+     * @param  string  $subResourceId
+     * @return Operations\HrisUpdateEmployeeTimeOffRequestResponse
+     * @throws \StackOne\client\Models\Errors\SDKException
+     */
+    public function updateEmployeeTimeOffRequest(Components\HrisCreateTimeOffRequestDto $hrisCreateTimeOffRequestDto, string $xAccountId, string $id, string $subResourceId, ?Options $options = null): Operations\HrisUpdateEmployeeTimeOffRequestResponse
+    {
+        $retryConfig = null;
+        if ($options) {
+            $retryConfig = $options->retryConfig;
+        }
+        if ($retryConfig === null && $this->sdkConfiguration->retryConfig) {
+            $retryConfig = $this->sdkConfiguration->retryConfig;
+        } else {
+            $retryConfig = new Retry\RetryConfigBackoff(
+                initialIntervalMs: 500,
+                maxIntervalMs: 60000,
+                exponent: 1.5,
+                maxElapsedTimeMs: 3600000,
+                retryConnectionErrors: true,
+            );
+        }
+        $retryCodes = null;
+        if ($options) {
+            $retryCodes = $options->retryCodes;
+        }
+        if ($retryCodes === null) {
+            $retryCodes = [
+                '429',
+                '408',
+            ];
+        }
+        $request = new Operations\HrisUpdateEmployeeTimeOffRequestRequest(
+            xAccountId: $xAccountId,
+            id: $id,
+            subResourceId: $subResourceId,
+            hrisCreateTimeOffRequestDto: $hrisCreateTimeOffRequestDto,
+        );
+        $baseUrl = $this->sdkConfiguration->getServerUrl();
+        $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/time_off/{subResourceId}', Operations\HrisUpdateEmployeeTimeOffRequestRequest::class, $request);
+        $urlOverride = null;
+        $httpOptions = ['http_errors' => false];
+        $body = Utils\Utils::serializeRequestBody($request, 'hrisCreateTimeOffRequestDto', 'json');
+        if ($body === null) {
+            throw new \Exception('Request body is required');
+        }
+        $httpOptions = array_merge_recursive($httpOptions, $body);
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        if (! array_key_exists('headers', $httpOptions)) {
+            $httpOptions['headers'] = [];
+        }
+        $httpOptions['headers']['Accept'] = 'application/json';
+        $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('PATCH', $url);
+        $hookContext = new HookContext('hris_update_employee_time_off_request', null, $this->sdkConfiguration->securitySource);
+        $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
+        $httpRequest = Utils\Utils::removeHeaders($httpRequest);
+        try {
+            $httpResponse = RetryUtils::retryWrapper(fn () => $this->sdkConfiguration->client->send($httpRequest, $httpOptions), $retryConfig, $retryCodes);
+        } catch (\GuzzleHttp\Exception\GuzzleException $error) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), null, $error);
+            $httpResponse = $res;
+        }
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if (Utils\Utils::matchStatusCodes($statusCode, ['400', '403', '408', '412', '429', '4XX', '500', '501', '5XX'])) {
+            $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
+            $httpResponse = $res;
+        }
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
+
+                $serializer = Utils\JSON::createSerializer();
+                $responseData = (string) $httpResponse->getBody();
+                $obj = $serializer->deserialize($responseData, '\StackOne\client\Models\Components\CreateResult', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\HrisUpdateEmployeeTimeOffRequestResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    createResult: $obj);
+
+                return $response;
+            } else {
+                throw new \StackOne\client\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['408'])) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['400', '403', '412', '429', '4XX'])) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } elseif (Utils\Utils::matchStatusCodes($statusCode, ['500', '501', '5XX'])) {
+            throw new \StackOne\client\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \StackOne\client\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
      * Update Employee Work Eligibility Request
      *
      * @param  Components\HrisCreateWorkEligibilityRequestDto  $hrisCreateWorkEligibilityRequestDto
@@ -6294,9 +6405,11 @@ class Hris
      * @param  string  $id
      * @return Operations\HrisUpdateTimeOffRequestResponse
      * @throws \StackOne\client\Models\Errors\SDKException
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     public function updateTimeOffRequest(Components\HrisCreateTimeOffRequestDto $hrisCreateTimeOffRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\HrisUpdateTimeOffRequestResponse
     {
+        trigger_error('Method '.__METHOD__.' is deprecated', E_USER_DEPRECATED);
         $retryConfig = null;
         if ($options) {
             $retryConfig = $options->retryConfig;

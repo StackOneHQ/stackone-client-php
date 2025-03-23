@@ -251,7 +251,7 @@ if ($response->connectSession !== null) {
 * [createEmployeeSkill](docs/sdks/hris/README.md#createemployeeskill) - Create Employee Skill
 * [createEmployeeTimeOffRequest](docs/sdks/hris/README.md#createemployeetimeoffrequest) - Create Employee Time Off Request
 * [createEmployeeWorkEligibilityRequest](docs/sdks/hris/README.md#createemployeeworkeligibilityrequest) - Create Employee Work Eligibility Request
-* [createTimeOffRequest](docs/sdks/hris/README.md#createtimeoffrequest) - Creates a time off request
+* [~~createTimeOffRequest~~](docs/sdks/hris/README.md#createtimeoffrequest) - Creates a time off request :warning: **Deprecated**
 * [downloadEmployeeDocument](docs/sdks/hris/README.md#downloademployeedocument) - Download Employee Document
 * [getBenefit](docs/sdks/hris/README.md#getbenefit) - Get Benefit
 * [getCompany](docs/sdks/hris/README.md#getcompany) - Get Company
@@ -274,7 +274,7 @@ if ($response->connectSession !== null) {
 * [getTimeEntries](docs/sdks/hris/README.md#gettimeentries) - Get Time Entry
 * [getTimeOffPolicy](docs/sdks/hris/README.md#gettimeoffpolicy) - Get Time Off Policy
 * [getTimeOffRequest](docs/sdks/hris/README.md#gettimeoffrequest) - Get time off request
-* [getTimeOffType](docs/sdks/hris/README.md#gettimeofftype) - Get time off type
+* [~~getTimeOffType~~](docs/sdks/hris/README.md#gettimeofftype) - Get time off type :warning: **Deprecated**
 * [inviteEmployee](docs/sdks/hris/README.md#inviteemployee) - Invite Employee
 * [listBenefits](docs/sdks/hris/README.md#listbenefits) - List benefits
 * [listCompanies](docs/sdks/hris/README.md#listcompanies) - List Companies
@@ -297,15 +297,17 @@ if ($response->connectSession !== null) {
 * [listTimeEntries](docs/sdks/hris/README.md#listtimeentries) - List Time Entries
 * [listTimeOffPolicies](docs/sdks/hris/README.md#listtimeoffpolicies) - List Time Off Policies
 * [listTimeOffRequests](docs/sdks/hris/README.md#listtimeoffrequests) - List time off requests
-* [listTimeOffTypes](docs/sdks/hris/README.md#listtimeofftypes) - List time off types
+* [~~listTimeOffTypes~~](docs/sdks/hris/README.md#listtimeofftypes) - List time off types :warning: **Deprecated**
 * [updateEmployee](docs/sdks/hris/README.md#updateemployee) - Updates an employee
 * [updateEmployeeEmployment](docs/sdks/hris/README.md#updateemployeeemployment) - Update Employee Employment
+* [updateEmployeeTimeOffRequest](docs/sdks/hris/README.md#updateemployeetimeoffrequest) - Update Employee Time Off Request
 * [updateEmployeeWorkEligibilityRequest](docs/sdks/hris/README.md#updateemployeeworkeligibilityrequest) - Update Employee Work Eligibility Request
-* [updateTimeOffRequest](docs/sdks/hris/README.md#updatetimeoffrequest) - Update time off request
+* [~~updateTimeOffRequest~~](docs/sdks/hris/README.md#updatetimeoffrequest) - Update time off request :warning: **Deprecated**
 * [uploadEmployeeDocument](docs/sdks/hris/README.md#uploademployeedocument) - Upload Employee Document
 
 ### [iam](docs/sdks/iam/README.md)
 
+* [deleteUser](docs/sdks/iam/README.md#deleteuser) - Delete User
 * [getGroup](docs/sdks/iam/README.md#getgroup) - Get Group
 * [getPolicy](docs/sdks/iam/README.md#getpolicy) - Get Policy
 * [getRole](docs/sdks/iam/README.md#getrole) - Get Role
@@ -314,6 +316,7 @@ if ($response->connectSession !== null) {
 * [listPolicies](docs/sdks/iam/README.md#listpolicies) - List Policies
 * [listRoles](docs/sdks/iam/README.md#listroles) - List Roles
 * [listUsers](docs/sdks/iam/README.md#listusers) - List Users
+* [updateUser](docs/sdks/iam/README.md#updateuser) - Update User
 
 ### [lms](docs/sdks/lms/README.md)
 

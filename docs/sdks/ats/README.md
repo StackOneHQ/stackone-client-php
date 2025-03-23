@@ -519,6 +519,7 @@ $atsCreateJobRequestDto = new Components\AtsCreateJobRequestDto(
     ],
     code: '184919',
     title: 'Software Engineer',
+    description: 'Responsible for identifying business requirements',
     jobStatus: new Components\AtsCreateJobRequestDtoJobStatus(
         value: Components\AtsCreateJobRequestDtoValue::Published,
         sourceValue: 'Published',
@@ -1864,7 +1865,7 @@ $sdk = client\StackOne::builder()
 $request = new Operations\AtsGetJobRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,code,title,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at',
+    fields: 'id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at',
     expand: 'job_postings,interview_stages',
     include: 'custom_fields',
 );
@@ -3402,7 +3403,7 @@ $sdk = client\StackOne::builder()
 
 $request = new Operations\AtsListJobsRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,code,title,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at',
+    fields: 'id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at',
     filter: new Operations\AtsListJobsQueryParamFilter(
         updatedAfter: '2020-01-01T00:00:00.000Z',
         createdAfter: '2020-01-01T00:00:00.000Z',
@@ -4627,6 +4628,7 @@ $atsUpdateJobRequestDto = new Components\AtsUpdateJobRequestDto(
     ],
     code: '184919',
     title: 'Software Engineer',
+    description: 'Responsible for identifying business requirements',
     jobStatus: new Components\AtsUpdateJobRequestDtoJobStatus(
         value: Components\AtsUpdateJobRequestDtoValue::Published,
         sourceValue: 'Published',

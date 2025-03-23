@@ -11,7 +11,7 @@
 * [createEmployeeSkill](#createemployeeskill) - Create Employee Skill
 * [createEmployeeTimeOffRequest](#createemployeetimeoffrequest) - Create Employee Time Off Request
 * [createEmployeeWorkEligibilityRequest](#createemployeeworkeligibilityrequest) - Create Employee Work Eligibility Request
-* [createTimeOffRequest](#createtimeoffrequest) - Creates a time off request
+* [~~createTimeOffRequest~~](#createtimeoffrequest) - Creates a time off request :warning: **Deprecated**
 * [downloadEmployeeDocument](#downloademployeedocument) - Download Employee Document
 * [getBenefit](#getbenefit) - Get Benefit
 * [getCompany](#getcompany) - Get Company
@@ -34,7 +34,7 @@
 * [getTimeEntries](#gettimeentries) - Get Time Entry
 * [getTimeOffPolicy](#gettimeoffpolicy) - Get Time Off Policy
 * [getTimeOffRequest](#gettimeoffrequest) - Get time off request
-* [getTimeOffType](#gettimeofftype) - Get time off type
+* [~~getTimeOffType~~](#gettimeofftype) - Get time off type :warning: **Deprecated**
 * [inviteEmployee](#inviteemployee) - Invite Employee
 * [listBenefits](#listbenefits) - List benefits
 * [listCompanies](#listcompanies) - List Companies
@@ -57,11 +57,12 @@
 * [listTimeEntries](#listtimeentries) - List Time Entries
 * [listTimeOffPolicies](#listtimeoffpolicies) - List Time Off Policies
 * [listTimeOffRequests](#listtimeoffrequests) - List time off requests
-* [listTimeOffTypes](#listtimeofftypes) - List time off types
+* [~~listTimeOffTypes~~](#listtimeofftypes) - List time off types :warning: **Deprecated**
 * [updateEmployee](#updateemployee) - Updates an employee
 * [updateEmployeeEmployment](#updateemployeeemployment) - Update Employee Employment
+* [updateEmployeeTimeOffRequest](#updateemployeetimeoffrequest) - Update Employee Time Off Request
 * [updateEmployeeWorkEligibilityRequest](#updateemployeeworkeligibilityrequest) - Update Employee Work Eligibility Request
-* [updateTimeOffRequest](#updatetimeoffrequest) - Update time off request
+* [~~updateTimeOffRequest~~](#updatetimeoffrequest) - Update time off request :warning: **Deprecated**
 * [uploadEmployeeDocument](#uploademployeedocument) - Upload Employee Document
 
 ## batchUploadEmployeeDocument
@@ -162,10 +163,10 @@ $sdk = client\StackOne::builder()
     ->build();
 
 $hrisCreateEmployeeRequestDto = new Components\HrisCreateEmployeeRequestDto(
-    firstName: 'Issac',
+    firstName: 'Isaac',
     lastName: 'Newton',
-    name: 'Issac Newton',
-    displayName: 'Sir Issac Newton',
+    name: 'Isaac Newton',
+    displayName: 'Sir Isaac Newton',
     avatarUrl: 'https://example.com/avatar.png',
     personalEmail: 'isaac.newton@example.com',
     personalPhoneNumber: '+1234567890',
@@ -609,9 +610,11 @@ if ($response->createResult !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\SDKException | 4XX, 5XX            | \*/\*               |
 
-## createTimeOffRequest
+## ~~createTimeOffRequest~~
 
 Creates a time off request
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -1904,9 +1907,11 @@ if ($response->timeOffResult !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\SDKException | 4XX, 5XX            | \*/\*               |
 
-## getTimeOffType
+## ~~getTimeOffType~~
 
 Get time off type
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -3288,9 +3293,11 @@ foreach ($responses as $response) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\SDKException | 4XX, 5XX            | \*/\*               |
 
-## listTimeOffTypes
+## ~~listTimeOffTypes~~
 
 List time off types
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -3373,10 +3380,10 @@ $sdk = client\StackOne::builder()
     ->build();
 
 $hrisUpdateEmployeeRequestDto = new Components\HrisUpdateEmployeeRequestDto(
-    firstName: 'Issac',
+    firstName: 'Isaac',
     lastName: 'Newton',
-    name: 'Issac Newton',
-    displayName: 'Sir Issac Newton',
+    name: 'Isaac Newton',
+    displayName: 'Sir Isaac Newton',
     avatarUrl: 'https://example.com/avatar.png',
     personalEmail: 'isaac.newton@example.com',
     personalPhoneNumber: '+1234567890',
@@ -3595,6 +3602,79 @@ if ($response->employmentResult !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\SDKException | 4XX, 5XX            | \*/\*               |
 
+## updateEmployeeTimeOffRequest
+
+Update Employee Time Off Request
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Utils;
+
+$sdk = client\StackOne::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$hrisCreateTimeOffRequestDto = new Components\HrisCreateTimeOffRequestDto(
+    employeeId: '1687-3',
+    approverId: '1687-4',
+    startDate: Utils\Utils::parseDateTime('2021-01-01T01:01:01.000Z'),
+    endDate: Utils\Utils::parseDateTime('2021-01-01T01:01:01.000Z'),
+    startHalfDay: true,
+    endHalfDay: true,
+    timeOffPolicyId: 'cx280928933',
+    reason: new Components\HrisCreateTimeOffRequestDtoReason(
+        id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+        remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    ),
+    passthrough: [
+        'other_known_names' => 'John Doe',
+    ],
+);
+
+$response = $sdk->hris->updateEmployeeTimeOffRequest(
+    xAccountId: '<id>',
+    id: '<id>',
+    subResourceId: '<id>',
+    hrisCreateTimeOffRequestDto: $hrisCreateTimeOffRequestDto
+
+);
+
+if ($response->createResult !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                     | *string*                                                                                         | :heavy_check_mark:                                                                               | The account identifier                                                                           |
+| `id`                                                                                             | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `subResourceId`                                                                                  | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `hrisCreateTimeOffRequestDto`                                                                    | [Components\HrisCreateTimeOffRequestDto](../../Models/Components/HrisCreateTimeOffRequestDto.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |
+
+### Response
+
+**[?Operations\HrisUpdateEmployeeTimeOffRequestResponse](../../Models/Operations/HrisUpdateEmployeeTimeOffRequestResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
 ## updateEmployeeWorkEligibilityRequest
 
 Update Employee Work Eligibility Request
@@ -3680,9 +3760,11 @@ if ($response->statusCode === 200) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\SDKException | 4XX, 5XX            | \*/\*               |
 
-## updateTimeOffRequest
+## ~~updateTimeOffRequest~~
 
 Update time off request
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

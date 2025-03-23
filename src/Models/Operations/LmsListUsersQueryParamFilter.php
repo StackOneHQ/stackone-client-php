@@ -29,13 +29,23 @@ class LmsListUsersQueryParamFilter
     public ?string $email = null;
 
     /**
+     * Filter to select users by external_reference
+     *
+     * @var ?string $externalReference
+     */
+    #[SpeakeasyMetadata('queryParam:name=external_reference')]
+    public ?string $externalReference = null;
+
+    /**
      * @param  ?string  $updatedAfter
      * @param  ?string  $email
+     * @param  ?string  $externalReference
      * @phpstan-pure
      */
-    public function __construct(?string $updatedAfter = null, ?string $email = null)
+    public function __construct(?string $updatedAfter = null, ?string $email = null, ?string $externalReference = null)
     {
         $this->updatedAfter = $updatedAfter;
         $this->email = $email;
+        $this->externalReference = $externalReference;
     }
 }

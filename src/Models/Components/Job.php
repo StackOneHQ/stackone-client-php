@@ -58,6 +58,15 @@ class Job
     public ?string $title = null;
 
     /**
+     * Description of the job
+     *
+     * @var ?string $description
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $description = null;
+
+    /**
      * Status of the job
      *
      * @var ?string $status
@@ -181,6 +190,7 @@ class Job
      * @param  ?array<string, mixed>  $unifiedCustomFields
      * @param  ?string  $code
      * @param  ?string  $title
+     * @param  ?string  $description
      * @param  ?string  $status
      * @param  ?JobStatus  $jobStatus
      * @param  ?array<string>  $departmentIds
@@ -195,13 +205,14 @@ class Job
      * @param  ?\DateTime  $updatedAt
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $code = null, ?string $title = null, ?string $status = null, ?JobStatus $jobStatus = null, ?array $departmentIds = null, ?array $remoteDepartmentIds = null, ?array $locationIds = null, ?array $remoteLocationIds = null, ?array $hiringTeam = null, ?array $interviewStages = null, ?JobConfidential $confidential = null, ?array $customFields = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $code = null, ?string $title = null, ?string $description = null, ?string $status = null, ?JobStatus $jobStatus = null, ?array $departmentIds = null, ?array $remoteDepartmentIds = null, ?array $locationIds = null, ?array $remoteLocationIds = null, ?array $hiringTeam = null, ?array $interviewStages = null, ?JobConfidential $confidential = null, ?array $customFields = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
         $this->unifiedCustomFields = $unifiedCustomFields;
         $this->code = $code;
         $this->title = $title;
+        $this->description = $description;
         $this->status = $status;
         $this->jobStatus = $jobStatus;
         $this->departmentIds = $departmentIds;

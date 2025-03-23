@@ -1,0 +1,10 @@
+# IamUpdateUserRequest
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `xAccountId`                                                                             | *string*                                                                                 | :heavy_check_mark:                                                                       | The account identifier                                                                   |
+| `id`                                                                                     | *string*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| `iamUpdateUserRequestDto`                                                                | [Components\IamUpdateUserRequestDto](../../Models/Components/IamUpdateUserRequestDto.md) | :heavy_check_mark:                                                                       | N/A                                                                                      |
