@@ -422,4 +422,5 @@ enum EntitySkillsValue: string
     case ZhSG = 'zh_SG';
     case ZhTW = 'zh_TW';
     case ZuZA = 'zu_ZA';
+    case UnmappedValue = 'unmapped_value';
 }

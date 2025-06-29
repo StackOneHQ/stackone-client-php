@@ -13,15 +13,6 @@ namespace StackOne\client\Models\Components;
 class HrisCreateEmployeeRequestDtoEmployment
 {
     /**
-     * Unique identifier
-     *
-     * @var ?string $id
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $id = null;
-
-    /**
      * Custom Unified Fields configured in your StackOne project
      *
      * @var ?array<string, mixed> $unifiedCustomFields
@@ -79,19 +70,29 @@ class HrisCreateEmployeeRequestDtoEmployment
     public ?string $payCurrency = null;
 
     /**
-     * The effective date of the employment contract
+     * The end date of employment
      *
-     * @var ?\DateTime $effectiveDate
-     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @var ?\DateTime $endDate
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('effective_date')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('end_date')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $effectiveDate = null;
+    public ?\DateTime $endDate = null;
+
+    /**
+     * Represents the employee’s position within the organizational hierarchy.
+     *
+     * @var ?HrisCreateEmployeeRequestDtoGrade $grade
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grade')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisCreateEmployeeRequestDtoGrade|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?HrisCreateEmployeeRequestDtoGrade $grade = null;
 
     /**
      * The type of employment (e.g., contractor, permanent)
      *
      * @var ?HrisCreateEmployeeRequestDtoEmploymentEmploymentType $employmentType
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('employment_type')]
     #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisCreateEmployeeRequestDtoEmploymentEmploymentType|null')]
@@ -102,6 +103,7 @@ class HrisCreateEmployeeRequestDtoEmployment
      * The employment work schedule type (e.g., full-time, part-time)
      *
      * @var ?HrisCreateEmployeeRequestDtoEmploymentEmploymentContractType $employmentContractType
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('employment_contract_type')]
     #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisCreateEmployeeRequestDtoEmploymentEmploymentContractType|null')]
@@ -109,40 +111,75 @@ class HrisCreateEmployeeRequestDtoEmployment
     public ?HrisCreateEmployeeRequestDtoEmploymentEmploymentContractType $employmentContractType = null;
 
     /**
-     * The time worked for the employee in ISO 8601 duration format
      *
-     * @var ?string $timeWorked
+     * @var ?HrisCreateEmployeeRequestDtoWorkTime $workTime
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('time_worked')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('work_time')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisCreateEmployeeRequestDtoWorkTime|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $timeWorked = null;
+    public ?HrisCreateEmployeeRequestDtoWorkTime $workTime = null;
 
     /**
-     * @param  ?string  $id
+     * The payroll code of the employee
+     *
+     * @var ?string $payrollCode
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('payroll_code')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $payrollCode = null;
+
+    /**
+     * Value to pass through to the provider
+     *
+     * @var ?array<string, mixed> $passthrough
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('passthrough')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, mixed>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $passthrough = null;
+
+    /**
+     * The employee effective date
+     *
+     * @var ?\DateTime $effectiveDate
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('effective_date')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $effectiveDate = null;
+
+    /**
      * @param  ?array<string, mixed>  $unifiedCustomFields
      * @param  ?string  $jobTitle
      * @param  ?string  $payRate
      * @param  ?HrisCreateEmployeeRequestDtoPayPeriod  $payPeriod
      * @param  ?HrisCreateEmployeeRequestDtoPayFrequency  $payFrequency
      * @param  ?string  $payCurrency
-     * @param  ?\DateTime  $effectiveDate
+     * @param  ?\DateTime  $endDate
+     * @param  ?HrisCreateEmployeeRequestDtoGrade  $grade
      * @param  ?HrisCreateEmployeeRequestDtoEmploymentEmploymentType  $employmentType
      * @param  ?HrisCreateEmployeeRequestDtoEmploymentEmploymentContractType  $employmentContractType
-     * @param  ?string  $timeWorked
+     * @param  ?HrisCreateEmployeeRequestDtoWorkTime  $workTime
+     * @param  ?string  $payrollCode
+     * @param  ?array<string, mixed>  $passthrough
+     * @param  ?\DateTime  $effectiveDate
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?array $unifiedCustomFields = null, ?string $jobTitle = null, ?string $payRate = null, ?HrisCreateEmployeeRequestDtoPayPeriod $payPeriod = null, ?HrisCreateEmployeeRequestDtoPayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $effectiveDate = null, ?HrisCreateEmployeeRequestDtoEmploymentEmploymentType $employmentType = null, ?HrisCreateEmployeeRequestDtoEmploymentEmploymentContractType $employmentContractType = null, ?string $timeWorked = null)
+    public function __construct(?array $unifiedCustomFields = null, ?string $jobTitle = null, ?string $payRate = null, ?HrisCreateEmployeeRequestDtoPayPeriod $payPeriod = null, ?HrisCreateEmployeeRequestDtoPayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $endDate = null, ?HrisCreateEmployeeRequestDtoGrade $grade = null, ?HrisCreateEmployeeRequestDtoEmploymentEmploymentType $employmentType = null, ?HrisCreateEmployeeRequestDtoEmploymentEmploymentContractType $employmentContractType = null, ?HrisCreateEmployeeRequestDtoWorkTime $workTime = null, ?string $payrollCode = null, ?array $passthrough = null, ?\DateTime $effectiveDate = null)
     {
-        $this->id = $id;
         $this->unifiedCustomFields = $unifiedCustomFields;
         $this->jobTitle = $jobTitle;
         $this->payRate = $payRate;
         $this->payPeriod = $payPeriod;
         $this->payFrequency = $payFrequency;
         $this->payCurrency = $payCurrency;
-        $this->effectiveDate = $effectiveDate;
+        $this->endDate = $endDate;
+        $this->grade = $grade;
         $this->employmentType = $employmentType;
         $this->employmentContractType = $employmentContractType;
-        $this->timeWorked = $timeWorked;
+        $this->workTime = $workTime;
+        $this->payrollCode = $payrollCode;
+        $this->passthrough = $passthrough;
+        $this->effectiveDate = $effectiveDate;
     }
 }

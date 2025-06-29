@@ -96,13 +96,14 @@ class HrisUpdateEmployeeRequestDto
      * The employee job id
      *
      * @var ?string $jobId
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('job_id')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $jobId = null;
 
     /**
-     * The employee job title
+     * If the source of the job_title is the Employee's current Employment, and that Employment pertains exclusively to this Employee, then the active Employment job_title will also be written
      *
      * @var ?string $jobTitle
      */
@@ -236,6 +237,7 @@ class HrisUpdateEmployeeRequestDto
      * The employee employment type
      *
      * @var ?HrisUpdateEmployeeRequestDtoEmploymentType $employmentType
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('employment_type')]
     #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisUpdateEmployeeRequestDtoEmploymentType|null')]
@@ -246,6 +248,7 @@ class HrisUpdateEmployeeRequestDto
      * The employment work schedule type (e.g., full-time, part-time)
      *
      * @var ?HrisUpdateEmployeeRequestDtoEmploymentContractType $employmentContractType
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('employment_contract_type')]
     #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisUpdateEmployeeRequestDtoEmploymentContractType|null')]

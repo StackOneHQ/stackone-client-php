@@ -15,4 +15,5 @@ enum CampaignStatusValue: string
     case Draft = 'draft';
     case Archived = 'archived';
     case Live = 'live';
+    case UnmappedValue = 'unmapped_value';
 }

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Operations;
 
 use StackOne\client\Utils\SpeakeasyMetadata;
-/** LmsListCoursesQueryParamFilter - Filter parameters that allow greater customisation of the list response */
+/** LmsListCoursesQueryParamFilter - LMS Courses Filter */
 class LmsListCoursesQueryParamFilter
 {
     /**
@@ -21,11 +21,21 @@ class LmsListCoursesQueryParamFilter
     public ?string $updatedAfter = null;
 
     /**
+     * Filter to select courses by external_reference
+     *
+     * @var ?string $externalReference
+     */
+    #[SpeakeasyMetadata('queryParam:name=external_reference')]
+    public ?string $externalReference = null;
+
+    /**
      * @param  ?string  $updatedAfter
+     * @param  ?string  $externalReference
      * @phpstan-pure
      */
-    public function __construct(?string $updatedAfter = null)
+    public function __construct(?string $updatedAfter = null, ?string $externalReference = null)
     {
         $this->updatedAfter = $updatedAfter;
+        $this->externalReference = $externalReference;
     }
 }

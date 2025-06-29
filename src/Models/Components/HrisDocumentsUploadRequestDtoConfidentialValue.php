@@ -14,4 +14,5 @@ enum HrisDocumentsUploadRequestDtoConfidentialValue: string
 {
     case True = 'true';
     case False = 'false';
+    case UnmappedValue = 'unmapped_value';
 }

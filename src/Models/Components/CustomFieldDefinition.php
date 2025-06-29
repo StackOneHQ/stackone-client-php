@@ -48,20 +48,20 @@ class CustomFieldDefinition
     /**
      * The type of the custom field.
      *
-     * @var ?Type $type
+     * @var ?CustomFieldDefinitionType $type
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Type|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CustomFieldDefinitionType|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Type $type = null;
+    public ?CustomFieldDefinitionType $type = null;
 
     /**
      * An array of possible options for the custom field.
      *
-     * @var ?array<string|float|bool|Four|array<mixed>> $options
+     * @var ?array<array<mixed>> $options
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('options')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string|float|bool|\StackOne\client\Models\Components\Four|array<mixed>>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<array<mixed>>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $options = null;
 
@@ -70,11 +70,11 @@ class CustomFieldDefinition
      * @param  ?string  $remoteId
      * @param  ?string  $name
      * @param  ?string  $description
-     * @param  ?Type  $type
-     * @param  ?array<string|float|bool|Four|array<mixed>>  $options
+     * @param  ?CustomFieldDefinitionType  $type
+     * @param  ?array<array<mixed>>  $options
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?string $description = null, ?Type $type = null, ?array $options = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?string $description = null, ?CustomFieldDefinitionType $type = null, ?array $options = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;

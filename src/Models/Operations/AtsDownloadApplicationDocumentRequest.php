@@ -42,17 +42,27 @@ class AtsDownloadApplicationDocumentRequest
     public ?string $format = null;
 
     /**
+     * The export format of the file
+     *
+     * @var ?string $exportFormat
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=export_format')]
+    public ?string $exportFormat = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  string  $subResourceId
      * @param  ?string  $format
+     * @param  ?string  $exportFormat
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, string $subResourceId, ?string $format = null)
+    public function __construct(string $xAccountId, string $id, string $subResourceId, ?string $format = null, ?string $exportFormat = null)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
         $this->subResourceId = $subResourceId;
         $this->format = $format;
+        $this->exportFormat = $exportFormat;
     }
 }

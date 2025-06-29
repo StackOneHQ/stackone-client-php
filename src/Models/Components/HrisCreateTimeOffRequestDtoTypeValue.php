@@ -25,7 +25,12 @@ enum HrisCreateTimeOffRequestDtoTypeValue: string
     case ChildCareLeave = 'child_care_leave';
     case MaternityLeave = 'maternity_leave';
     case JuryDuty = 'jury_duty';
-    case BereavementLeave = 'bereavement_leave';
     case Sabbatical = 'sabbatical';
     case Accident = 'accident';
+    case Paid = 'paid';
+    case Unpaid = 'unpaid';
+    case Holiday = 'holiday';
+    case Personal = 'personal';
+    case InLieu = 'in_lieu';
+    case Bereavement = 'bereavement';
 }

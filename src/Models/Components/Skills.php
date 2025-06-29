@@ -58,16 +58,6 @@ class Skills
     public ?SkillsHierarchy $hierarchy = null;
 
     /**
-     * The user proficiency level of the skill ranked out of 5
-     *
-     * @var ?SkillsProficiency $proficiency
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('proficiency')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\SkillsProficiency|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?SkillsProficiency $proficiency = null;
-
-    /**
      * The language associated with this skill
      *
      * @var ?SkillsLanguage $language
@@ -94,19 +84,17 @@ class Skills
      * @param  ?string  $name
      * @param  ?bool  $active
      * @param  ?SkillsHierarchy  $hierarchy
-     * @param  ?SkillsProficiency  $proficiency
      * @param  ?SkillsLanguage  $language
      * @param  ?SkillsLevel  $level
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?bool $active = null, ?SkillsHierarchy $hierarchy = null, ?SkillsProficiency $proficiency = null, ?SkillsLanguage $language = null, ?SkillsLevel $level = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?bool $active = null, ?SkillsHierarchy $hierarchy = null, ?SkillsLanguage $language = null, ?SkillsLevel $level = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
         $this->name = $name;
         $this->active = $active;
         $this->hierarchy = $hierarchy;
-        $this->proficiency = $proficiency;
         $this->language = $language;
         $this->level = $level;
     }

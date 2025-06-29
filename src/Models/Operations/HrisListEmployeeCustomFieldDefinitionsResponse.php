@@ -47,6 +47,10 @@ class HrisListEmployeeCustomFieldDefinitionsResponse
     public ?Components\CustomFieldDefinitionsPaginated $customFieldDefinitionsPaginated = null;
 
     /**
+     * @var \Closure(string): ?HrisListEmployeeCustomFieldDefinitionsResponse $next
+     */
+    public \Closure $next;
+    /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
@@ -61,5 +65,18 @@ class HrisListEmployeeCustomFieldDefinitionsResponse
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
         $this->customFieldDefinitionsPaginated = $customFieldDefinitionsPaginated;
+    }
+    /**
+     * @param  string  $name
+     * @param  array<mixed>  $args
+     * @return ?HrisListEmployeeCustomFieldDefinitionsResponse
+     */
+    public function __call($name, $args): ?HrisListEmployeeCustomFieldDefinitionsResponse
+    {
+        if ($name === 'next') {
+            return call_user_func_array($this->next, $args);
+        }
+
+        return null;
     }
 }

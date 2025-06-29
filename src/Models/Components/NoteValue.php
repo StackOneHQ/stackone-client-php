@@ -14,4 +14,5 @@ enum NoteValue: string
 {
     case Private = 'private';
     case Public = 'public';
+    case UnmappedValue = 'unmapped_value';
 }

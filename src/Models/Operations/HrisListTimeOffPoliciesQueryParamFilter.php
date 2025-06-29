@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Operations;
 
 use StackOne\client\Utils\SpeakeasyMetadata;
-/** HrisListTimeOffPoliciesQueryParamFilter - Filter parameters that allow greater customisation of the list response */
+/** HrisListTimeOffPoliciesQueryParamFilter - HRIS Time-Off Policies filters */
 class HrisListTimeOffPoliciesQueryParamFilter
 {
     /**
@@ -21,11 +21,21 @@ class HrisListTimeOffPoliciesQueryParamFilter
     public ?string $updatedAfter = null;
 
     /**
+     * Filter to select time-off policies by type
+     *
+     * @var ?Type $type
+     */
+    #[SpeakeasyMetadata('queryParam:name=type')]
+    public ?Type $type = null;
+
+    /**
      * @param  ?string  $updatedAfter
+     * @param  ?Type  $type
      * @phpstan-pure
      */
-    public function __construct(?string $updatedAfter = null)
+    public function __construct(?string $updatedAfter = null, ?Type $type = null)
     {
         $this->updatedAfter = $updatedAfter;
+        $this->type = $type;
     }
 }

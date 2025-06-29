@@ -36,23 +36,23 @@ class HrisUpdateEmployeeEmploymentRequest
 
     /**
      *
-     * @var Components\HrisCreateEmploymentRequestDto $hrisCreateEmploymentRequestDto
+     * @var Components\HrisUpdateEmploymentRequestDto $hrisUpdateEmploymentRequestDto
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public Components\HrisCreateEmploymentRequestDto $hrisCreateEmploymentRequestDto;
+    public Components\HrisUpdateEmploymentRequestDto $hrisUpdateEmploymentRequestDto;
 
     /**
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  string  $subResourceId
-     * @param  Components\HrisCreateEmploymentRequestDto  $hrisCreateEmploymentRequestDto
+     * @param  Components\HrisUpdateEmploymentRequestDto  $hrisUpdateEmploymentRequestDto
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, string $subResourceId, Components\HrisCreateEmploymentRequestDto $hrisCreateEmploymentRequestDto)
+    public function __construct(string $xAccountId, string $id, string $subResourceId, Components\HrisUpdateEmploymentRequestDto $hrisUpdateEmploymentRequestDto)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
         $this->subResourceId = $subResourceId;
-        $this->hrisCreateEmploymentRequestDto = $hrisCreateEmploymentRequestDto;
+        $this->hrisUpdateEmploymentRequestDto = $hrisUpdateEmploymentRequestDto;
     }
 }

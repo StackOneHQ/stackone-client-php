@@ -22,4 +22,5 @@ enum CustomFieldDefinitionValue: string
     case MultiSelect = 'multi_select';
     case Url = 'url';
     case Other = 'other';
+    case UnmappedValue = 'unmapped_value';
 }

@@ -3,6 +3,7 @@
 
 ## Values
 
-| Name   | Value  |
-| ------ | ------ |
-| `Team` | team   |
+| Name            | Value           |
+| --------------- | --------------- |
+| `Team`          | team            |
+| `UnmappedValue` | unmapped_value  |

@@ -21,4 +21,7 @@ enum CreateAnswerValue: string
     case Number = 'number';
     case Date = 'date';
     case Video = 'video';
+    case ReferenceCheck = 'reference_check';
+    case Url = 'url';
+    case UnmappedValue = 'unmapped_value';
 }

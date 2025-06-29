@@ -134,7 +134,6 @@ class Employee
      * The employee job title
      *
      * @var ?string $jobTitle
-     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('job_title')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]

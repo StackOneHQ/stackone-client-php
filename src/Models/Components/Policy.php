@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
-/** Policy - The time off policy associated with this balance */
+/** Policy - The time off policy associated with Time Off */
 class Policy
 {
     /**
@@ -51,22 +51,22 @@ class Policy
     /**
      * The type of this policy
      *
-     * @var ?TimeOffBalancesType $type
+     * @var ?TimeOffPolicyType $type
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\TimeOffBalancesType|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\TimeOffPolicyType|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?TimeOffBalancesType $type = null;
+    public ?TimeOffPolicyType $type = null;
 
     /**
      * The duration unit of the current policy
      *
-     * @var ?TimeOffBalancesDurationUnit $durationUnit
+     * @var ?TimeOffDurationUnit $durationUnit
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('duration_unit')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\TimeOffBalancesDurationUnit|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\TimeOffDurationUnit|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?TimeOffBalancesDurationUnit $durationUnit = null;
+    public ?TimeOffDurationUnit $durationUnit = null;
 
     /**
      * $reasons
@@ -101,14 +101,14 @@ class Policy
      * @param  ?string  $remoteId
      * @param  ?string  $name
      * @param  ?string  $description
-     * @param  ?TimeOffBalancesType  $type
-     * @param  ?TimeOffBalancesDurationUnit  $durationUnit
+     * @param  ?TimeOffPolicyType  $type
+     * @param  ?TimeOffDurationUnit  $durationUnit
      * @param  ?array<Reason>  $reasons
      * @param  ?\DateTime  $createdAt
      * @param  ?\DateTime  $updatedAt
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?string $description = null, ?TimeOffBalancesType $type = null, ?TimeOffBalancesDurationUnit $durationUnit = null, ?array $reasons = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?string $description = null, ?TimeOffPolicyType $type = null, ?TimeOffDurationUnit $durationUnit = null, ?array $reasons = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;

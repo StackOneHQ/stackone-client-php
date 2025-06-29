@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
+/** Raw - Raw error response from the provider */
 class Raw
 {
 

@@ -68,12 +68,12 @@ class TimeOffBalances
     /**
      * The time off policy associated with this balance
      *
-     * @var ?Policy $policy
+     * @var ?TimeOffBalancesPolicy $policy
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('policy')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Policy|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\TimeOffBalancesPolicy|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Policy $policy = null;
+    public ?TimeOffBalancesPolicy $policy = null;
 
     /**
      * The current numeric balance for the associated employee and time off policy
@@ -137,7 +137,7 @@ class TimeOffBalances
      * @param  ?string  $remoteEmployeeId
      * @param  ?string  $policyId
      * @param  ?string  $remotePolicyId
-     * @param  ?Policy  $policy
+     * @param  ?TimeOffBalancesPolicy  $policy
      * @param  ?float  $currentBalance
      * @param  ?float  $initialBalance
      * @param  ?BalanceUnit  $balanceUnit
@@ -146,7 +146,7 @@ class TimeOffBalances
      * @param  ?\DateTime  $updatedAt
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?string $policyId = null, ?string $remotePolicyId = null, ?Policy $policy = null, ?float $currentBalance = null, ?float $initialBalance = null, ?BalanceUnit $balanceUnit = null, ?\DateTime $balanceStartDate = null, ?\DateTime $balanceExpiryDate = null, ?\DateTime $updatedAt = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?string $policyId = null, ?string $remotePolicyId = null, ?TimeOffBalancesPolicy $policy = null, ?float $currentBalance = null, ?float $initialBalance = null, ?BalanceUnit $balanceUnit = null, ?\DateTime $balanceStartDate = null, ?\DateTime $balanceExpiryDate = null, ?\DateTime $updatedAt = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;

@@ -3,8 +3,9 @@
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Content`    | content      |
-| `Course`     | course       |
-| `Collection` | collection   |
+| Name            | Value           |
+| --------------- | --------------- |
+| `Content`       | content         |
+| `Course`        | course          |
+| `Collection`    | collection      |
+| `UnmappedValue` | unmapped_value  |

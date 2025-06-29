@@ -16,4 +16,5 @@ enum EntitySkillsCreateRequestDtoMinimumProficiencyValue: string
     case Three = '3';
     case Four = '4';
     case Five = '5';
+    case UnmappedValue = 'unmapped_value';
 }

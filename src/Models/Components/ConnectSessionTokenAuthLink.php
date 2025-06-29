@@ -120,6 +120,25 @@ class ConnectSessionTokenAuthLink
     public ?ConnectSessionTokenAuthLinkMetadata $metadata = null;
 
     /**
+     * External trigger token to be used to trigger actions on the account
+     *
+     * @var ?string $externalTriggerToken
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('external_trigger_token')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $externalTriggerToken = null;
+
+    /**
+     * The connect session account type
+     *
+     * @var ?ConnectSessionTokenAuthLinkType $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\ConnectSessionTokenAuthLinkType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?ConnectSessionTokenAuthLinkType $type = null;
+
+    /**
      * @param  float  $id
      * @param  float  $organizationId
      * @param  string  $projectId
@@ -134,9 +153,11 @@ class ConnectSessionTokenAuthLink
      * @param  ?string  $accountId
      * @param  ?string  $label
      * @param  ?ConnectSessionTokenAuthLinkMetadata  $metadata
+     * @param  ?string  $externalTriggerToken
+     * @param  ?ConnectSessionTokenAuthLinkType  $type
      * @phpstan-pure
      */
-    public function __construct(float $id, float $organizationId, string $projectId, string $originOwnerId, string $originOwnerName, \DateTime $createdAt, string $token, string $authLinkUrl, ?array $categories = null, ?string $provider = null, ?string $originUsername = null, ?string $accountId = null, ?string $label = null, ?ConnectSessionTokenAuthLinkMetadata $metadata = null)
+    public function __construct(float $id, float $organizationId, string $projectId, string $originOwnerId, string $originOwnerName, \DateTime $createdAt, string $token, string $authLinkUrl, ?array $categories = null, ?string $provider = null, ?string $originUsername = null, ?string $accountId = null, ?string $label = null, ?ConnectSessionTokenAuthLinkMetadata $metadata = null, ?string $externalTriggerToken = null, ?ConnectSessionTokenAuthLinkType $type = null)
     {
         $this->id = $id;
         $this->organizationId = $organizationId;
@@ -152,5 +173,7 @@ class ConnectSessionTokenAuthLink
         $this->accountId = $accountId;
         $this->label = $label;
         $this->metadata = $metadata;
+        $this->externalTriggerToken = $externalTriggerToken;
+        $this->type = $type;
     }
 }

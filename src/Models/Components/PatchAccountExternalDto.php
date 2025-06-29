@@ -105,6 +105,16 @@ class PatchAccountExternalDto
     public ?PatchAccountExternalDtoMetadata $metadata = null;
 
     /**
+     * The account type
+     *
+     * @var ?PatchAccountExternalDtoType $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\PatchAccountExternalDtoType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?PatchAccountExternalDtoType $type = null;
+
+    /**
      * @param  ?string  $provider
      * @param  ?string  $originOwnerId
      * @param  ?string  $originOwnerName
@@ -116,9 +126,10 @@ class PatchAccountExternalDto
      * @param  ?string  $environment
      * @param  ?Label  $label
      * @param  ?PatchAccountExternalDtoMetadata  $metadata
+     * @param  ?PatchAccountExternalDtoType  $type
      * @phpstan-pure
      */
-    public function __construct(?string $provider = null, ?string $originOwnerId = null, ?string $originOwnerName = null, ?string $originUsername = null, ?PatchAccountExternalDtoCredentials $credentials = null, ?PatchAccountExternalDtoSetupInformation $setupInformation = null, ?Secrets $secrets = null, ?string $authenticationConfigKey = null, ?string $environment = null, ?Label $label = null, ?PatchAccountExternalDtoMetadata $metadata = null)
+    public function __construct(?string $provider = null, ?string $originOwnerId = null, ?string $originOwnerName = null, ?string $originUsername = null, ?PatchAccountExternalDtoCredentials $credentials = null, ?PatchAccountExternalDtoSetupInformation $setupInformation = null, ?Secrets $secrets = null, ?string $authenticationConfigKey = null, ?string $environment = null, ?Label $label = null, ?PatchAccountExternalDtoMetadata $metadata = null, ?PatchAccountExternalDtoType $type = PatchAccountExternalDtoType::Production)
     {
         $this->provider = $provider;
         $this->originOwnerId = $originOwnerId;
@@ -131,5 +142,6 @@ class PatchAccountExternalDto
         $this->environment = $environment;
         $this->label = $label;
         $this->metadata = $metadata;
+        $this->type = $type;
     }
 }

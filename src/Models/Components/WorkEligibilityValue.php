@@ -16,4 +16,5 @@ enum WorkEligibilityValue: string
     case DriverLicense = 'driver_license';
     case BirthCertificate = 'birth_certificate';
     case Other = 'other';
+    case UnmappedValue = 'unmapped_value';
 }

@@ -93,6 +93,14 @@ class HrisListEmployeeTimeOffRequestsRequest
     public ?string $updatedAfter = null;
 
     /**
+     * The comma separated list of fields that will be expanded in the response
+     *
+     * @var ?string $expand
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=expand')]
+    public ?string $expand = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  ?bool  $raw
@@ -103,9 +111,10 @@ class HrisListEmployeeTimeOffRequestsRequest
      * @param  ?string  $pageSize
      * @param  ?string  $next
      * @param  ?string  $updatedAfter
+     * @param  ?string  $expand
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, ?bool $raw = null, ?array $proxy = null, ?string $fields = null, ?HrisListEmployeeTimeOffRequestsQueryParamFilter $filter = null, ?string $page = null, ?string $pageSize = null, ?string $next = null, ?string $updatedAfter = null)
+    public function __construct(string $xAccountId, string $id, ?bool $raw = null, ?array $proxy = null, ?string $fields = null, ?HrisListEmployeeTimeOffRequestsQueryParamFilter $filter = null, ?string $page = null, ?string $pageSize = null, ?string $next = null, ?string $updatedAfter = null, ?string $expand = null)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
@@ -117,5 +126,6 @@ class HrisListEmployeeTimeOffRequestsRequest
         $this->pageSize = $pageSize;
         $this->next = $next;
         $this->updatedAfter = $updatedAfter;
+        $this->expand = $expand;
     }
 }

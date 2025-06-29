@@ -156,6 +156,15 @@ class JobPosting
     public ?array $questionnaires = null;
 
     /**
+     * The posting start date
+     *
+     * @var ?\DateTime $startDate
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('start_date')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $startDate = null;
+
+    /**
      * Date of creation
      *
      * @var ?\DateTime $createdAt
@@ -190,11 +199,12 @@ class JobPosting
      * @param  ?string  $externalUrl
      * @param  ?string  $externalApplyUrl
      * @param  ?array<JobPostingQuestionnaire>  $questionnaires
+     * @param  ?\DateTime  $startDate
      * @param  ?\DateTime  $createdAt
      * @param  ?\DateTime  $updatedAt
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $title = null, ?array $locations = null, ?Internal $internal = null, ?JobPostingStatus $status = null, ?string $jobId = null, ?string $remoteJobPostingId = null, ?JobPostingContent $content = null, ?array $compensation = null, ?JobPostingEmploymentType $employmentType = null, ?JobPostingEmploymentContractType $employmentContractType = null, ?string $externalUrl = null, ?string $externalApplyUrl = null, ?array $questionnaires = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $title = null, ?array $locations = null, ?Internal $internal = null, ?JobPostingStatus $status = null, ?string $jobId = null, ?string $remoteJobPostingId = null, ?JobPostingContent $content = null, ?array $compensation = null, ?JobPostingEmploymentType $employmentType = null, ?JobPostingEmploymentContractType $employmentContractType = null, ?string $externalUrl = null, ?string $externalApplyUrl = null, ?array $questionnaires = null, ?\DateTime $startDate = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -212,6 +222,7 @@ class JobPosting
         $this->externalUrl = $externalUrl;
         $this->externalApplyUrl = $externalApplyUrl;
         $this->questionnaires = $questionnaires;
+        $this->startDate = $startDate;
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
     }

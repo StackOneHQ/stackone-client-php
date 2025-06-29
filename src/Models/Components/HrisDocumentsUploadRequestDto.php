@@ -58,16 +58,6 @@ class HrisDocumentsUploadRequestDto
     public ?string $path = null;
 
     /**
-     * The category to be associated with the file to be uploaded. Id will take precedence over name.
-     *
-     * @var ?HrisDocumentsUploadRequestDtoCategory $category
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('category')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisDocumentsUploadRequestDtoCategory|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?HrisDocumentsUploadRequestDtoCategory $category = null;
-
-    /**
      * The confidentiality level of the file to be uploaded
      *
      * @var ?Confidential $confidential
@@ -78,23 +68,33 @@ class HrisDocumentsUploadRequestDto
     public ?Confidential $confidential = null;
 
     /**
+     * The category to be associated with the file to be uploaded. Id will take precedence over name.
+     *
+     * @var ?HrisDocumentsUploadRequestDtoCategory $category
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('category')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisDocumentsUploadRequestDtoCategory|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?HrisDocumentsUploadRequestDtoCategory $category = null;
+
+    /**
      * @param  ?string  $name
      * @param  ?FileFormat  $fileFormat
      * @param  ?string  $content
      * @param  ?string  $categoryId
      * @param  ?string  $path
-     * @param  ?HrisDocumentsUploadRequestDtoCategory  $category
      * @param  ?Confidential  $confidential
+     * @param  ?HrisDocumentsUploadRequestDtoCategory  $category
      * @phpstan-pure
      */
-    public function __construct(?string $name = null, ?FileFormat $fileFormat = null, ?string $content = null, ?string $categoryId = null, ?string $path = null, ?HrisDocumentsUploadRequestDtoCategory $category = null, ?Confidential $confidential = null)
+    public function __construct(?string $name = null, ?FileFormat $fileFormat = null, ?string $content = null, ?string $categoryId = null, ?string $path = null, ?Confidential $confidential = null, ?HrisDocumentsUploadRequestDtoCategory $category = null)
     {
         $this->name = $name;
         $this->fileFormat = $fileFormat;
         $this->content = $content;
         $this->categoryId = $categoryId;
         $this->path = $path;
-        $this->category = $category;
         $this->confidential = $confidential;
+        $this->category = $category;
     }
 }

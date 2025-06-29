@@ -15,5 +15,7 @@ enum TimeOffValue: string
     case Cancelled = 'cancelled';
     case Rejected = 'rejected';
     case Pending = 'pending';
+    case Deleted = 'deleted';
+    case Draft = 'draft';
     case UnmappedValue = 'unmapped_value';
 }

@@ -17,4 +17,5 @@ enum AtsUpdateBackgroundCheckResultRequestDtoValue: string
     case Expired = 'expired';
     case Failed = 'failed';
     case Passed = 'passed';
+    case UnmappedValue = 'unmapped_value';
 }

@@ -1,9 +1,0 @@
-# HrisCreateTimeOffRequestRequest
-
-
-## Fields
-
-| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `xAccountId`                                                                                     | *string*                                                                                         | :heavy_check_mark:                                                                               | The account identifier                                                                           |
-| `hrisCreateTimeOffRequestDto`                                                                    | [Components\HrisCreateTimeOffRequestDto](../../Models/Components/HrisCreateTimeOffRequestDto.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |

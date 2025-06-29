@@ -90,6 +90,24 @@ class Division
     public ?array $remoteOwnerIds = null;
 
     /**
+     * The id of the company that the group belongs to
+     *
+     * @var ?string $companyId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('company_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $companyId = null;
+
+    /**
+     * Provider's id of the company that the group belongs to
+     *
+     * @var ?string $remoteCompanyId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('remote_company_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $remoteCompanyId = null;
+
+    /**
      * The type of the group
      *
      * @var ?EmploymentDivisionType $type
@@ -108,10 +126,12 @@ class Division
      * @param  ?array<string>  $remoteParentIds
      * @param  ?array<string>  $ownerIds
      * @param  ?array<string>  $remoteOwnerIds
+     * @param  ?string  $companyId
+     * @param  ?string  $remoteCompanyId
      * @param  ?EmploymentDivisionType  $type
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $name = null, ?array $parentIds = null, ?array $remoteParentIds = null, ?array $ownerIds = null, ?array $remoteOwnerIds = null, ?EmploymentDivisionType $type = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $name = null, ?array $parentIds = null, ?array $remoteParentIds = null, ?array $ownerIds = null, ?array $remoteOwnerIds = null, ?string $companyId = null, ?string $remoteCompanyId = null, ?EmploymentDivisionType $type = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -121,6 +141,8 @@ class Division
         $this->remoteParentIds = $remoteParentIds;
         $this->ownerIds = $ownerIds;
         $this->remoteOwnerIds = $remoteOwnerIds;
+        $this->companyId = $companyId;
+        $this->remoteCompanyId = $remoteCompanyId;
         $this->type = $type;
     }
 }

@@ -86,6 +86,14 @@ class HrisListTimeOffRequestsRequest
     public ?string $updatedAfter = null;
 
     /**
+     * The comma separated list of fields that will be expanded in the response
+     *
+     * @var ?string $expand
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=expand')]
+    public ?string $expand = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  ?bool  $raw
      * @param  ?array<string, mixed>  $proxy
@@ -95,9 +103,10 @@ class HrisListTimeOffRequestsRequest
      * @param  ?string  $pageSize
      * @param  ?string  $next
      * @param  ?string  $updatedAfter
+     * @param  ?string  $expand
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, ?bool $raw = null, ?array $proxy = null, ?string $fields = null, ?HrisListTimeOffRequestsQueryParamFilter $filter = null, ?string $page = null, ?string $pageSize = null, ?string $next = null, ?string $updatedAfter = null)
+    public function __construct(string $xAccountId, ?bool $raw = null, ?array $proxy = null, ?string $fields = null, ?HrisListTimeOffRequestsQueryParamFilter $filter = null, ?string $page = null, ?string $pageSize = null, ?string $next = null, ?string $updatedAfter = null, ?string $expand = null)
     {
         $this->xAccountId = $xAccountId;
         $this->raw = $raw;
@@ -108,5 +117,6 @@ class HrisListTimeOffRequestsRequest
         $this->pageSize = $pageSize;
         $this->next = $next;
         $this->updatedAfter = $updatedAfter;
+        $this->expand = $expand;
     }
 }

@@ -14,4 +14,5 @@ enum QuestionParentQuestionValue: string
 {
     case EqualsTo = 'equals_to';
     case Contains = 'contains';
+    case UnmappedValue = 'unmapped_value';
 }

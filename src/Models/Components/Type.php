@@ -9,35 +9,9 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
-/** Type - The type of the custom field. */
-class Type
+/** The connect session account type */
+enum Type: string
 {
-    /**
-     *
-     * @var ?CustomFieldDefinitionValue $value
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CustomFieldDefinitionValue|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?CustomFieldDefinitionValue $value = null;
-
-    /**
-     *
-     * @var string|float|bool|CustomFieldDefinitionSourceValue4|array<mixed>|null $sourceValue
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('source_value')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\CustomFieldDefinitionSourceValue4|array<mixed>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|float|bool|CustomFieldDefinitionSourceValue4|array|null $sourceValue = null;
-
-    /**
-     * @param  ?CustomFieldDefinitionValue  $value
-     * @param  string|float|bool|CustomFieldDefinitionSourceValue4|array<mixed>|null  $sourceValue
-     * @phpstan-pure
-     */
-    public function __construct(?CustomFieldDefinitionValue $value = null, string|float|bool|CustomFieldDefinitionSourceValue4|array|null $sourceValue = null)
-    {
-        $this->value = $value;
-        $this->sourceValue = $sourceValue;
-    }
+    case Production = 'production';
+    case Test = 'test';
 }

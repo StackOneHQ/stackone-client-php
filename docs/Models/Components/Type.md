@@ -1,11 +1,11 @@
 # Type
 
-The type of the custom field.
+The connect session account type
 
 
-## Fields
+## Values
 
-| Field                                                                                                                                    | Type                                                                                                                                     | Required                                                                                                                                 | Description                                                                                                                              |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `value`                                                                                                                                  | [?Components\CustomFieldDefinitionValue](../../Models/Components/CustomFieldDefinitionValue.md)                                          | :heavy_minus_sign:                                                                                                                       | N/A                                                                                                                                      |
-| `sourceValue`                                                                                                                            | [string\|float\|bool\|Components\CustomFieldDefinitionSourceValue4\|array\|null](../../Models/Components/CustomFieldDefinitionSourceValue.md) | :heavy_minus_sign:                                                                                                                       | N/A                                                                                                                                      |
+| Name         | Value        |
+| ------------ | ------------ |
+| `Production` | production   |
+| `Test`       | test         |

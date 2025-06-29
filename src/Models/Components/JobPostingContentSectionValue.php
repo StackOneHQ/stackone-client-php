@@ -18,4 +18,5 @@ enum JobPostingContentSectionValue: string
     case CompanyOverview = 'company_overview';
     case Description = 'description';
     case Other = 'other';
+    case UnmappedValue = 'unmapped_value';
 }

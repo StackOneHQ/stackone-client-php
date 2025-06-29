@@ -17,4 +17,5 @@ enum CampaignValue: string
     case Recurring = 'recurring';
     case Custom = 'custom';
     case Triggered = 'triggered';
+    case UnmappedValue = 'unmapped_value';
 }

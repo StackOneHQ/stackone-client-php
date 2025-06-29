@@ -44,7 +44,7 @@ class HrisListTimeOffPoliciesRequest
     public ?string $fields = null;
 
     /**
-     * Filter parameters that allow greater customisation of the list response
+     * HRIS Time-Off Policies filters
      *
      * @var ?HrisListTimeOffPoliciesQueryParamFilter $filter
      */

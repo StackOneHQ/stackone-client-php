@@ -79,6 +79,7 @@ class TimeOff
      * The type of the time off request
      *
      * @var ?TimeOffType $type
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\TimeOffType|null')]
@@ -86,22 +87,22 @@ class TimeOff
     public ?TimeOffType $type = null;
 
     /**
-     * The start date of the time off request
+     * The start date of the time off request (ISO8601 date-time without timezone)
      *
-     * @var ?\DateTime $startDate
+     * @var ?string $startDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('start_date')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $startDate = null;
+    public ?string $startDate = null;
 
     /**
-     * The end date of the time off request
+     * Inclusive end date of the time off request (ISO8601 date-time without timezone). The time off includes this day
      *
-     * @var ?\DateTime $endDate
+     * @var ?string $endDate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('end_date')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $endDate = null;
+    public ?string $endDate = null;
 
     /**
      * True if the start of the time off request begins half way through the day
@@ -178,6 +179,25 @@ class TimeOff
     public ?\DateTime $updatedDate = null;
 
     /**
+     * The time off policy associated with Time Off
+     *
+     * @var ?Policy $policy
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('policy')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Policy|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Policy $policy = null;
+
+    /**
+     * Allows users to provide additional context or notes for their time off request
+     *
+     * @var ?string $comment
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('comment')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $comment = null;
+
+    /**
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?string  $employeeId
@@ -186,8 +206,8 @@ class TimeOff
      * @param  ?string  $remoteApproverId
      * @param  ?TimeOffStatus  $status
      * @param  ?TimeOffType  $type
-     * @param  ?\DateTime  $startDate
-     * @param  ?\DateTime  $endDate
+     * @param  ?string  $startDate
+     * @param  ?string  $endDate
      * @param  bool|Two|null  $startHalfDay
      * @param  bool|EndHalfDay2|null  $endHalfDay
      * @param  ?string  $duration
@@ -196,9 +216,11 @@ class TimeOff
      * @param  ?TimeOffReason  $reason
      * @param  ?\DateTime  $createdDate
      * @param  ?\DateTime  $updatedDate
+     * @param  ?Policy  $policy
+     * @param  ?string  $comment
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?string $approverId = null, ?string $remoteApproverId = null, ?TimeOffStatus $status = null, ?TimeOffType $type = null, ?\DateTime $startDate = null, ?\DateTime $endDate = null, bool|Two|null $startHalfDay = null, bool|EndHalfDay2|null $endHalfDay = null, ?string $duration = null, ?string $timeOffPolicyId = null, ?string $remoteTimeOffPolicyId = null, ?TimeOffReason $reason = null, ?\DateTime $createdDate = null, ?\DateTime $updatedDate = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?string $approverId = null, ?string $remoteApproverId = null, ?TimeOffStatus $status = null, ?TimeOffType $type = null, ?string $startDate = null, ?string $endDate = null, bool|Two|null $startHalfDay = null, bool|EndHalfDay2|null $endHalfDay = null, ?string $duration = null, ?string $timeOffPolicyId = null, ?string $remoteTimeOffPolicyId = null, ?TimeOffReason $reason = null, ?\DateTime $createdDate = null, ?\DateTime $updatedDate = null, ?Policy $policy = null, ?string $comment = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -218,5 +240,7 @@ class TimeOff
         $this->reason = $reason;
         $this->createdDate = $createdDate;
         $this->updatedDate = $updatedDate;
+        $this->policy = $policy;
+        $this->comment = $comment;
     }
 }

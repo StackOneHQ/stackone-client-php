@@ -15,4 +15,5 @@ enum ContentBlockStatusValue: string
     case Draft = 'draft';
     case Live = 'live';
     case Archived = 'archived';
+    case UnmappedValue = 'unmapped_value';
 }

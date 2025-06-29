@@ -47,6 +47,15 @@ class ConnectSessionCreate
     public ?string $provider = null;
 
     /**
+     * The provider version to connect to
+     *
+     * @var ?string $providerVersion
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('provider_version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $providerVersion = null;
+
+    /**
      * The origin username
      *
      * @var ?string $originUsername
@@ -102,29 +111,43 @@ class ConnectSessionCreate
     public ?bool $multiple = null;
 
     /**
+     * The connect session account type
+     *
+     * @var ?Type $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Type|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Type $type = null;
+
+    /**
      * @param  string  $originOwnerId
      * @param  string  $originOwnerName
      * @param  ?array<Categories>  $categories
      * @param  ?string  $provider
+     * @param  ?string  $providerVersion
      * @param  ?string  $originUsername
      * @param  ?string  $accountId
      * @param  ?float  $expiresIn
      * @param  ?Metadata  $metadata
      * @param  ?bool  $multiple
      * @param  ?string  $label
+     * @param  ?Type  $type
      * @phpstan-pure
      */
-    public function __construct(string $originOwnerId, string $originOwnerName, ?array $categories = null, ?string $provider = null, ?string $originUsername = null, ?string $accountId = null, ?Metadata $metadata = null, ?string $label = null, ?float $expiresIn = 1800, ?bool $multiple = false)
+    public function __construct(string $originOwnerId, string $originOwnerName, ?array $categories = null, ?string $provider = null, ?string $providerVersion = null, ?string $originUsername = null, ?string $accountId = null, ?Metadata $metadata = null, ?string $label = null, ?float $expiresIn = 1800, ?bool $multiple = false, ?Type $type = Type::Production)
     {
         $this->originOwnerId = $originOwnerId;
         $this->originOwnerName = $originOwnerName;
         $this->categories = $categories;
         $this->provider = $provider;
+        $this->providerVersion = $providerVersion;
         $this->originUsername = $originUsername;
         $this->accountId = $accountId;
         $this->metadata = $metadata;
         $this->label = $label;
         $this->expiresIn = $expiresIn;
         $this->multiple = $multiple;
+        $this->type = $type;
     }
 }

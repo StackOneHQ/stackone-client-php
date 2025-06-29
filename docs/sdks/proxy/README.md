@@ -3,6 +3,8 @@
 
 ## Overview
 
+Routing API requests through StackOne directly to the underlying provider.
+
 ### Available Operations
 
 * [proxyRequest](#proxyrequest) - Proxy Request
@@ -62,6 +64,18 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\BadRequestResponse          | 400                                | application/json                   |
+| Errors\UnauthorizedResponse        | 401                                | application/json                   |
+| Errors\ForbiddenResponse           | 403                                | application/json                   |
+| Errors\NotFoundResponse            | 404                                | application/json                   |
+| Errors\RequestTimedOutResponse     | 408                                | application/json                   |
+| Errors\ConflictResponse            | 409                                | application/json                   |
+| Errors\PreconditionFailedResponse  | 412                                | application/json                   |
+| Errors\UnprocessableEntityResponse | 422                                | application/json                   |
+| Errors\TooManyRequestsResponse     | 429                                | application/json                   |
+| Errors\InternalServerErrorResponse | 500                                | application/json                   |
+| Errors\NotImplementedResponse      | 501                                | application/json                   |
+| Errors\BadGatewayResponse          | 502                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |

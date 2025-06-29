@@ -17,4 +17,5 @@ enum HRISDepartmentValue: string
     case Group = 'group';
     case Project = 'project';
     case Team = 'team';
+    case UnmappedValue = 'unmapped_value';
 }

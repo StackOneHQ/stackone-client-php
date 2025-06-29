@@ -16,4 +16,5 @@ enum LmsUpsertContentRequestDtoValue: string
     case Document = 'document';
     case Audio = 'audio';
     case Article = 'article';
+    case UnmappedValue = 'unmapped_value';
 }

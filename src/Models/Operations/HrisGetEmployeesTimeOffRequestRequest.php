@@ -58,15 +58,24 @@ class HrisGetEmployeesTimeOffRequestRequest
     public ?string $fields = null;
 
     /**
+     * The comma separated list of fields that will be expanded in the response
+     *
+     * @var ?string $expand
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=expand')]
+    public ?string $expand = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  string  $subResourceId
      * @param  ?bool  $raw
      * @param  ?array<string, mixed>  $proxy
      * @param  ?string  $fields
+     * @param  ?string  $expand
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, string $subResourceId, ?bool $raw = null, ?array $proxy = null, ?string $fields = null)
+    public function __construct(string $xAccountId, string $id, string $subResourceId, ?bool $raw = null, ?array $proxy = null, ?string $fields = null, ?string $expand = null)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
@@ -74,5 +83,6 @@ class HrisGetEmployeesTimeOffRequestRequest
         $this->raw = $raw;
         $this->proxy = $proxy;
         $this->fields = $fields;
+        $this->expand = $expand;
     }
 }

@@ -9,7 +9,11 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
-/** HrisCreateEmploymentRequestDtoEmploymentType - The type of employment (e.g., contractor, permanent) */
+/**
+ * HrisCreateEmploymentRequestDtoEmploymentType - The type of employment (e.g., contractor, permanent)
+ *
+ * @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
 class HrisCreateEmploymentRequestDtoEmploymentType
 {
     /**

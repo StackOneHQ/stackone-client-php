@@ -18,4 +18,5 @@ enum PhoneNumberType: string
     case Home = 'home';
     case Unknown = 'unknown';
     case Other = 'other';
+    case UnmappedValue = 'unmapped_value';
 }

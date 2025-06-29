@@ -13,19 +13,139 @@ use StackOne\client\Utils\SpeakeasyMetadata;
 class Filter
 {
     /**
-     * Use a string with a date to only select results updated after that given date
+     * A comma-separated list of account IDs to filter the results by.
      *
-     * @var ?string $updatedAfter
+     * @var ?string $accountIds
      */
-    #[SpeakeasyMetadata('queryParam:name=updated_after')]
-    public ?string $updatedAfter = null;
+    #[SpeakeasyMetadata('queryParam:name=account_ids')]
+    public ?string $accountIds = null;
 
     /**
-     * @param  ?string  $updatedAfter
+     * A ISO8601 date string to filter the results by start_date.
+     *
+     * @var ?string $startDate
+     */
+    #[SpeakeasyMetadata('queryParam:name=start_date')]
+    public ?string $startDate = null;
+
+    /**
+     * A ISO8601 date string to filter the results by end_date.
+     *
+     * @var ?string $endDate
+     */
+    #[SpeakeasyMetadata('queryParam:name=end_date')]
+    public ?string $endDate = null;
+
+    /**
+     * A comma-separated list of request IDs to filter the results by.
+     *
+     * @var ?string $requestIds
+     */
+    #[SpeakeasyMetadata('queryParam:name=request_ids')]
+    public ?string $requestIds = null;
+
+    /**
+     * A comma-separated list of HTTP methods to filter the results by.
+     *
+     * @var ?string $httpMethods
+     */
+    #[SpeakeasyMetadata('queryParam:name=http_methods')]
+    public ?string $httpMethods = null;
+
+    /**
+     * A comma-separated list of provider keys to filter the results by.
+     *
+     * @var ?string $providers
+     */
+    #[SpeakeasyMetadata('queryParam:name=providers')]
+    public ?string $providers = null;
+
+    /**
+     * A comma-separated list of services to filter the results by.
+     *
+     * @var ?string $services
+     */
+    #[SpeakeasyMetadata('queryParam:name=services')]
+    public ?string $services = null;
+
+    /**
+     * A comma-separated list of resources to filter the results by.
+     *
+     * @var ?string $resources
+     */
+    #[SpeakeasyMetadata('queryParam:name=resources')]
+    public ?string $resources = null;
+
+    /**
+     * A comma-separated list of child resources to filter the results by.
+     *
+     * @var ?string $childResources
+     */
+    #[SpeakeasyMetadata('queryParam:name=child_resources')]
+    public ?string $childResources = null;
+
+    /**
+     * A comma-separated list of sub resources to filter the results by.
+     *
+     * @var ?string $subResources
+     */
+    #[SpeakeasyMetadata('queryParam:name=sub_resources')]
+    public ?string $subResources = null;
+
+    /**
+     * A comma-separated list of actions to filter the results by.
+     *
+     * @var ?string $actions
+     */
+    #[SpeakeasyMetadata('queryParam:name=actions')]
+    public ?string $actions = null;
+
+    /**
+     * A comma-separated list of status codes to filter the results by.
+     *
+     * @var ?string $statusCodes
+     */
+    #[SpeakeasyMetadata('queryParam:name=status_codes')]
+    public ?string $statusCodes = null;
+
+    /**
+     * A boolean value to filter the results by success or failure.
+     *
+     * @var ?bool $success
+     */
+    #[SpeakeasyMetadata('queryParam:name=success')]
+    public ?bool $success = null;
+
+    /**
+     * @param  ?string  $accountIds
+     * @param  ?string  $startDate
+     * @param  ?string  $endDate
+     * @param  ?string  $requestIds
+     * @param  ?string  $httpMethods
+     * @param  ?string  $providers
+     * @param  ?string  $services
+     * @param  ?string  $resources
+     * @param  ?string  $childResources
+     * @param  ?string  $subResources
+     * @param  ?string  $actions
+     * @param  ?string  $statusCodes
+     * @param  ?bool  $success
      * @phpstan-pure
      */
-    public function __construct(?string $updatedAfter = null)
+    public function __construct(?string $accountIds = null, ?string $startDate = null, ?string $endDate = null, ?string $requestIds = null, ?string $httpMethods = null, ?string $providers = null, ?string $services = null, ?string $resources = null, ?string $childResources = null, ?string $subResources = null, ?string $actions = null, ?string $statusCodes = null, ?bool $success = null)
     {
-        $this->updatedAfter = $updatedAfter;
+        $this->accountIds = $accountIds;
+        $this->startDate = $startDate;
+        $this->endDate = $endDate;
+        $this->requestIds = $requestIds;
+        $this->httpMethods = $httpMethods;
+        $this->providers = $providers;
+        $this->services = $services;
+        $this->resources = $resources;
+        $this->childResources = $childResources;
+        $this->subResources = $subResources;
+        $this->actions = $actions;
+        $this->statusCodes = $statusCodes;
+        $this->success = $success;
     }
 }

@@ -96,6 +96,16 @@ class AtsCreateApplicationRequestDto
     public ?AtsCreateApplicationRequestDtoCandidate $candidate = null;
 
     /**
+     * Document Properties. Providing this attempts to upload files with the application.
+     *
+     * @var ?array<UnifiedUploadRequestDto> $documents
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('documents')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\UnifiedUploadRequestDto>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $documents = null;
+
+    /**
      * @param  ?array<string, mixed>  $passthrough
      * @param  ?string  $jobId
      * @param  ?string  $jobPostingId
@@ -105,9 +115,10 @@ class AtsCreateApplicationRequestDto
      * @param  ?AtsCreateApplicationRequestDtoSource  $source
      * @param  ?string  $candidateId
      * @param  ?AtsCreateApplicationRequestDtoCandidate  $candidate
+     * @param  ?array<UnifiedUploadRequestDto>  $documents
      * @phpstan-pure
      */
-    public function __construct(?array $passthrough = null, ?string $jobId = null, ?string $jobPostingId = null, ?string $locationId = null, ?AtsCreateApplicationRequestDtoApplicationStatus $applicationStatus = null, ?array $questionnaires = null, ?AtsCreateApplicationRequestDtoSource $source = null, ?string $candidateId = null, ?AtsCreateApplicationRequestDtoCandidate $candidate = null)
+    public function __construct(?array $passthrough = null, ?string $jobId = null, ?string $jobPostingId = null, ?string $locationId = null, ?AtsCreateApplicationRequestDtoApplicationStatus $applicationStatus = null, ?array $questionnaires = null, ?AtsCreateApplicationRequestDtoSource $source = null, ?string $candidateId = null, ?AtsCreateApplicationRequestDtoCandidate $candidate = null, ?array $documents = null)
     {
         $this->passthrough = $passthrough;
         $this->jobId = $jobId;
@@ -118,5 +129,6 @@ class AtsCreateApplicationRequestDto
         $this->source = $source;
         $this->candidateId = $candidateId;
         $this->candidate = $candidate;
+        $this->documents = $documents;
     }
 }

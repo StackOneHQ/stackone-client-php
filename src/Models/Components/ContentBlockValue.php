@@ -16,4 +16,5 @@ enum ContentBlockValue: string
     case Html = 'html';
     case Image = 'image';
     case CodeSnippet = 'code-snippet';
+    case UnmappedValue = 'unmapped_value';
 }

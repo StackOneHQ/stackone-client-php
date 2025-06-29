@@ -1,0 +1,14 @@
+# Request
+
+The advanced log request data
+
+
+## Fields
+
+| Field                                                                   | Type                                                                    | Required                                                                | Description                                                             | Example                                                                 |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `id`                                                                    | *?string*                                                               | :heavy_minus_sign:                                                      | The request ID                                                          | adbf752f-6457-4ddd-89b3-98ae2252b83b                                    |
+| `method`                                                                | *?string*                                                               | :heavy_minus_sign:                                                      | The request method                                                      | get                                                                     |
+| `headers`                                                               | array<string, *mixed*>                                                  | :heavy_minus_sign:                                                      | N/A                                                                     | {<br/>"content-type": "application/json",<br/>"authorization": "Bearer token"<br/>} |
+| `url`                                                                   | [?Components\Url](../../Models/Components/Url.md)                       | :heavy_minus_sign:                                                      | The request URL data                                                    |                                                                         |
+| `body`                                                                  | *mixed*                                                                 | :heavy_minus_sign:                                                      | N/A                                                                     |                                                                         |

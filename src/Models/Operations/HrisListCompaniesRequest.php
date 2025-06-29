@@ -46,10 +46,10 @@ class HrisListCompaniesRequest
     /**
      * Filter parameters that allow greater customisation of the list response
      *
-     * @var ?Filter $filter
+     * @var ?HrisListCompaniesQueryParamFilter $filter
      */
     #[SpeakeasyMetadata('queryParam:style=deepObject,explode=true,name=filter')]
-    public ?Filter $filter = null;
+    public ?HrisListCompaniesQueryParamFilter $filter = null;
 
     /**
      * The page number of the results to fetch
@@ -90,14 +90,14 @@ class HrisListCompaniesRequest
      * @param  ?bool  $raw
      * @param  ?array<string, mixed>  $proxy
      * @param  ?string  $fields
-     * @param  ?Filter  $filter
+     * @param  ?HrisListCompaniesQueryParamFilter  $filter
      * @param  ?string  $page
      * @param  ?string  $pageSize
      * @param  ?string  $next
      * @param  ?string  $updatedAfter
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, ?bool $raw = null, ?array $proxy = null, ?string $fields = null, ?Filter $filter = null, ?string $page = null, ?string $pageSize = null, ?string $next = null, ?string $updatedAfter = null)
+    public function __construct(string $xAccountId, ?bool $raw = null, ?array $proxy = null, ?string $fields = null, ?HrisListCompaniesQueryParamFilter $filter = null, ?string $page = null, ?string $pageSize = null, ?string $next = null, ?string $updatedAfter = null)
     {
         $this->xAccountId = $xAccountId;
         $this->raw = $raw;

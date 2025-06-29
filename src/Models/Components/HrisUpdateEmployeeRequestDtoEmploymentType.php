@@ -9,7 +9,11 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
-/** HrisUpdateEmployeeRequestDtoEmploymentType - The employee employment type */
+/**
+ * HrisUpdateEmployeeRequestDtoEmploymentType - The employee employment type
+ *
+ * @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
 class HrisUpdateEmployeeRequestDtoEmploymentType
 {
     /**

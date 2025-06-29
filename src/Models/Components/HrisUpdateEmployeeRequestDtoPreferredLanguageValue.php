@@ -27,6 +27,7 @@ enum HrisUpdateEmployeeRequestDtoPreferredLanguageValue: string
     case Cat = 'cat';
     case Cha = 'cha';
     case Ces = 'ces';
+    case Dan = 'dan';
     case Deu = 'deu';
     case Div = 'div';
     case Dzo = 'dzo';
@@ -43,6 +44,7 @@ enum HrisUpdateEmployeeRequestDtoPreferredLanguageValue: string
     case Fra = 'fra';
     case Gle = 'gle';
     case Grn = 'grn';
+    case Guj = 'guj';
     case Glv = 'glv';
     case Heb = 'heb';
     case Hin = 'hin';
@@ -73,6 +75,8 @@ enum HrisUpdateEmployeeRequestDtoPreferredLanguageValue: string
     case Mah = 'mah';
     case Mri = 'mri';
     case Mkd = 'mkd';
+    case Mon = 'mon';
+    case Mar = 'mar';
     case Msa = 'msa';
     case Mlt = 'mlt';
     case Mya = 'mya';
@@ -87,15 +91,18 @@ enum HrisUpdateEmployeeRequestDtoPreferredLanguageValue: string
     case Pol = 'pol';
     case Pus = 'pus';
     case Por = 'por';
+    case Que = 'que';
     case Rar = 'rar';
     case Roh = 'roh';
     case Rup = 'rup';
     case Ron = 'ron';
     case Rus = 'rus';
     case Kin = 'kin';
+    case Sme = 'sme';
     case Sag = 'sag';
     case Sin = 'sin';
     case Slk = 'slk';
+    case Slv = 'slv';
     case Smo = 'smo';
     case Sna = 'sna';
     case Som = 'som';
@@ -105,10 +112,23 @@ enum HrisUpdateEmployeeRequestDtoPreferredLanguageValue: string
     case Swe = 'swe';
     case Swa = 'swa';
     case Tam = 'tam';
+    case Tel = 'tel';
     case Tgk = 'tgk';
     case Tha = 'tha';
     case Tir = 'tir';
     case Tig = 'tig';
+    case Tuk = 'tuk';
+    case Tsn = 'tsn';
+    case Ton = 'ton';
+    case Tur = 'tur';
+    case Tso = 'tso';
+    case Ukr = 'ukr';
+    case Urd = 'urd';
+    case Uzb = 'uzb';
+    case Ven = 'ven';
+    case Vie = 'vie';
+    case Xho = 'xho';
     case Zho = 'zho';
+    case Zul = 'zul';
     case UnmappedValue = 'unmapped_value';
 }

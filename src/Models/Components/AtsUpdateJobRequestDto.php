@@ -40,6 +40,15 @@ class AtsUpdateJobRequestDto
     public ?string $title = null;
 
     /**
+     * Description of the job
+     *
+     * @var ?string $description
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $description = null;
+
+    /**
      * Status of the job
      *
      * @var ?string $status
@@ -133,6 +142,7 @@ class AtsUpdateJobRequestDto
      * @param  ?array<string, mixed>  $unifiedCustomFields
      * @param  ?string  $code
      * @param  ?string  $title
+     * @param  ?string  $description
      * @param  ?string  $status
      * @param  ?AtsUpdateJobRequestDtoJobStatus  $jobStatus
      * @param  ?array<string>  $departmentIds
@@ -144,11 +154,12 @@ class AtsUpdateJobRequestDto
      * @param  ?array<string, mixed>  $passthrough
      * @phpstan-pure
      */
-    public function __construct(?array $unifiedCustomFields = null, ?string $code = null, ?string $title = null, ?string $status = null, ?AtsUpdateJobRequestDtoJobStatus $jobStatus = null, ?array $departmentIds = null, ?array $locationIds = null, ?array $hiringTeam = null, ?array $interviewStages = null, ?AtsUpdateJobRequestDtoConfidential $confidential = null, ?array $customFields = null, ?array $passthrough = null)
+    public function __construct(?array $unifiedCustomFields = null, ?string $code = null, ?string $title = null, ?string $description = null, ?string $status = null, ?AtsUpdateJobRequestDtoJobStatus $jobStatus = null, ?array $departmentIds = null, ?array $locationIds = null, ?array $hiringTeam = null, ?array $interviewStages = null, ?AtsUpdateJobRequestDtoConfidential $confidential = null, ?array $customFields = null, ?array $passthrough = null)
     {
         $this->unifiedCustomFields = $unifiedCustomFields;
         $this->code = $code;
         $this->title = $title;
+        $this->description = $description;
         $this->status = $status;
         $this->jobStatus = $jobStatus;
         $this->departmentIds = $departmentIds;

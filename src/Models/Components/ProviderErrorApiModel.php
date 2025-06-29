@@ -29,30 +29,30 @@ class ProviderErrorApiModel
 
     /**
      *
-     * @var ?Raw $raw
+     * @var ?ProviderErrorApiModelRaw $raw
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('raw')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Raw|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\ProviderErrorApiModelRaw|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Raw $raw = null;
+    public ?ProviderErrorApiModelRaw $raw = null;
 
     /**
      *
-     * @var ?Headers $headers
+     * @var ?ProviderErrorApiModelHeaders $headers
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('headers')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Headers|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\ProviderErrorApiModelHeaders|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Headers $headers = null;
+    public ?ProviderErrorApiModelHeaders $headers = null;
 
     /**
      * @param  ?float  $status
      * @param  ?string  $url
-     * @param  ?Raw  $raw
-     * @param  ?Headers  $headers
+     * @param  ?ProviderErrorApiModelRaw  $raw
+     * @param  ?ProviderErrorApiModelHeaders  $headers
      * @phpstan-pure
      */
-    public function __construct(?float $status = null, ?string $url = null, ?Raw $raw = null, ?Headers $headers = null)
+    public function __construct(?float $status = null, ?string $url = null, ?ProviderErrorApiModelRaw $raw = null, ?ProviderErrorApiModelHeaders $headers = null)
     {
         $this->status = $status;
         $this->url = $url;

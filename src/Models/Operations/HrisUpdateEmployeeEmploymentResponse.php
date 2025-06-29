@@ -42,24 +42,24 @@ class HrisUpdateEmployeeEmploymentResponse
     /**
      * The employee employment was updated successfully.
      *
-     * @var ?Components\EmploymentResult $employmentResult
+     * @var ?Components\UpdateResult $updateResult
      */
-    public ?Components\EmploymentResult $employmentResult = null;
+    public ?Components\UpdateResult $updateResult = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\EmploymentResult  $employmentResult
+     * @param  ?Components\UpdateResult  $updateResult
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\EmploymentResult $employmentResult = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\UpdateResult $updateResult = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->employmentResult = $employmentResult;
+        $this->updateResult = $updateResult;
     }
 }

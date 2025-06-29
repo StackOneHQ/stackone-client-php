@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
+/** Headers - Response headers */
 class Headers
 {
 

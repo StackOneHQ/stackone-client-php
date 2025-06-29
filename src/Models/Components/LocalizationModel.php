@@ -40,15 +40,27 @@ class LocalizationModel
     public ?LocalizationModelLanguage $language = null;
 
     /**
+     * The tags associated with the localization details
+     *
+     * @var ?array<string> $tags
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tags')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $tags = null;
+
+    /**
      * @param  ?string  $title
      * @param  ?string  $description
      * @param  ?LocalizationModelLanguage  $language
+     * @param  ?array<string>  $tags
      * @phpstan-pure
      */
-    public function __construct(?string $title = null, ?string $description = null, ?LocalizationModelLanguage $language = null)
+    public function __construct(?string $title = null, ?string $description = null, ?LocalizationModelLanguage $language = null, ?array $tags = null)
     {
         $this->title = $title;
         $this->description = $description;
         $this->language = $language;
+        $this->tags = $tags;
     }
 }

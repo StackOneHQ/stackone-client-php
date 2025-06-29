@@ -19,4 +19,5 @@ enum TimeOffBalancesValue: string
     case Months = 'months';
     case Years = 'years';
     case Unknown = 'unknown';
+    case UnmappedValue = 'unmapped_value';
 }

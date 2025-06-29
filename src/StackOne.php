@@ -17,12 +17,39 @@ class StackOne
         'https://api.stackone.com',
     ];
 
+    /**
+     * Generate connection session tokens or auth URLs to allow your customers to connect their accounts.
+     *
+     * @var ConnectSessions $$connectSessions
+     */
     public ConnectSessions $connectSessions;
 
+    /**
+     * Customer or business accounts.
+     *
+     * @var Accounts $$accounts
+     */
     public Accounts $accounts;
 
+    /**
+     * API requests and response logs.
+     *
+     * @var RequestLogs $$requestLogs
+     */
+    public RequestLogs $requestLogs;
+
+    /**
+     * Retrieve metadata for connectors.
+     *
+     * @var Connectors $$connectors
+     */
     public Connectors $connectors;
 
+    /**
+     * Routing API requests through StackOne directly to the underlying provider.
+     *
+     * @var Proxy $$proxy
+     */
     public Proxy $proxy;
 
     public Hris $hris;
@@ -55,6 +82,7 @@ class StackOne
     ) {
         $this->connectSessions = new ConnectSessions($this->sdkConfiguration);
         $this->accounts = new Accounts($this->sdkConfiguration);
+        $this->requestLogs = new RequestLogs($this->sdkConfiguration);
         $this->connectors = new Connectors($this->sdkConfiguration);
         $this->proxy = new Proxy($this->sdkConfiguration);
         $this->hris = new Hris($this->sdkConfiguration);
@@ -63,7 +91,16 @@ class StackOne
         $this->iam = new Iam($this->sdkConfiguration);
         $this->crm = new Crm($this->sdkConfiguration);
         $this->marketing = new Marketing($this->sdkConfiguration);
-        $this->sdkConfiguration->client = $this->sdkConfiguration->initHooks($this->sdkConfiguration->client);
+        $this->initHooks();
 
+    }
+
+    private function initHooks(): void
+    {
+        $preHooksUrl = $this->sdkConfiguration->getTemplatedServerUrl();
+        $ret = $this->sdkConfiguration->hooks->sdkInit($preHooksUrl, $this->sdkConfiguration->client);
+        if ($preHooksUrl != $ret->url) {
+            $this->sdkConfiguration->serverUrl = $ret->url;
+        }
     }
 }

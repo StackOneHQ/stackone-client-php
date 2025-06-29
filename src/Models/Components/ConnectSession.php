@@ -106,6 +106,25 @@ class ConnectSession
     public ?ConnectSessionMetadata $metadata = null;
 
     /**
+     * External trigger token to be used to trigger actions on the account
+     *
+     * @var ?string $externalTriggerToken
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('external_trigger_token')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $externalTriggerToken = null;
+
+    /**
+     * The connect session account type
+     *
+     * @var ?ConnectSessionType $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\ConnectSessionType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?ConnectSessionType $type = null;
+
+    /**
      * @param  float  $id
      * @param  float  $organizationId
      * @param  string  $projectId
@@ -118,9 +137,11 @@ class ConnectSession
      * @param  ?string  $accountId
      * @param  ?string  $label
      * @param  ?ConnectSessionMetadata  $metadata
+     * @param  ?string  $externalTriggerToken
+     * @param  ?ConnectSessionType  $type
      * @phpstan-pure
      */
-    public function __construct(float $id, float $organizationId, string $projectId, string $originOwnerId, string $originOwnerName, \DateTime $createdAt, ?array $categories = null, ?string $provider = null, ?string $originUsername = null, ?string $accountId = null, ?string $label = null, ?ConnectSessionMetadata $metadata = null)
+    public function __construct(float $id, float $organizationId, string $projectId, string $originOwnerId, string $originOwnerName, \DateTime $createdAt, ?array $categories = null, ?string $provider = null, ?string $originUsername = null, ?string $accountId = null, ?string $label = null, ?ConnectSessionMetadata $metadata = null, ?string $externalTriggerToken = null, ?ConnectSessionType $type = null)
     {
         $this->id = $id;
         $this->organizationId = $organizationId;
@@ -134,5 +155,7 @@ class ConnectSession
         $this->accountId = $accountId;
         $this->label = $label;
         $this->metadata = $metadata;
+        $this->externalTriggerToken = $externalTriggerToken;
+        $this->type = $type;
     }
 }

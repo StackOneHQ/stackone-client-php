@@ -59,6 +59,15 @@ class LmsCreateCompletionRequestDto
     public ?string $learningObjectExternalReference = null;
 
     /**
+     * ISO 8601 duration format representing the time spent on completing the learning object
+     *
+     * @var ?string $timeSpent
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('time_spent')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $timeSpent = null;
+
+    /**
      * The external reference associated with this content
      *
      * @var ?string $contentExternalReference
@@ -84,17 +93,19 @@ class LmsCreateCompletionRequestDto
      * @param  ?string  $completedAt
      * @param  ?string  $learningObjectId
      * @param  ?string  $learningObjectExternalReference
+     * @param  ?string  $timeSpent
      * @param  ?string  $contentExternalReference
      * @param  ?string  $contentId
      * @phpstan-pure
      */
-    public function __construct(?array $passthrough = null, ?LmsCreateCompletionRequestDtoResult $result = null, ?string $completedAt = null, ?string $learningObjectId = null, ?string $learningObjectExternalReference = null, ?string $contentExternalReference = null, ?string $contentId = null)
+    public function __construct(?array $passthrough = null, ?LmsCreateCompletionRequestDtoResult $result = null, ?string $completedAt = null, ?string $learningObjectId = null, ?string $learningObjectExternalReference = null, ?string $timeSpent = null, ?string $contentExternalReference = null, ?string $contentId = null)
     {
         $this->passthrough = $passthrough;
         $this->result = $result;
         $this->completedAt = $completedAt;
         $this->learningObjectId = $learningObjectId;
         $this->learningObjectExternalReference = $learningObjectExternalReference;
+        $this->timeSpent = $timeSpent;
         $this->contentExternalReference = $contentExternalReference;
         $this->contentId = $contentId;
     }

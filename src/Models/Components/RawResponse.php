@@ -27,30 +27,30 @@ class RawResponse
 
     /**
      *
-     * @var ?string $body
+     * @var string|array<string, mixed>|array<int>|null $body
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('body')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|array<string, mixed>|array<int>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $body = null;
+    public string|array|null $body = null;
 
     /**
-     * $response
      *
-     * @var ?array<string, mixed> $response
+     * @var array<string, mixed>|array<mixed>|string|null $response
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('response')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string, mixed>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, mixed>|array<mixed>|string|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $response = null;
+    public array|string|null $response = null;
 
     /**
      * @param  string  $method
      * @param  string  $url
-     * @param  ?string  $body
-     * @param  ?array<string, mixed>  $response
+     * @param  string|array<string, mixed>|array<int>|null  $body
+     * @param  array<string, mixed>|array<mixed>|string|null  $response
      * @phpstan-pure
      */
-    public function __construct(string $method, string $url, ?string $body = null, ?array $response = null)
+    public function __construct(string $method, string $url, string|array|null $body = null, array|string|null $response = null)
     {
         $this->method = $method;
         $this->url = $url;

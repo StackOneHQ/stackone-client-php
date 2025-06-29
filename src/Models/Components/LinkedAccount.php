@@ -114,6 +114,16 @@ class LinkedAccount
     public ?string $label = null;
 
     /**
+     * The account type
+     *
+     * @var ?LinkedAccountType $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\LinkedAccountType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?LinkedAccountType $type = null;
+
+    /**
      * @param  string  $id
      * @param  string  $provider
      * @param  Status  $status
@@ -127,9 +137,10 @@ class LinkedAccount
      * @param  ?Credentials  $credentials
      * @param  ?SetupInformation  $setupInformation
      * @param  ?string  $label
+     * @param  ?LinkedAccountType  $type
      * @phpstan-pure
      */
-    public function __construct(string $id, string $provider, Status $status, string $originOwnerId, string $originOwnerName, \DateTime $createdAt, \DateTime $updatedAt, ?string $providerName = null, ?array $statusReasons = null, ?string $originUsername = null, ?Credentials $credentials = null, ?SetupInformation $setupInformation = null, ?string $label = null)
+    public function __construct(string $id, string $provider, Status $status, string $originOwnerId, string $originOwnerName, \DateTime $createdAt, \DateTime $updatedAt, ?string $providerName = null, ?array $statusReasons = null, ?string $originUsername = null, ?Credentials $credentials = null, ?SetupInformation $setupInformation = null, ?string $label = null, ?LinkedAccountType $type = null)
     {
         $this->id = $id;
         $this->provider = $provider;
@@ -144,5 +155,6 @@ class LinkedAccount
         $this->credentials = $credentials;
         $this->setupInformation = $setupInformation;
         $this->label = $label;
+        $this->type = $type;
     }
 }

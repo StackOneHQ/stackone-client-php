@@ -1,0 +1,12 @@
+# Data
+
+Error details
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                | Example                                                                                    |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `statusCode`                                                                               | *?float*                                                                                   | :heavy_minus_sign:                                                                         | HTTP status code                                                                           | 400                                                                                        |
+| `message`                                                                                  | *?string*                                                                                  | :heavy_minus_sign:                                                                         | Error message                                                                              | Bad Request                                                                                |
+| `headers`                                                                                  | [?Errors\Headers](../../Models/Errors/Headers.md)                                          | :heavy_minus_sign:                                                                         | Response headers                                                                           | {<br/>"content-type": "application/json",<br/>"x-request-id": "5678c28b211dace4e0a0f9171e6b88c5"<br/>} |

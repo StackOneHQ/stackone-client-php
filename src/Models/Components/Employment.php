@@ -40,28 +40,9 @@ class Employment
     public ?array $unifiedCustomFields = null;
 
     /**
-     * The employee ID associated with this employment
-     *
-     * @var ?string $employeeId
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('employee_id')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $employeeId = null;
-
-    /**
-     * Provider's unique identifier of the employee associated with this employment
-     *
-     * @var ?string $remoteEmployeeId
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('remote_employee_id')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $remoteEmployeeId = null;
-
-    /**
      * The job title of the employee
      *
      * @var ?string $jobTitle
-     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('job_title')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
@@ -115,6 +96,25 @@ class Employment
     public ?\DateTime $effectiveDate = null;
 
     /**
+     * The end date of employment
+     *
+     * @var ?\DateTime $endDate
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('end_date')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $endDate = null;
+
+    /**
+     * Represents the employee’s position within the organizational hierarchy.
+     *
+     * @var ?Grade $grade
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grade')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Grade|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Grade $grade = null;
+
+    /**
      * The type of employment (e.g., contractor, permanent)
      *
      * @var ?EmploymentEmploymentType $employmentType
@@ -137,13 +137,49 @@ class Employment
     public ?EmploymentEmploymentContractType $employmentContractType = null;
 
     /**
-     * The time worked for the employee in ISO 8601 duration format
      *
-     * @var ?string $timeWorked
+     * @var ?WorkTime $workTime
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('time_worked')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('work_time')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\WorkTime|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $timeWorked = null;
+    public ?WorkTime $workTime = null;
+
+    /**
+     * The payroll code of the employee
+     *
+     * @var ?string $payrollCode
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('payroll_code')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $payrollCode = null;
+
+    /**
+     * The employee ID associated with this employment
+     *
+     * @var ?string $employeeId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('employee_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $employeeId = null;
+
+    /**
+     * Provider's unique identifier of the employee associated with this employment
+     *
+     * @var ?string $remoteEmployeeId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('remote_employee_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $remoteEmployeeId = null;
+
+    /**
+     * the employee's working percentage relative to a full-time employee
+     *
+     * @var ?float $fte
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('fte')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?float $fte = null;
 
     /**
      * The created_at date
@@ -167,19 +203,11 @@ class Employment
      * The start_date of employment
      *
      * @var ?\DateTime $startDate
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('start_date')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $startDate = null;
-
-    /**
-     * The end_date of employment
-     *
-     * @var ?\DateTime $endDate
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('end_date')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $endDate = null;
 
     /**
      * The employment active status
@@ -275,21 +303,24 @@ class Employment
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?array<string, mixed>  $unifiedCustomFields
-     * @param  ?string  $employeeId
-     * @param  ?string  $remoteEmployeeId
      * @param  ?string  $jobTitle
      * @param  ?string  $payRate
      * @param  ?PayPeriod  $payPeriod
      * @param  ?PayFrequency  $payFrequency
      * @param  ?string  $payCurrency
      * @param  ?\DateTime  $effectiveDate
+     * @param  ?\DateTime  $endDate
+     * @param  ?Grade  $grade
      * @param  ?EmploymentEmploymentType  $employmentType
      * @param  ?EmploymentEmploymentContractType  $employmentContractType
-     * @param  ?string  $timeWorked
+     * @param  ?WorkTime  $workTime
+     * @param  ?string  $payrollCode
+     * @param  ?string  $employeeId
+     * @param  ?string  $remoteEmployeeId
+     * @param  ?float  $fte
      * @param  ?\DateTime  $createdAt
      * @param  ?\DateTime  $updatedAt
      * @param  ?\DateTime  $startDate
-     * @param  ?\DateTime  $endDate
      * @param  ?bool  $active
      * @param  ?EmploymentDepartment  $department
      * @param  ?CostCenter  $costCenter
@@ -301,26 +332,29 @@ class Employment
      * @param  ?array<EmploymentManagerApiModel>  $manager
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?string $jobTitle = null, ?string $payRate = null, ?PayPeriod $payPeriod = null, ?PayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $effectiveDate = null, ?EmploymentEmploymentType $employmentType = null, ?EmploymentEmploymentContractType $employmentContractType = null, ?string $timeWorked = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?\DateTime $startDate = null, ?\DateTime $endDate = null, ?bool $active = null, ?EmploymentDepartment $department = null, ?CostCenter $costCenter = null, ?array $costCenters = null, ?Division $division = null, ?EmploymentJob $job = null, ?EmploymentType1 $type = null, ?ContractType $contractType = null, ?array $manager = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $jobTitle = null, ?string $payRate = null, ?PayPeriod $payPeriod = null, ?PayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $effectiveDate = null, ?\DateTime $endDate = null, ?Grade $grade = null, ?EmploymentEmploymentType $employmentType = null, ?EmploymentEmploymentContractType $employmentContractType = null, ?WorkTime $workTime = null, ?string $payrollCode = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?float $fte = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?\DateTime $startDate = null, ?bool $active = null, ?EmploymentDepartment $department = null, ?CostCenter $costCenter = null, ?array $costCenters = null, ?Division $division = null, ?EmploymentJob $job = null, ?EmploymentType1 $type = null, ?ContractType $contractType = null, ?array $manager = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
         $this->unifiedCustomFields = $unifiedCustomFields;
-        $this->employeeId = $employeeId;
-        $this->remoteEmployeeId = $remoteEmployeeId;
         $this->jobTitle = $jobTitle;
         $this->payRate = $payRate;
         $this->payPeriod = $payPeriod;
         $this->payFrequency = $payFrequency;
         $this->payCurrency = $payCurrency;
         $this->effectiveDate = $effectiveDate;
+        $this->endDate = $endDate;
+        $this->grade = $grade;
         $this->employmentType = $employmentType;
         $this->employmentContractType = $employmentContractType;
-        $this->timeWorked = $timeWorked;
+        $this->workTime = $workTime;
+        $this->payrollCode = $payrollCode;
+        $this->employeeId = $employeeId;
+        $this->remoteEmployeeId = $remoteEmployeeId;
+        $this->fte = $fte;
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
         $this->startDate = $startDate;
-        $this->endDate = $endDate;
         $this->active = $active;
         $this->department = $department;
         $this->costCenter = $costCenter;

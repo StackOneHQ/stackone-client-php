@@ -12,4 +12,5 @@ namespace StackOne\client\Models\Components;
 enum HRISTeamValue: string
 {
     case Team = 'team';
+    case UnmappedValue = 'unmapped_value';
 }

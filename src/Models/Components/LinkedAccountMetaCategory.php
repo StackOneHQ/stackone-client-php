@@ -22,4 +22,5 @@ enum LinkedAccountMetaCategory: string
     case Documents = 'documents';
     case Ticketing = 'ticketing';
     case Screening = 'screening';
+    case Messaging = 'messaging';
 }

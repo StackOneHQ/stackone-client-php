@@ -14,4 +14,5 @@ enum AssignmentLearningObjectTypeValue: string
     case Content = 'content';
     case Course = 'course';
     case Collection = 'collection';
+    case UnmappedValue = 'unmapped_value';
 }

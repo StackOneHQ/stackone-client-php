@@ -260,4 +260,5 @@ enum AccountAddressValue: string
     case Ye = 'YE';
     case Zm = 'ZM';
     case Zw = 'ZW';
+    case UnmappedValue = 'unmapped_value';
 }

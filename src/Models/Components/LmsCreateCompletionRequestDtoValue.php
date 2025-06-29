@@ -13,4 +13,5 @@ enum LmsCreateCompletionRequestDtoValue: string
 {
     case Pass = 'Pass';
     case Fail = 'Fail';
+    case UnmappedValue = 'unmapped_value';
 }

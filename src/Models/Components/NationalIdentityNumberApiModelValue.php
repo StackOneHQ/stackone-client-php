@@ -155,4 +155,5 @@ enum NationalIdentityNumberApiModelValue: string
     case Ein = 'ein';
     case Other = 'other';
     case Unknown = 'unknown';
+    case UnmappedValue = 'unmapped_value';
 }
