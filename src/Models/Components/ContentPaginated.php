@@ -38,6 +38,14 @@ class ContentPaginated
     public ?string $next = null;
 
     /**
+     *
+     * @var ?float $total
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('total')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?float $total = null;
+
+    /**
      * $raw
      *
      * @var ?array<RawResponse> $raw
@@ -51,14 +59,16 @@ class ContentPaginated
      * @param  array<Content>  $data
      * @param  ?string  $nextPage
      * @param  ?string  $next
+     * @param  ?float  $total
      * @param  ?array<RawResponse>  $raw
      * @phpstan-pure
      */
-    public function __construct(array $data, ?string $nextPage = null, ?string $next = null, ?array $raw = null)
+    public function __construct(array $data, ?string $nextPage = null, ?string $next = null, ?float $total = null, ?array $raw = null)
     {
         $this->data = $data;
         $this->nextPage = $nextPage;
         $this->next = $next;
+        $this->total = $total;
         $this->raw = $raw;
     }
 }

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Operations;
 
 use StackOne\client\Utils\SpeakeasyMetadata;
-/** LmsListContentQueryParamFilter - Filter parameters that allow greater customisation of the list response */
+/** LmsListContentQueryParamFilter - LMS Courses Filter */
 class LmsListContentQueryParamFilter
 {
     /**
@@ -21,11 +21,21 @@ class LmsListContentQueryParamFilter
     public ?\DateTime $updatedAfter = null;
 
     /**
+     * Filter to allow filtering of only active content
+     *
+     * @var bool|string|null $active
+     */
+    #[SpeakeasyMetadata('queryParam:name=active')]
+    public bool|string|null $active = null;
+
+    /**
      * @param  ?\DateTime  $updatedAfter
+     * @param  bool|string|null  $active
      * @phpstan-pure
      */
-    public function __construct(?\DateTime $updatedAfter = null)
+    public function __construct(?\DateTime $updatedAfter = null, bool|string|null $active = null)
     {
         $this->updatedAfter = $updatedAfter;
+        $this->active = $active;
     }
 }

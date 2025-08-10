@@ -1,0 +1,14 @@
+# Drives
+
+
+## Fields
+
+| Field                                                         | Type                                                          | Required                                                      | Description                                                   | Example                                                       |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `id`                                                          | *?string*                                                     | :heavy_minus_sign:                                            | The ID associated with this drive                             | 16873-IT345                                                   |
+| `remoteId`                                                    | *?string*                                                     | :heavy_minus_sign:                                            | Provider's unique identifier                                  | 8187e5da-dc77-475e-9949-af0f1fa4e4e3                          |
+| `name`                                                        | *?string*                                                     | :heavy_minus_sign:                                            | The name associated with this drive                           | USA Development Drive                                         |
+| `description`                                                 | *?string*                                                     | :heavy_minus_sign:                                            | The description associated with this drive                    | Drive with USA Development documents                          |
+| `url`                                                         | *?string*                                                     | :heavy_minus_sign:                                            | The url of the drive                                          | https://test.sharepoint.com/Document%20Library                |
+| `createdAt`                                                   | [\DateTime](https://www.php.net/manual/en/class.datetime.php) | :heavy_minus_sign:                                            | The created date of the drive                                 | 2023-02-23T00:00:00.000Z                                      |
+| `updatedAt`                                                   | [\DateTime](https://www.php.net/manual/en/class.datetime.php) | :heavy_minus_sign:                                            | The last updated date of the drive                            | 2024-02-23T00:00:00.000Z                                      |
