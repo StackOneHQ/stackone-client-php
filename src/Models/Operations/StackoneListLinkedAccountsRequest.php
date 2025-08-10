@@ -12,6 +12,14 @@ use StackOne\client\Utils\SpeakeasyMetadata;
 class StackoneListLinkedAccountsRequest
 {
     /**
+     * The origin owner identifiers of the results to fetch (supports multiple IDs)
+     *
+     * @var ?array<string> $originOwnerIds
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=origin_owner_ids')]
+    public ?array $originOwnerIds = null;
+
+    /**
      * The providers list of the results to fetch
      *
      * @var ?array<string> $providers
@@ -69,6 +77,7 @@ class StackoneListLinkedAccountsRequest
     public ?float $pageSize = null;
 
     /**
+     * @param  ?array<string>  $originOwnerIds
      * @param  ?array<string>  $providers
      * @param  ?array<string>  $accountIds
      * @param  ?array<string>  $status
@@ -78,8 +87,9 @@ class StackoneListLinkedAccountsRequest
      * @param  ?string  $originOwnerId
      * @phpstan-pure
      */
-    public function __construct(?array $providers = null, ?array $accountIds = null, ?array $status = null, ?float $page = null, ?string $provider = null, ?string $originOwnerId = null, ?float $pageSize = 25)
+    public function __construct(?array $originOwnerIds = null, ?array $providers = null, ?array $accountIds = null, ?array $status = null, ?float $page = null, ?string $provider = null, ?string $originOwnerId = null, ?float $pageSize = 25)
     {
+        $this->originOwnerIds = $originOwnerIds;
         $this->providers = $providers;
         $this->accountIds = $accountIds;
         $this->status = $status;

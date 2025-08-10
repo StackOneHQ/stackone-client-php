@@ -10,7 +10,7 @@ namespace StackOne\client;
 
 
 
-/** StackOne - Marketing: The documentation for the StackOne Unified API - MARKETING */
+/** StackOne - Accounting: The documentation for the StackOne Unified API - ACCOUNTING */
 class StackOne
 {
     public const SERVERS = [
@@ -25,7 +25,7 @@ class StackOne
     public ConnectSessions $connectSessions;
 
     /**
-     * Customer or business accounts.
+     * Chart of accounts.
      *
      * @var Accounts $$accounts
      */
@@ -64,6 +64,16 @@ class StackOne
 
     public Marketing $marketing;
 
+    public Ticketing $ticketing;
+
+    public Documents $documents;
+
+    public Screening $screening;
+
+    public Messaging $messaging;
+
+    public Accounting $accounting;
+
     /**
      * Returns a new instance of the SDK builder used to configure and create the SDK instance.
      *
@@ -91,6 +101,11 @@ class StackOne
         $this->iam = new Iam($this->sdkConfiguration);
         $this->crm = new Crm($this->sdkConfiguration);
         $this->marketing = new Marketing($this->sdkConfiguration);
+        $this->ticketing = new Ticketing($this->sdkConfiguration);
+        $this->documents = new Documents($this->sdkConfiguration);
+        $this->screening = new Screening($this->sdkConfiguration);
+        $this->messaging = new Messaging($this->sdkConfiguration);
+        $this->accounting = new Accounting($this->sdkConfiguration);
         $this->initHooks();
 
     }
