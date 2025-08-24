@@ -1,0 +1,9 @@
+# MessagingMessageResult
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `data`                                                                                          | [?Components\MessagingMessageResultData](../../Models/Components/MessagingMessageResultData.md) | :heavy_minus_sign:                                                                              | N/A                                                                                             |
+| `raw`                                                                                           | array<[Components\RawResponse](../../Models/Components/RawResponse.md)>                         | :heavy_minus_sign:                                                                              | N/A                                                                                             |

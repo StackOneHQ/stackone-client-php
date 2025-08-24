@@ -1,0 +1,10 @@
+# ScreeningResultWebhook
+
+
+## Fields
+
+| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              | Example                                                                  |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `event`                                                                  | [Components\Event](../../Models/Components/Event.md)                     | :heavy_check_mark:                                                       | The event type                                                           | screening.result.completed                                               |
+| `data`                                                                   | [Components\ScreeningResult](../../Models/Components/ScreeningResult.md) | :heavy_check_mark:                                                       | The result data                                                          |                                                                          |
+| `raw`                                                                    | array<[Components\RawResponse](../../Models/Components/RawResponse.md)>  | :heavy_minus_sign:                                                       | N/A                                                                      |                                                                          |

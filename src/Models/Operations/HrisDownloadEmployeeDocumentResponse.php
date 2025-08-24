@@ -42,24 +42,357 @@ class HrisDownloadEmployeeDocumentResponse
     /**
      * The document related to the employee with the given identifiers was retrieved.
      *
-     * @var ?string $bytes
+     * @var ?string $twoHundredApplicationPdfBytes
      */
-    public ?string $bytes = null;
+    public ?string $twoHundredApplicationPdfBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationMswordBytes
+     */
+    public ?string $twoHundredApplicationMswordBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocumentBytes
+     */
+    public ?string $twoHundredApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocumentBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationVndMsExcelBytes
+     */
+    public ?string $twoHundredApplicationVndMsExcelBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheetBytes
+     */
+    public ?string $twoHundredApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheetBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationVndMsPowerpointBytes
+     */
+    public ?string $twoHundredApplicationVndMsPowerpointBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentationBytes
+     */
+    public ?string $twoHundredApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentationBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationRtfBytes
+     */
+    public ?string $twoHundredApplicationRtfBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredTextPlainBytes
+     */
+    public ?string $twoHundredTextPlainBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredImageJpegBytes
+     */
+    public ?string $twoHundredImageJpegBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredImagePngBytes
+     */
+    public ?string $twoHundredImagePngBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredImageGifBytes
+     */
+    public ?string $twoHundredImageGifBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredImageTiffBytes
+     */
+    public ?string $twoHundredImageTiffBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredImageBmpBytes
+     */
+    public ?string $twoHundredImageBmpBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredImageHeicBytes
+     */
+    public ?string $twoHundredImageHeicBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationZipBytes
+     */
+    public ?string $twoHundredApplicationZipBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationGzipBytes
+     */
+    public ?string $twoHundredApplicationGzipBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationJsonBytes
+     */
+    public ?string $twoHundredApplicationJsonBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationXmlBytes
+     */
+    public ?string $twoHundredApplicationXmlBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredTextCsvBytes
+     */
+    public ?string $twoHundredTextCsvBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationVndOasisOpendocumentTextBytes
+     */
+    public ?string $twoHundredApplicationVndOasisOpendocumentTextBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationVndOasisOpendocumentSpreadsheetBytes
+     */
+    public ?string $twoHundredApplicationVndOasisOpendocumentSpreadsheetBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredAudioMpegBytes
+     */
+    public ?string $twoHundredAudioMpegBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredVideoMp4Bytes
+     */
+    public ?string $twoHundredVideoMp4Bytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredVideoWebmBytes
+     */
+    public ?string $twoHundredVideoWebmBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredTextRtfBytes
+     */
+    public ?string $twoHundredTextRtfBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationXRarCompressedBytes
+     */
+    public ?string $twoHundredApplicationXRarCompressedBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationX7zCompressedBytes
+     */
+    public ?string $twoHundredApplicationX7zCompressedBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredMessageRfc822Bytes
+     */
+    public ?string $twoHundredMessageRfc822Bytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationVndMsOutlookBytes
+     */
+    public ?string $twoHundredApplicationVndMsOutlookBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationOctetStreamBytes
+     */
+    public ?string $twoHundredApplicationOctetStreamBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredTextHtmlBytes
+     */
+    public ?string $twoHundredTextHtmlBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredImageWebpBytes
+     */
+    public ?string $twoHundredImageWebpBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredApplicationVndOasisOpendocumentPresentationBytes
+     */
+    public ?string $twoHundredApplicationVndOasisOpendocumentPresentationBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredAudioWavBytes
+     */
+    public ?string $twoHundredAudioWavBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredAudioMp4Bytes
+     */
+    public ?string $twoHundredAudioMp4Bytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredVideoAviBytes
+     */
+    public ?string $twoHundredVideoAviBytes = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?string $twoHundredVideoQuicktimeBytes
+     */
+    public ?string $twoHundredVideoQuicktimeBytes = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?string  $bytes
+     * @param  ?string  $twoHundredApplicationPdfBytes
+     * @param  ?string  $twoHundredApplicationMswordBytes
+     * @param  ?string  $twoHundredApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocumentBytes
+     * @param  ?string  $twoHundredApplicationVndMsExcelBytes
+     * @param  ?string  $twoHundredApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheetBytes
+     * @param  ?string  $twoHundredApplicationVndMsPowerpointBytes
+     * @param  ?string  $twoHundredApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentationBytes
+     * @param  ?string  $twoHundredApplicationRtfBytes
+     * @param  ?string  $twoHundredTextPlainBytes
+     * @param  ?string  $twoHundredImageJpegBytes
+     * @param  ?string  $twoHundredImagePngBytes
+     * @param  ?string  $twoHundredImageGifBytes
+     * @param  ?string  $twoHundredImageTiffBytes
+     * @param  ?string  $twoHundredImageBmpBytes
+     * @param  ?string  $twoHundredImageHeicBytes
+     * @param  ?string  $twoHundredApplicationZipBytes
+     * @param  ?string  $twoHundredApplicationGzipBytes
+     * @param  ?string  $twoHundredApplicationJsonBytes
+     * @param  ?string  $twoHundredApplicationXmlBytes
+     * @param  ?string  $twoHundredTextCsvBytes
+     * @param  ?string  $twoHundredApplicationVndOasisOpendocumentTextBytes
+     * @param  ?string  $twoHundredApplicationVndOasisOpendocumentSpreadsheetBytes
+     * @param  ?string  $twoHundredAudioMpegBytes
+     * @param  ?string  $twoHundredVideoMp4Bytes
+     * @param  ?string  $twoHundredVideoWebmBytes
+     * @param  ?string  $twoHundredTextRtfBytes
+     * @param  ?string  $twoHundredApplicationXRarCompressedBytes
+     * @param  ?string  $twoHundredApplicationX7zCompressedBytes
+     * @param  ?string  $twoHundredMessageRfc822Bytes
+     * @param  ?string  $twoHundredApplicationVndMsOutlookBytes
+     * @param  ?string  $twoHundredApplicationOctetStreamBytes
+     * @param  ?string  $twoHundredTextHtmlBytes
+     * @param  ?string  $twoHundredImageWebpBytes
+     * @param  ?string  $twoHundredApplicationVndOasisOpendocumentPresentationBytes
+     * @param  ?string  $twoHundredAudioWavBytes
+     * @param  ?string  $twoHundredAudioMp4Bytes
+     * @param  ?string  $twoHundredVideoAviBytes
+     * @param  ?string  $twoHundredVideoQuicktimeBytes
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $bytes = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $twoHundredApplicationPdfBytes = null, ?string $twoHundredApplicationMswordBytes = null, ?string $twoHundredApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocumentBytes = null, ?string $twoHundredApplicationVndMsExcelBytes = null, ?string $twoHundredApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheetBytes = null, ?string $twoHundredApplicationVndMsPowerpointBytes = null, ?string $twoHundredApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentationBytes = null, ?string $twoHundredApplicationRtfBytes = null, ?string $twoHundredTextPlainBytes = null, ?string $twoHundredImageJpegBytes = null, ?string $twoHundredImagePngBytes = null, ?string $twoHundredImageGifBytes = null, ?string $twoHundredImageTiffBytes = null, ?string $twoHundredImageBmpBytes = null, ?string $twoHundredImageHeicBytes = null, ?string $twoHundredApplicationZipBytes = null, ?string $twoHundredApplicationGzipBytes = null, ?string $twoHundredApplicationJsonBytes = null, ?string $twoHundredApplicationXmlBytes = null, ?string $twoHundredTextCsvBytes = null, ?string $twoHundredApplicationVndOasisOpendocumentTextBytes = null, ?string $twoHundredApplicationVndOasisOpendocumentSpreadsheetBytes = null, ?string $twoHundredAudioMpegBytes = null, ?string $twoHundredVideoMp4Bytes = null, ?string $twoHundredVideoWebmBytes = null, ?string $twoHundredTextRtfBytes = null, ?string $twoHundredApplicationXRarCompressedBytes = null, ?string $twoHundredApplicationX7zCompressedBytes = null, ?string $twoHundredMessageRfc822Bytes = null, ?string $twoHundredApplicationVndMsOutlookBytes = null, ?string $twoHundredApplicationOctetStreamBytes = null, ?string $twoHundredTextHtmlBytes = null, ?string $twoHundredImageWebpBytes = null, ?string $twoHundredApplicationVndOasisOpendocumentPresentationBytes = null, ?string $twoHundredAudioWavBytes = null, ?string $twoHundredAudioMp4Bytes = null, ?string $twoHundredVideoAviBytes = null, ?string $twoHundredVideoQuicktimeBytes = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->bytes = $bytes;
+        $this->twoHundredApplicationPdfBytes = $twoHundredApplicationPdfBytes;
+        $this->twoHundredApplicationMswordBytes = $twoHundredApplicationMswordBytes;
+        $this->twoHundredApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocumentBytes = $twoHundredApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocumentBytes;
+        $this->twoHundredApplicationVndMsExcelBytes = $twoHundredApplicationVndMsExcelBytes;
+        $this->twoHundredApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheetBytes = $twoHundredApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheetBytes;
+        $this->twoHundredApplicationVndMsPowerpointBytes = $twoHundredApplicationVndMsPowerpointBytes;
+        $this->twoHundredApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentationBytes = $twoHundredApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentationBytes;
+        $this->twoHundredApplicationRtfBytes = $twoHundredApplicationRtfBytes;
+        $this->twoHundredTextPlainBytes = $twoHundredTextPlainBytes;
+        $this->twoHundredImageJpegBytes = $twoHundredImageJpegBytes;
+        $this->twoHundredImagePngBytes = $twoHundredImagePngBytes;
+        $this->twoHundredImageGifBytes = $twoHundredImageGifBytes;
+        $this->twoHundredImageTiffBytes = $twoHundredImageTiffBytes;
+        $this->twoHundredImageBmpBytes = $twoHundredImageBmpBytes;
+        $this->twoHundredImageHeicBytes = $twoHundredImageHeicBytes;
+        $this->twoHundredApplicationZipBytes = $twoHundredApplicationZipBytes;
+        $this->twoHundredApplicationGzipBytes = $twoHundredApplicationGzipBytes;
+        $this->twoHundredApplicationJsonBytes = $twoHundredApplicationJsonBytes;
+        $this->twoHundredApplicationXmlBytes = $twoHundredApplicationXmlBytes;
+        $this->twoHundredTextCsvBytes = $twoHundredTextCsvBytes;
+        $this->twoHundredApplicationVndOasisOpendocumentTextBytes = $twoHundredApplicationVndOasisOpendocumentTextBytes;
+        $this->twoHundredApplicationVndOasisOpendocumentSpreadsheetBytes = $twoHundredApplicationVndOasisOpendocumentSpreadsheetBytes;
+        $this->twoHundredAudioMpegBytes = $twoHundredAudioMpegBytes;
+        $this->twoHundredVideoMp4Bytes = $twoHundredVideoMp4Bytes;
+        $this->twoHundredVideoWebmBytes = $twoHundredVideoWebmBytes;
+        $this->twoHundredTextRtfBytes = $twoHundredTextRtfBytes;
+        $this->twoHundredApplicationXRarCompressedBytes = $twoHundredApplicationXRarCompressedBytes;
+        $this->twoHundredApplicationX7zCompressedBytes = $twoHundredApplicationX7zCompressedBytes;
+        $this->twoHundredMessageRfc822Bytes = $twoHundredMessageRfc822Bytes;
+        $this->twoHundredApplicationVndMsOutlookBytes = $twoHundredApplicationVndMsOutlookBytes;
+        $this->twoHundredApplicationOctetStreamBytes = $twoHundredApplicationOctetStreamBytes;
+        $this->twoHundredTextHtmlBytes = $twoHundredTextHtmlBytes;
+        $this->twoHundredImageWebpBytes = $twoHundredImageWebpBytes;
+        $this->twoHundredApplicationVndOasisOpendocumentPresentationBytes = $twoHundredApplicationVndOasisOpendocumentPresentationBytes;
+        $this->twoHundredAudioWavBytes = $twoHundredAudioWavBytes;
+        $this->twoHundredAudioMp4Bytes = $twoHundredAudioMp4Bytes;
+        $this->twoHundredVideoAviBytes = $twoHundredVideoAviBytes;
+        $this->twoHundredVideoQuicktimeBytes = $twoHundredVideoQuicktimeBytes;
     }
 }

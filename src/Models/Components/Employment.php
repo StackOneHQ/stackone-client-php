@@ -263,12 +263,12 @@ class Employment
     /**
      * The job of employee
      *
-     * @var ?EmploymentJob $job
+     * @var ?Job $job
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('job')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\EmploymentJob|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Job|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?EmploymentJob $job = null;
+    public ?Job $job = null;
 
     /**
      * The type of employment
@@ -327,13 +327,13 @@ class Employment
      * @param  ?CostCenter  $costCenter
      * @param  ?array<HRISCostCenter>  $costCenters
      * @param  ?Division  $division
-     * @param  ?EmploymentJob  $job
+     * @param  ?Job  $job
      * @param  ?EmploymentType1  $type
      * @param  ?ContractType  $contractType
      * @param  ?array<EmploymentManagerApiModel>  $manager
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $jobTitle = null, ?string $payRate = null, ?PayPeriod $payPeriod = null, ?PayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $effectiveDate = null, ?\DateTime $endDate = null, ?Grade $grade = null, ?EmploymentEmploymentType $employmentType = null, ?EmploymentEmploymentContractType $employmentContractType = null, ?WorkTime $workTime = null, ?string $payrollCode = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?float $fte = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?\DateTime $startDate = null, bool|Two|null $active = null, ?EmploymentDepartment $department = null, ?CostCenter $costCenter = null, ?array $costCenters = null, ?Division $division = null, ?EmploymentJob $job = null, ?EmploymentType1 $type = null, ?ContractType $contractType = null, ?array $manager = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $jobTitle = null, ?string $payRate = null, ?PayPeriod $payPeriod = null, ?PayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $effectiveDate = null, ?\DateTime $endDate = null, ?Grade $grade = null, ?EmploymentEmploymentType $employmentType = null, ?EmploymentEmploymentContractType $employmentContractType = null, ?WorkTime $workTime = null, ?string $payrollCode = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?float $fte = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?\DateTime $startDate = null, bool|Two|null $active = null, ?EmploymentDepartment $department = null, ?CostCenter $costCenter = null, ?array $costCenters = null, ?Division $division = null, ?Job $job = null, ?EmploymentType1 $type = null, ?ContractType $contractType = null, ?array $manager = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
