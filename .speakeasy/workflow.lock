@@ -1,4 +1,4 @@
-speakeasyVersion: 1.596.0
+speakeasyVersion: 1.606.3
 sources:
     hris:
         sourceNamespace: hris
@@ -8,20 +8,20 @@ sources:
             - latest
     stackone-specs:
         sourceNamespace: stackone-specs
-        sourceRevisionDigest: sha256:7e0c541ad62a0d3fb522665e1a973fee172b517410541bbf3b4d70bbcf70c49b
-        sourceBlobDigest: sha256:321aa4c3c6c7be7f49364c2cf78819a65f60f427169f5767585f0c01ba5af2db
+        sourceRevisionDigest: sha256:39ce67c58c7ddabbdfa7f44af817ddedf608df107ae394f1bf7ebfd1234fd742
+        sourceBlobDigest: sha256:409ec304184f0b65aa9d1b8917cced02d57d602fe450179c72c288be404cc608
         tags:
             - latest
-            - speakeasy-sdk-regen-1754179460
+            - speakeasy-sdk-regen-1754784264
             - 1.0.0
 targets:
     stack-one:
         source: stackone-specs
         sourceNamespace: stackone-specs
-        sourceRevisionDigest: sha256:7e0c541ad62a0d3fb522665e1a973fee172b517410541bbf3b4d70bbcf70c49b
-        sourceBlobDigest: sha256:321aa4c3c6c7be7f49364c2cf78819a65f60f427169f5767585f0c01ba5af2db
+        sourceRevisionDigest: sha256:39ce67c58c7ddabbdfa7f44af817ddedf608df107ae394f1bf7ebfd1234fd742
+        sourceBlobDigest: sha256:409ec304184f0b65aa9d1b8917cced02d57d602fe450179c72c288be404cc608
         codeSamplesNamespace: stackone-specs-php-code-samples
-        codeSamplesRevisionDigest: sha256:4d406dd6d57b3f56d2b6e7068aa5cf9bc82dfd3d7bffb7c28953e6cec1bfa529
+        codeSamplesRevisionDigest: sha256:af4b2ab128910e6d1494f92434816c154a2618cda8e657e29d244796dd2f6b7a
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -35,6 +35,11 @@ workflow:
                 - location: https://api.eu1.stackone.com/oas/iam.json
                 - location: https://api.eu1.stackone.com/oas/crm.json
                 - location: https://api.eu1.stackone.com/oas/marketing.json
+                - location: https://api.eu1.stackone.com/oas/ticketing.json
+                - location: https://api.eu1.stackone.com/oas/documents.json
+                - location: https://api.eu1.stackone.com/oas/screening.json
+                - location: https://api.eu1.stackone.com/oas/messaging.json
+                - location: https://api.eu1.stackone.com/oas/accounting.json
             registry:
                 location: registry.speakeasyapi.dev/stackone/stackone/stackone-specs
     targets:

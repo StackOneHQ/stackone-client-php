@@ -74,6 +74,7 @@
 * [getEmployeeSkill](#getemployeeskill) - Get Employee Skill
 * [listEmployeeTasks](#listemployeetasks) - List Employee Tasks
 * [getEmployeeTask](#getemployeetask) - Get Employee Task
+* [updateEmployeeTask](#updateemployeetask) - Update Employee Task
 * [listTasks](#listtasks) - List Tasks
 * [getTask](#gettask) - Get Task
 
@@ -393,7 +394,7 @@ $sdk = client\StackOne::builder()
 
 $request = new Operations\HrisListEmployeesRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills',
+    fields: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills',
     filter: new Operations\HrisListEmployeesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
@@ -630,7 +631,7 @@ $sdk = client\StackOne::builder()
 $request = new Operations\HrisGetEmployeeRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills',
+    fields: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills',
     expand: 'company,employments,work_location,home_location,groups,skills',
     include: 'avatar_url,avatar,custom_fields,job_description,benefits',
 );
@@ -1493,7 +1494,7 @@ $response = $sdk->hris->downloadEmployeeDocument(
     request: $request
 );
 
-if ($response->bytes !== null) {
+if ($response->twoHundredApplicationPdfBytes !== null) {
     // handle response
 }
 ```
@@ -3672,7 +3673,7 @@ $sdk = client\StackOne::builder()
 
 $request = new Operations\HrisListJobsRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id',
+    fields: 'id,remote_id,code,title,description,status,created_at,updated_at',
     filter: new Operations\HrisListJobsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
@@ -3746,14 +3747,14 @@ $sdk = client\StackOne::builder()
 $request = new Operations\HrisGetJobRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id',
+    fields: 'id,remote_id,code,title,description,status,created_at,updated_at',
 );
 
 $response = $sdk->hris->getJob(
     request: $request
 );
 
-if ($response->jobResult !== null) {
+if ($response->hrisJobResult !== null) {
     // handle response
 }
 ```
@@ -5347,6 +5348,81 @@ if ($response->taskResult !== null) {
 ### Response
 
 **[?Operations\HrisGetEmployeeTaskResponse](../../Models/Operations/HrisGetEmployeeTaskResponse.md)**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\BadRequestResponse          | 400                                | application/json                   |
+| Errors\UnauthorizedResponse        | 401                                | application/json                   |
+| Errors\ForbiddenResponse           | 403                                | application/json                   |
+| Errors\NotFoundResponse            | 404                                | application/json                   |
+| Errors\RequestTimedOutResponse     | 408                                | application/json                   |
+| Errors\ConflictResponse            | 409                                | application/json                   |
+| Errors\PreconditionFailedResponse  | 412                                | application/json                   |
+| Errors\UnprocessableEntityResponse | 422                                | application/json                   |
+| Errors\TooManyRequestsResponse     | 429                                | application/json                   |
+| Errors\InternalServerErrorResponse | 500                                | application/json                   |
+| Errors\NotImplementedResponse      | 501                                | application/json                   |
+| Errors\BadGatewayResponse          | 502                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
+
+## updateEmployeeTask
+
+Update Employee Task
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="hris_update_employee_task" method="patch" path="/unified/hris/employees/{id}/tasks/{subResourceId}" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+
+$sdk = client\StackOne::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$updateTaskRequestDto = new Components\UpdateTaskRequestDto(
+    comment: 'All required documents have been submitted',
+    status: new Components\UpdateTaskRequestDtoStatus(
+        value: Components\UpdateTaskRequestDtoValue::Open,
+    ),
+);
+
+$response = $sdk->hris->updateEmployeeTask(
+    xAccountId: '<id>',
+    id: '<id>',
+    subResourceId: '<id>',
+    updateTaskRequestDto: $updateTaskRequestDto
+
+);
+
+if ($response->updateResult !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `xAccountId`                                                                       | *string*                                                                           | :heavy_check_mark:                                                                 | The account identifier                                                             |
+| `id`                                                                               | *string*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `subResourceId`                                                                    | *string*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `updateTaskRequestDto`                                                             | [Components\UpdateTaskRequestDto](../../Models/Components/UpdateTaskRequestDto.md) | :heavy_check_mark:                                                                 | N/A                                                                                |
+
+### Response
+
+**[?Operations\HrisUpdateEmployeeTaskResponse](../../Models/Operations/HrisUpdateEmployeeTaskResponse.md)**
 
 ### Errors
 

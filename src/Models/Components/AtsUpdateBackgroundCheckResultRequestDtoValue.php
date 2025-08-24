@@ -12,6 +12,8 @@ namespace StackOne\client\Models\Components;
 /** The result of the test. */
 enum AtsUpdateBackgroundCheckResultRequestDtoValue: string
 {
+    case Initiated = 'initiated';
+    case InProgress = 'in_progress';
     case Cancelled = 'cancelled';
     case Completed = 'completed';
     case Expired = 'expired';

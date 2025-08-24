@@ -41,10 +41,10 @@ class AtsCreateBackgroundCheckOrderRequestDtoJob
     /**
      * Hiring team for the job.
      *
-     * @var ?array<JobHiringTeam> $hiringTeam
+     * @var ?array<AtsJobHiringTeam> $hiringTeam
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('hiring_team')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\JobHiringTeam>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\AtsJobHiringTeam>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $hiringTeam = null;
 
@@ -62,7 +62,7 @@ class AtsCreateBackgroundCheckOrderRequestDtoJob
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?string  $title
-     * @param  ?array<JobHiringTeam>  $hiringTeam
+     * @param  ?array<AtsJobHiringTeam>  $hiringTeam
      * @param  ?array<string, mixed>  $passthrough
      * @phpstan-pure
      */

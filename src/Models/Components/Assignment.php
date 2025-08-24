@@ -151,6 +151,34 @@ class Assignment
     public ?string $remoteUserId = null;
 
     /**
+     * The certification URL associated with this assignment
+     *
+     * @var ?string $certificateUrl
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('certificate_url')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $certificateUrl = null;
+
+    /**
+     * The result of the assignment
+     *
+     * @var ?AssignmentResult1 $result
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('result')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\AssignmentResult1|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AssignmentResult1 $result = null;
+
+    /**
+     * The date the content was completed
+     *
+     * @var ?\DateTime $completedAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('completed_at')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $completedAt = null;
+
+    /**
      * The course ID associated with this assignment
      *
      * @var ?string $courseId
@@ -186,11 +214,14 @@ class Assignment
      * @param  ?LearningObjectType  $learningObjectType
      * @param  ?string  $userId
      * @param  ?string  $remoteUserId
+     * @param  ?string  $certificateUrl
+     * @param  ?AssignmentResult1  $result
+     * @param  ?\DateTime  $completedAt
      * @param  ?string  $courseId
      * @param  ?string  $remoteCourseId
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $externalReference = null, ?string $learningObjectId = null, ?string $remoteLearningObjectId = null, ?string $learningObjectExternalReference = null, ?float $progress = null, ?\DateTime $updatedAt = null, ?\DateTime $createdAt = null, ?\DateTime $dueDate = null, ?AssignmentStatus $status = null, ?LearningObjectType $learningObjectType = null, ?string $userId = null, ?string $remoteUserId = null, ?string $courseId = null, ?string $remoteCourseId = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $externalReference = null, ?string $learningObjectId = null, ?string $remoteLearningObjectId = null, ?string $learningObjectExternalReference = null, ?float $progress = null, ?\DateTime $updatedAt = null, ?\DateTime $createdAt = null, ?\DateTime $dueDate = null, ?AssignmentStatus $status = null, ?LearningObjectType $learningObjectType = null, ?string $userId = null, ?string $remoteUserId = null, ?string $certificateUrl = null, ?AssignmentResult1 $result = null, ?\DateTime $completedAt = null, ?string $courseId = null, ?string $remoteCourseId = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -207,6 +238,9 @@ class Assignment
         $this->learningObjectType = $learningObjectType;
         $this->userId = $userId;
         $this->remoteUserId = $remoteUserId;
+        $this->certificateUrl = $certificateUrl;
+        $this->result = $result;
+        $this->completedAt = $completedAt;
         $this->courseId = $courseId;
         $this->remoteCourseId = $remoteCourseId;
     }

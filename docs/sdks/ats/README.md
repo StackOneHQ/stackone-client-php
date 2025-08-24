@@ -47,8 +47,10 @@
 * [getInterview](#getinterview) - Get Interview
 * [listJobs](#listjobs) - List Jobs
 * [createJob](#createjob) - Create Job
+* [listJobApplicationStages](#listjobapplicationstages) - List Job Application Stages
 * [getJob](#getjob) - Get Job
 * [updateJob](#updatejob) - Update Job
+* [getJobApplicationStage](#getjobapplicationstage) - Get Job Application Stage
 * [listLists](#listlists) - Get all Lists
 * [getList](#getlist) - Get List
 * [listLocations](#listlocations) - List locations
@@ -1454,26 +1456,23 @@ $sdk = client\StackOne::builder()
     )
     ->build();
 
-$unifiedUploadRequestDto = new Components\UnifiedUploadRequestDto(
+$atsDocumentsUploadRequestDto = new Components\AtsDocumentsUploadRequestDto(
     name: 'weather-forecast',
     fileFormat: null,
     content: 'VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE',
     categoryId: '6530',
     path: '/path/to/file',
-    category: new Components\UnifiedUploadRequestDtoCategory(
-        value: 'reports, resumes',
-        sourceValue: '550e8400-e29b-41d4-a716-446655440000, CUSTOM_CATEGORY_NAME',
-    ),
-    confidential: new Components\UnifiedUploadRequestDtoConfidential(
-        value: Components\UnifiedUploadRequestDtoConfidentialValue::True,
+    confidential: new Components\AtsDocumentsUploadRequestDtoConfidential(
+        value: Components\AtsDocumentsUploadRequestDtoConfidentialValue::True,
         sourceValue: 'public',
     ),
+    category: new Components\AtsDocumentsUploadRequestDtoCategory(),
 );
 
 $response = $sdk->ats->uploadApplicationDocument(
     xAccountId: '<id>',
     id: '<id>',
-    unifiedUploadRequestDto: $unifiedUploadRequestDto
+    atsDocumentsUploadRequestDto: $atsDocumentsUploadRequestDto
 
 );
 
@@ -1484,11 +1483,11 @@ if ($response->writeResultApiModel !== null) {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                             | *string*                                                                                 | :heavy_check_mark:                                                                       | The account identifier                                                                   |
-| `id`                                                                                     | *string*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
-| `unifiedUploadRequestDto`                                                                | [Components\UnifiedUploadRequestDto](../../Models/Components/UnifiedUploadRequestDto.md) | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `xAccountId`                                                                                       | *string*                                                                                           | :heavy_check_mark:                                                                                 | The account identifier                                                                             |
+| `id`                                                                                               | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `atsDocumentsUploadRequestDto`                                                                     | [Components\AtsDocumentsUploadRequestDto](../../Models/Components/AtsDocumentsUploadRequestDto.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 
 ### Response
 
@@ -3292,7 +3291,7 @@ $atsCreateJobRequestDto = new Components\AtsCreateJobRequestDto(
         '688572',
     ],
     hiringTeam: [
-        new Components\JobHiringTeam(
+        new Components\AtsJobHiringTeam(
             userId: '123456',
             remoteUserId: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
             firstName: 'John',
@@ -3368,6 +3367,81 @@ if ($response->createResult !== null) {
 | Errors\BadGatewayResponse          | 502                                | application/json                   |
 | Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
+## listJobApplicationStages
+
+List Job Application Stages
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="ats_list_job_application_stages" method="get" path="/unified/ats/jobs/{id}/application_stages" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+use StackOne\client\Utils;
+
+$sdk = client\StackOne::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$request = new Operations\AtsListJobApplicationStagesRequest(
+    xAccountId: '<id>',
+    id: '<id>',
+    fields: 'id,remote_id,name,order,created_at,updated_at',
+    filter: new Operations\AtsListJobApplicationStagesQueryParamFilter(
+        updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
+    ),
+);
+
+$responses = $sdk->ats->listJobApplicationStages(
+    request: $request
+);
+
+
+foreach ($responses as $response) {
+    if ($response->statusCode === 200) {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                     | [Operations\AtsListJobApplicationStagesRequest](../../Models/Operations/AtsListJobApplicationStagesRequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+
+### Response
+
+**[?Operations\AtsListJobApplicationStagesResponse](../../Models/Operations/AtsListJobApplicationStagesResponse.md)**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\BadRequestResponse          | 400                                | application/json                   |
+| Errors\UnauthorizedResponse        | 401                                | application/json                   |
+| Errors\ForbiddenResponse           | 403                                | application/json                   |
+| Errors\NotFoundResponse            | 404                                | application/json                   |
+| Errors\RequestTimedOutResponse     | 408                                | application/json                   |
+| Errors\ConflictResponse            | 409                                | application/json                   |
+| Errors\PreconditionFailedResponse  | 412                                | application/json                   |
+| Errors\UnprocessableEntityResponse | 422                                | application/json                   |
+| Errors\TooManyRequestsResponse     | 429                                | application/json                   |
+| Errors\InternalServerErrorResponse | 500                                | application/json                   |
+| Errors\NotImplementedResponse      | 501                                | application/json                   |
+| Errors\BadGatewayResponse          | 502                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
+
 ## getJob
 
 Get Job
@@ -3405,7 +3479,7 @@ $response = $sdk->ats->getJob(
     request: $request
 );
 
-if ($response->jobResult !== null) {
+if ($response->atsJobResult !== null) {
     // handle response
 }
 ```
@@ -3485,7 +3559,7 @@ $atsUpdateJobRequestDto = new Components\AtsUpdateJobRequestDto(
         '688572',
     ],
     hiringTeam: [
-        new Components\JobHiringTeam(
+        new Components\AtsJobHiringTeam(
             userId: '123456',
             remoteUserId: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
             firstName: 'John',
@@ -3524,6 +3598,75 @@ if ($response->createResult !== null) {
 ### Response
 
 **[?Operations\AtsUpdateJobResponse](../../Models/Operations/AtsUpdateJobResponse.md)**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\BadRequestResponse          | 400                                | application/json                   |
+| Errors\UnauthorizedResponse        | 401                                | application/json                   |
+| Errors\ForbiddenResponse           | 403                                | application/json                   |
+| Errors\NotFoundResponse            | 404                                | application/json                   |
+| Errors\RequestTimedOutResponse     | 408                                | application/json                   |
+| Errors\ConflictResponse            | 409                                | application/json                   |
+| Errors\PreconditionFailedResponse  | 412                                | application/json                   |
+| Errors\UnprocessableEntityResponse | 422                                | application/json                   |
+| Errors\TooManyRequestsResponse     | 429                                | application/json                   |
+| Errors\InternalServerErrorResponse | 500                                | application/json                   |
+| Errors\NotImplementedResponse      | 501                                | application/json                   |
+| Errors\BadGatewayResponse          | 502                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
+
+## getJobApplicationStage
+
+Get Job Application Stage
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="ats_get_job_application_stage" method="get" path="/unified/ats/jobs/{id}/application_stages/{subResourceId}" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+
+$sdk = client\StackOne::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$request = new Operations\AtsGetJobApplicationStageRequest(
+    xAccountId: '<id>',
+    id: '<id>',
+    subResourceId: '<id>',
+    fields: 'id,remote_id,name,order,created_at,updated_at',
+);
+
+$response = $sdk->ats->getJobApplicationStage(
+    request: $request
+);
+
+if ($response->applicationStageResult !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                 | [Operations\AtsGetJobApplicationStageRequest](../../Models/Operations/AtsGetJobApplicationStageRequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+
+### Response
+
+**[?Operations\AtsGetJobApplicationStageResponse](../../Models/Operations/AtsGetJobApplicationStageResponse.md)**
 
 ### Errors
 
@@ -4663,7 +4806,7 @@ $atsCreateCandidatesAssessmentsRequestDto = new Components\AtsCreateCandidatesAs
         remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
         title: 'Software Engineer',
         hiringTeam: [
-            new Components\JobHiringTeam(
+            new Components\AtsJobHiringTeam(
                 userId: '123456',
                 remoteUserId: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
                 firstName: 'John',

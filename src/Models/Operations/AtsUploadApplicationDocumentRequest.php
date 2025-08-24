@@ -29,21 +29,21 @@ class AtsUploadApplicationDocumentRequest
 
     /**
      *
-     * @var Components\UnifiedUploadRequestDto $unifiedUploadRequestDto
+     * @var Components\AtsDocumentsUploadRequestDto $atsDocumentsUploadRequestDto
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public Components\UnifiedUploadRequestDto $unifiedUploadRequestDto;
+    public Components\AtsDocumentsUploadRequestDto $atsDocumentsUploadRequestDto;
 
     /**
      * @param  string  $xAccountId
      * @param  string  $id
-     * @param  Components\UnifiedUploadRequestDto  $unifiedUploadRequestDto
+     * @param  Components\AtsDocumentsUploadRequestDto  $atsDocumentsUploadRequestDto
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, Components\UnifiedUploadRequestDto $unifiedUploadRequestDto)
+    public function __construct(string $xAccountId, string $id, Components\AtsDocumentsUploadRequestDto $atsDocumentsUploadRequestDto)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
-        $this->unifiedUploadRequestDto = $unifiedUploadRequestDto;
+        $this->atsDocumentsUploadRequestDto = $atsDocumentsUploadRequestDto;
     }
 }

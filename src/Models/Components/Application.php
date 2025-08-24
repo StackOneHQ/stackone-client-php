@@ -155,6 +155,7 @@ class Application
      * Provider's unique identifier of the location
      *
      * @var ?string $remoteLocationId
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('remote_location_id')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]

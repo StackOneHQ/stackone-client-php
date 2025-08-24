@@ -1,0 +1,10 @@
+# TicketingTicketTypePaginated
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `next`                                                                                  | *?string*                                                                               | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `data`                                                                                  | array<[Components\TicketingTicketType](../../Models/Components/TicketingTicketType.md)> | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `raw`                                                                                   | array<[Components\RawResponse](../../Models/Components/RawResponse.md)>                 | :heavy_minus_sign:                                                                      | N/A                                                                                     |

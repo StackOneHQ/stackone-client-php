@@ -1,0 +1,9 @@
+# MessagingSendMessageRequest
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                           | *string*                                                                                               | :heavy_check_mark:                                                                                     | The account identifier                                                                                 |
+| `messagingMessageSendRequestDto`                                                                       | [Components\MessagingMessageSendRequestDto](../../Models/Components/MessagingMessageSendRequestDto.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
