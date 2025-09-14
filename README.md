@@ -10,7 +10,7 @@
 <!-- Start Summary [summary] -->
 ## Summary
 
-Marketing: The documentation for the StackOne Unified API - MARKETING
+Accounting: The documentation for the StackOne Unified API - ACCOUNTING
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -68,7 +68,7 @@ $sdk = client\StackOne::builder()
 
 $request = new Operations\HrisListEmployeesRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills',
+    fields: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills',
     filter: new Operations\HrisListEmployeesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
@@ -146,6 +146,40 @@ if ($response->connectSessionTokenAuthLink !== null) {
     // handle response
 }
 ```
+
+### Per-Operation Security Schemes
+
+Some operations in this SDK require the security scheme to be specified at the request level. For example:
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+
+$sdk = client\StackOne::builder()->build();
+
+
+$requestSecurity = new Operations\StackoneMcpGetSecurity(
+    basic: new Components\SchemeBasic(
+        username: '',
+        password: '',
+    ),
+);
+
+$response = $sdk->mcp->mcpGet(
+    security: $requestSecurity,
+    xAccountId: '<id>',
+    mcpSessionId: '<id>'
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
 <!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
@@ -154,6 +188,19 @@ if ($response->connectSessionTokenAuthLink !== null) {
 <details open>
 <summary>Available methods</summary>
 
+### [accounting](docs/sdks/accounting/README.md)
+
+* [listCompanies](docs/sdks/accounting/README.md#listcompanies) - List Companies
+* [getCompany](docs/sdks/accounting/README.md#getcompany) - Get Company
+* [listCompanyAccounts](docs/sdks/accounting/README.md#listcompanyaccounts) - List Accounts
+* [getCompanyAccount](docs/sdks/accounting/README.md#getcompanyaccount) - Get Account
+* [listCompanyTaxRates](docs/sdks/accounting/README.md#listcompanytaxrates) - List Tax Rates
+* [getCompanyTaxRate](docs/sdks/accounting/README.md#getcompanytaxrate) - Get Tax Rate
+* [batchCreateCompanyJournals](docs/sdks/accounting/README.md#batchcreatecompanyjournals) - Batch Create Journals
+* [listCompanyJournals](docs/sdks/accounting/README.md#listcompanyjournals) - List Journals
+* [createCompanyJournal](docs/sdks/accounting/README.md#createcompanyjournal) - Create Journal
+* [getCompanyJournal](docs/sdks/accounting/README.md#getcompanyjournal) - Get Journal
+
 ### [accounts](docs/sdks/accounts/README.md)
 
 * [listLinkedAccounts](docs/sdks/accounts/README.md#listlinkedaccounts) - List Accounts
@@ -161,6 +208,11 @@ if ($response->connectSessionTokenAuthLink !== null) {
 * [deleteAccount](docs/sdks/accounts/README.md#deleteaccount) - Delete Account
 * [updateAccount](docs/sdks/accounts/README.md#updateaccount) - Update Account
 * [getAccountMetaInfo](docs/sdks/accounts/README.md#getaccountmetainfo) - Get Account Meta Information
+
+### [actions](docs/sdks/actions/README.md)
+
+* [listActionsMeta](docs/sdks/actions/README.md#listactionsmeta) - List all actions metadata
+* [rpcAction](docs/sdks/actions/README.md#rpcaction) - Make an RPC call to an action
 
 ### [ats](docs/sdks/ats/README.md)
 
@@ -200,14 +252,18 @@ if ($response->connectSessionTokenAuthLink !== null) {
 * [getJobCustomFieldDefinition](docs/sdks/ats/README.md#getjobcustomfielddefinition) - Get Job Custom Field Definition
 * [listDepartments](docs/sdks/ats/README.md#listdepartments) - List Departments
 * [getDepartment](docs/sdks/ats/README.md#getdepartment) - Get Department
-* [listInterviewStages](docs/sdks/ats/README.md#listinterviewstages) - List Interview Stages
-* [getInterviewStage](docs/sdks/ats/README.md#getinterviewstage) - Get Interview Stage
+* [~~listInterviewStages~~](docs/sdks/ats/README.md#listinterviewstages) - List Interview Stages :warning: **Deprecated**
+* [~~getInterviewStage~~](docs/sdks/ats/README.md#getinterviewstage) - Get Interview Stage :warning: **Deprecated**
+* [listApplicationStages](docs/sdks/ats/README.md#listapplicationstages) - List Application Stages
+* [getApplicationStage](docs/sdks/ats/README.md#getapplicationstage) - Get Application Stage
 * [listInterviews](docs/sdks/ats/README.md#listinterviews) - List Interviews
 * [getInterview](docs/sdks/ats/README.md#getinterview) - Get Interview
 * [listJobs](docs/sdks/ats/README.md#listjobs) - List Jobs
 * [createJob](docs/sdks/ats/README.md#createjob) - Create Job
+* [listJobApplicationStages](docs/sdks/ats/README.md#listjobapplicationstages) - List Job Application Stages
 * [getJob](docs/sdks/ats/README.md#getjob) - Get Job
 * [updateJob](docs/sdks/ats/README.md#updatejob) - Update Job
+* [getJobApplicationStage](docs/sdks/ats/README.md#getjobapplicationstage) - Get Job Application Stage
 * [listLists](docs/sdks/ats/README.md#listlists) - Get all Lists
 * [getList](docs/sdks/ats/README.md#getlist) - Get List
 * [listLocations](docs/sdks/ats/README.md#listlocations) - List locations
@@ -225,7 +281,6 @@ if ($response->connectSessionTokenAuthLink !== null) {
 * [getAssessmentsPackage](docs/sdks/ats/README.md#getassessmentspackage) - Get Assessments Package
 * [orderAssessmentsRequest](docs/sdks/ats/README.md#orderassessmentsrequest) - Order Assessments Request
 * [updateAssessmentsResult](docs/sdks/ats/README.md#updateassessmentsresult) - Update Assessments Result
-* [getAssessmentsResult](docs/sdks/ats/README.md#getassessmentsresult) - Get Assessments Results
 * [listBackgroundCheckPackages](docs/sdks/ats/README.md#listbackgroundcheckpackages) - List Background Check Packages
 * [createBackgroundCheckPackage](docs/sdks/ats/README.md#createbackgroundcheckpackage) - Create Background Check Package
 * [getBackgroundCheckPackage](docs/sdks/ats/README.md#getbackgroundcheckpackage) - Get Background Check Package
@@ -233,7 +288,6 @@ if ($response->connectSessionTokenAuthLink !== null) {
 * [updateBackgroundCheckPackage](docs/sdks/ats/README.md#updatebackgroundcheckpackage) - Update Background Check Package
 * [orderBackgroundCheckRequest](docs/sdks/ats/README.md#orderbackgroundcheckrequest) - Order Background Check Request
 * [updateBackgroundCheckResult](docs/sdks/ats/README.md#updatebackgroundcheckresult) - Update Background Check Result
-* [getBackgroundCheckResult](docs/sdks/ats/README.md#getbackgroundcheckresult) - Get Background Check Results
 * [listApplicationDocumentCategories](docs/sdks/ats/README.md#listapplicationdocumentcategories) - List Application Document Categories
 * [getApplicationDocumentCategory](docs/sdks/ats/README.md#getapplicationdocumentcategory) - Get Application Document Category
 
@@ -259,6 +313,17 @@ if ($response->connectSessionTokenAuthLink !== null) {
 * [getList](docs/sdks/crm/README.md#getlist) - Get List
 * [listContactCustomFieldDefinitions](docs/sdks/crm/README.md#listcontactcustomfielddefinitions) - List Contact Custom Field Definitions
 * [getContactCustomFieldDefinition](docs/sdks/crm/README.md#getcontactcustomfielddefinition) - Get Contact Custom Field Definition
+
+### [documents](docs/sdks/documents/README.md)
+
+* [downloadFile](docs/sdks/documents/README.md#downloadfile) - Download File
+* [uploadFile](docs/sdks/documents/README.md#uploadfile) - Upload File
+* [listFiles](docs/sdks/documents/README.md#listfiles) - List Files
+* [getFile](docs/sdks/documents/README.md#getfile) - Get File
+* [listFolders](docs/sdks/documents/README.md#listfolders) - List Folders
+* [getFolder](docs/sdks/documents/README.md#getfolder) - Get Folder
+* [listDrives](docs/sdks/documents/README.md#listdrives) - List Drives
+* [getDrive](docs/sdks/documents/README.md#getdrive) - Get Drive
 
 ### [hris](docs/sdks/hris/README.md)
 
@@ -331,6 +396,7 @@ if ($response->connectSessionTokenAuthLink !== null) {
 * [getEmployeeSkill](docs/sdks/hris/README.md#getemployeeskill) - Get Employee Skill
 * [listEmployeeTasks](docs/sdks/hris/README.md#listemployeetasks) - List Employee Tasks
 * [getEmployeeTask](docs/sdks/hris/README.md#getemployeetask) - Get Employee Task
+* [updateEmployeeTask](docs/sdks/hris/README.md#updateemployeetask) - Update Employee Task
 * [listTasks](docs/sdks/hris/README.md#listtasks) - List Tasks
 * [getTask](docs/sdks/hris/README.md#gettask) - Get Task
 
@@ -403,6 +469,26 @@ if ($response->connectSessionTokenAuthLink !== null) {
 * [getContentBlock](docs/sdks/marketing/README.md#getcontentblock) - Get Content Blocks
 * [updateContentBlock](docs/sdks/marketing/README.md#updatecontentblock) - Update Content Block
 
+### [mcp](docs/sdks/mcp/README.md)
+
+* [mcpGet](docs/sdks/mcp/README.md#mcpget) - Open MCP SSE stream
+* [mcpPost](docs/sdks/mcp/README.md#mcppost) - Send MCP JSON-RPC message
+* [mcpDelete](docs/sdks/mcp/README.md#mcpdelete) - Delete MCP session
+
+### [messaging](docs/sdks/messaging/README.md)
+
+* [listConversations](docs/sdks/messaging/README.md#listconversations) - List Conversations
+* [createConversation](docs/sdks/messaging/README.md#createconversation) - Create Conversation
+* [getConversation](docs/sdks/messaging/README.md#getconversation) - Get Conversation
+* [downloadMessagingAttachment](docs/sdks/messaging/README.md#downloadmessagingattachment) - Download Attachment
+* [listAttachments](docs/sdks/messaging/README.md#listattachments) - List Attachments
+* [getAttachment](docs/sdks/messaging/README.md#getattachment) - Get Attachment
+* [listUsers](docs/sdks/messaging/README.md#listusers) - List Users
+* [getUser](docs/sdks/messaging/README.md#getuser) - Get User
+* [listConversationMessages](docs/sdks/messaging/README.md#listconversationmessages) - List Conversation Messages
+* [getMessage](docs/sdks/messaging/README.md#getmessage) - Get Message
+* [sendMessage](docs/sdks/messaging/README.md#sendmessage) - Send Message
+
 ### [proxy](docs/sdks/proxy/README.md)
 
 * [proxyRequest](docs/sdks/proxy/README.md#proxyrequest) - Proxy Request
@@ -414,6 +500,35 @@ if ($response->connectSessionTokenAuthLink !== null) {
 * [listLogs](docs/sdks/requestlogs/README.md#listlogs) - List Logs
 * [listPlatformLogs](docs/sdks/requestlogs/README.md#listplatformlogs) - List Platform Logs
 
+### [screening](docs/sdks/screening/README.md)
+
+* [listScreeningPackages](docs/sdks/screening/README.md#listscreeningpackages) - List Screening Packages
+* [getScreeningPackage](docs/sdks/screening/README.md#getscreeningpackage) - Get Screening Package
+* [webhookScreeningResult](docs/sdks/screening/README.md#webhookscreeningresult) - Webhook Screening Result
+* [createScreeningOrder](docs/sdks/screening/README.md#createscreeningorder) - Create Screening Order
+
+
+### [ticketing](docs/sdks/ticketing/README.md)
+
+* [listTickets](docs/sdks/ticketing/README.md#listtickets) - List Tickets
+* [createTicket](docs/sdks/ticketing/README.md#createticket) - Create Ticket
+* [getTicket](docs/sdks/ticketing/README.md#getticket) - Get Ticket
+* [updateTicket](docs/sdks/ticketing/README.md#updateticket) - Update Ticket
+* [listUsers](docs/sdks/ticketing/README.md#listusers) - List Users
+* [getUser](docs/sdks/ticketing/README.md#getuser) - Get User
+* [listComments](docs/sdks/ticketing/README.md#listcomments) - List Comments
+* [getComment](docs/sdks/ticketing/README.md#getcomment) - Get Comment
+* [downloadTicketingAttachment](docs/sdks/ticketing/README.md#downloadticketingattachment) - Download Attachment
+* [listAttachments](docs/sdks/ticketing/README.md#listattachments) - List Attachments
+* [getAttachment](docs/sdks/ticketing/README.md#getattachment) - Get Attachment
+* [listTicketTypes](docs/sdks/ticketing/README.md#listtickettypes) - List Ticket Types
+* [getTicketType](docs/sdks/ticketing/README.md#gettickettype) - Get Ticket Type
+* [listProjects](docs/sdks/ticketing/README.md#listprojects) - List Projects
+* [getProject](docs/sdks/ticketing/README.md#getproject) - Get Project
+* [listProjectComponents](docs/sdks/ticketing/README.md#listprojectcomponents) - List Project Components
+* [getProjectComponent](docs/sdks/ticketing/README.md#getprojectcomponent) - Get Project Component
+* [listProjectTicketTypes](docs/sdks/ticketing/README.md#listprojecttickettypes) - List Project Ticket Types
+* [listTicketStatuses](docs/sdks/ticketing/README.md#listticketstatuses) - List Ticket Statuses
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -433,7 +548,6 @@ require 'vendor/autoload.php';
 use StackOne\client;
 use StackOne\client\Models\Components;
 use StackOne\client\Models\Operations;
-use StackOne\client\Utils;
 
 $sdk = client\StackOne::builder()
     ->setSecurity(
@@ -444,15 +558,19 @@ $sdk = client\StackOne::builder()
     )
     ->build();
 
-$request = new Operations\HrisListCompaniesRequest(
-    xAccountId: '<id>',
-    fields: 'id,remote_id,name,full_name,display_name,created_at,updated_at',
-    filter: new Operations\HrisListCompaniesQueryParamFilter(
-        updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
+$request = new Operations\StackoneListActionsMetaRequest(
+    groupBy: '["connector"]',
+    filter: new Operations\StackoneListActionsMetaQueryParamFilter(
+        connectors: 'connector1,connector2',
+        accountIds: 'account1,account2',
+        actionKey: 'action1',
     ),
+    include: [
+        Operations\StackoneListActionsMetaQueryParamInclude::OperationDetails,
+    ],
 );
 
-$responses = $sdk->hris->listCompanies(
+$responses = $sdk->actions->listActionsMeta(
     request: $request
 );
 

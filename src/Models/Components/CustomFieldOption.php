@@ -22,17 +22,18 @@ class CustomFieldOption
     /**
      * The human readable value of the option
      *
-     * @var string $value
+     * @var string|float|bool|Four|array<mixed> $value
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
-    public string $value;
+    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\Four|array<mixed>')]
+    public string|float|bool|Four|array $value;
 
     /**
      * @param  string  $id
-     * @param  string  $value
+     * @param  string|float|bool|Four|array<mixed>  $value
      * @phpstan-pure
      */
-    public function __construct(string $id, string $value)
+    public function __construct(string $id, string|float|bool|Four|array $value)
     {
         $this->id = $id;
         $this->value = $value;

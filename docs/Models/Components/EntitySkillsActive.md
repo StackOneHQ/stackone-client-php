@@ -14,12 +14,12 @@ Whether the skill is active and therefore available for use
 bool $value = /* values here */
 ```
 
-### `Components\Active2`
+### `Components\EntitySkillsActive2`
 
 ```php
 /**
-* @var Components\Active2
+* @var Components\EntitySkillsActive2
 */
-Components\Active2 $value = /* values here */
+Components\EntitySkillsActive2 $value = /* values here */
 ```
 

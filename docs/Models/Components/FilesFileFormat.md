@@ -1,0 +1,11 @@
+# FilesFileFormat
+
+The file format of the file
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              | Example                                                                                                  |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `value`                                                                                                  | [?Components\FilesValue](../../Models/Components/FilesValue.md)                                          | :heavy_minus_sign:                                                                                       | The file format of the file, expressed as a file extension                                               | pdf                                                                                                      |
+| `sourceValue`                                                                                            | [string\|float\|bool\|Components\FilesSourceValue4\|array\|null](../../Models/Components/FilesSourceValue.md) | :heavy_minus_sign:                                                                                       | N/A                                                                                                      | application/pdf                                                                                          |

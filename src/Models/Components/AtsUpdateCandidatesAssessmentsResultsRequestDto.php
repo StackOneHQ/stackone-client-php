@@ -12,15 +12,6 @@ namespace StackOne\client\Models\Components;
 class AtsUpdateCandidatesAssessmentsResultsRequestDto
 {
     /**
-     * Unique identifier
-     *
-     * @var ?string $id
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $id = null;
-
-    /**
      *
      * @var ?Score $score
      */
@@ -104,7 +95,6 @@ class AtsUpdateCandidatesAssessmentsResultsRequestDto
     public ?array $passthrough = null;
 
     /**
-     * @param  ?string  $id
      * @param  ?Score  $score
      * @param  ?\DateTime  $startDate
      * @param  ?\DateTime  $submissionDate
@@ -116,9 +106,8 @@ class AtsUpdateCandidatesAssessmentsResultsRequestDto
      * @param  ?array<string, mixed>  $passthrough
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?Score $score = null, ?\DateTime $startDate = null, ?\DateTime $submissionDate = null, ?string $summary = null, ?Result $result = null, ?string $resultUrl = null, ?array $attachments = null, ?AtsUpdateCandidatesAssessmentsResultsRequestDtoCandidate $candidate = null, ?array $passthrough = null)
+    public function __construct(?Score $score = null, ?\DateTime $startDate = null, ?\DateTime $submissionDate = null, ?string $summary = null, ?Result $result = null, ?string $resultUrl = null, ?array $attachments = null, ?AtsUpdateCandidatesAssessmentsResultsRequestDtoCandidate $candidate = null, ?array $passthrough = null)
     {
-        $this->id = $id;
         $this->score = $score;
         $this->startDate = $startDate;
         $this->submissionDate = $submissionDate;

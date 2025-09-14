@@ -41,12 +41,12 @@ class CustomFields
     /**
      * The value associated with the custom field.
      *
-     * @var string|float|bool|Value4|array<mixed>|null $value
+     * @var string|float|bool|Value4|array<mixed>|\DateTime|null $value
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\Value4|array<mixed>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\Value4|array<mixed>|\DateTime|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|float|bool|Value4|array|null $value = null;
+    public string|float|bool|Value4|array|\DateTime|null $value = null;
 
     /**
      * The unique identifier for the value of the custom field.
@@ -70,12 +70,12 @@ class CustomFields
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?string  $name
-     * @param  string|float|bool|Value4|array<mixed>|null  $value
+     * @param  string|float|bool|Value4|array<mixed>|\DateTime|null  $value
      * @param  ?string  $valueId
      * @param  ?string  $remoteValueId
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, string|float|bool|Value4|array|null $value = null, ?string $valueId = null, ?string $remoteValueId = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, string|float|bool|Value4|array|\DateTime|null $value = null, ?string $valueId = null, ?string $remoteValueId = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;

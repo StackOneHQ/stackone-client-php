@@ -42,24 +42,24 @@ class HrisGetJobResponse
     /**
      * The job with the given identifier was retrieved.
      *
-     * @var ?Components\JobResult $jobResult
+     * @var ?Components\HrisJobResult $hrisJobResult
      */
-    public ?Components\JobResult $jobResult = null;
+    public ?Components\HrisJobResult $hrisJobResult = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\JobResult  $jobResult
+     * @param  ?Components\HrisJobResult  $hrisJobResult
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\JobResult $jobResult = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\HrisJobResult $hrisJobResult = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->jobResult = $jobResult;
+        $this->hrisJobResult = $hrisJobResult;
     }
 }

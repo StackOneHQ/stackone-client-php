@@ -14,12 +14,12 @@ The employment active status
 bool $value = /* values here */
 ```
 
-### `Components\Two`
+### `Components\Active2`
 
 ```php
 /**
-* @var Components\Two
+* @var Components\Active2
 */
-Components\Two $value = /* values here */
+Components\Active2 $value = /* values here */
 ```
 

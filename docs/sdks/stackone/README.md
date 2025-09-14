@@ -2,6 +2,6 @@
 
 ## Overview
 
-Marketing: The documentation for the StackOne Unified API - MARKETING
+Accounting: The documentation for the StackOne Unified API - ACCOUNTING
 
 ### Available Operations

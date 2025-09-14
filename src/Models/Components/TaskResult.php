@@ -12,14 +12,13 @@ namespace StackOne\client\Models\Components;
 class TaskResult
 {
     /**
-     * $data
      *
-     * @var ?array<Task> $data
+     * @var ?TaskResultData $data
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('data')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\Task>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\TaskResultData|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $data = null;
+    public ?TaskResultData $data = null;
 
     /**
      * $raw
@@ -32,11 +31,11 @@ class TaskResult
     public ?array $raw = null;
 
     /**
-     * @param  ?array<Task>  $data
+     * @param  ?TaskResultData  $data
      * @param  ?array<RawResponse>  $raw
      * @phpstan-pure
      */
-    public function __construct(?array $data = null, ?array $raw = null)
+    public function __construct(?TaskResultData $data = null, ?array $raw = null)
     {
         $this->data = $data;
         $this->raw = $raw;

@@ -13,12 +13,12 @@ class HrisShiftResult
 {
     /**
      *
-     * @var ?Data $data
+     * @var ?HrisShiftResultData $data
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('data')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Data|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisShiftResultData|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Data $data = null;
+    public ?HrisShiftResultData $data = null;
 
     /**
      * $raw
@@ -31,11 +31,11 @@ class HrisShiftResult
     public ?array $raw = null;
 
     /**
-     * @param  ?Data  $data
+     * @param  ?HrisShiftResultData  $data
      * @param  ?array<RawResponse>  $raw
      * @phpstan-pure
      */
-    public function __construct(?Data $data = null, ?array $raw = null)
+    public function __construct(?HrisShiftResultData $data = null, ?array $raw = null)
     {
         $this->data = $data;
         $this->raw = $raw;

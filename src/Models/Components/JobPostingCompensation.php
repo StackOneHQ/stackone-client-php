@@ -13,11 +13,11 @@ class JobPostingCompensation
 {
     /**
      *
-     * @var ?string $name
+     * @var ?string $title
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $name = null;
+    public ?string $title = null;
 
     /**
      *
@@ -64,40 +64,40 @@ class JobPostingCompensation
 
     /**
      *
-     * @var ?string $minValue
+     * @var ?string $minValueRange
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('min_value')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('min_value_range')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $minValue = null;
+    public ?string $minValueRange = null;
 
     /**
      *
-     * @var ?string $maxValue
+     * @var ?string $maxValueRange
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('max_value')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('max_value_range')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $maxValue = null;
+    public ?string $maxValueRange = null;
 
     /**
-     * @param  ?string  $name
+     * @param  ?string  $title
      * @param  ?JobPostingCompensationType  $type
      * @param  ?JobPostingCompensationPayPeriod  $payPeriod
      * @param  ?JobPostingCompensationPayFrequency  $payFrequency
      * @param  ?string  $currency
      * @param  ?string  $value
-     * @param  ?string  $minValue
-     * @param  ?string  $maxValue
+     * @param  ?string  $minValueRange
+     * @param  ?string  $maxValueRange
      * @phpstan-pure
      */
-    public function __construct(?string $name = null, ?JobPostingCompensationType $type = null, ?JobPostingCompensationPayPeriod $payPeriod = null, ?JobPostingCompensationPayFrequency $payFrequency = null, ?string $currency = null, ?string $value = null, ?string $minValue = null, ?string $maxValue = null)
+    public function __construct(?string $title = null, ?JobPostingCompensationType $type = null, ?JobPostingCompensationPayPeriod $payPeriod = null, ?JobPostingCompensationPayFrequency $payFrequency = null, ?string $currency = null, ?string $value = null, ?string $minValueRange = null, ?string $maxValueRange = null)
     {
-        $this->name = $name;
+        $this->title = $title;
         $this->type = $type;
         $this->payPeriod = $payPeriod;
         $this->payFrequency = $payFrequency;
         $this->currency = $currency;
         $this->value = $value;
-        $this->minValue = $minValue;
-        $this->maxValue = $maxValue;
+        $this->minValueRange = $minValueRange;
+        $this->maxValueRange = $maxValueRange;
     }
 }

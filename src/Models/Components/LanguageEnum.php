@@ -23,19 +23,19 @@ class LanguageEnum
 
     /**
      *
-     * @var string|float|bool|SourceValue4|array<mixed>|null $sourceValue
+     * @var string|float|bool|LanguageEnumSourceValue4|array<mixed>|null $sourceValue
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source_value')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\SourceValue4|array<mixed>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\LanguageEnumSourceValue4|array<mixed>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|float|bool|SourceValue4|array|null $sourceValue = null;
+    public string|float|bool|LanguageEnumSourceValue4|array|null $sourceValue = null;
 
     /**
      * @param  ?LanguageEnumValue  $value
-     * @param  string|float|bool|SourceValue4|array<mixed>|null  $sourceValue
+     * @param  string|float|bool|LanguageEnumSourceValue4|array<mixed>|null  $sourceValue
      * @phpstan-pure
      */
-    public function __construct(?LanguageEnumValue $value = null, string|float|bool|SourceValue4|array|null $sourceValue = null)
+    public function __construct(?LanguageEnumValue $value = null, string|float|bool|LanguageEnumSourceValue4|array|null $sourceValue = null)
     {
         $this->value = $value;
         $this->sourceValue = $sourceValue;

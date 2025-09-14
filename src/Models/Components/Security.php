@@ -13,24 +13,24 @@ class Security
 {
     /**
      *
-     * @var string $username
+     * @var ?string $username
      */
     #[SpeakeasyMetadata('security:scheme=true,type=http,subtype=basic,name=username')]
-    public string $username;
+    public ?string $username = null;
 
     /**
      *
-     * @var string $password
+     * @var ?string $password
      */
     #[SpeakeasyMetadata('security:scheme=true,type=http,subtype=basic,name=password')]
-    public string $password;
+    public ?string $password = null;
 
     /**
-     * @param  string  $username
-     * @param  string  $password
+     * @param  ?string  $username
+     * @param  ?string  $password
      * @phpstan-pure
      */
-    public function __construct(string $username, string $password)
+    public function __construct(?string $username = null, ?string $password = null)
     {
         $this->username = $username;
         $this->password = $password;

@@ -119,7 +119,7 @@ class Proxy
             $res = $this->sdkConfiguration->hooks->afterError(new Hooks\AfterErrorContext($hookContext), $httpResponse, null);
             $httpResponse = $res;
         }
-        if (Utils\Utils::matchStatusCodes($statusCode, ['200'])) {
+        if (Utils\Utils::matchStatusCodes($statusCode, ['200', '201', '202', '204'])) {
             $httpResponse = $this->sdkConfiguration->hooks->afterSuccess(new Hooks\AfterSuccessContext($hookContext), $httpResponse);
 
             return new Operations\StackoneProxyRequestResponse(

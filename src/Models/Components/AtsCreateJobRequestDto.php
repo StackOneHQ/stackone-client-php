@@ -91,10 +91,10 @@ class AtsCreateJobRequestDto
     /**
      * Hiring team for the job.
      *
-     * @var ?array<JobHiringTeam> $hiringTeam
+     * @var ?array<AtsJobHiringTeam> $hiringTeam
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('hiring_team')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\JobHiringTeam>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\AtsJobHiringTeam>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $hiringTeam = null;
 
@@ -147,7 +147,7 @@ class AtsCreateJobRequestDto
      * @param  ?AtsCreateJobRequestDtoJobStatus  $jobStatus
      * @param  ?array<string>  $departmentIds
      * @param  ?array<string>  $locationIds
-     * @param  ?array<JobHiringTeam>  $hiringTeam
+     * @param  ?array<AtsJobHiringTeam>  $hiringTeam
      * @param  ?array<InterviewStage>  $interviewStages
      * @param  ?AtsCreateJobRequestDtoConfidential  $confidential
      * @param  ?array<CustomFields>  $customFields

@@ -10,7 +10,7 @@ namespace StackOne\client;
 
 
 
-/** StackOne - Marketing: The documentation for the StackOne Unified API - MARKETING */
+/** StackOne - Accounting: The documentation for the StackOne Unified API - ACCOUNTING */
 class StackOne
 {
     public const SERVERS = [
@@ -25,7 +25,7 @@ class StackOne
     public ConnectSessions $connectSessions;
 
     /**
-     * Customer or business accounts.
+     * Chart of accounts.
      *
      * @var Accounts $$accounts
      */
@@ -52,6 +52,20 @@ class StackOne
      */
     public Proxy $proxy;
 
+    /**
+     * Model Context Protocol endpoint.
+     *
+     * @var Mcp $$mcp
+     */
+    public Mcp $mcp;
+
+    /**
+     * Retrieve Actions metadata and definitions.
+     *
+     * @var Actions $$actions
+     */
+    public Actions $actions;
+
     public Hris $hris;
 
     public Ats $ats;
@@ -63,6 +77,16 @@ class StackOne
     public Crm $crm;
 
     public Marketing $marketing;
+
+    public Ticketing $ticketing;
+
+    public Documents $documents;
+
+    public Screening $screening;
+
+    public Messaging $messaging;
+
+    public Accounting $accounting;
 
     /**
      * Returns a new instance of the SDK builder used to configure and create the SDK instance.
@@ -85,12 +109,19 @@ class StackOne
         $this->requestLogs = new RequestLogs($this->sdkConfiguration);
         $this->connectors = new Connectors($this->sdkConfiguration);
         $this->proxy = new Proxy($this->sdkConfiguration);
+        $this->mcp = new Mcp($this->sdkConfiguration);
+        $this->actions = new Actions($this->sdkConfiguration);
         $this->hris = new Hris($this->sdkConfiguration);
         $this->ats = new Ats($this->sdkConfiguration);
         $this->lms = new Lms($this->sdkConfiguration);
         $this->iam = new Iam($this->sdkConfiguration);
         $this->crm = new Crm($this->sdkConfiguration);
         $this->marketing = new Marketing($this->sdkConfiguration);
+        $this->ticketing = new Ticketing($this->sdkConfiguration);
+        $this->documents = new Documents($this->sdkConfiguration);
+        $this->screening = new Screening($this->sdkConfiguration);
+        $this->messaging = new Messaging($this->sdkConfiguration);
+        $this->accounting = new Accounting($this->sdkConfiguration);
         $this->initHooks();
 
     }

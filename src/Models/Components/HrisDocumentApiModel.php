@@ -39,15 +39,6 @@ class HrisDocumentApiModel
     public ?string $name = null;
 
     /**
-     * The path where the file is stored
-     *
-     * @var ?string $path
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('path')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $path = null;
-
-    /**
      * The category of the the document
      *
      * @var ?HrisDocumentApiModelCategory $category
@@ -139,7 +130,6 @@ class HrisDocumentApiModel
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?string  $name
-     * @param  ?string  $path
      * @param  ?HrisDocumentApiModelCategory  $category
      * @param  ?array<Content>  $contents
      * @param  ?string  $categoryId
@@ -151,12 +141,11 @@ class HrisDocumentApiModel
      * @param  ?HrisDocumentApiModelType  $type
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?string $path = null, ?HrisDocumentApiModelCategory $category = null, ?array $contents = null, ?string $categoryId = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?string $remoteUrl = null, ?HrisDocumentApiModelFileFormat $fileFormat = null, ?array $unifiedCustomFields = null, ?HrisDocumentApiModelType $type = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?HrisDocumentApiModelCategory $category = null, ?array $contents = null, ?string $categoryId = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?string $remoteUrl = null, ?HrisDocumentApiModelFileFormat $fileFormat = null, ?array $unifiedCustomFields = null, ?HrisDocumentApiModelType $type = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
         $this->name = $name;
-        $this->path = $path;
         $this->category = $category;
         $this->contents = $contents;
         $this->categoryId = $categoryId;

@@ -26,12 +26,12 @@ class HrisUpdateEmployeeRequestDtoNationalIdentityNumber
 
     /**
      *
-     * @var ?HrisUpdateEmployeeRequestDtoType $type
+     * @var ?HrisUpdateEmployeeRequestDtoNationalIdentityNumberType $type
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisUpdateEmployeeRequestDtoType|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisUpdateEmployeeRequestDtoNationalIdentityNumberType|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?HrisUpdateEmployeeRequestDtoType $type = null;
+    public ?HrisUpdateEmployeeRequestDtoNationalIdentityNumberType $type = null;
 
     /**
      * The country code
@@ -45,11 +45,11 @@ class HrisUpdateEmployeeRequestDtoNationalIdentityNumber
 
     /**
      * @param  ?string  $value
-     * @param  ?HrisUpdateEmployeeRequestDtoType  $type
+     * @param  ?HrisUpdateEmployeeRequestDtoNationalIdentityNumberType  $type
      * @param  ?HrisUpdateEmployeeRequestDtoCountry  $country
      * @phpstan-pure
      */
-    public function __construct(?string $value = null, ?HrisUpdateEmployeeRequestDtoType $type = null, ?HrisUpdateEmployeeRequestDtoCountry $country = null)
+    public function __construct(?string $value = null, ?HrisUpdateEmployeeRequestDtoNationalIdentityNumberType $type = null, ?HrisUpdateEmployeeRequestDtoCountry $country = null)
     {
         $this->value = $value;
         $this->type = $type;

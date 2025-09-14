@@ -1,0 +1,9 @@
+# ScreeningCreateScreeningOrderRequest
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                           | *string*                                                                                               | :heavy_check_mark:                                                                                     | The account identifier                                                                                 |
+| `screeningCreateOrderRequestDto`                                                                       | [Components\ScreeningCreateOrderRequestDto](../../Models/Components/ScreeningCreateOrderRequestDto.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |

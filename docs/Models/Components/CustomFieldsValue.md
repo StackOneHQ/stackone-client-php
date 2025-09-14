@@ -50,3 +50,12 @@ Components\Value4 $value = /* values here */
 array $value = /* values here */
 ```
 
+### `\DateTime`
+
+```php
+/**
+* @var \DateTime
+*/
+\DateTime $value = /* values here */
+```
+

@@ -29,13 +29,23 @@ class LmsListCoursesQueryParamFilter
     public ?string $externalReference = null;
 
     /**
+     * Filter to allow filtering of only active courses
+     *
+     * @var bool|string|null $active
+     */
+    #[SpeakeasyMetadata('queryParam:name=active')]
+    public bool|string|null $active = null;
+
+    /**
      * @param  ?\DateTime  $updatedAfter
      * @param  ?string  $externalReference
+     * @param  bool|string|null  $active
      * @phpstan-pure
      */
-    public function __construct(?\DateTime $updatedAfter = null, ?string $externalReference = null)
+    public function __construct(?\DateTime $updatedAfter = null, ?string $externalReference = null, bool|string|null $active = null)
     {
         $this->updatedAfter = $updatedAfter;
         $this->externalReference = $externalReference;
+        $this->active = $active;
     }
 }

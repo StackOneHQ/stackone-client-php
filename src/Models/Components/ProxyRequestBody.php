@@ -21,7 +21,7 @@ class ProxyRequestBody
     public ?string $url = null;
 
     /**
-     * The path of the request including any query paramters
+     * The path of the request including any query parameters
      *
      * @var ?string $path
      */

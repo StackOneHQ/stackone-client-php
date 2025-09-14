@@ -119,6 +119,26 @@ class CreateEmploymentApiModel
     public ?CreateEmploymentApiModelEmploymentContractType $employmentContractType = null;
 
     /**
+     * The type of employment
+     *
+     * @var ?CreateEmploymentApiModelType $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CreateEmploymentApiModelType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CreateEmploymentApiModelType $type = null;
+
+    /**
+     * The employment work schedule type
+     *
+     * @var ?CreateEmploymentApiModelContractType $contractType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('contract_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CreateEmploymentApiModelContractType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CreateEmploymentApiModelContractType $contractType = null;
+
+    /**
      *
      * @var ?CreateEmploymentApiModelWorkTime $workTime
      */
@@ -157,12 +177,14 @@ class CreateEmploymentApiModel
      * @param  ?CreateEmploymentApiModelGrade  $grade
      * @param  ?CreateEmploymentApiModelEmploymentType  $employmentType
      * @param  ?CreateEmploymentApiModelEmploymentContractType  $employmentContractType
+     * @param  ?CreateEmploymentApiModelType  $type
+     * @param  ?CreateEmploymentApiModelContractType  $contractType
      * @param  ?CreateEmploymentApiModelWorkTime  $workTime
      * @param  ?string  $payrollCode
      * @param  ?string  $jobId
      * @phpstan-pure
      */
-    public function __construct(?array $unifiedCustomFields = null, ?string $jobTitle = null, ?string $payRate = null, ?CreateEmploymentApiModelPayPeriod $payPeriod = null, ?CreateEmploymentApiModelPayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $effectiveDate = null, ?\DateTime $endDate = null, ?CreateEmploymentApiModelGrade $grade = null, ?CreateEmploymentApiModelEmploymentType $employmentType = null, ?CreateEmploymentApiModelEmploymentContractType $employmentContractType = null, ?CreateEmploymentApiModelWorkTime $workTime = null, ?string $payrollCode = null, ?string $jobId = null)
+    public function __construct(?array $unifiedCustomFields = null, ?string $jobTitle = null, ?string $payRate = null, ?CreateEmploymentApiModelPayPeriod $payPeriod = null, ?CreateEmploymentApiModelPayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $effectiveDate = null, ?\DateTime $endDate = null, ?CreateEmploymentApiModelGrade $grade = null, ?CreateEmploymentApiModelEmploymentType $employmentType = null, ?CreateEmploymentApiModelEmploymentContractType $employmentContractType = null, ?CreateEmploymentApiModelType $type = null, ?CreateEmploymentApiModelContractType $contractType = null, ?CreateEmploymentApiModelWorkTime $workTime = null, ?string $payrollCode = null, ?string $jobId = null)
     {
         $this->unifiedCustomFields = $unifiedCustomFields;
         $this->jobTitle = $jobTitle;
@@ -175,6 +197,8 @@ class CreateEmploymentApiModel
         $this->grade = $grade;
         $this->employmentType = $employmentType;
         $this->employmentContractType = $employmentContractType;
+        $this->type = $type;
+        $this->contractType = $contractType;
         $this->workTime = $workTime;
         $this->payrollCode = $payrollCode;
         $this->jobId = $jobId;

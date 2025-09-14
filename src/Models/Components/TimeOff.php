@@ -161,22 +161,22 @@ class TimeOff
     public ?TimeOffReason $reason = null;
 
     /**
-     * The created date of the time off request
+     * Timestamp when the time off request was created
      *
-     * @var ?\DateTime $createdDate
+     * @var ?\DateTime $createdAt
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('created_date')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $createdDate = null;
+    public ?\DateTime $createdAt = null;
 
     /**
-     * The updated date of the time off request
+     * Timestamp when the time off request was last updated
      *
-     * @var ?\DateTime $updatedDate
+     * @var ?\DateTime $updatedAt
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('updated_date')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updated_at')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $updatedDate = null;
+    public ?\DateTime $updatedAt = null;
 
     /**
      * The time off policy associated with Time Off
@@ -214,13 +214,13 @@ class TimeOff
      * @param  ?string  $timeOffPolicyId
      * @param  ?string  $remoteTimeOffPolicyId
      * @param  ?TimeOffReason  $reason
-     * @param  ?\DateTime  $createdDate
-     * @param  ?\DateTime  $updatedDate
+     * @param  ?\DateTime  $createdAt
+     * @param  ?\DateTime  $updatedAt
      * @param  ?Policy  $policy
      * @param  ?string  $comment
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?string $approverId = null, ?string $remoteApproverId = null, ?TimeOffStatus $status = null, ?TimeOffType $type = null, ?string $startDate = null, ?string $endDate = null, bool|StartHalfDay2|null $startHalfDay = null, bool|EndHalfDay2|null $endHalfDay = null, ?string $duration = null, ?string $timeOffPolicyId = null, ?string $remoteTimeOffPolicyId = null, ?TimeOffReason $reason = null, ?\DateTime $createdDate = null, ?\DateTime $updatedDate = null, ?Policy $policy = null, ?string $comment = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?string $approverId = null, ?string $remoteApproverId = null, ?TimeOffStatus $status = null, ?TimeOffType $type = null, ?string $startDate = null, ?string $endDate = null, bool|StartHalfDay2|null $startHalfDay = null, bool|EndHalfDay2|null $endHalfDay = null, ?string $duration = null, ?string $timeOffPolicyId = null, ?string $remoteTimeOffPolicyId = null, ?TimeOffReason $reason = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?Policy $policy = null, ?string $comment = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -238,8 +238,8 @@ class TimeOff
         $this->timeOffPolicyId = $timeOffPolicyId;
         $this->remoteTimeOffPolicyId = $remoteTimeOffPolicyId;
         $this->reason = $reason;
-        $this->createdDate = $createdDate;
-        $this->updatedDate = $updatedDate;
+        $this->createdAt = $createdAt;
+        $this->updatedAt = $updatedAt;
         $this->policy = $policy;
         $this->comment = $comment;
     }

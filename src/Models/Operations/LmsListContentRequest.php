@@ -44,7 +44,7 @@ class LmsListContentRequest
     public ?string $fields = null;
 
     /**
-     * Filter parameters that allow greater customisation of the list response
+     * LMS Courses Filter
      *
      * @var ?LmsListContentQueryParamFilter $filter
      */

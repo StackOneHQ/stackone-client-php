@@ -1,0 +1,11 @@
+# HrisJobStatus
+
+Status of the job
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  | Example                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `value`                                                                                                      | [?Components\HrisJobValue](../../Models/Components/HrisJobValue.md)                                          | :heavy_minus_sign:                                                                                           | The status of the job.                                                                                       | open                                                                                                         |
+| `sourceValue`                                                                                                | [string\|float\|bool\|Components\HrisJobSourceValue4\|array\|null](../../Models/Components/HrisJobSourceValue.md) | :heavy_minus_sign:                                                                                           | The source value of the job status.                                                                          |                                                                                                              |

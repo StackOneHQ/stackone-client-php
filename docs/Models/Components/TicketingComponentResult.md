@@ -1,0 +1,9 @@
+# TicketingComponentResult
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `data`                                                                                              | [?Components\TicketingComponentResultData](../../Models/Components/TicketingComponentResultData.md) | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| `raw`                                                                                               | array<[Components\RawResponse](../../Models/Components/RawResponse.md)>                             | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |

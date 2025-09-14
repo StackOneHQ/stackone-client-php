@@ -37,7 +37,7 @@ class AtsListApplicationsQueryParamFilter
     public ?string $jobId = null;
 
     /**
-     * Filter to select applications by stage and sub-stage
+     * Filter to select applications by application_stage id
      *
      * @var ?string $stage
      */

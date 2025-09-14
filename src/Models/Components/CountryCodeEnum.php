@@ -14,28 +14,28 @@ class CountryCodeEnum
     /**
      * The ISO3166-1 Alpha2 Code of the Country
      *
-     * @var ?Value $value
+     * @var ?CountryCodeEnumValue $value
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Value|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CountryCodeEnumValue|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Value $value = null;
+    public ?CountryCodeEnumValue $value = null;
 
     /**
      *
-     * @var string|float|bool|Four|array<mixed>|null $sourceValue
+     * @var string|float|bool|SourceValue4|array<mixed>|null $sourceValue
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('source_value')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\Four|array<mixed>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\SourceValue4|array<mixed>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|float|bool|Four|array|null $sourceValue = null;
+    public string|float|bool|SourceValue4|array|null $sourceValue = null;
 
     /**
-     * @param  ?Value  $value
-     * @param  string|float|bool|Four|array<mixed>|null  $sourceValue
+     * @param  ?CountryCodeEnumValue  $value
+     * @param  string|float|bool|SourceValue4|array<mixed>|null  $sourceValue
      * @phpstan-pure
      */
-    public function __construct(?Value $value = null, string|float|bool|Four|array|null $sourceValue = null)
+    public function __construct(?CountryCodeEnumValue $value = null, string|float|bool|SourceValue4|array|null $sourceValue = null)
     {
         $this->value = $value;
         $this->sourceValue = $sourceValue;

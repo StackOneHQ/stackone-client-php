@@ -77,16 +77,6 @@ class LmsUpsertContentRequestDto
     public ?string $mobileLaunchContentUrl = null;
 
     /**
-     * The type of content
-     *
-     * @var ?LmsUpsertContentRequestDtoContentType $contentType
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('content_type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\LmsUpsertContentRequestDtoContentType|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?LmsUpsertContentRequestDtoContentType $contentType = null;
-
-    /**
      * The URL of the thumbnail image associated with the content.
      *
      * @var ?string $coverUrl
@@ -212,6 +202,16 @@ class LmsUpsertContentRequestDto
     public ?array $additionalData = null;
 
     /**
+     * The type of content
+     *
+     * @var ?LmsUpsertContentRequestDtoContentType $contentType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('content_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\LmsUpsertContentRequestDtoContentType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?LmsUpsertContentRequestDtoContentType $contentType = null;
+
+    /**
      * @param  ?array<string, mixed>  $unifiedCustomFields
      * @param  ?string  $externalReference
      * @param  ?string  $title
@@ -219,7 +219,6 @@ class LmsUpsertContentRequestDto
      * @param  ?array<LanguageEnum>  $languages
      * @param  ?string  $contentUrl
      * @param  ?string  $mobileLaunchContentUrl
-     * @param  ?LmsUpsertContentRequestDtoContentType  $contentType
      * @param  ?string  $coverUrl
      * @param  bool|LmsUpsertContentRequestDtoActive2|null  $active
      * @param  ?string  $duration
@@ -233,9 +232,10 @@ class LmsUpsertContentRequestDto
      * @param  ?\DateTime  $createdAt
      * @param  ?array<CreateCategoriesApiModel>  $categories
      * @param  ?array<AdditionalData>  $additionalData
+     * @param  ?LmsUpsertContentRequestDtoContentType  $contentType
      * @phpstan-pure
      */
-    public function __construct(?array $unifiedCustomFields = null, ?string $externalReference = null, ?string $title = null, ?string $description = null, ?array $languages = null, ?string $contentUrl = null, ?string $mobileLaunchContentUrl = null, ?LmsUpsertContentRequestDtoContentType $contentType = null, ?string $coverUrl = null, bool|LmsUpsertContentRequestDtoActive2|null $active = null, ?string $duration = null, ?array $skills = null, ?float $order = null, ?string $shortDescription = null, ?array $localizations = null, ?array $tags = null, ?array $authors = null, ?\DateTime $updatedAt = null, ?\DateTime $createdAt = null, ?array $categories = null, ?array $additionalData = null)
+    public function __construct(?array $unifiedCustomFields = null, ?string $externalReference = null, ?string $title = null, ?string $description = null, ?array $languages = null, ?string $contentUrl = null, ?string $mobileLaunchContentUrl = null, ?string $coverUrl = null, bool|LmsUpsertContentRequestDtoActive2|null $active = null, ?string $duration = null, ?array $skills = null, ?float $order = null, ?string $shortDescription = null, ?array $localizations = null, ?array $tags = null, ?array $authors = null, ?\DateTime $updatedAt = null, ?\DateTime $createdAt = null, ?array $categories = null, ?array $additionalData = null, ?LmsUpsertContentRequestDtoContentType $contentType = null)
     {
         $this->unifiedCustomFields = $unifiedCustomFields;
         $this->externalReference = $externalReference;
@@ -244,7 +244,6 @@ class LmsUpsertContentRequestDto
         $this->languages = $languages;
         $this->contentUrl = $contentUrl;
         $this->mobileLaunchContentUrl = $mobileLaunchContentUrl;
-        $this->contentType = $contentType;
         $this->coverUrl = $coverUrl;
         $this->active = $active;
         $this->duration = $duration;
@@ -258,5 +257,6 @@ class LmsUpsertContentRequestDto
         $this->createdAt = $createdAt;
         $this->categories = $categories;
         $this->additionalData = $additionalData;
+        $this->contentType = $contentType;
     }
 }

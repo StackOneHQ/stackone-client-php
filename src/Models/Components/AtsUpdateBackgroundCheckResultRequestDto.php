@@ -12,15 +12,6 @@ namespace StackOne\client\Models\Components;
 class AtsUpdateBackgroundCheckResultRequestDto
 {
     /**
-     * Unique identifier
-     *
-     * @var ?string $id
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $id = null;
-
-    /**
      *
      * @var ?AtsUpdateBackgroundCheckResultRequestDtoScore $score
      */
@@ -104,7 +95,6 @@ class AtsUpdateBackgroundCheckResultRequestDto
     public ?array $passthrough = null;
 
     /**
-     * @param  ?string  $id
      * @param  ?AtsUpdateBackgroundCheckResultRequestDtoScore  $score
      * @param  ?\DateTime  $startDate
      * @param  ?\DateTime  $submissionDate
@@ -116,9 +106,8 @@ class AtsUpdateBackgroundCheckResultRequestDto
      * @param  ?array<string, mixed>  $passthrough
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?AtsUpdateBackgroundCheckResultRequestDtoScore $score = null, ?\DateTime $startDate = null, ?\DateTime $submissionDate = null, ?string $summary = null, ?AtsUpdateBackgroundCheckResultRequestDtoResult $result = null, ?string $resultUrl = null, ?array $attachments = null, ?AtsUpdateBackgroundCheckResultRequestDtoCandidate $candidate = null, ?array $passthrough = null)
+    public function __construct(?AtsUpdateBackgroundCheckResultRequestDtoScore $score = null, ?\DateTime $startDate = null, ?\DateTime $submissionDate = null, ?string $summary = null, ?AtsUpdateBackgroundCheckResultRequestDtoResult $result = null, ?string $resultUrl = null, ?array $attachments = null, ?AtsUpdateBackgroundCheckResultRequestDtoCandidate $candidate = null, ?array $passthrough = null)
     {
-        $this->id = $id;
         $this->score = $score;
         $this->startDate = $startDate;
         $this->submissionDate = $submissionDate;

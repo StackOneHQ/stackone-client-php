@@ -9,35 +9,58 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
+/** HrisCreateEmployeeRequestDtoType - The type of employment */
 class HrisCreateEmployeeRequestDtoType
 {
     /**
-     * The type of the national identity number
+     * Unique identifier
      *
-     * @var ?HrisCreateEmployeeRequestDtoNationalIdentityNumberValue $value
+     * @var ?string $id
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisCreateEmployeeRequestDtoNationalIdentityNumberValue|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?HrisCreateEmployeeRequestDtoNationalIdentityNumberValue $value = null;
+    public ?string $id = null;
 
     /**
+     * Provider's unique identifier
      *
-     * @var string|float|bool|HrisCreateEmployeeRequestDtoSourceValueNationalIdentityNumber4|array<mixed>|null $sourceValue
+     * @var ?string $remoteId
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('source_value')]
-    #[\Speakeasy\Serializer\Annotation\Type('string|float|bool|\StackOne\client\Models\Components\HrisCreateEmployeeRequestDtoSourceValueNationalIdentityNumber4|array<mixed>|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('remote_id')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public string|float|bool|HrisCreateEmployeeRequestDtoSourceValueNationalIdentityNumber4|array|null $sourceValue = null;
+    public ?string $remoteId = null;
 
     /**
-     * @param  ?HrisCreateEmployeeRequestDtoNationalIdentityNumberValue  $value
-     * @param  string|float|bool|HrisCreateEmployeeRequestDtoSourceValueNationalIdentityNumber4|array<mixed>|null  $sourceValue
+     * The label of the employment type
+     *
+     * @var ?string $label
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('label')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $label = null;
+
+    /**
+     * The type of employment (e.g., contractor, permanent)
+     *
+     * @var ?HrisCreateEmployeeRequestDtoEmploymentTypeType $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisCreateEmployeeRequestDtoEmploymentTypeType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?HrisCreateEmployeeRequestDtoEmploymentTypeType $type = null;
+
+    /**
+     * @param  ?string  $id
+     * @param  ?string  $remoteId
+     * @param  ?string  $label
+     * @param  ?HrisCreateEmployeeRequestDtoEmploymentTypeType  $type
      * @phpstan-pure
      */
-    public function __construct(?HrisCreateEmployeeRequestDtoNationalIdentityNumberValue $value = null, string|float|bool|HrisCreateEmployeeRequestDtoSourceValueNationalIdentityNumber4|array|null $sourceValue = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $label = null, ?HrisCreateEmployeeRequestDtoEmploymentTypeType $type = null)
     {
-        $this->value = $value;
-        $this->sourceValue = $sourceValue;
+        $this->id = $id;
+        $this->remoteId = $remoteId;
+        $this->label = $label;
+        $this->type = $type;
     }
 }

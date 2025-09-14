@@ -41,12 +41,12 @@ class EntitySkills
     /**
      * Whether the skill is active and therefore available for use
      *
-     * @var bool|Active2|null $active
+     * @var bool|EntitySkillsActive2|null $active
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('active')]
-    #[\Speakeasy\Serializer\Annotation\Type('bool|\StackOne\client\Models\Components\Active2|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('bool|\StackOne\client\Models\Components\EntitySkillsActive2|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public bool|Active2|null $active = null;
+    public bool|EntitySkillsActive2|null $active = null;
 
     /**
      * The language associated with this skill
@@ -82,13 +82,13 @@ class EntitySkills
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?string  $name
-     * @param  bool|Active2|null  $active
+     * @param  bool|EntitySkillsActive2|null  $active
      * @param  ?Language  $language
      * @param  ?MaximumProficiency  $maximumProficiency
      * @param  ?MinimumProficiency  $minimumProficiency
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, bool|Active2|null $active = null, ?Language $language = null, ?MaximumProficiency $maximumProficiency = null, ?MinimumProficiency $minimumProficiency = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, bool|EntitySkillsActive2|null $active = null, ?Language $language = null, ?MaximumProficiency $maximumProficiency = null, ?MinimumProficiency $minimumProficiency = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;

@@ -30,13 +30,13 @@ float $value = /* values here */
 bool $value = /* values here */
 ```
 
-### `Components\SourceValue4`
+### `Components\LanguageEnumSourceValue4`
 
 ```php
 /**
-* @var Components\SourceValue4
+* @var Components\LanguageEnumSourceValue4
 */
-Components\SourceValue4 $value = /* values here */
+Components\LanguageEnumSourceValue4 $value = /* values here */
 ```
 
 ### `array`

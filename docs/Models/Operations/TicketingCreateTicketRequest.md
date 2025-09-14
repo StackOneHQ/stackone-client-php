@@ -1,0 +1,9 @@
+# TicketingCreateTicketRequest
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `xAccountId`                                                                                             | *string*                                                                                                 | :heavy_check_mark:                                                                                       | The account identifier                                                                                   |
+| `ticketingTicketCreateRequestDto`                                                                        | [Components\TicketingTicketCreateRequestDto](../../Models/Components/TicketingTicketCreateRequestDto.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |

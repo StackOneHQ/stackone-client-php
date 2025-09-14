@@ -111,6 +111,26 @@ class HrisCreateEmployeeRequestDtoEmployment
     public ?HrisCreateEmployeeRequestDtoEmploymentEmploymentContractType $employmentContractType = null;
 
     /**
+     * The type of employment
+     *
+     * @var ?HrisCreateEmployeeRequestDtoType $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisCreateEmployeeRequestDtoType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?HrisCreateEmployeeRequestDtoType $type = null;
+
+    /**
+     * The employment work schedule type
+     *
+     * @var ?HrisCreateEmployeeRequestDtoContractType $contractType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('contract_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\HrisCreateEmployeeRequestDtoContractType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?HrisCreateEmployeeRequestDtoContractType $contractType = null;
+
+    /**
      *
      * @var ?HrisCreateEmployeeRequestDtoWorkTime $workTime
      */
@@ -159,13 +179,15 @@ class HrisCreateEmployeeRequestDtoEmployment
      * @param  ?HrisCreateEmployeeRequestDtoGrade  $grade
      * @param  ?HrisCreateEmployeeRequestDtoEmploymentEmploymentType  $employmentType
      * @param  ?HrisCreateEmployeeRequestDtoEmploymentEmploymentContractType  $employmentContractType
+     * @param  ?HrisCreateEmployeeRequestDtoType  $type
+     * @param  ?HrisCreateEmployeeRequestDtoContractType  $contractType
      * @param  ?HrisCreateEmployeeRequestDtoWorkTime  $workTime
      * @param  ?string  $payrollCode
      * @param  ?array<string, mixed>  $passthrough
      * @param  ?\DateTime  $effectiveDate
      * @phpstan-pure
      */
-    public function __construct(?array $unifiedCustomFields = null, ?string $jobTitle = null, ?string $payRate = null, ?HrisCreateEmployeeRequestDtoPayPeriod $payPeriod = null, ?HrisCreateEmployeeRequestDtoPayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $endDate = null, ?HrisCreateEmployeeRequestDtoGrade $grade = null, ?HrisCreateEmployeeRequestDtoEmploymentEmploymentType $employmentType = null, ?HrisCreateEmployeeRequestDtoEmploymentEmploymentContractType $employmentContractType = null, ?HrisCreateEmployeeRequestDtoWorkTime $workTime = null, ?string $payrollCode = null, ?array $passthrough = null, ?\DateTime $effectiveDate = null)
+    public function __construct(?array $unifiedCustomFields = null, ?string $jobTitle = null, ?string $payRate = null, ?HrisCreateEmployeeRequestDtoPayPeriod $payPeriod = null, ?HrisCreateEmployeeRequestDtoPayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $endDate = null, ?HrisCreateEmployeeRequestDtoGrade $grade = null, ?HrisCreateEmployeeRequestDtoEmploymentEmploymentType $employmentType = null, ?HrisCreateEmployeeRequestDtoEmploymentEmploymentContractType $employmentContractType = null, ?HrisCreateEmployeeRequestDtoType $type = null, ?HrisCreateEmployeeRequestDtoContractType $contractType = null, ?HrisCreateEmployeeRequestDtoWorkTime $workTime = null, ?string $payrollCode = null, ?array $passthrough = null, ?\DateTime $effectiveDate = null)
     {
         $this->unifiedCustomFields = $unifiedCustomFields;
         $this->jobTitle = $jobTitle;
@@ -177,6 +199,8 @@ class HrisCreateEmployeeRequestDtoEmployment
         $this->grade = $grade;
         $this->employmentType = $employmentType;
         $this->employmentContractType = $employmentContractType;
+        $this->type = $type;
+        $this->contractType = $contractType;
         $this->workTime = $workTime;
         $this->payrollCode = $payrollCode;
         $this->passthrough = $passthrough;

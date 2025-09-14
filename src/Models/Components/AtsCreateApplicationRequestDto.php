@@ -98,10 +98,10 @@ class AtsCreateApplicationRequestDto
     /**
      * Document Properties. Providing this attempts to upload files with the application.
      *
-     * @var ?array<UnifiedUploadRequestDto> $documents
+     * @var ?array<AtsDocumentsUploadRequestDto> $documents
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('documents')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\UnifiedUploadRequestDto>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\AtsDocumentsUploadRequestDto>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $documents = null;
 
@@ -115,7 +115,7 @@ class AtsCreateApplicationRequestDto
      * @param  ?AtsCreateApplicationRequestDtoSource  $source
      * @param  ?string  $candidateId
      * @param  ?AtsCreateApplicationRequestDtoCandidate  $candidate
-     * @param  ?array<UnifiedUploadRequestDto>  $documents
+     * @param  ?array<AtsDocumentsUploadRequestDto>  $documents
      * @phpstan-pure
      */
     public function __construct(?array $passthrough = null, ?string $jobId = null, ?string $jobPostingId = null, ?string $locationId = null, ?AtsCreateApplicationRequestDtoApplicationStatus $applicationStatus = null, ?array $questionnaires = null, ?AtsCreateApplicationRequestDtoSource $source = null, ?string $candidateId = null, ?AtsCreateApplicationRequestDtoCandidate $candidate = null, ?array $documents = null)

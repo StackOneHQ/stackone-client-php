@@ -40,15 +40,6 @@ class IamUserAvatar
     public ?string $name = null;
 
     /**
-     * The path where the file is stored
-     *
-     * @var ?string $path
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('path')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $path = null;
-
-    /**
      * The category of the file
      *
      * @var ?IamUserCategory $category
@@ -119,7 +110,6 @@ class IamUserAvatar
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?string  $name
-     * @param  ?string  $path
      * @param  ?IamUserCategory  $category
      * @param  ?array<Content>  $contents
      * @param  ?string  $categoryId
@@ -129,12 +119,11 @@ class IamUserAvatar
      * @param  ?IamUserFileFormat  $fileFormat
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?string $path = null, ?IamUserCategory $category = null, ?array $contents = null, ?string $categoryId = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?string $remoteUrl = null, ?IamUserFileFormat $fileFormat = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?IamUserCategory $category = null, ?array $contents = null, ?string $categoryId = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?string $remoteUrl = null, ?IamUserFileFormat $fileFormat = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
         $this->name = $name;
-        $this->path = $path;
         $this->category = $category;
         $this->contents = $contents;
         $this->categoryId = $categoryId;

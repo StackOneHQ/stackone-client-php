@@ -137,6 +137,26 @@ class Employment
     public ?EmploymentEmploymentContractType $employmentContractType = null;
 
     /**
+     * The type of employment
+     *
+     * @var ?EmploymentType1 $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\EmploymentType1|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?EmploymentType1 $type = null;
+
+    /**
+     * The employment work schedule type
+     *
+     * @var ?ContractType $contractType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('contract_type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\ContractType|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?ContractType $contractType = null;
+
+    /**
      *
      * @var ?WorkTime $workTime
      */
@@ -212,12 +232,12 @@ class Employment
     /**
      * The employment active status
      *
-     * @var bool|Two|null $active
+     * @var bool|Active2|null $active
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('active')]
-    #[\Speakeasy\Serializer\Annotation\Type('bool|\StackOne\client\Models\Components\Two|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('bool|\StackOne\client\Models\Components\Active2|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public bool|Two|null $active = null;
+    public bool|Active2|null $active = null;
 
     /**
      * The employee department
@@ -263,32 +283,12 @@ class Employment
     /**
      * The job of employee
      *
-     * @var ?EmploymentJob $job
+     * @var ?Job $job
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('job')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\EmploymentJob|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Job|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?EmploymentJob $job = null;
-
-    /**
-     * The type of employment
-     *
-     * @var ?EmploymentType1 $type
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\EmploymentType1|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?EmploymentType1 $type = null;
-
-    /**
-     * The employment work schedule type
-     *
-     * @var ?ContractType $contractType
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('contract_type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\ContractType|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?ContractType $contractType = null;
+    public ?Job $job = null;
 
     /**
      * The employee manager
@@ -314,6 +314,8 @@ class Employment
      * @param  ?Grade  $grade
      * @param  ?EmploymentEmploymentType  $employmentType
      * @param  ?EmploymentEmploymentContractType  $employmentContractType
+     * @param  ?EmploymentType1  $type
+     * @param  ?ContractType  $contractType
      * @param  ?WorkTime  $workTime
      * @param  ?string  $payrollCode
      * @param  ?string  $employeeId
@@ -322,18 +324,16 @@ class Employment
      * @param  ?\DateTime  $createdAt
      * @param  ?\DateTime  $updatedAt
      * @param  ?\DateTime  $startDate
-     * @param  bool|Two|null  $active
+     * @param  bool|Active2|null  $active
      * @param  ?EmploymentDepartment  $department
      * @param  ?CostCenter  $costCenter
      * @param  ?array<HRISCostCenter>  $costCenters
      * @param  ?Division  $division
-     * @param  ?EmploymentJob  $job
-     * @param  ?EmploymentType1  $type
-     * @param  ?ContractType  $contractType
+     * @param  ?Job  $job
      * @param  ?array<EmploymentManagerApiModel>  $manager
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $jobTitle = null, ?string $payRate = null, ?PayPeriod $payPeriod = null, ?PayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $effectiveDate = null, ?\DateTime $endDate = null, ?Grade $grade = null, ?EmploymentEmploymentType $employmentType = null, ?EmploymentEmploymentContractType $employmentContractType = null, ?WorkTime $workTime = null, ?string $payrollCode = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?float $fte = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?\DateTime $startDate = null, bool|Two|null $active = null, ?EmploymentDepartment $department = null, ?CostCenter $costCenter = null, ?array $costCenters = null, ?Division $division = null, ?EmploymentJob $job = null, ?EmploymentType1 $type = null, ?ContractType $contractType = null, ?array $manager = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $jobTitle = null, ?string $payRate = null, ?PayPeriod $payPeriod = null, ?PayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $effectiveDate = null, ?\DateTime $endDate = null, ?Grade $grade = null, ?EmploymentEmploymentType $employmentType = null, ?EmploymentEmploymentContractType $employmentContractType = null, ?EmploymentType1 $type = null, ?ContractType $contractType = null, ?WorkTime $workTime = null, ?string $payrollCode = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?float $fte = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?\DateTime $startDate = null, bool|Active2|null $active = null, ?EmploymentDepartment $department = null, ?CostCenter $costCenter = null, ?array $costCenters = null, ?Division $division = null, ?Job $job = null, ?array $manager = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -348,6 +348,8 @@ class Employment
         $this->grade = $grade;
         $this->employmentType = $employmentType;
         $this->employmentContractType = $employmentContractType;
+        $this->type = $type;
+        $this->contractType = $contractType;
         $this->workTime = $workTime;
         $this->payrollCode = $payrollCode;
         $this->employeeId = $employeeId;
@@ -362,8 +364,6 @@ class Employment
         $this->costCenters = $costCenters;
         $this->division = $division;
         $this->job = $job;
-        $this->type = $type;
-        $this->contractType = $contractType;
         $this->manager = $manager;
     }
 }

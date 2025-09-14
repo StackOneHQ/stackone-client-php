@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace StackOne\client\Models\Operations;
 
-
+use StackOne\client\Models\Components;
 class HrisDownloadEmployeeDocumentResponse
 {
     /**
@@ -40,26 +40,43 @@ class HrisDownloadEmployeeDocumentResponse
     public array $headers;
 
     /**
+     *
+     * @var ?string $body
+     */
+    public ?string $body = null;
+
+    /**
      * The document related to the employee with the given identifiers was retrieved.
      *
-     * @var ?string $bytes
+     * @var ?string $downloadApiModel
      */
-    public ?string $bytes = null;
+    public ?string $downloadApiModel = null;
+
+    /**
+     * The document related to the employee with the given identifiers was retrieved.
+     *
+     * @var ?Components\DownloadApiModel $downloadApiModel1
+     */
+    public ?Components\DownloadApiModel $downloadApiModel1 = null;
 
     /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?string  $bytes
+     * @param  ?string  $body
+     * @param  ?string  $downloadApiModel
+     * @param  ?Components\DownloadApiModel  $downloadApiModel1
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $bytes = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?string $body = null, ?string $downloadApiModel = null, ?Components\DownloadApiModel $downloadApiModel1 = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->bytes = $bytes;
+        $this->body = $body;
+        $this->downloadApiModel = $downloadApiModel;
+        $this->downloadApiModel1 = $downloadApiModel1;
     }
 }

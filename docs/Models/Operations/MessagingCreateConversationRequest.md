@@ -1,0 +1,9 @@
+# MessagingCreateConversationRequest
+
+
+## Fields
+
+| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `xAccountId`                                                                                                         | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | The account identifier                                                                                               |
+| `messagingCreateConversationRequestDto`                                                                              | [Components\MessagingCreateConversationRequestDto](../../Models/Components/MessagingCreateConversationRequestDto.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |

@@ -151,6 +151,15 @@ class Completion
     public ?string $timeSpent = null;
 
     /**
+     * The certification URL associated with this completion
+     *
+     * @var ?string $certificateUrl
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('certificate_url')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $certificateUrl = null;
+
+    /**
      * The external ID associated with this completion
      *
      * @var ?string $externalId
@@ -236,6 +245,7 @@ class Completion
      * @param  ?string  $userId
      * @param  ?string  $remoteUserId
      * @param  ?string  $timeSpent
+     * @param  ?string  $certificateUrl
      * @param  ?string  $externalId
      * @param  ?string  $contentExternalReference
      * @param  ?string  $remoteExternalId
@@ -245,7 +255,7 @@ class Completion
      * @param  ?string  $remoteCourseId
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $externalReference = null, ?CompletionResult1 $result = null, ?\DateTime $completedAt = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?CompletionLearningObjectType $learningObjectType = null, ?string $learningObjectId = null, ?string $remoteLearningObjectId = null, ?string $learningObjectExternalReference = null, ?string $userId = null, ?string $remoteUserId = null, ?string $timeSpent = null, ?string $externalId = null, ?string $contentExternalReference = null, ?string $remoteExternalId = null, ?string $contentId = null, ?string $remoteContentId = null, ?string $courseId = null, ?string $remoteCourseId = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $externalReference = null, ?CompletionResult1 $result = null, ?\DateTime $completedAt = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?CompletionLearningObjectType $learningObjectType = null, ?string $learningObjectId = null, ?string $remoteLearningObjectId = null, ?string $learningObjectExternalReference = null, ?string $userId = null, ?string $remoteUserId = null, ?string $timeSpent = null, ?string $certificateUrl = null, ?string $externalId = null, ?string $contentExternalReference = null, ?string $remoteExternalId = null, ?string $contentId = null, ?string $remoteContentId = null, ?string $courseId = null, ?string $remoteCourseId = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -262,6 +272,7 @@ class Completion
         $this->userId = $userId;
         $this->remoteUserId = $remoteUserId;
         $this->timeSpent = $timeSpent;
+        $this->certificateUrl = $certificateUrl;
         $this->externalId = $externalId;
         $this->contentExternalReference = $contentExternalReference;
         $this->remoteExternalId = $remoteExternalId;

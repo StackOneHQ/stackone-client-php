@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
+/** Job - The job of employee */
 class Job
 {
     /**
@@ -30,25 +31,6 @@ class Job
     public ?string $remoteId = null;
 
     /**
-     * Custom Unified Fields configured in your StackOne project
-     *
-     * @var ?array<string, mixed> $unifiedCustomFields
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('unified_custom_fields')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string, mixed>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $unifiedCustomFields = null;
-
-    /**
-     * Code of the job
-     *
-     * @var ?string $code
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('code')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $code = null;
-
-    /**
      * Title of the job
      *
      * @var ?string $title
@@ -58,172 +40,49 @@ class Job
     public ?string $title = null;
 
     /**
-     * Description of the job
+     * The employee job description
      *
-     * @var ?string $description
+     * @var ?Description $description
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Description|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $description = null;
+    public ?Description $description = null;
 
     /**
-     * Status of the job
+     * The owner_id of the job
      *
-     * @var ?string $status
-     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
+     * @var ?string $ownerId
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('owner_id')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $status = null;
+    public ?string $ownerId = null;
 
     /**
-     * Status of the job
+     * The parent_id of the job
      *
-     * @var ?JobStatus $jobStatus
+     * @var ?string $parentId
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('job_status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\JobStatus|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parent_id')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?JobStatus $jobStatus = null;
-
-    /**
-     * Department ids of the job
-     *
-     * @var ?array<string> $departmentIds
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('department_ids')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $departmentIds = null;
-
-    /**
-     * Provider's department ids of the job
-     *
-     * @var ?array<string> $remoteDepartmentIds
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('remote_department_ids')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $remoteDepartmentIds = null;
-
-    /**
-     * Location ids of the job
-     *
-     * @var ?array<string> $locationIds
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('location_ids')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $locationIds = null;
-
-    /**
-     * Provider's location ids of the job
-     *
-     * @var ?array<string> $remoteLocationIds
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('remote_location_ids')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $remoteLocationIds = null;
-
-    /**
-     * Hiring team for the job.
-     *
-     * @var ?array<JobHiringTeam> $hiringTeam
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('hiring_team')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\JobHiringTeam>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $hiringTeam = null;
-
-    /**
-     * Interview stages for the job.
-     *
-     * @var ?array<InterviewStage> $interviewStages
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('interview_stages')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\InterviewStage>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $interviewStages = null;
-
-    /**
-     * Confidential status of the job
-     *
-     * @var ?JobConfidential $confidential
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('confidential')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\JobConfidential|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?JobConfidential $confidential = null;
-
-    /**
-     * The job custom fields
-     *
-     * @var ?array<CustomFields> $customFields
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('custom_fields')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\CustomFields>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $customFields = null;
-
-    /**
-     * Date of creation
-     *
-     * @var ?\DateTime $createdAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $createdAt = null;
-
-    /**
-     * Date of last update
-     *
-     * @var ?\DateTime $updatedAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('updated_at')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $updatedAt = null;
+    public ?string $parentId = null;
 
     /**
      * @param  ?string  $id
      * @param  ?string  $remoteId
-     * @param  ?array<string, mixed>  $unifiedCustomFields
-     * @param  ?string  $code
      * @param  ?string  $title
-     * @param  ?string  $description
-     * @param  ?string  $status
-     * @param  ?JobStatus  $jobStatus
-     * @param  ?array<string>  $departmentIds
-     * @param  ?array<string>  $remoteDepartmentIds
-     * @param  ?array<string>  $locationIds
-     * @param  ?array<string>  $remoteLocationIds
-     * @param  ?array<JobHiringTeam>  $hiringTeam
-     * @param  ?array<InterviewStage>  $interviewStages
-     * @param  ?JobConfidential  $confidential
-     * @param  ?array<CustomFields>  $customFields
-     * @param  ?\DateTime  $createdAt
-     * @param  ?\DateTime  $updatedAt
+     * @param  ?Description  $description
+     * @param  ?string  $ownerId
+     * @param  ?string  $parentId
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $code = null, ?string $title = null, ?string $description = null, ?string $status = null, ?JobStatus $jobStatus = null, ?array $departmentIds = null, ?array $remoteDepartmentIds = null, ?array $locationIds = null, ?array $remoteLocationIds = null, ?array $hiringTeam = null, ?array $interviewStages = null, ?JobConfidential $confidential = null, ?array $customFields = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $title = null, ?Description $description = null, ?string $ownerId = null, ?string $parentId = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
-        $this->unifiedCustomFields = $unifiedCustomFields;
-        $this->code = $code;
         $this->title = $title;
         $this->description = $description;
-        $this->status = $status;
-        $this->jobStatus = $jobStatus;
-        $this->departmentIds = $departmentIds;
-        $this->remoteDepartmentIds = $remoteDepartmentIds;
-        $this->locationIds = $locationIds;
-        $this->remoteLocationIds = $remoteLocationIds;
-        $this->hiringTeam = $hiringTeam;
-        $this->interviewStages = $interviewStages;
-        $this->confidential = $confidential;
-        $this->customFields = $customFields;
-        $this->createdAt = $createdAt;
-        $this->updatedAt = $updatedAt;
+        $this->ownerId = $ownerId;
+        $this->parentId = $parentId;
     }
 }

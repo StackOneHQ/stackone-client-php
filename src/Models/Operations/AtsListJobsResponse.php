@@ -42,9 +42,9 @@ class AtsListJobsResponse
     /**
      * The list of jobs was retrieved.
      *
-     * @var ?Components\JobsPaginated $jobsPaginated
+     * @var ?Components\AtsJobsPaginated $atsJobsPaginated
      */
-    public ?Components\JobsPaginated $jobsPaginated = null;
+    public ?Components\AtsJobsPaginated $atsJobsPaginated = null;
 
     /**
      * @var \Closure(string): ?AtsListJobsResponse $next
@@ -55,16 +55,16 @@ class AtsListJobsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
-     * @param  ?Components\JobsPaginated  $jobsPaginated
+     * @param  ?Components\AtsJobsPaginated  $atsJobsPaginated
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\JobsPaginated $jobsPaginated = null, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\AtsJobsPaginated $atsJobsPaginated = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
-        $this->jobsPaginated = $jobsPaginated;
+        $this->atsJobsPaginated = $atsJobsPaginated;
     }
     /**
      * @param  string  $name

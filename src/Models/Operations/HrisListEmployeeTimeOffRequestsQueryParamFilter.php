@@ -21,21 +21,21 @@ class HrisListEmployeeTimeOffRequestsQueryParamFilter
     public ?\DateTime $updatedAfter = null;
 
     /**
-     * List of time off type ids to filter by.
+     * List of time off policy ids to filter by.
      *
-     * @var ?array<string> $typeIds
+     * @var ?array<string> $policyIds
      */
-    #[SpeakeasyMetadata('queryParam:name=type_ids')]
-    public ?array $typeIds = null;
+    #[SpeakeasyMetadata('queryParam:name=policy_ids')]
+    public ?array $policyIds = null;
 
     /**
      * @param  ?\DateTime  $updatedAfter
-     * @param  ?array<string>  $typeIds
+     * @param  ?array<string>  $policyIds
      * @phpstan-pure
      */
-    public function __construct(?\DateTime $updatedAfter = null, ?array $typeIds = null)
+    public function __construct(?\DateTime $updatedAfter = null, ?array $policyIds = null)
     {
         $this->updatedAfter = $updatedAfter;
-        $this->typeIds = $typeIds;
+        $this->policyIds = $policyIds;
     }
 }
