@@ -23,19 +23,19 @@ class ActionsRpcResponse
     /**
      * The response data from the action RPC call
      *
-     * @var One|array<Two>|null $data
+     * @var array<string, mixed>|array<array<string, mixed>>|null $data
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('data')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\One|array<\StackOne\client\Models\Components\Two>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, mixed>|array<array<string, mixed>>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public One|array|null $data = null;
+    public ?array $data = null;
 
     /**
      * @param  ?string  $next
-     * @param  One|array<Two>|null  $data
+     * @param  array<string, mixed>|array<array<string, mixed>>|null  $data
      * @phpstan-pure
      */
-    public function __construct(?string $next = null, One|array|null $data = null)
+    public function __construct(?string $next = null, ?array $data = null)
     {
         $this->next = $next;
         $this->data = $data;

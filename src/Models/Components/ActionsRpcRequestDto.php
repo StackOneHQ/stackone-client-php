@@ -32,12 +32,12 @@ class ActionsRpcRequestDto
     /**
      * Query parameters for the action
      *
-     * @var ?array<string, mixed> $query
+     * @var ?Query $query
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('query')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string, mixed>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Query|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $query = null;
+    public ?Query $query = null;
 
     /**
      * Headers for the action
@@ -62,12 +62,12 @@ class ActionsRpcRequestDto
     /**
      * @param  string  $action
      * @param  ?array<string, mixed>  $path
-     * @param  ?array<string, mixed>  $query
+     * @param  ?Query  $query
      * @param  ?array<string, mixed>  $headers
      * @param  ?array<string, mixed>  $body
      * @phpstan-pure
      */
-    public function __construct(string $action, ?array $path = null, ?array $query = null, ?array $body = null, ?array $headers = null)
+    public function __construct(string $action, ?array $path = null, ?Query $query = null, ?array $body = null, ?array $headers = null)
     {
         $this->action = $action;
         $this->path = $path;

@@ -498,7 +498,7 @@ $sdk = client\StackOne::builder()
 $request = new Operations\AtsListApplicationsOffersRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
+    fields: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
     filter: new Operations\AtsListApplicationsOffersQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
@@ -719,7 +719,7 @@ $request = new Operations\AtsGetApplicationOfferRequest(
     xAccountId: '<id>',
     id: '<id>',
     subResourceId: '<id>',
-    fields: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
+    fields: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
 );
 
 $response = $sdk->ats->getApplicationOffer(
@@ -4567,7 +4567,7 @@ $sdk = client\StackOne::builder()
 
 $request = new Operations\AtsListOffersRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
+    fields: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
     filter: new Operations\AtsListOffersQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
@@ -4724,7 +4724,7 @@ $sdk = client\StackOne::builder()
 $request = new Operations\AtsGetOfferRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
+    fields: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
 );
 
 $response = $sdk->ats->getOffer(

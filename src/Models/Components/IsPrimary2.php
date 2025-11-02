@@ -9,10 +9,8 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
-class One
+enum IsPrimary2: string
 {
-
-    public function __construct()
-    {
-    }
+    case True = 'true';
+    case False = 'false';
 }

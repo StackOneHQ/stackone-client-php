@@ -5,20 +5,20 @@ The response data from the action RPC call
 
 ## Supported Types
 
-### `Components\One`
+### `array`
 
 ```php
 /**
-* @var Components\One
+* @var array<string, mixed>
 */
-Components\One $value = /* values here */
+array $value = /* values here */
 ```
 
 ### `array`
 
 ```php
 /**
-* @var array<Components\Two>
+* @var array<array<string, mixed>>
 */
 array $value = /* values here */
 ```

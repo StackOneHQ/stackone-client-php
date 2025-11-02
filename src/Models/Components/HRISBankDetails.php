@@ -41,11 +41,12 @@ class HRISBankDetails
     /**
      * Whether this is the primary bank account
      *
-     * @var ?bool $isPrimary
+     * @var bool|IsPrimary2|null $isPrimary
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('is_primary')]
+    #[\Speakeasy\Serializer\Annotation\Type('bool|\StackOne\client\Models\Components\IsPrimary2|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $isPrimary = null;
+    public bool|IsPrimary2|null $isPrimary = null;
 
     /**
      * The country code where the bank is located
@@ -127,7 +128,7 @@ class HRISBankDetails
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?string  $accountName
-     * @param  ?bool  $isPrimary
+     * @param  bool|IsPrimary2|null  $isPrimary
      * @param  ?CountryCode  $countryCode
      * @param  ?CurrencyCode  $currencyCode
      * @param  ?string  $bankName
@@ -138,7 +139,7 @@ class HRISBankDetails
      * @param  ?array<ClearingCode>  $clearingCodes
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?string $accountName = null, ?bool $isPrimary = null, ?CountryCode $countryCode = null, ?CurrencyCode $currencyCode = null, ?string $bankName = null, ?AccountType $accountType = null, ?string $iban = null, ?string $localAccountNumber = null, ?string $swiftBic = null, ?array $clearingCodes = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $accountName = null, bool|IsPrimary2|null $isPrimary = null, ?CountryCode $countryCode = null, ?CurrencyCode $currencyCode = null, ?string $bankName = null, ?AccountType $accountType = null, ?string $iban = null, ?string $localAccountNumber = null, ?string $swiftBic = null, ?array $clearingCodes = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
