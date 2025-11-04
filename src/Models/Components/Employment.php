@@ -232,12 +232,12 @@ class Employment
     /**
      * The employment active status
      *
-     * @var bool|Active2|null $active
+     * @var bool|Two|null $active
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('active')]
-    #[\Speakeasy\Serializer\Annotation\Type('bool|\StackOne\client\Models\Components\Active2|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('bool|\StackOne\client\Models\Components\Two|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public bool|Active2|null $active = null;
+    public bool|Two|null $active = null;
 
     /**
      * The employee department
@@ -324,7 +324,7 @@ class Employment
      * @param  ?\DateTime  $createdAt
      * @param  ?\DateTime  $updatedAt
      * @param  ?\DateTime  $startDate
-     * @param  bool|Active2|null  $active
+     * @param  bool|Two|null  $active
      * @param  ?EmploymentDepartment  $department
      * @param  ?CostCenter  $costCenter
      * @param  ?array<HRISCostCenter>  $costCenters
@@ -333,7 +333,7 @@ class Employment
      * @param  ?array<EmploymentManagerApiModel>  $manager
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $jobTitle = null, ?string $payRate = null, ?PayPeriod $payPeriod = null, ?PayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $effectiveDate = null, ?\DateTime $endDate = null, ?Grade $grade = null, ?EmploymentEmploymentType $employmentType = null, ?EmploymentEmploymentContractType $employmentContractType = null, ?EmploymentType1 $type = null, ?ContractType $contractType = null, ?WorkTime $workTime = null, ?string $payrollCode = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?float $fte = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?\DateTime $startDate = null, bool|Active2|null $active = null, ?EmploymentDepartment $department = null, ?CostCenter $costCenter = null, ?array $costCenters = null, ?Division $division = null, ?Job $job = null, ?array $manager = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $jobTitle = null, ?string $payRate = null, ?PayPeriod $payPeriod = null, ?PayFrequency $payFrequency = null, ?string $payCurrency = null, ?\DateTime $effectiveDate = null, ?\DateTime $endDate = null, ?Grade $grade = null, ?EmploymentEmploymentType $employmentType = null, ?EmploymentEmploymentContractType $employmentContractType = null, ?EmploymentType1 $type = null, ?ContractType $contractType = null, ?WorkTime $workTime = null, ?string $payrollCode = null, ?string $employeeId = null, ?string $remoteEmployeeId = null, ?float $fte = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?\DateTime $startDate = null, bool|Two|null $active = null, ?EmploymentDepartment $department = null, ?CostCenter $costCenter = null, ?array $costCenters = null, ?Division $division = null, ?Job $job = null, ?array $manager = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;

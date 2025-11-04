@@ -13,5 +13,8 @@ namespace StackOne\client\Models\Components;
 enum AttachmentValue: string
 {
     case Text = 'text';
+    case Pdf = 'pdf';
+    case Video = 'video';
+    case Other = 'other';
     case UnmappedValue = 'unmapped_value';
 }

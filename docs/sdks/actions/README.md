@@ -115,10 +115,9 @@ $request = new Components\ActionsRpcRequestDto(
     path: [
         'id' => '123',
     ],
-    query: [
-        'param1' => 'value1',
-        'param2' => 'value2',
-    ],
+    query: new Components\Query(
+        debug: false,
+    ),
     headers: [
         'Content-Type' => 'application/json',
     ],

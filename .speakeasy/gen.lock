@@ -1,24 +1,25 @@
 lockVersion: 2.0.0
 id: 3759371f-a095-4585-b437-50529a0eb248
 management:
-  docChecksum: e37a75382751ac1df3551764a46bf626
+  docChecksum: fd6d287abee4d9f342e248db10460129
   docVersion: 1.0.0
-  speakeasyVersion: 1.639.3
-  generationVersion: 2.730.5
-  releaseVersion: 0.27.0
-  configChecksum: d6e710a60a95142ea63d6b5bc20478ea
+  speakeasyVersion: 1.645.1
+  generationVersion: 2.735.1
+  releaseVersion: 0.28.0
+  configChecksum: 20230b4eeb28ae90903e10d0ae5eb1da
   repoURL: https://github.com/StackOneHQ/stackone-client-php.git
   installationURL: https://github.com/StackOneHQ/stackone-client-php
   published: true
 features:
   php:
+    additionalProperties: 0.1.0
     constsAndDefaults: 0.2.0
-    core: 3.9.0
+    core: 3.9.1
     deprecations: 2.81.1
     examples: 2.81.6
     flattening: 2.81.1
     globalSecurity: 2.81.9
-    globalServerURLs: 2.82.2
+    globalServerURLs: 2.83.0
     groups: 2.81.3
     methodArguments: 0.1.0
     methodSecurity: 2.82.2
@@ -618,7 +619,6 @@ generatedFiles:
   - docs/Models/Components/EntitySkillResult.md
   - docs/Models/Components/EntitySkills.md
   - docs/Models/Components/EntitySkillsActive.md
-  - docs/Models/Components/EntitySkillsActive2.md
   - docs/Models/Components/EntitySkillsCreateRequestDto.md
   - docs/Models/Components/EntitySkillsCreateRequestDtoMaximumProficiency.md
   - docs/Models/Components/EntitySkillsCreateRequestDtoMinimumProficiency.md
@@ -1149,6 +1149,8 @@ generatedFiles:
   - docs/Models/Components/IsBotUser2.md
   - docs/Models/Components/IsPaid.md
   - docs/Models/Components/IsPaid2.md
+  - docs/Models/Components/IsPrimary.md
+  - docs/Models/Components/IsPrimary2.md
   - docs/Models/Components/IsRoot.md
   - docs/Models/Components/IsRoot2.md
   - docs/Models/Components/IsUnlimited.md
@@ -1346,7 +1348,6 @@ generatedFiles:
   - docs/Models/Components/OfferValue.md
   - docs/Models/Components/OffersPaginated.md
   - docs/Models/Components/OffersResult.md
-  - docs/Models/Components/One.md
   - docs/Models/Components/Organization.md
   - docs/Models/Components/OverallRecommendation.md
   - docs/Models/Components/Package.md
@@ -1390,6 +1391,7 @@ generatedFiles:
   - docs/Models/Components/PushTemplate.md
   - docs/Models/Components/PushTemplateResult.md
   - docs/Models/Components/PushTemplatesPaginated.md
+  - docs/Models/Components/Query.md
   - docs/Models/Components/Question.md
   - docs/Models/Components/QuestionMultipleChoiceAnswers.md
   - docs/Models/Components/QuestionParentQuestionSourceValue.md
@@ -2984,7 +2986,6 @@ generatedFiles:
   - src/Models/Components/EndHalfDay2.php
   - src/Models/Components/EntitySkillResult.php
   - src/Models/Components/EntitySkills.php
-  - src/Models/Components/EntitySkillsActive2.php
   - src/Models/Components/EntitySkillsCreateRequestDto.php
   - src/Models/Components/EntitySkillsCreateRequestDtoMaximumProficiency.php
   - src/Models/Components/EntitySkillsCreateRequestDtoMinimumProficiency.php
@@ -3405,6 +3406,7 @@ generatedFiles:
   - src/Models/Components/InviteEmployeeResult.php
   - src/Models/Components/IsBotUser2.php
   - src/Models/Components/IsPaid2.php
+  - src/Models/Components/IsPrimary2.php
   - src/Models/Components/IsRoot2.php
   - src/Models/Components/IsUnlimited2.php
   - src/Models/Components/IssuedBy.php
@@ -3566,7 +3568,6 @@ generatedFiles:
   - src/Models/Components/OfferValue.php
   - src/Models/Components/OffersPaginated.php
   - src/Models/Components/OffersResult.php
-  - src/Models/Components/One.php
   - src/Models/Components/Organization.php
   - src/Models/Components/OverallRecommendation.php
   - src/Models/Components/Package.php
@@ -3607,6 +3608,7 @@ generatedFiles:
   - src/Models/Components/PushTemplate.php
   - src/Models/Components/PushTemplateResult.php
   - src/Models/Components/PushTemplatesPaginated.php
+  - src/Models/Components/Query.php
   - src/Models/Components/Question.php
   - src/Models/Components/QuestionMultipleChoiceAnswers.php
   - src/Models/Components/QuestionParentQuestionValue.php
@@ -7822,7 +7824,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
+          fields: "id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
         header:
           x-account-id: "<id>"
@@ -7932,7 +7934,7 @@ examples:
           id: "<id>"
           subResourceId: "<id>"
         query:
-          fields: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
+          fields: "id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
         header:
           x-account-id: "<id>"
       responses:
@@ -9667,7 +9669,7 @@ examples:
     speakeasy-default-ats-list-offers:
       parameters:
         query:
-          fields: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
+          fields: "id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
         header:
           x-account-id: "<id>"
@@ -9738,7 +9740,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
+          fields: "id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
         header:
           x-account-id: "<id>"
       responses:
@@ -12995,7 +12997,7 @@ examples:
   stackone_rpc_action:
     speakeasy-default-stackone-rpc-action:
       requestBody:
-        application/json: {"action": "create_employee", "path": {"id": "123"}, "query": {"param1": "value1", "param2": "value2"}, "headers": {"Content-Type": "application/json"}, "body": {"data": "example"}}
+        application/json: {"action": "create_employee", "path": {"id": "123"}, "query": {"debug": false}, "headers": {"Content-Type": "application/json"}, "body": {"data": "example"}}
       responses:
         "200":
           application/json: {}
@@ -15154,4 +15156,4 @@ examples:
           application/json: {"statusCode": 502, "message": "Bad Gateway", "timestamp": "2023-05-30T00:00:00.000Z"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes Detected:\n* `stackone->lms->createUserAssignment()`: \n  *  `request.lmsCreateAssignmentRequestDto->learningObjectExternalReference` **Changed** **Breaking** :warning:\n* `stackone->accounts->getAccount()`:  `response.setupInformation` **Changed** **Breaking** :warning:\n* `stackone->accounts->deleteAccount()`:  `response.setupInformation` **Changed** **Breaking** :warning:\n* `stackone->accounts->updateAccount()`:  `response.setupInformation` **Changed** **Breaking** :warning:\n* `stackone->accounts->listLinkedAccounts()`:  `response.[]->setupInformation` **Changed** **Breaking** :warning:\n* `stackone->lms->createUserCompletion()`: \n  *  `request.lmsCreateCompletionRequestDto->learningObjectExternalReference` **Changed** **Breaking** :warning:\n* `stackone->lms->updateContent()`: \n  *  `request.lmsCreateContentRequestDto->externalReference` **Changed** **Breaking** :warning:\n* `stackone->lms->upsertContent()`: \n  *  `request.lmsUpsertContentRequestDto->externalReference` **Changed** **Breaking** :warning:\n* `stackone->lms->batchUpsertContent()`: \n  *  `request.lmsBatchUpsertContentRequestDto->items->[]->externalReference` **Changed** **Breaking** :warning:\n* `stackone->hris->listEmployees()`:  `response.data->[]` **Changed**\n* `stackone->ats->listCandidates()`:  `response.data->[]->tags` **Added**\n* `stackone->ats->getCandidate()`:  `response.data->tags` **Added**\n* `stackone->hris->getEmployeeTimeOffBalance()`:  `response.data->isUnlimited` **Added**\n* `stackone->hris->listEmployeeTimeOffBalances()`:  `response.data->[]->isUnlimited` **Added**\n* `stackone->hris->updateEmployee()`: \n  *  `request.hrisUpdateEmployeeRequestDto->title` **Added**\n* `stackone->hris->getEmployee()`:  `response.data` **Changed**\n* `stackone->hris->createEmployee()`: \n  *  `request.hrisCreateEmployeeRequestDto->title` **Added**\n"
+releaseNotes: "## Php SDK Changes Detected:\n* `stackone->actions->rpcAction()`: \n  *  `request->query` **Changed** **Breaking** :warning:\n  *  `response.data` **Changed**\n* `stackone->hris->listEmployees()`:  `response.data->[]->bankDetails->[]->isPrimary` **Changed** **Breaking** :warning:\n* `stackone->hris->getEmployee()`:  `response.data->bankDetails->[]->isPrimary` **Changed** **Breaking** :warning:\n"
