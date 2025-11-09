@@ -11,5 +11,5 @@ namespace StackOne\client\Models\Operations;
 
 enum StackoneListActionsMetaQueryParamInclude: string
 {
-    case OperationDetails = 'operation_details';
+    case ActionDetails = 'action_details';
 }

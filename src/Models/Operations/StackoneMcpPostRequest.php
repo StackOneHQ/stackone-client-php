@@ -13,20 +13,28 @@ use StackOne\client\Utils\SpeakeasyMetadata;
 class StackoneMcpPostRequest
 {
     /**
-     * Account secure id for the target provider account
-     *
-     * @var string $xAccountId
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-account-id')]
-    public string $xAccountId;
-
-    /**
      * JSON-RPC 2.0 message
      *
      * @var Components\JsonRpcMessageDto $jsonRpcMessageDto
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
     public Components\JsonRpcMessageDto $jsonRpcMessageDto;
+
+    /**
+     * Account secure id for the target provider account (optional if x-account-id query parameter is provided)
+     *
+     * @var ?string $xAccountId
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-account-id')]
+    public ?string $xAccountId = null;
+
+    /**
+     * Account secure id (alternative to x-account-id header)
+     *
+     * @var mixed $xAccountIdQueryParameter
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=x-account-id')]
+    public mixed $xAccountIdQueryParameter = null;
 
     /**
      * Session id; omit for initialize, include for subsequent calls
@@ -37,15 +45,17 @@ class StackoneMcpPostRequest
     public ?string $mcpSessionId = null;
 
     /**
-     * @param  string  $xAccountId
      * @param  Components\JsonRpcMessageDto  $jsonRpcMessageDto
+     * @param  ?string  $xAccountId
+     * @param  mixed  $xAccountIdQueryParameter
      * @param  ?string  $mcpSessionId
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, Components\JsonRpcMessageDto $jsonRpcMessageDto, ?string $mcpSessionId = null)
+    public function __construct(Components\JsonRpcMessageDto $jsonRpcMessageDto, ?string $xAccountId = null, mixed $xAccountIdQueryParameter = null, ?string $mcpSessionId = null)
     {
-        $this->xAccountId = $xAccountId;
         $this->jsonRpcMessageDto = $jsonRpcMessageDto;
+        $this->xAccountId = $xAccountId;
+        $this->xAccountIdQueryParameter = $xAccountIdQueryParameter;
         $this->mcpSessionId = $mcpSessionId;
     }
 }
