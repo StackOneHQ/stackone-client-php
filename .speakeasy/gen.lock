@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3759371f-a095-4585-b437-50529a0eb248
 management:
-  docChecksum: fd6d287abee4d9f342e248db10460129
+  docChecksum: 7557050ffcfabf100d281f29a1f4d59e
   docVersion: 1.0.0
-  speakeasyVersion: 1.645.1
-  generationVersion: 2.735.1
-  releaseVersion: 0.28.0
-  configChecksum: 20230b4eeb28ae90903e10d0ae5eb1da
+  speakeasyVersion: 1.651.0
+  generationVersion: 2.745.2
+  releaseVersion: 0.28.1
+  configChecksum: b17ca965caccb3ae7ccfc6f0a895e322
   repoURL: https://github.com/StackOneHQ/stackone-client-php.git
   installationURL: https://github.com/StackOneHQ/stackone-client-php
   published: true
@@ -14,7 +14,7 @@ features:
   php:
     additionalProperties: 0.1.0
     constsAndDefaults: 0.2.0
-    core: 3.9.1
+    core: 3.9.2
     deprecations: 2.81.1
     examples: 2.81.6
     flattening: 2.81.1
@@ -107,6 +107,7 @@ generatedFiles:
   - docs/Models/Components/ActionsMetaPaginated.md
   - docs/Models/Components/ActionsRpcRequestDto.md
   - docs/Models/Components/ActionsRpcResponse.md
+  - docs/Models/Components/ActionsRpcResponseData.md
   - docs/Models/Components/Active.md
   - docs/Models/Components/Active2.md
   - docs/Models/Components/Actor.md
@@ -1381,6 +1382,7 @@ generatedFiles:
   - docs/Models/Components/ProviderErrorApiModelHeaders.md
   - docs/Models/Components/ProviderErrorApiModelRaw.md
   - docs/Models/Components/ProxyRequestBody.md
+  - docs/Models/Components/ProxyResponseApiModel.md
   - docs/Models/Components/PushMessageContents.md
   - docs/Models/Components/PushMessages.md
   - docs/Models/Components/PushMessagesMessageContent.md
@@ -3599,6 +3601,7 @@ generatedFiles:
   - src/Models/Components/ProviderErrorApiModelHeaders.php
   - src/Models/Components/ProviderErrorApiModelRaw.php
   - src/Models/Components/ProxyRequestBody.php
+  - src/Models/Components/ProxyResponseApiModel.php
   - src/Models/Components/PushMessageContents.php
   - src/Models/Components/PushMessages.php
   - src/Models/Components/PushMessagesMessageContent.php
@@ -5072,6 +5075,8 @@ examples:
           application/json: {"statusCode": 501, "message": "Not Implemented", "timestamp": "2023-05-30T00:00:00.000Z"}
         "502":
           application/json: {"statusCode": 502, "message": "Bad Gateway", "timestamp": "2023-05-30T00:00:00.000Z"}
+        "200":
+          application/json: {"status": 200, "headers": {"content-type": "application/json", "x-request-id": "123e4567-e89b-12d3-a456-426614174000"}, "data": {"id": "123", "name": "John Doe", "email": "john.doe@example.com"}, "provider_errors": [{"status": 400, "url": "https://api.someprovider.com/v1/endpoint", "raw": {}, "headers": {}}]}
   hris_list_companies:
     speakeasy-default-hris-list-companies:
       parameters:
@@ -12968,7 +12973,7 @@ examples:
         query:
           group_by: "[\"connector\"]"
           filter: {"connectors": "connector1,connector2", "account_ids": "account1,account2", "action_key": "action1"}
-          include: ["operation_details"]
+          include: ["action_details"]
       responses:
         "200":
           application/json: {}
@@ -15156,4 +15161,4 @@ examples:
           application/json: {"statusCode": 502, "message": "Bad Gateway", "timestamp": "2023-05-30T00:00:00.000Z"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes Detected:\n* `stackone->actions->rpcAction()`: \n  *  `request->query` **Changed** **Breaking** :warning:\n  *  `response.data` **Changed**\n* `stackone->hris->listEmployees()`:  `response.data->[]->bankDetails->[]->isPrimary` **Changed** **Breaking** :warning:\n* `stackone->hris->getEmployee()`:  `response.data->bankDetails->[]->isPrimary` **Changed** **Breaking** :warning:\n"
+releaseNotes: "## Php SDK Changes Detected:\n* `stackone->mcp->mcpGet()`:  `request` **Changed**\n* `stackone->mcp->mcpPost()`:  `request` **Changed**\n* `stackone->mcp->mcpDelete()`:  `request` **Changed**\n* `stackone->proxy->proxyRequest()`:  `response` **Changed**\n* `stackone->actions->listActionsMeta()`: \n  *  `request->include` **Changed**\n"

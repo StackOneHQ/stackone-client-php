@@ -39,8 +39,8 @@ $requestSecurity = new Operations\StackoneMcpGetSecurity(
 
 $response = $sdk->mcp->mcpGet(
     security: $requestSecurity,
-    xAccountId: '<id>',
-    mcpSessionId: '<id>'
+    mcpSessionId: '<id>',
+    xAccountId: '<id>'
 
 );
 
@@ -51,11 +51,12 @@ if ($response->statusCode === 200) {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `security`                                                                             | [Operations\StackoneMcpGetSecurity](../../Models/Operations/StackoneMcpGetSecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
-| `xAccountId`                                                                           | *string*                                                                               | :heavy_check_mark:                                                                     | Account secure id for the target provider account                                      |
-| `mcpSessionId`                                                                         | *string*                                                                               | :heavy_check_mark:                                                                     | Session id                                                                             |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `security`                                                                                               | [Operations\StackoneMcpGetSecurity](../../Models/Operations/StackoneMcpGetSecurity.md)                   | :heavy_check_mark:                                                                                       | The security requirements to use for the request.                                                        |
+| `mcpSessionId`                                                                                           | *string*                                                                                                 | :heavy_check_mark:                                                                                       | Session id                                                                                               |
+| `xAccountId`                                                                                             | *?string*                                                                                                | :heavy_minus_sign:                                                                                       | Account secure id for the target provider account (optional if x-account-id query parameter is provided) |
+| `xAccountIdQueryParameter`                                                                               | *mixed*                                                                                                  | :heavy_minus_sign:                                                                                       | Account secure id (alternative to x-account-id header)                                                   |
 
 ### Response
 
@@ -111,8 +112,8 @@ $requestSecurity = new Operations\StackoneMcpPostSecurity(
 
 $response = $sdk->mcp->mcpPost(
     security: $requestSecurity,
-    xAccountId: '<id>',
-    jsonRpcMessageDto: $jsonRpcMessageDto
+    jsonRpcMessageDto: $jsonRpcMessageDto,
+    xAccountId: '<id>'
 
 );
 
@@ -123,12 +124,13 @@ if ($response->statusCode === 200) {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `security`                                                                               | [Operations\StackoneMcpPostSecurity](../../Models/Operations/StackoneMcpPostSecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
-| `xAccountId`                                                                             | *string*                                                                                 | :heavy_check_mark:                                                                       | Account secure id for the target provider account                                        |
-| `jsonRpcMessageDto`                                                                      | [Components\JsonRpcMessageDto](../../Models/Components/JsonRpcMessageDto.md)             | :heavy_check_mark:                                                                       | JSON-RPC 2.0 message                                                                     |
-| `mcpSessionId`                                                                           | *?string*                                                                                | :heavy_minus_sign:                                                                       | Session id; omit for initialize, include for subsequent calls                            |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `security`                                                                                               | [Operations\StackoneMcpPostSecurity](../../Models/Operations/StackoneMcpPostSecurity.md)                 | :heavy_check_mark:                                                                                       | The security requirements to use for the request.                                                        |
+| `jsonRpcMessageDto`                                                                                      | [Components\JsonRpcMessageDto](../../Models/Components/JsonRpcMessageDto.md)                             | :heavy_check_mark:                                                                                       | JSON-RPC 2.0 message                                                                                     |
+| `xAccountId`                                                                                             | *?string*                                                                                                | :heavy_minus_sign:                                                                                       | Account secure id for the target provider account (optional if x-account-id query parameter is provided) |
+| `xAccountIdQueryParameter`                                                                               | *mixed*                                                                                                  | :heavy_minus_sign:                                                                                       | Account secure id (alternative to x-account-id header)                                                   |
+| `mcpSessionId`                                                                                           | *?string*                                                                                                | :heavy_minus_sign:                                                                                       | Session id; omit for initialize, include for subsequent calls                                            |
 
 ### Response
 
@@ -179,8 +181,8 @@ $requestSecurity = new Operations\StackoneMcpDeleteSecurity(
 
 $response = $sdk->mcp->mcpDelete(
     security: $requestSecurity,
-    xAccountId: '<id>',
-    mcpSessionId: '<id>'
+    mcpSessionId: '<id>',
+    xAccountId: '<id>'
 
 );
 
@@ -191,11 +193,12 @@ if ($response->statusCode === 200) {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `security`                                                                                   | [Operations\StackoneMcpDeleteSecurity](../../Models/Operations/StackoneMcpDeleteSecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
-| `xAccountId`                                                                                 | *string*                                                                                     | :heavy_check_mark:                                                                           | Account secure id for the target provider account                                            |
-| `mcpSessionId`                                                                               | *string*                                                                                     | :heavy_check_mark:                                                                           | Session id                                                                                   |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `security`                                                                                               | [Operations\StackoneMcpDeleteSecurity](../../Models/Operations/StackoneMcpDeleteSecurity.md)             | :heavy_check_mark:                                                                                       | The security requirements to use for the request.                                                        |
+| `mcpSessionId`                                                                                           | *string*                                                                                                 | :heavy_check_mark:                                                                                       | Session id                                                                                               |
+| `xAccountId`                                                                                             | *?string*                                                                                                | :heavy_minus_sign:                                                                                       | Account secure id for the target provider account (optional if x-account-id query parameter is provided) |
+| `xAccountIdQueryParameter`                                                                               | *mixed*                                                                                                  | :heavy_minus_sign:                                                                                       | Account secure id (alternative to x-account-id header)                                                   |
 
 ### Response
 

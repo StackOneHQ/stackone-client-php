@@ -47,7 +47,7 @@ $response = $sdk->proxy->proxyRequest(
 
 );
 
-if ($response->statusCode === 200) {
+if ($response->proxyResponseApiModel !== null) {
     // handle response
 }
 ```

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace StackOne\client\Models\Operations;
 
-
+use StackOne\client\Models\Components;
 class StackoneProxyRequestResponse
 {
     /**
@@ -40,17 +40,26 @@ class StackoneProxyRequestResponse
     public array $headers;
 
     /**
+     * The proxy request was successful.
+     *
+     * @var ?Components\ProxyResponseApiModel $proxyResponseApiModel
+     */
+    public ?Components\ProxyResponseApiModel $proxyResponseApiModel = null;
+
+    /**
      * @param  string  $contentType
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  array<string, array<string>>  $headers
+     * @param  ?Components\ProxyResponseApiModel  $proxyResponseApiModel
      * @phpstan-pure
      */
-    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?array $headers = [])
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?Components\ProxyResponseApiModel $proxyResponseApiModel = null, ?array $headers = [])
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
         $this->headers = $headers;
+        $this->proxyResponseApiModel = $proxyResponseApiModel;
     }
 }

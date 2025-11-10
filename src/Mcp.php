@@ -53,12 +53,13 @@ class Mcp
      * Close an existing MCP session for the provided session id
      *
      * @param  Operations\StackoneMcpDeleteSecurity  $security
-     * @param  string  $xAccountId
      * @param  string  $mcpSessionId
+     * @param  ?string  $xAccountId
+     * @param  mixed  $xAccountIdQueryParameter
      * @return Operations\StackoneMcpDeleteResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function mcpDelete(Operations\StackoneMcpDeleteSecurity $security, string $xAccountId, string $mcpSessionId, ?Options $options = null): Operations\StackoneMcpDeleteResponse
+    public function mcpDelete(Operations\StackoneMcpDeleteSecurity $security, string $mcpSessionId, ?string $xAccountId = null, mixed $xAccountIdQueryParameter = null, ?Options $options = null): Operations\StackoneMcpDeleteResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -86,13 +87,16 @@ class Mcp
             ];
         }
         $request = new Operations\StackoneMcpDeleteRequest(
-            xAccountId: $xAccountId,
             mcpSessionId: $mcpSessionId,
+            xAccountId: $xAccountId,
+            xAccountIdQueryParameter: $xAccountIdQueryParameter,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/mcp');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
+
+        $qp = Utils\Utils::getQueryParams(Operations\StackoneMcpDeleteRequest::class, $request, $urlOverride);
         $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
@@ -108,6 +112,7 @@ class Mcp
 
         $hookContext = new HookContext($this->sdkConfiguration, $baseUrl, 'stackone_mcp_delete', null, fn () => $security);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $httpOptions['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
@@ -267,12 +272,13 @@ class Mcp
      * Open a dedicated Server-Sent Events stream for MCP notifications
      *
      * @param  Operations\StackoneMcpGetSecurity  $security
-     * @param  string  $xAccountId
      * @param  string  $mcpSessionId
+     * @param  ?string  $xAccountId
+     * @param  mixed  $xAccountIdQueryParameter
      * @return Operations\StackoneMcpGetResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function mcpGet(Operations\StackoneMcpGetSecurity $security, string $xAccountId, string $mcpSessionId, ?Options $options = null): Operations\StackoneMcpGetResponse
+    public function mcpGet(Operations\StackoneMcpGetSecurity $security, string $mcpSessionId, ?string $xAccountId = null, mixed $xAccountIdQueryParameter = null, ?Options $options = null): Operations\StackoneMcpGetResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -300,13 +306,16 @@ class Mcp
             ];
         }
         $request = new Operations\StackoneMcpGetRequest(
-            xAccountId: $xAccountId,
             mcpSessionId: $mcpSessionId,
+            xAccountId: $xAccountId,
+            xAccountIdQueryParameter: $xAccountIdQueryParameter,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/mcp');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
+
+        $qp = Utils\Utils::getQueryParams(Operations\StackoneMcpGetRequest::class, $request, $urlOverride);
         $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
@@ -322,6 +331,7 @@ class Mcp
 
         $hookContext = new HookContext($this->sdkConfiguration, $baseUrl, 'stackone_mcp_get', null, fn () => $security);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $httpOptions['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {
@@ -482,12 +492,13 @@ class Mcp
      *
      * @param  Operations\StackoneMcpPostSecurity  $security
      * @param  Components\JsonRpcMessageDto  $jsonRpcMessageDto
-     * @param  string  $xAccountId
+     * @param  ?string  $xAccountId
+     * @param  mixed  $xAccountIdQueryParameter
      * @param  ?string  $mcpSessionId
      * @return Operations\StackoneMcpPostResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function mcpPost(Operations\StackoneMcpPostSecurity $security, Components\JsonRpcMessageDto $jsonRpcMessageDto, string $xAccountId, ?string $mcpSessionId = null, ?Options $options = null): Operations\StackoneMcpPostResponse
+    public function mcpPost(Operations\StackoneMcpPostSecurity $security, Components\JsonRpcMessageDto $jsonRpcMessageDto, ?string $xAccountId = null, mixed $xAccountIdQueryParameter = null, ?string $mcpSessionId = null, ?Options $options = null): Operations\StackoneMcpPostResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -515,8 +526,9 @@ class Mcp
             ];
         }
         $request = new Operations\StackoneMcpPostRequest(
-            xAccountId: $xAccountId,
             jsonRpcMessageDto: $jsonRpcMessageDto,
+            xAccountId: $xAccountId,
+            xAccountIdQueryParameter: $xAccountIdQueryParameter,
             mcpSessionId: $mcpSessionId,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
@@ -528,6 +540,8 @@ class Mcp
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
+
+        $qp = Utils\Utils::getQueryParams(Operations\StackoneMcpPostRequest::class, $request, $urlOverride);
         $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
         if (! array_key_exists('headers', $httpOptions)) {
             $httpOptions['headers'] = [];
@@ -543,6 +557,7 @@ class Mcp
 
         $hookContext = new HookContext($this->sdkConfiguration, $baseUrl, 'stackone_mcp_post', null, fn () => $security);
         $httpRequest = $this->sdkConfiguration->hooks->beforeRequest(new Hooks\BeforeRequestContext($hookContext), $httpRequest);
+        $httpOptions['query'] = Utils\QueryParameters::standardizeQueryParams($httpRequest, $qp);
         $httpOptions = Utils\Utils::convertHeadersToOptions($httpRequest, $httpOptions);
         $httpRequest = Utils\Utils::removeHeaders($httpRequest);
         try {

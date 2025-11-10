@@ -171,8 +171,8 @@ $requestSecurity = new Operations\StackoneMcpGetSecurity(
 
 $response = $sdk->mcp->mcpGet(
     security: $requestSecurity,
-    xAccountId: '<id>',
-    mcpSessionId: '<id>'
+    mcpSessionId: '<id>',
+    xAccountId: '<id>'
 
 );
 
@@ -567,7 +567,7 @@ $request = new Operations\StackoneListActionsMetaRequest(
         actionKey: 'action1',
     ),
     include: [
-        Operations\StackoneListActionsMetaQueryParamInclude::OperationDetails,
+        Operations\StackoneListActionsMetaQueryParamInclude::ActionDetails,
     ],
 );
 

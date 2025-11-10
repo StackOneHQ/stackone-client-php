@@ -12,14 +12,6 @@ use StackOne\client\Utils\SpeakeasyMetadata;
 class StackoneMcpDeleteRequest
 {
     /**
-     * Account secure id for the target provider account
-     *
-     * @var string $xAccountId
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-account-id')]
-    public string $xAccountId;
-
-    /**
      * Session id
      *
      * @var string $mcpSessionId
@@ -28,13 +20,31 @@ class StackoneMcpDeleteRequest
     public string $mcpSessionId;
 
     /**
-     * @param  string  $xAccountId
+     * Account secure id for the target provider account (optional if x-account-id query parameter is provided)
+     *
+     * @var ?string $xAccountId
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=x-account-id')]
+    public ?string $xAccountId = null;
+
+    /**
+     * Account secure id (alternative to x-account-id header)
+     *
+     * @var mixed $xAccountIdQueryParameter
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=x-account-id')]
+    public mixed $xAccountIdQueryParameter = null;
+
+    /**
      * @param  string  $mcpSessionId
+     * @param  ?string  $xAccountId
+     * @param  mixed  $xAccountIdQueryParameter
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $mcpSessionId)
+    public function __construct(string $mcpSessionId, ?string $xAccountId = null, mixed $xAccountIdQueryParameter = null)
     {
-        $this->xAccountId = $xAccountId;
         $this->mcpSessionId = $mcpSessionId;
+        $this->xAccountId = $xAccountId;
+        $this->xAccountIdQueryParameter = $xAccountIdQueryParameter;
     }
 }

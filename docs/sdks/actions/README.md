@@ -43,7 +43,7 @@ $request = new Operations\StackoneListActionsMetaRequest(
         actionKey: 'action1',
     ),
     include: [
-        Operations\StackoneListActionsMetaQueryParamInclude::OperationDetails,
+        Operations\StackoneListActionsMetaQueryParamInclude::ActionDetails,
     ],
 );
 
