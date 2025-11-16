@@ -31,7 +31,7 @@ class HrisCreateEmploymentRequestDto
     public ?string $jobTitle = null;
 
     /**
-     * The pay rate for the employee
+     * The amount of compensation for the employee
      *
      * @var ?string $payRate
      */
@@ -40,7 +40,7 @@ class HrisCreateEmploymentRequestDto
     public ?string $payRate = null;
 
     /**
-     * The pay period
+     * The time period over which the pay rate is calculated
      *
      * @var ?HrisCreateEmploymentRequestDtoPayPeriod $payPeriod
      */
@@ -50,7 +50,7 @@ class HrisCreateEmploymentRequestDto
     public ?HrisCreateEmploymentRequestDtoPayPeriod $payPeriod = null;
 
     /**
-     * The pay frequency
+     * How often the employee is paid
      *
      * @var ?HrisCreateEmploymentRequestDtoPayFrequency $payFrequency
      */

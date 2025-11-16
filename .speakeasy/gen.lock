@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3759371f-a095-4585-b437-50529a0eb248
 management:
-  docChecksum: 7557050ffcfabf100d281f29a1f4d59e
+  docChecksum: e78dea6e8a3b0950fdb44ad47130d961
   docVersion: 1.0.0
-  speakeasyVersion: 1.651.0
-  generationVersion: 2.745.2
-  releaseVersion: 0.28.1
-  configChecksum: b17ca965caccb3ae7ccfc6f0a895e322
+  speakeasyVersion: 1.658.1
+  generationVersion: 2.755.6
+  releaseVersion: 0.28.2
+  configChecksum: f37584e8a7c2f0c4609de450bb0470bb
   repoURL: https://github.com/StackOneHQ/stackone-client-php.git
   installationURL: https://github.com/StackOneHQ/stackone-client-php
   published: true
@@ -14,7 +14,7 @@ features:
   php:
     additionalProperties: 0.1.0
     constsAndDefaults: 0.2.0
-    core: 3.9.2
+    core: 3.9.4
     deprecations: 2.81.1
     examples: 2.81.6
     flattening: 2.81.1
@@ -15161,4 +15161,4 @@ examples:
           application/json: {"statusCode": 502, "message": "Bad Gateway", "timestamp": "2023-05-30T00:00:00.000Z"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes Detected:\n* `stackone->mcp->mcpGet()`:  `request` **Changed**\n* `stackone->mcp->mcpPost()`:  `request` **Changed**\n* `stackone->mcp->mcpDelete()`:  `request` **Changed**\n* `stackone->proxy->proxyRequest()`:  `response` **Changed**\n* `stackone->actions->listActionsMeta()`: \n  *  `request->include` **Changed**\n"
+releaseNotes: "## Php SDK Changes Detected:\n* `stackone->mcp->mcpPost()`: \n  *  `request.jsonRpcMessageDto->params` **Changed**\n"

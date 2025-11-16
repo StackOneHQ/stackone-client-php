@@ -28,16 +28,6 @@ class JsonRpcMessageDto
     public string $method;
 
     /**
-     * Method parameters (arbitrary JSON)
-     *
-     * @var ?Params $params
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('params')]
-    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Params|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Params $params = null;
-
-    /**
      * Request id (arbitrary JSON scalar)
      *
      * @var ?Id $id
@@ -48,17 +38,27 @@ class JsonRpcMessageDto
     public ?Id $id = null;
 
     /**
+     * Method parameters (arbitrary JSON)
+     *
+     * @var ?Params $params
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('params')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Params|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Params $params = null;
+
+    /**
      * @param  string  $jsonrpc
      * @param  string  $method
-     * @param  ?Params  $params
      * @param  ?Id  $id
+     * @param  ?Params  $params
      * @phpstan-pure
      */
-    public function __construct(string $jsonrpc, string $method, ?Params $params = null, ?Id $id = null)
+    public function __construct(string $jsonrpc, string $method, ?Id $id = null, ?Params $params = null)
     {
         $this->jsonrpc = $jsonrpc;
         $this->method = $method;
-        $this->params = $params;
         $this->id = $id;
+        $this->params = $params;
     }
 }

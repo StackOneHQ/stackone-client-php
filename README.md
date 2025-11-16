@@ -422,11 +422,11 @@ if ($response->statusCode === 200) {
 * [listUserAssignments](docs/sdks/lms/README.md#listuserassignments) - List User Assignments
 * [createUserAssignment](docs/sdks/lms/README.md#createuserassignment) - Create User Assignment
 * [getUserAssignment](docs/sdks/lms/README.md#getuserassignment) - Get User Assignment
-* [batchUpsertContent](docs/sdks/lms/README.md#batchupsertcontent) - Batch Upsert Content
+* [batchUpsertContent](docs/sdks/lms/README.md#batchupsertcontent) - Batch Upsert External Linking Learning Objects
 * [listContent](docs/sdks/lms/README.md#listcontent) - List Content
-* [upsertContent](docs/sdks/lms/README.md#upsertcontent) - Upsert Content
+* [upsertContent](docs/sdks/lms/README.md#upsertcontent) - Upsert External Linking Learning Objects
 * [getContent](docs/sdks/lms/README.md#getcontent) - Get Content
-* [updateContent](docs/sdks/lms/README.md#updatecontent) - Update Content
+* [updateContent](docs/sdks/lms/README.md#updatecontent) - Update External Linking Learning Objects
 * [listUserCompletions](docs/sdks/lms/README.md#listusercompletions) - List User Completions
 * [createUserCompletion](docs/sdks/lms/README.md#createusercompletion) - Create User Completion
 * [getUserCompletion](docs/sdks/lms/README.md#getusercompletion) - Get User Completion

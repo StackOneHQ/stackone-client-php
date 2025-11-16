@@ -48,7 +48,11 @@ class Lms
     }
 
     /**
-     * Batch Upsert Content
+     * Batch Upsert External Linking Learning Objects
+     *
+     * Batch upsert multiple external linking learning objects that redirect users to a provider platform for consumption and progress tracking. 
+     *
+     * See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
      *
      * @param  Components\LmsBatchUpsertContentRequestDto  $lmsBatchUpsertContentRequestDto
      * @param  string  $xAccountId
@@ -279,6 +283,12 @@ class Lms
 
     /**
      * Create User Assignment
+     *
+     * Create an assignment type learning record for a user. 
+     *
+     * This is the record linking a user to a learning object. 
+     *
+     * It can be pending or in progress.
      *
      * @param  Components\LmsCreateAssignmentRequestDto  $lmsCreateAssignmentRequestDto
      * @param  string  $xAccountId
@@ -512,6 +522,10 @@ class Lms
     /**
      * Create User Completion
      *
+     * Create a completed learning record for a user. 
+     *
+     * This is the record of a user completing a learning object.
+     *
      * @param  Components\LmsCreateCompletionRequestDto  $lmsCreateCompletionRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
@@ -743,6 +757,10 @@ class Lms
 
     /**
      * Delete User Completion
+     *
+     * Delete a completion type learning record for a user. 
+     *
+     * This is a record of a user completing a learning object.
      *
      * @param  string  $xAccountId
      * @param  string  $id
@@ -978,6 +996,12 @@ class Lms
 
     /**
      * Get Assignment
+     *
+     * Retrieve an assignment type learning record by its identifier. 
+     *
+     * This is the record linking a user to a learning object. 
+     *
+     * It can be pending, in progress, or completed.
      *
      * @param  Operations\LmsGetAssignmentRequest  $request
      * @return Operations\LmsGetAssignmentResponse
@@ -1425,6 +1449,8 @@ class Lms
     /**
      * Get Completion
      *
+     * Retrieve a completed learning record by its identifier. This is the record of a user completing a learning object.
+     *
      * @param  Operations\LmsGetCompletionRequest  $request
      * @return Operations\LmsGetCompletionResponse
      * @throws \StackOne\client\Models\Errors\SDKException
@@ -1648,6 +1674,12 @@ class Lms
     /**
      * Get Content
      *
+     * Retrieve a content type learning object by its identifier. 
+     *
+     * These are the most granular learning objects (e.g. video, document, podcast) on a platform. 
+     *
+     * Only content objects for which the platform supports progress and completion tracking are returned.
+     *
      * @param  Operations\LmsGetContentRequest  $request
      * @return Operations\LmsGetContentResponse
      * @throws \StackOne\client\Models\Errors\SDKException
@@ -1870,6 +1902,10 @@ class Lms
 
     /**
      * Get Course
+     *
+     * Retrieve a course type learning object by its identifier. 
+     *
+     * These are collections of content type learning objects that are grouped together for a specific learning purpose.
      *
      * @param  Operations\LmsGetCourseRequest  $request
      * @return Operations\LmsGetCourseResponse
@@ -2540,6 +2576,12 @@ class Lms
     /**
      * Get User Assignment
      *
+     * Retrieve an assignment type learning record for a user by its identifier. 
+     *
+     * This is the record linking a user to a learning object. 
+     *
+     * It can be pending, in progress, or completed.
+     *
      * @param  Operations\LmsGetUserAssignmentRequest  $request
      * @return Operations\LmsGetUserAssignmentResponse
      * @throws \StackOne\client\Models\Errors\SDKException
@@ -2763,6 +2805,10 @@ class Lms
     /**
      * Get User Completion
      *
+     * Retrieve a completed learning record for a user by its identifier. 
+     *
+     * This is the record of a user completing a learning object.
+     *
      * @param  Operations\LmsGetUserCompletionRequest  $request
      * @return Operations\LmsGetUserCompletionResponse
      * @throws \StackOne\client\Models\Errors\SDKException
@@ -2985,6 +3031,12 @@ class Lms
 
     /**
      * List Assignments
+     *
+     * Retrieve a list of assignment type learning records. 
+     *
+     * These are the records linking a user to a learning object. 
+     *
+     * They can be pending, in progress, or completed.
      *
      * @param  Operations\LmsListAssignmentsRequest  $request
      * @return Operations\LmsListAssignmentsResponse
@@ -3238,6 +3290,12 @@ class Lms
     }
     /**
      * List Assignments
+     *
+     * Retrieve a list of assignment type learning records. 
+     *
+     * These are the records linking a user to a learning object. 
+     *
+     * They can be pending, in progress, or completed.
      *
      * @param  Operations\LmsListAssignmentsRequest  $request
      * @return \Generator<Operations\LmsListAssignmentsResponse>
@@ -3522,6 +3580,8 @@ class Lms
     /**
      * List Completions
      *
+     * Retrieve a list of completed learning records. These are the records of a user completing learning objects.
+     *
      * @param  Operations\LmsListCompletionsRequest  $request
      * @return Operations\LmsListCompletionsResponse
      * @throws \StackOne\client\Models\Errors\SDKException
@@ -3773,6 +3833,8 @@ class Lms
     /**
      * List Completions
      *
+     * Retrieve a list of completed learning records. These are the records of a user completing learning objects.
+     *
      * @param  Operations\LmsListCompletionsRequest  $request
      * @return \Generator<Operations\LmsListCompletionsResponse>
      * @throws \StackOne\client\Models\Errors\SDKException
@@ -3788,6 +3850,12 @@ class Lms
 
     /**
      * List Content
+     *
+     * Retrieve a list of content type learning objects. 
+     *
+     * These are the most granular learning objects (e.g. video, document, podcast) on a platform. 
+     *
+     * Only content objects for which the platform supports progress and completion tracking are returned.
      *
      * @param  Operations\LmsListContentRequest  $request
      * @return Operations\LmsListContentResponse
@@ -4040,6 +4108,12 @@ class Lms
     /**
      * List Content
      *
+     * Retrieve a list of content type learning objects. 
+     *
+     * These are the most granular learning objects (e.g. video, document, podcast) on a platform. 
+     *
+     * Only content objects for which the platform supports progress and completion tracking are returned.
+     *
      * @param  Operations\LmsListContentRequest  $request
      * @return \Generator<Operations\LmsListContentResponse>
      * @throws \StackOne\client\Models\Errors\SDKException
@@ -4055,6 +4129,10 @@ class Lms
 
     /**
      * List Courses
+     *
+     * Retrieve a list of course type learning objects. 
+     *
+     * These are collections of content type learning objects that are grouped together for a specific learning purpose.
      *
      * @param  Operations\LmsListCoursesRequest  $request
      * @return Operations\LmsListCoursesResponse
@@ -4306,6 +4384,10 @@ class Lms
     }
     /**
      * List Courses
+     *
+     * Retrieve a list of course type learning objects. 
+     *
+     * These are collections of content type learning objects that are grouped together for a specific learning purpose.
      *
      * @param  Operations\LmsListCoursesRequest  $request
      * @return \Generator<Operations\LmsListCoursesResponse>
@@ -4590,6 +4672,12 @@ class Lms
     /**
      * List User Assignments
      *
+     * Retrieve a list of assignment type learning records for a user. 
+     *
+     * These are the records linking a user to learning objects. 
+     *
+     * They can be pending, in progress, or completed.
+     *
      * @param  Operations\LmsListUserAssignmentsRequest  $request
      * @return Operations\LmsListUserAssignmentsResponse
      * @throws \StackOne\client\Models\Errors\SDKException
@@ -4844,6 +4932,12 @@ class Lms
     /**
      * List User Assignments
      *
+     * Retrieve a list of assignment type learning records for a user. 
+     *
+     * These are the records linking a user to learning objects. 
+     *
+     * They can be pending, in progress, or completed.
+     *
      * @param  Operations\LmsListUserAssignmentsRequest  $request
      * @return \Generator<Operations\LmsListUserAssignmentsResponse>
      * @throws \StackOne\client\Models\Errors\SDKException
@@ -4859,6 +4953,10 @@ class Lms
 
     /**
      * List User Completions
+     *
+     * Retrieve a list of completed learning records for a user. 
+     *
+     * These are the records of a user completing learning objects.
      *
      * @param  Operations\LmsListUserCompletionsRequest  $request
      * @return Operations\LmsListUserCompletionsResponse
@@ -5111,6 +5209,10 @@ class Lms
     }
     /**
      * List User Completions
+     *
+     * Retrieve a list of completed learning records for a user. 
+     *
+     * These are the records of a user completing learning objects.
      *
      * @param  Operations\LmsListUserCompletionsRequest  $request
      * @return \Generator<Operations\LmsListUserCompletionsResponse>
@@ -5393,7 +5495,11 @@ class Lms
     }
 
     /**
-     * Update Content
+     * Update External Linking Learning Objects
+     *
+     * Update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
+     *
+     * See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
      *
      * @param  Components\LmsCreateContentRequestDto  $lmsCreateContentRequestDto
      * @param  string  $xAccountId
@@ -5625,7 +5731,11 @@ class Lms
     }
 
     /**
-     * Upsert Content
+     * Upsert External Linking Learning Objects
+     *
+     * Create or update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
+     *
+     * See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
      *
      * @param  Components\LmsUpsertContentRequestDto  $lmsUpsertContentRequestDto
      * @param  string  $xAccountId
