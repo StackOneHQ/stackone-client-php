@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
-/** HrisUpdateEmploymentRequestDtoPayFrequency - The pay frequency */
+/** HrisUpdateEmploymentRequestDtoPayFrequency - How often the employee is paid */
 class HrisUpdateEmploymentRequestDtoPayFrequency
 {
     /**

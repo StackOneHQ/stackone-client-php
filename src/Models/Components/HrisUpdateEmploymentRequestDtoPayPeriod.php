@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
-/** HrisUpdateEmploymentRequestDtoPayPeriod - The pay period */
+/** HrisUpdateEmploymentRequestDtoPayPeriod - The time period over which the pay rate is calculated */
 class HrisUpdateEmploymentRequestDtoPayPeriod
 {
     /**

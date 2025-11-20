@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
-/** PayFrequency - The pay frequency */
+/** PayFrequency - How often the employee is paid */
 class PayFrequency
 {
     /**

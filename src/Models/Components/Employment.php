@@ -49,7 +49,7 @@ class Employment
     public ?string $jobTitle = null;
 
     /**
-     * The pay rate for the employee
+     * The amount of compensation for the employee
      *
      * @var ?string $payRate
      */
@@ -58,7 +58,7 @@ class Employment
     public ?string $payRate = null;
 
     /**
-     * The pay period
+     * The time period over which the pay rate is calculated
      *
      * @var ?PayPeriod $payPeriod
      */
@@ -68,7 +68,7 @@ class Employment
     public ?PayPeriod $payPeriod = null;
 
     /**
-     * The pay frequency
+     * How often the employee is paid
      *
      * @var ?PayFrequency $payFrequency
      */

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
-/** PayPeriod - The pay period */
+/** PayPeriod - The time period over which the pay rate is calculated */
 class PayPeriod
 {
     /**

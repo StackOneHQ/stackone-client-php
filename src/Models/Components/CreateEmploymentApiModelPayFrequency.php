@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Components;
 
 
-/** CreateEmploymentApiModelPayFrequency - The pay frequency */
+/** CreateEmploymentApiModelPayFrequency - How often the employee is paid */
 class CreateEmploymentApiModelPayFrequency
 {
     /**

@@ -10,11 +10,11 @@
 * [listUserAssignments](#listuserassignments) - List User Assignments
 * [createUserAssignment](#createuserassignment) - Create User Assignment
 * [getUserAssignment](#getuserassignment) - Get User Assignment
-* [batchUpsertContent](#batchupsertcontent) - Batch Upsert Content
+* [batchUpsertContent](#batchupsertcontent) - Batch Upsert External Linking Learning Objects
 * [listContent](#listcontent) - List Content
-* [upsertContent](#upsertcontent) - Upsert Content
+* [upsertContent](#upsertcontent) - Upsert External Linking Learning Objects
 * [getContent](#getcontent) - Get Content
-* [updateContent](#updatecontent) - Update Content
+* [updateContent](#updatecontent) - Update External Linking Learning Objects
 * [listUserCompletions](#listusercompletions) - List User Completions
 * [createUserCompletion](#createusercompletion) - Create User Completion
 * [getUserCompletion](#getusercompletion) - Get User Completion
@@ -32,7 +32,9 @@
 
 ## listCourses
 
-List Courses
+Retrieve a list of course type learning objects. 
+
+These are collections of content type learning objects that are grouped together for a specific learning purpose.
 
 ### Example Usage
 
@@ -106,7 +108,9 @@ foreach ($responses as $response) {
 
 ## getCourse
 
-Get Course
+Retrieve a course type learning object by its identifier. 
+
+These are collections of content type learning objects that are grouped together for a specific learning purpose.
 
 ### Example Usage
 
@@ -174,7 +178,11 @@ if ($response->courseResult !== null) {
 
 ## listUserAssignments
 
-List User Assignments
+Retrieve a list of assignment type learning records for a user. 
+
+These are the records linking a user to learning objects. 
+
+They can be pending, in progress, or completed.
 
 ### Example Usage
 
@@ -251,7 +259,11 @@ foreach ($responses as $response) {
 
 ## createUserAssignment
 
-Create User Assignment
+Create an assignment type learning record for a user. 
+
+This is the record linking a user to a learning object. 
+
+It can be pending or in progress.
 
 ### Example Usage
 
@@ -332,7 +344,11 @@ if ($response->createResult !== null) {
 
 ## getUserAssignment
 
-Get User Assignment
+Retrieve an assignment type learning record for a user by its identifier. 
+
+This is the record linking a user to a learning object. 
+
+It can be pending, in progress, or completed.
 
 ### Example Usage
 
@@ -400,7 +416,9 @@ if ($response->assignmentResult !== null) {
 
 ## batchUpsertContent
 
-Batch Upsert Content
+Batch upsert multiple external linking learning objects that redirect users to a provider platform for consumption and progress tracking. 
+
+See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
 
 ### Example Usage
 
@@ -538,7 +556,11 @@ if ($response->batchResultApiModel !== null) {
 
 ## listContent
 
-List Content
+Retrieve a list of content type learning objects. 
+
+These are the most granular learning objects (e.g. video, document, podcast) on a platform. 
+
+Only content objects for which the platform supports progress and completion tracking are returned.
 
 ### Example Usage
 
@@ -612,7 +634,9 @@ foreach ($responses as $response) {
 
 ## upsertContent
 
-Upsert Content
+Create or update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
+
+See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
 
 ### Example Usage
 
@@ -746,7 +770,11 @@ if ($response->upsertResult !== null) {
 
 ## getContent
 
-Get Content
+Retrieve a content type learning object by its identifier. 
+
+These are the most granular learning objects (e.g. video, document, podcast) on a platform. 
+
+Only content objects for which the platform supports progress and completion tracking are returned.
 
 ### Example Usage
 
@@ -814,7 +842,9 @@ if ($response->contentResult !== null) {
 
 ## updateContent
 
-Update Content
+Update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
+
+See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
 
 ### Example Usage
 
@@ -942,7 +972,9 @@ if ($response->updateResult !== null) {
 
 ## listUserCompletions
 
-List User Completions
+Retrieve a list of completed learning records for a user. 
+
+These are the records of a user completing learning objects.
 
 ### Example Usage
 
@@ -1017,7 +1049,9 @@ foreach ($responses as $response) {
 
 ## createUserCompletion
 
-Create User Completion
+Create a completed learning record for a user. 
+
+This is the record of a user completing a learning object.
 
 ### Example Usage
 
@@ -1094,7 +1128,9 @@ if ($response->createResult !== null) {
 
 ## getUserCompletion
 
-Get User Completion
+Retrieve a completed learning record for a user by its identifier. 
+
+This is the record of a user completing a learning object.
 
 ### Example Usage
 
@@ -1162,7 +1198,9 @@ if ($response->completionResult !== null) {
 
 ## deleteUserCompletion
 
-Delete User Completion
+Delete a completion type learning record for a user. 
+
+This is a record of a user completing a learning object.
 
 ### Example Usage
 
@@ -1230,7 +1268,7 @@ if ($response->deleteResult !== null) {
 
 ## listCompletions
 
-List Completions
+Retrieve a list of completed learning records. These are the records of a user completing learning objects.
 
 ### Example Usage
 
@@ -1304,7 +1342,7 @@ foreach ($responses as $response) {
 
 ## getCompletion
 
-Get Completion
+Retrieve a completed learning record by its identifier. This is the record of a user completing a learning object.
 
 ### Example Usage
 
@@ -1794,7 +1832,11 @@ foreach ($responses as $response) {
 
 ## listAssignments
 
-List Assignments
+Retrieve a list of assignment type learning records. 
+
+These are the records linking a user to a learning object. 
+
+They can be pending, in progress, or completed.
 
 ### Example Usage
 
@@ -1870,7 +1912,11 @@ foreach ($responses as $response) {
 
 ## getAssignment
 
-Get Assignment
+Retrieve an assignment type learning record by its identifier. 
+
+This is the record linking a user to a learning object. 
+
+It can be pending, in progress, or completed.
 
 ### Example Usage
 
