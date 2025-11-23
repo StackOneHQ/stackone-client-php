@@ -49,6 +49,7 @@ $request = new Components\ConnectSessionCreate(
         Components\Categories::Screening,
         Components\Categories::Messaging,
         Components\Categories::Accounting,
+        Components\Categories::Scheduling,
     ],
     originOwnerId: '<id>',
     originOwnerName: '<value>',
