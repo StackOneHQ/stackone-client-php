@@ -24,4 +24,5 @@ enum ConnectSessionTokenAuthLinkCategories: string
     case Screening = 'screening';
     case Messaging = 'messaging';
     case Accounting = 'accounting';
+    case Scheduling = 'scheduling';
 }
