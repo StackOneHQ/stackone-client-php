@@ -115,6 +115,14 @@ class PatchAccountExternalDto
     public ?PatchAccountExternalDtoType $type = null;
 
     /**
+     *
+     * @var ?string $integrationId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('integration_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $integrationId = null;
+
+    /**
      * @param  ?string  $provider
      * @param  ?string  $originOwnerId
      * @param  ?string  $originOwnerName
@@ -127,9 +135,10 @@ class PatchAccountExternalDto
      * @param  ?Label  $label
      * @param  ?PatchAccountExternalDtoMetadata  $metadata
      * @param  ?PatchAccountExternalDtoType  $type
+     * @param  ?string  $integrationId
      * @phpstan-pure
      */
-    public function __construct(?string $provider = null, ?string $originOwnerId = null, ?string $originOwnerName = null, ?string $originUsername = null, ?PatchAccountExternalDtoCredentials $credentials = null, ?SetupInformation $setupInformation = null, ?Secrets $secrets = null, ?string $authenticationConfigKey = null, ?string $environment = null, ?Label $label = null, ?PatchAccountExternalDtoMetadata $metadata = null, ?PatchAccountExternalDtoType $type = null)
+    public function __construct(?string $provider = null, ?string $originOwnerId = null, ?string $originOwnerName = null, ?string $originUsername = null, ?PatchAccountExternalDtoCredentials $credentials = null, ?SetupInformation $setupInformation = null, ?Secrets $secrets = null, ?string $authenticationConfigKey = null, ?string $environment = null, ?Label $label = null, ?PatchAccountExternalDtoMetadata $metadata = null, ?PatchAccountExternalDtoType $type = null, ?string $integrationId = null)
     {
         $this->provider = $provider;
         $this->originOwnerId = $originOwnerId;
@@ -143,5 +152,6 @@ class PatchAccountExternalDto
         $this->label = $label;
         $this->metadata = $metadata;
         $this->type = $type;
+        $this->integrationId = $integrationId;
     }
 }

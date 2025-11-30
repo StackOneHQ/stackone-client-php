@@ -30,6 +30,24 @@ class EmploymentManagerApiModel
     public ?string $remoteId = null;
 
     /**
+     * The manager name
+     *
+     * @var ?string $name
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $name = null;
+
+    /**
+     * The manager email
+     *
+     * @var ?string $email
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('email')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $email = null;
+
+    /**
      * The role of manager
      *
      * @var ?Role $role
@@ -42,13 +60,17 @@ class EmploymentManagerApiModel
     /**
      * @param  ?string  $id
      * @param  ?string  $remoteId
+     * @param  ?string  $name
+     * @param  ?string  $email
      * @param  ?Role  $role
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?Role $role = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?string $name = null, ?string $email = null, ?Role $role = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
+        $this->name = $name;
+        $this->email = $email;
         $this->role = $role;
     }
 }

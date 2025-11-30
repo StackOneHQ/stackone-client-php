@@ -319,3 +319,13 @@ Based on:
 - [php v0.28.3] .
 ### Releases
 - [Composer v0.28.3] https://packagist.org/packages/stackone/client-sdk#v0.28.3 - .
+
+## 2025-11-30 00:04:15
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.665.0 (2.767.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.28.4] .
+### Releases
+- [Composer v0.28.4] https://packagist.org/packages/stackone/client-sdk#v0.28.4 - .

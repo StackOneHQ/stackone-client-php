@@ -139,6 +139,15 @@ class ConnectSessionTokenAuthLink
     public ?ConnectSessionTokenAuthLinkType $type = null;
 
     /**
+     * The integration ID (UUID) associated with this connect session
+     *
+     * @var ?string $integrationId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('integration_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $integrationId = null;
+
+    /**
      * @param  float  $id
      * @param  float  $organizationId
      * @param  string  $projectId
@@ -155,9 +164,10 @@ class ConnectSessionTokenAuthLink
      * @param  ?ConnectSessionTokenAuthLinkMetadata  $metadata
      * @param  ?string  $externalTriggerToken
      * @param  ?ConnectSessionTokenAuthLinkType  $type
+     * @param  ?string  $integrationId
      * @phpstan-pure
      */
-    public function __construct(float $id, float $organizationId, string $projectId, string $originOwnerId, string $originOwnerName, \DateTime $createdAt, string $token, string $authLinkUrl, ?array $categories = null, ?string $provider = null, ?string $originUsername = null, ?string $accountId = null, ?string $label = null, ?ConnectSessionTokenAuthLinkMetadata $metadata = null, ?string $externalTriggerToken = null, ?ConnectSessionTokenAuthLinkType $type = null)
+    public function __construct(float $id, float $organizationId, string $projectId, string $originOwnerId, string $originOwnerName, \DateTime $createdAt, string $token, string $authLinkUrl, ?array $categories = null, ?string $provider = null, ?string $originUsername = null, ?string $accountId = null, ?string $label = null, ?ConnectSessionTokenAuthLinkMetadata $metadata = null, ?string $externalTriggerToken = null, ?ConnectSessionTokenAuthLinkType $type = null, ?string $integrationId = null)
     {
         $this->id = $id;
         $this->organizationId = $organizationId;
@@ -175,5 +185,6 @@ class ConnectSessionTokenAuthLink
         $this->metadata = $metadata;
         $this->externalTriggerToken = $externalTriggerToken;
         $this->type = $type;
+        $this->integrationId = $integrationId;
     }
 }

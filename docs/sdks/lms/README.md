@@ -14,7 +14,6 @@
 * [listContent](#listcontent) - List Content
 * [upsertContent](#upsertcontent) - Upsert External Linking Learning Objects
 * [getContent](#getcontent) - Get Content
-* [updateContent](#updatecontent) - Update External Linking Learning Objects
 * [listUserCompletions](#listusercompletions) - List User Completions
 * [createUserCompletion](#createusercompletion) - Create User Completion
 * [getUserCompletion](#getusercompletion) - Get User Completion
@@ -418,6 +417,8 @@ if ($response->assignmentResult !== null) {
 
 Batch upsert multiple external linking learning objects that redirect users to a provider platform for consumption and progress tracking. 
 
+**Note:** Partial updates are not supported. When updating content, you must provide all the same fields that are required when creating content. 
+
 See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
 
 ### Example Usage
@@ -636,6 +637,8 @@ foreach ($responses as $response) {
 
 Create or update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
 
+**Note:** Partial updates are not supported. When updating content, you must provide all the same fields that are required when creating content. 
+
 See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
 
 ### Example Usage
@@ -821,136 +824,6 @@ if ($response->contentResult !== null) {
 ### Response
 
 **[?Operations\LmsGetContentResponse](../../Models/Operations/LmsGetContentResponse.md)**
-
-### Errors
-
-| Error Type                         | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| Errors\BadRequestResponse          | 400                                | application/json                   |
-| Errors\UnauthorizedResponse        | 401                                | application/json                   |
-| Errors\ForbiddenResponse           | 403                                | application/json                   |
-| Errors\NotFoundResponse            | 404                                | application/json                   |
-| Errors\RequestTimedOutResponse     | 408                                | application/json                   |
-| Errors\ConflictResponse            | 409                                | application/json                   |
-| Errors\PreconditionFailedResponse  | 412                                | application/json                   |
-| Errors\UnprocessableEntityResponse | 422                                | application/json                   |
-| Errors\TooManyRequestsResponse     | 429                                | application/json                   |
-| Errors\InternalServerErrorResponse | 500                                | application/json                   |
-| Errors\NotImplementedResponse      | 501                                | application/json                   |
-| Errors\BadGatewayResponse          | 502                                | application/json                   |
-| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
-
-## updateContent
-
-Update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
-
-See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
-
-### Example Usage
-
-<!-- UsageSnippet language="php" operationID="lms_update_content" method="patch" path="/unified/lms/content/{id}" -->
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use StackOne\client;
-use StackOne\client\Models\Components;
-use StackOne\client\Utils;
-
-$sdk = client\StackOne::builder()
-    ->setSecurity(
-        new Components\Security(
-            username: '',
-            password: '',
-        )
-    )
-    ->build();
-
-$lmsCreateContentRequestDto = new Components\LmsCreateContentRequestDto(
-    unifiedCustomFields: [
-        'my_project_custom_field_1' => 'REF-1236',
-        'my_project_custom_field_2' => 'some other value',
-    ],
-    title: 'Software Engineer Lv 1',
-    description: 'This video acts as learning content for software engineers.',
-    languages: [
-        new Components\LanguageEnum(
-            value: Components\LanguageEnumValue::EnGB,
-        ),
-    ],
-    contentUrl: 'https://www.youtube.com/watch?v=16873',
-    mobileLaunchContentUrl: 'https://www.mobile.youtube.com/watch?v=16873',
-    coverUrl: 'https://www.googledrive.com/?v=16873',
-    active: true,
-    duration: 'P3Y6M4DT12H30M5S',
-    skills: [
-        new Components\CreateSkillsApiModel(
-            id: '12345',
-            name: 'Sales Techniques',
-        ),
-    ],
-    order: 1,
-    localizations: [
-        new Components\LocalizationModel(
-            title: 'Software Engineer Lv 1',
-            description: 'This course acts as learning resource for software engineers.',
-        ),
-        new Components\LocalizationModel(
-            title: 'Software Engineer Lv 1',
-            description: 'This video acts as learning content for software engineers.',
-        ),
-    ],
-    tags: [
-        'Sales Techniques',
-        'Customer Service',
-    ],
-    authors: [
-        new Components\AuthorModel(
-            id: '123',
-            name: 'John Doe',
-        ),
-    ],
-    updatedAt: Utils\Utils::parseDateTime('2021-07-21T14:00:00.000Z'),
-    createdAt: Utils\Utils::parseDateTime('2021-07-21T14:00:00.000Z'),
-    externalReference: 'SOFTWARE-ENG-LV1-TRAINING-VIDEO-1',
-    categories: [
-        new Components\CreateCategoriesApiModel(
-            name: 'Technology',
-        ),
-    ],
-    additionalData: [
-        new Components\AdditionalData(
-            id: 'learning_outcomes',
-            remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-            value: 'This is additional data',
-        ),
-    ],
-);
-
-$response = $sdk->lms->updateContent(
-    xAccountId: '<id>',
-    id: '<id>',
-    lmsCreateContentRequestDto: $lmsCreateContentRequestDto
-
-);
-
-if ($response->updateResult !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                   | *string*                                                                                       | :heavy_check_mark:                                                                             | The account identifier                                                                         |
-| `id`                                                                                           | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `lmsCreateContentRequestDto`                                                                   | [Components\LmsCreateContentRequestDto](../../Models/Components/LmsCreateContentRequestDto.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
-
-### Response
-
-**[?Operations\LmsUpdateContentResponse](../../Models/Operations/LmsUpdateContentResponse.md)**
 
 ### Errors
 

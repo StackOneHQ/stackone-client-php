@@ -47,6 +47,8 @@
 * [getApplicationStage](#getapplicationstage) - Get Application Stage
 * [listInterviews](#listinterviews) - List Interviews
 * [getInterview](#getinterview) - Get Interview
+* [createInterviewNote](#createinterviewnote) - Create Interview Note
+* [updateInterviewNote](#updateinterviewnote) - Update Interview Note
 * [listJobs](#listjobs) - List Jobs
 * [createJob](#createjob) - Create Job
 * [listJobApplicationStages](#listjobapplicationstages) - List Job Application Stages
@@ -3293,6 +3295,172 @@ if ($response->interviewsResult !== null) {
 ### Response
 
 **[?Operations\AtsGetInterviewResponse](../../Models/Operations/AtsGetInterviewResponse.md)**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\BadRequestResponse          | 400                                | application/json                   |
+| Errors\UnauthorizedResponse        | 401                                | application/json                   |
+| Errors\ForbiddenResponse           | 403                                | application/json                   |
+| Errors\NotFoundResponse            | 404                                | application/json                   |
+| Errors\RequestTimedOutResponse     | 408                                | application/json                   |
+| Errors\ConflictResponse            | 409                                | application/json                   |
+| Errors\PreconditionFailedResponse  | 412                                | application/json                   |
+| Errors\UnprocessableEntityResponse | 422                                | application/json                   |
+| Errors\TooManyRequestsResponse     | 429                                | application/json                   |
+| Errors\InternalServerErrorResponse | 500                                | application/json                   |
+| Errors\NotImplementedResponse      | 501                                | application/json                   |
+| Errors\BadGatewayResponse          | 502                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
+
+## createInterviewNote
+
+Create Interview Note
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="ats_create_interview_note" method="post" path="/unified/ats/interviews/{id}/notes" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+
+$sdk = client\StackOne::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$atsCreateNotesRequestDto = new Components\AtsCreateNotesRequestDto(
+    content: [
+        new Components\NoteContentApiModel(
+            body: 'This candidate seems like a good fit for the role',
+        ),
+    ],
+    authorId: '1234567890',
+    visibility: new Components\AtsCreateNotesRequestDtoVisibility(
+        value: Components\AtsCreateNotesRequestDtoValue::Public,
+        sourceValue: 'Public',
+    ),
+    passthrough: [
+        'other_known_names' => 'John Doe',
+    ],
+);
+
+$response = $sdk->ats->createInterviewNote(
+    xAccountId: '<id>',
+    id: '<id>',
+    atsCreateNotesRequestDto: $atsCreateNotesRequestDto
+
+);
+
+if ($response->createResult !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                               | *string*                                                                                   | :heavy_check_mark:                                                                         | The account identifier                                                                     |
+| `id`                                                                                       | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `atsCreateNotesRequestDto`                                                                 | [Components\AtsCreateNotesRequestDto](../../Models/Components/AtsCreateNotesRequestDto.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |
+
+### Response
+
+**[?Operations\AtsCreateInterviewNoteResponse](../../Models/Operations/AtsCreateInterviewNoteResponse.md)**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\BadRequestResponse          | 400                                | application/json                   |
+| Errors\UnauthorizedResponse        | 401                                | application/json                   |
+| Errors\ForbiddenResponse           | 403                                | application/json                   |
+| Errors\NotFoundResponse            | 404                                | application/json                   |
+| Errors\RequestTimedOutResponse     | 408                                | application/json                   |
+| Errors\ConflictResponse            | 409                                | application/json                   |
+| Errors\PreconditionFailedResponse  | 412                                | application/json                   |
+| Errors\UnprocessableEntityResponse | 422                                | application/json                   |
+| Errors\TooManyRequestsResponse     | 429                                | application/json                   |
+| Errors\InternalServerErrorResponse | 500                                | application/json                   |
+| Errors\NotImplementedResponse      | 501                                | application/json                   |
+| Errors\BadGatewayResponse          | 502                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
+
+## updateInterviewNote
+
+Update Interview Note
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="ats_update_interview_note" method="patch" path="/unified/ats/interviews/{id}/notes/{subResourceId}" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+
+$sdk = client\StackOne::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$atsUpdateNotesRequestDto = new Components\AtsUpdateNotesRequestDto(
+    content: [
+        new Components\NoteContentApiModel(
+            body: 'This candidate seems like a good fit for the role',
+        ),
+    ],
+    authorId: '1234567890',
+    visibility: new Components\AtsUpdateNotesRequestDtoVisibility(
+        value: Components\AtsUpdateNotesRequestDtoValue::Public,
+        sourceValue: 'Public',
+    ),
+    passthrough: [
+        'other_known_names' => 'John Doe',
+    ],
+);
+
+$response = $sdk->ats->updateInterviewNote(
+    xAccountId: '<id>',
+    id: '<id>',
+    subResourceId: '<id>',
+    atsUpdateNotesRequestDto: $atsUpdateNotesRequestDto
+
+);
+
+if ($response->updateResult !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                               | *string*                                                                                   | :heavy_check_mark:                                                                         | The account identifier                                                                     |
+| `id`                                                                                       | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `subResourceId`                                                                            | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `atsUpdateNotesRequestDto`                                                                 | [Components\AtsUpdateNotesRequestDto](../../Models/Components/AtsUpdateNotesRequestDto.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |
+
+### Response
+
+**[?Operations\AtsUpdateInterviewNoteResponse](../../Models/Operations/AtsUpdateInterviewNoteResponse.md)**
 
 ### Errors
 
