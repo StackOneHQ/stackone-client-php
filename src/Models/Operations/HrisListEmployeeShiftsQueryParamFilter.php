@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Operations;
 
 use StackOne\client\Utils\SpeakeasyMetadata;
-/** HrisListEmployeeShiftsQueryParamFilter - HRIS Shifts filters */
+/** HrisListEmployeeShiftsQueryParamFilter - HRIS Employee Shifts filters */
 class HrisListEmployeeShiftsQueryParamFilter
 {
     /**

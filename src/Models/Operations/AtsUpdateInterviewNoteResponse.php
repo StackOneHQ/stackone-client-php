@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace StackOne\client\Models\Operations;
 
 use StackOne\client\Models\Components;
-class LmsUpdateContentResponse
+class AtsUpdateInterviewNoteResponse
 {
     /**
      * HTTP response content type for this operation
@@ -40,7 +40,7 @@ class LmsUpdateContentResponse
     public array $headers;
 
     /**
-     * The content was updated successfully.
+     * Record updated successfully.
      *
      * @var ?Components\UpdateResult $updateResult
      */
