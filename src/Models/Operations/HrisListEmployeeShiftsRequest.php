@@ -51,7 +51,7 @@ class HrisListEmployeeShiftsRequest
     public ?string $fields = null;
 
     /**
-     * HRIS Shifts filters
+     * HRIS Employee Shifts filters
      *
      * @var ?HrisListEmployeeShiftsQueryParamFilter $filter
      */

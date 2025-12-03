@@ -10,7 +10,7 @@ namespace StackOne\client\Models\Operations;
 
 use StackOne\client\Models\Components;
 use StackOne\client\Utils\SpeakeasyMetadata;
-class LmsUpdateContentRequest
+class AtsUpdateInterviewNoteRequest
 {
     /**
      * The account identifier
@@ -29,21 +29,30 @@ class LmsUpdateContentRequest
 
     /**
      *
-     * @var Components\LmsCreateContentRequestDto $lmsCreateContentRequestDto
+     * @var string $subResourceId
+     */
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=subResourceId')]
+    public string $subResourceId;
+
+    /**
+     *
+     * @var Components\AtsUpdateNotesRequestDto $atsUpdateNotesRequestDto
      */
     #[SpeakeasyMetadata('request:mediaType=application/json')]
-    public Components\LmsCreateContentRequestDto $lmsCreateContentRequestDto;
+    public Components\AtsUpdateNotesRequestDto $atsUpdateNotesRequestDto;
 
     /**
      * @param  string  $xAccountId
      * @param  string  $id
-     * @param  Components\LmsCreateContentRequestDto  $lmsCreateContentRequestDto
+     * @param  string  $subResourceId
+     * @param  Components\AtsUpdateNotesRequestDto  $atsUpdateNotesRequestDto
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, Components\LmsCreateContentRequestDto $lmsCreateContentRequestDto)
+    public function __construct(string $xAccountId, string $id, string $subResourceId, Components\AtsUpdateNotesRequestDto $atsUpdateNotesRequestDto)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
-        $this->lmsCreateContentRequestDto = $lmsCreateContentRequestDto;
+        $this->subResourceId = $subResourceId;
+        $this->atsUpdateNotesRequestDto = $atsUpdateNotesRequestDto;
     }
 }

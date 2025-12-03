@@ -93,6 +93,15 @@ class ConnectSessionCreate
     public ?string $label = null;
 
     /**
+     * The integration ID associated with this connect session
+     *
+     * @var ?string $integrationId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('integration_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $integrationId = null;
+
+    /**
      * How long the session should be valid for in seconds
      *
      * @var ?float $expiresIn
@@ -133,9 +142,10 @@ class ConnectSessionCreate
      * @param  ?bool  $multiple
      * @param  ?string  $label
      * @param  ?Type  $type
+     * @param  ?string  $integrationId
      * @phpstan-pure
      */
-    public function __construct(string $originOwnerId, string $originOwnerName, ?array $categories = null, ?string $provider = null, ?string $providerVersion = null, ?string $originUsername = null, ?string $accountId = null, ?Metadata $metadata = null, ?string $label = null, ?float $expiresIn = 1800, ?bool $multiple = false, ?Type $type = Type::Production)
+    public function __construct(string $originOwnerId, string $originOwnerName, ?array $categories = null, ?string $provider = null, ?string $providerVersion = null, ?string $originUsername = null, ?string $accountId = null, ?Metadata $metadata = null, ?string $label = null, ?string $integrationId = null, ?float $expiresIn = 1800, ?bool $multiple = false, ?Type $type = Type::Production)
     {
         $this->originOwnerId = $originOwnerId;
         $this->originOwnerName = $originOwnerName;
@@ -146,6 +156,7 @@ class ConnectSessionCreate
         $this->accountId = $accountId;
         $this->metadata = $metadata;
         $this->label = $label;
+        $this->integrationId = $integrationId;
         $this->expiresIn = $expiresIn;
         $this->multiple = $multiple;
         $this->type = $type;

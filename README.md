@@ -68,11 +68,11 @@ $sdk = client\StackOne::builder()
 
 $request = new Operations\HrisListEmployeesRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,title,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,manager,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,bank_details,skills,unified_custom_fields',
+    fields: 'id,remote_id,title,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,bank_details,skills,unified_custom_fields',
     filter: new Operations\HrisListEmployeesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
-    expand: 'company,employments,work_location,home_location,groups,skills,manager',
+    expand: 'company,employments,work_location,home_location,groups,skills',
     include: 'avatar_url,avatar,custom_fields,job_description,benefits,bank_details',
 );
 
@@ -259,6 +259,8 @@ if ($response->statusCode === 200) {
 * [getApplicationStage](docs/sdks/ats/README.md#getapplicationstage) - Get Application Stage
 * [listInterviews](docs/sdks/ats/README.md#listinterviews) - List Interviews
 * [getInterview](docs/sdks/ats/README.md#getinterview) - Get Interview
+* [createInterviewNote](docs/sdks/ats/README.md#createinterviewnote) - Create Interview Note
+* [updateInterviewNote](docs/sdks/ats/README.md#updateinterviewnote) - Update Interview Note
 * [listJobs](docs/sdks/ats/README.md#listjobs) - List Jobs
 * [createJob](docs/sdks/ats/README.md#createjob) - Create Job
 * [listJobApplicationStages](docs/sdks/ats/README.md#listjobapplicationstages) - List Job Application Stages
@@ -427,7 +429,6 @@ if ($response->statusCode === 200) {
 * [listContent](docs/sdks/lms/README.md#listcontent) - List Content
 * [upsertContent](docs/sdks/lms/README.md#upsertcontent) - Upsert External Linking Learning Objects
 * [getContent](docs/sdks/lms/README.md#getcontent) - Get Content
-* [updateContent](docs/sdks/lms/README.md#updatecontent) - Update External Linking Learning Objects
 * [listUserCompletions](docs/sdks/lms/README.md#listusercompletions) - List User Completions
 * [createUserCompletion](docs/sdks/lms/README.md#createusercompletion) - Create User Completion
 * [getUserCompletion](docs/sdks/lms/README.md#getusercompletion) - Get User Completion
