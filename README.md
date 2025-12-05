@@ -10,7 +10,7 @@
 <!-- Start Summary [summary] -->
 ## Summary
 
-Accounting: The documentation for the StackOne Unified API - ACCOUNTING
+The documentation for the StackOne Unified API
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
