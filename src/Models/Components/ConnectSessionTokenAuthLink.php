@@ -20,10 +20,11 @@ class ConnectSessionTokenAuthLink
 
     /**
      *
-     * @var float $organizationId
+     * @var string|int $organizationId
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('organization_id')]
-    public float $organizationId;
+    #[\Speakeasy\Serializer\Annotation\Type('string|int')]
+    public string|int $organizationId;
 
     /**
      *
@@ -149,7 +150,7 @@ class ConnectSessionTokenAuthLink
 
     /**
      * @param  float  $id
-     * @param  float  $organizationId
+     * @param  string|int  $organizationId
      * @param  string  $projectId
      * @param  string  $originOwnerId
      * @param  string  $originOwnerName
@@ -167,7 +168,7 @@ class ConnectSessionTokenAuthLink
      * @param  ?string  $integrationId
      * @phpstan-pure
      */
-    public function __construct(float $id, float $organizationId, string $projectId, string $originOwnerId, string $originOwnerName, \DateTime $createdAt, string $token, string $authLinkUrl, ?array $categories = null, ?string $provider = null, ?string $originUsername = null, ?string $accountId = null, ?string $label = null, ?ConnectSessionTokenAuthLinkMetadata $metadata = null, ?string $externalTriggerToken = null, ?ConnectSessionTokenAuthLinkType $type = null, ?string $integrationId = null)
+    public function __construct(float $id, string|int $organizationId, string $projectId, string $originOwnerId, string $originOwnerName, \DateTime $createdAt, string $token, string $authLinkUrl, ?array $categories = null, ?string $provider = null, ?string $originUsername = null, ?string $accountId = null, ?string $label = null, ?ConnectSessionTokenAuthLinkMetadata $metadata = null, ?string $externalTriggerToken = null, ?ConnectSessionTokenAuthLinkType $type = null, ?string $integrationId = null)
     {
         $this->id = $id;
         $this->organizationId = $organizationId;

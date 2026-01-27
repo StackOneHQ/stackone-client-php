@@ -13,6 +13,7 @@ namespace StackOne\client\Models\Operations;
 enum QueryParamStatus: string
 {
     case Open = 'open';
+    case Draft = 'draft';
     case Closed = 'closed';
     case Paused = 'paused';
     case UnmappedValue = 'unmapped_value';

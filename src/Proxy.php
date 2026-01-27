@@ -52,10 +52,11 @@ class Proxy
      *
      * @param  Components\ProxyRequestBody  $proxyRequestBody
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\StackoneProxyRequestResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function proxyRequest(Components\ProxyRequestBody $proxyRequestBody, string $xAccountId, ?Options $options = null): Operations\StackoneProxyRequestResponse
+    public function proxyRequest(Components\ProxyRequestBody $proxyRequestBody, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\StackoneProxyRequestResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -85,6 +86,7 @@ class Proxy
         $request = new Operations\StackoneProxyRequestRequest(
             xAccountId: $xAccountId,
             proxyRequestBody: $proxyRequestBody,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/proxy');

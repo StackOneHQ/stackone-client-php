@@ -35,15 +35,25 @@ class AccountingCreateCompanyJournalRequest
     public Components\AccountingJournalCreateRequestDto $accountingJournalCreateRequestDto;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  Components\AccountingJournalCreateRequestDto  $accountingJournalCreateRequestDto
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, Components\AccountingJournalCreateRequestDto $accountingJournalCreateRequestDto)
+    public function __construct(string $xAccountId, string $id, Components\AccountingJournalCreateRequestDto $accountingJournalCreateRequestDto, ?string $prefer = null)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
         $this->accountingJournalCreateRequestDto = $accountingJournalCreateRequestDto;
+        $this->prefer = $prefer;
     }
 }

@@ -1,5 +1,4 @@
 # Documents
-(*documents*)
 
 ## Overview
 
@@ -44,6 +43,7 @@ $request = new Operations\DocumentsDownloadFileRequest(
     id: '<id>',
     format: 'base64',
     exportFormat: 'text/plain',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->documents->downloadFile(
@@ -128,7 +128,8 @@ $unifiedUploadRequestDto = new Components\UnifiedUploadRequestDto(
 
 $response = $sdk->documents->uploadFile(
     xAccountId: '<id>',
-    unifiedUploadRequestDto: $unifiedUploadRequestDto
+    unifiedUploadRequestDto: $unifiedUploadRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -139,11 +140,12 @@ if ($response->writeResultApiModel !== null) {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                             | *string*                                                                                 | :heavy_check_mark:                                                                       | The account identifier                                                                   |
-| `unifiedUploadRequestDto`                                                                | [Components\UnifiedUploadRequestDto](../../Models/Components/UnifiedUploadRequestDto.md) | :heavy_check_mark:                                                                       | N/A                                                                                      |
-| `xStackoneApiSessionToken`                                                               | *?string*                                                                                | :heavy_minus_sign:                                                                       | The session token                                                                        |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `unifiedUploadRequestDto`                                                                                                                                                | [Components\UnifiedUploadRequestDto](../../Models/Components/UnifiedUploadRequestDto.md)                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `xStackoneApiSessionToken`                                                                                                                                               | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | The session token                                                                                                                                                        |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -207,6 +209,7 @@ $request = new Operations\DocumentsListFilesRequest(
     folderId: '1234567890',
     nestedItems: 'true',
     include: 'all_parent_folder_ids',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->documents->listFiles(
@@ -279,6 +282,7 @@ $request = new Operations\DocumentsGetFileRequest(
     id: '<id>',
     fields: 'id,remote_id,name,description,url,size,file_format,path,owner_id,remote_owner_id,folder_id,remote_folder_id,drive_id,remote_drive_id,export_formats,default_download_format,created_at,updated_at,has_content,has_children,all_parent_folder_ids,remote_all_parent_folder_ids,unified_custom_fields',
     include: 'all_parent_folder_ids',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->documents->getFile(
@@ -355,6 +359,7 @@ $request = new Operations\DocumentsListFoldersRequest(
     folderId: '1234567890',
     nestedItems: 'true',
     include: 'all_parent_folder_ids',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->documents->listFolders(
@@ -427,6 +432,7 @@ $request = new Operations\DocumentsGetFolderRequest(
     id: '<id>',
     fields: 'id,remote_id,name,description,url,size,path,owner_id,remote_owner_id,parent_folder_id,remote_parent_folder_id,drive_id,remote_drive_id,created_at,updated_at,has_content,has_children,is_root,all_parent_folder_ids,remote_all_parent_folder_ids,unified_custom_fields',
     include: 'all_parent_folder_ids',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->documents->getFolder(
@@ -498,6 +504,7 @@ $request = new Operations\DocumentsListDrivesRequest(
     filter: new Operations\DocumentsListDrivesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->documents->listDrives(
@@ -569,6 +576,7 @@ $request = new Operations\DocumentsGetDriveRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,description,url,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->documents->getDrive(

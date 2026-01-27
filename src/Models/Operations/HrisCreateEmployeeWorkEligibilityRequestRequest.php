@@ -35,15 +35,25 @@ class HrisCreateEmployeeWorkEligibilityRequestRequest
     public Components\HrisCreateWorkEligibilityRequestDto $hrisCreateWorkEligibilityRequestDto;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $id
      * @param  string  $xAccountId
      * @param  Components\HrisCreateWorkEligibilityRequestDto  $hrisCreateWorkEligibilityRequestDto
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $id, string $xAccountId, Components\HrisCreateWorkEligibilityRequestDto $hrisCreateWorkEligibilityRequestDto)
+    public function __construct(string $id, string $xAccountId, Components\HrisCreateWorkEligibilityRequestDto $hrisCreateWorkEligibilityRequestDto, ?string $prefer = null)
     {
         $this->id = $id;
         $this->xAccountId = $xAccountId;
         $this->hrisCreateWorkEligibilityRequestDto = $hrisCreateWorkEligibilityRequestDto;
+        $this->prefer = $prefer;
     }
 }

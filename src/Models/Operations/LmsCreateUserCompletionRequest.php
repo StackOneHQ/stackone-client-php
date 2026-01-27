@@ -35,15 +35,25 @@ class LmsCreateUserCompletionRequest
     public Components\LmsCreateCompletionRequestDto $lmsCreateCompletionRequestDto;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  Components\LmsCreateCompletionRequestDto  $lmsCreateCompletionRequestDto
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, Components\LmsCreateCompletionRequestDto $lmsCreateCompletionRequestDto)
+    public function __construct(string $xAccountId, string $id, Components\LmsCreateCompletionRequestDto $lmsCreateCompletionRequestDto, ?string $prefer = null)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
         $this->lmsCreateCompletionRequestDto = $lmsCreateCompletionRequestDto;
+        $this->prefer = $prefer;
     }
 }

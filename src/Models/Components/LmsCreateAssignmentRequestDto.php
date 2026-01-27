@@ -58,13 +58,13 @@ class LmsCreateAssignmentRequestDto
     public ?float $progress = null;
 
     /**
-     * The date the assignment was created
+     * The date the assignment was assigned
      *
-     * @var ?\DateTime $createdAt
+     * @var ?\DateTime $assignedAt
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('created_at')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('assigned_at')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $createdAt = null;
+    public ?\DateTime $assignedAt = null;
 
     /**
      * The date the assignment is due to be completed
@@ -91,19 +91,19 @@ class LmsCreateAssignmentRequestDto
      * @param  ?string  $externalReference
      * @param  ?string  $learningObjectId
      * @param  ?float  $progress
-     * @param  ?\DateTime  $createdAt
+     * @param  ?\DateTime  $assignedAt
      * @param  ?\DateTime  $dueDate
      * @param  ?LmsCreateAssignmentRequestDtoStatus  $status
      * @phpstan-pure
      */
-    public function __construct(string $learningObjectExternalReference, ?array $passthrough = null, ?string $externalReference = null, ?string $learningObjectId = null, ?float $progress = null, ?\DateTime $createdAt = null, ?\DateTime $dueDate = null, ?LmsCreateAssignmentRequestDtoStatus $status = null)
+    public function __construct(string $learningObjectExternalReference, ?array $passthrough = null, ?string $externalReference = null, ?string $learningObjectId = null, ?float $progress = null, ?\DateTime $assignedAt = null, ?\DateTime $dueDate = null, ?LmsCreateAssignmentRequestDtoStatus $status = null)
     {
         $this->learningObjectExternalReference = $learningObjectExternalReference;
         $this->passthrough = $passthrough;
         $this->externalReference = $externalReference;
         $this->learningObjectId = $learningObjectId;
         $this->progress = $progress;
-        $this->createdAt = $createdAt;
+        $this->assignedAt = $assignedAt;
         $this->dueDate = $dueDate;
         $this->status = $status;
     }

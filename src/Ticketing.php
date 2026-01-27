@@ -54,10 +54,11 @@ class Ticketing
      *
      * @param  Components\TicketingTicketCreateRequestDto  $ticketingTicketCreateRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\TicketingCreateTicketResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createTicket(Components\TicketingTicketCreateRequestDto $ticketingTicketCreateRequestDto, string $xAccountId, ?Options $options = null): Operations\TicketingCreateTicketResponse
+    public function createTicket(Components\TicketingTicketCreateRequestDto $ticketingTicketCreateRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\TicketingCreateTicketResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -87,6 +88,7 @@ class Ticketing
         $request = new Operations\TicketingCreateTicketRequest(
             xAccountId: $xAccountId,
             ticketingTicketCreateRequestDto: $ticketingTicketCreateRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ticketing/tickets');
@@ -2181,6 +2183,7 @@ class Ticketing
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -2453,6 +2456,7 @@ class Ticketing
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -2725,6 +2729,7 @@ class Ticketing
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -2997,6 +3002,7 @@ class Ticketing
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -3268,6 +3274,7 @@ class Ticketing
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -3540,6 +3547,7 @@ class Ticketing
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -3811,6 +3819,7 @@ class Ticketing
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -4082,6 +4091,7 @@ class Ticketing
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -4353,6 +4363,7 @@ class Ticketing
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -4528,10 +4539,11 @@ class Ticketing
      * @param  Components\TicketingTicketUpdateRequestDto  $ticketingTicketUpdateRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\TicketingUpdateTicketResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateTicket(Components\TicketingTicketUpdateRequestDto $ticketingTicketUpdateRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\TicketingUpdateTicketResponse
+    public function updateTicket(Components\TicketingTicketUpdateRequestDto $ticketingTicketUpdateRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\TicketingUpdateTicketResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -4562,6 +4574,7 @@ class Ticketing
             xAccountId: $xAccountId,
             id: $id,
             ticketingTicketUpdateRequestDto: $ticketingTicketUpdateRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ticketing/tickets/{id}', Operations\TicketingUpdateTicketRequest::class, $request);

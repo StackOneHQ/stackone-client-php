@@ -1,5 +1,4 @@
 # Ticketing
-(*ticketing*)
 
 ## Overview
 
@@ -57,6 +56,7 @@ $request = new Operations\TicketingListTicketsRequest(
     filter: new Operations\TicketingListTicketsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->ticketing->listTickets(
@@ -162,7 +162,8 @@ $ticketingTicketCreateRequestDto = new Components\TicketingTicketCreateRequestDt
 
 $response = $sdk->ticketing->createTicket(
     xAccountId: '<id>',
-    ticketingTicketCreateRequestDto: $ticketingTicketCreateRequestDto
+    ticketingTicketCreateRequestDto: $ticketingTicketCreateRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -173,10 +174,11 @@ if ($response->createResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                             | *string*                                                                                                 | :heavy_check_mark:                                                                                       | The account identifier                                                                                   |
-| `ticketingTicketCreateRequestDto`                                                                        | [Components\TicketingTicketCreateRequestDto](../../Models/Components/TicketingTicketCreateRequestDto.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `ticketingTicketCreateRequestDto`                                                                                                                                        | [Components\TicketingTicketCreateRequestDto](../../Models/Components/TicketingTicketCreateRequestDto.md)                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -229,6 +231,7 @@ $request = new Operations\TicketingGetTicketRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,type,ticket_number,title,creator_id,remote_creator_id,reporters,assignees,content,parent_id,remote_parent_id,closed_at,ticket_url,status,priority,tags,projects,components,organization,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->ticketing->getTicket(
@@ -337,7 +340,8 @@ $ticketingTicketUpdateRequestDto = new Components\TicketingTicketUpdateRequestDt
 $response = $sdk->ticketing->updateTicket(
     xAccountId: '<id>',
     id: '<id>',
-    ticketingTicketUpdateRequestDto: $ticketingTicketUpdateRequestDto
+    ticketingTicketUpdateRequestDto: $ticketingTicketUpdateRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -348,11 +352,12 @@ if ($response->updateResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                             | *string*                                                                                                 | :heavy_check_mark:                                                                                       | The account identifier                                                                                   |
-| `id`                                                                                                     | *string*                                                                                                 | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
-| `ticketingTicketUpdateRequestDto`                                                                        | [Components\TicketingTicketUpdateRequestDto](../../Models/Components/TicketingTicketUpdateRequestDto.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `ticketingTicketUpdateRequestDto`                                                                                                                                        | [Components\TicketingTicketUpdateRequestDto](../../Models/Components/TicketingTicketUpdateRequestDto.md)                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -408,6 +413,7 @@ $request = new Operations\TicketingListUsersRequest(
     filter: new Operations\TicketingListUsersQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->ticketing->listUsers(
@@ -479,6 +485,7 @@ $request = new Operations\TicketingGetUserRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,type,name,primary_email,primary_phone,username,active,first_name,last_name,customer_account_reference,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->ticketing->getUser(
@@ -551,6 +558,7 @@ $request = new Operations\TicketingListCommentsRequest(
     filter: new Operations\TicketingListCommentsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->ticketing->listComments(
@@ -623,6 +631,7 @@ $request = new Operations\TicketingGetCommentRequest(
     id: '<id>',
     subResourceId: '<id>',
     fields: 'id,remote_id,ticket_id,remote_ticket_id,content,user_id,remote_user_id,internal,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->ticketing->getComment(
@@ -693,6 +702,7 @@ $request = new Operations\TicketingDownloadTicketingAttachmentRequest(
     subResourceId: '<id>',
     format: 'base64',
     exportFormat: 'text/plain',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->ticketing->downloadTicketingAttachment(
@@ -765,6 +775,7 @@ $request = new Operations\TicketingListAttachmentsRequest(
     filter: new Operations\TicketingListAttachmentsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->ticketing->listAttachments(
@@ -837,6 +848,7 @@ $request = new Operations\TicketingGetAttachmentRequest(
     id: '<id>',
     subResourceId: '<id>',
     fields: 'id,remote_id,ticket_id,remote_ticket_id,user_id,remote_user_id,file_name,file_format,file_url,size,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->ticketing->getAttachment(
@@ -908,6 +920,7 @@ $request = new Operations\TicketingListTicketTypesRequest(
     filter: new Operations\TicketingListTicketTypesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->ticketing->listTicketTypes(
@@ -979,6 +992,7 @@ $request = new Operations\TicketingGetTicketTypeRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,project_id,remote_project_id,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->ticketing->getTicketType(
@@ -1050,6 +1064,7 @@ $request = new Operations\TicketingListProjectsRequest(
     filter: new Operations\TicketingListProjectsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->ticketing->listProjects(
@@ -1121,6 +1136,7 @@ $request = new Operations\TicketingGetProjectRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,organization_id,remote_organization_id,name,description,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->ticketing->getProject(
@@ -1190,6 +1206,7 @@ $request = new Operations\TicketingListProjectComponentsRequest(
     id: '<id>',
     fields: 'id,remote_id,organization_id,remote_organization_id,project_id,remote_project_id,name,description,created_at,updated_at,unified_custom_fields',
     filter: null,
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->ticketing->listProjectComponents(
@@ -1262,6 +1279,7 @@ $request = new Operations\TicketingGetProjectComponentRequest(
     id: '<id>',
     subResourceId: '<id>',
     fields: 'id,remote_id,organization_id,remote_organization_id,project_id,remote_project_id,name,description,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->ticketing->getProjectComponent(
@@ -1334,6 +1352,7 @@ $request = new Operations\TicketingListProjectTicketTypesRequest(
     filter: new Operations\TicketingListProjectTicketTypesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->ticketing->listProjectTicketTypes(
@@ -1408,6 +1427,7 @@ $request = new Operations\TicketingListTicketStatusesRequest(
     filter: new Operations\TicketingListTicketStatusesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->ticketing->listTicketStatuses(

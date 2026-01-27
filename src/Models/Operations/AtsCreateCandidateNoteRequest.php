@@ -35,15 +35,25 @@ class AtsCreateCandidateNoteRequest
     public Components\AtsCreateNotesRequestDto $atsCreateNotesRequestDto;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  Components\AtsCreateNotesRequestDto  $atsCreateNotesRequestDto
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, Components\AtsCreateNotesRequestDto $atsCreateNotesRequestDto)
+    public function __construct(string $xAccountId, string $id, Components\AtsCreateNotesRequestDto $atsCreateNotesRequestDto, ?string $prefer = null)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
         $this->atsCreateNotesRequestDto = $atsCreateNotesRequestDto;
+        $this->prefer = $prefer;
     }
 }

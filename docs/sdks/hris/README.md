@@ -1,5 +1,4 @@
 # Hris
-(*hris*)
 
 ## Overview
 
@@ -19,8 +18,8 @@
 * [listEmployeeTimeOffRequests](#listemployeetimeoffrequests) - List Employee Time Off Requests
 * [createEmployeeTimeOffRequest](#createemployeetimeoffrequest) - Create Employee Time Off Request
 * [getEmployeesTimeOffRequest](#getemployeestimeoffrequest) - Get Employees Time Off Request
-* [cancelEmployeeTimeOffRequest](#cancelemployeetimeoffrequest) - Cancel Employee Time Off Request
 * [updateEmployeeTimeOffRequest](#updateemployeetimeoffrequest) - Update Employee Time Off Request
+* [cancelEmployeeTimeOffRequest](#cancelemployeetimeoffrequest) - Cancel Employee Time Off Request
 * [batchUploadEmployeeDocument](#batchuploademployeedocument) - Batch Upload Employee Document
 * [uploadEmployeeDocument](#uploademployeedocument) - Upload Employee Document
 * [downloadEmployeeDocument](#downloademployeedocument) - Download Employee Document
@@ -112,6 +111,7 @@ $request = new Operations\HrisListCompaniesRequest(
     filter: new Operations\HrisListCompaniesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listCompanies(
@@ -183,6 +183,7 @@ $request = new Operations\HrisGetCompanyRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,full_name,display_name,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getCompany(
@@ -254,6 +255,7 @@ $request = new Operations\HrisListEmployeeCustomFieldDefinitionsRequest(
     filter: new Operations\HrisListEmployeeCustomFieldDefinitionsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listEmployeeCustomFieldDefinitions(
@@ -329,6 +331,7 @@ $request = new Operations\HrisGetEmployeeCustomFieldDefinitionRequest(
     filter: new Operations\HrisGetEmployeeCustomFieldDefinitionQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getEmployeeCustomFieldDefinition(
@@ -402,6 +405,7 @@ $request = new Operations\HrisListEmployeesRequest(
     ),
     expand: 'company,employments,work_location,home_location,groups,skills',
     include: 'avatar_url,avatar,custom_fields,job_description,benefits,bank_details',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listEmployees(
@@ -568,7 +572,8 @@ $hrisCreateEmployeeRequestDto = new Components\HrisCreateEmployeeRequestDto(
 
 $response = $sdk->hris->createEmployee(
     xAccountId: '<id>',
-    hrisCreateEmployeeRequestDto: $hrisCreateEmployeeRequestDto
+    hrisCreateEmployeeRequestDto: $hrisCreateEmployeeRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -579,10 +584,11 @@ if ($response->createResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                       | *string*                                                                                           | :heavy_check_mark:                                                                                 | The account identifier                                                                             |
-| `hrisCreateEmployeeRequestDto`                                                                     | [Components\HrisCreateEmployeeRequestDto](../../Models/Components/HrisCreateEmployeeRequestDto.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `hrisCreateEmployeeRequestDto`                                                                                                                                           | [Components\HrisCreateEmployeeRequestDto](../../Models/Components/HrisCreateEmployeeRequestDto.md)                                                                       | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -637,6 +643,7 @@ $request = new Operations\HrisGetEmployeeRequest(
     fields: 'id,remote_id,title,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,bank_details,skills,unified_custom_fields',
     expand: 'company,employments,work_location,home_location,groups,skills',
     include: 'avatar_url,avatar,custom_fields,job_description,benefits,bank_details',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getEmployee(
@@ -800,7 +807,8 @@ $hrisUpdateEmployeeRequestDto = new Components\HrisUpdateEmployeeRequestDto(
 $response = $sdk->hris->updateEmployee(
     xAccountId: '<id>',
     id: '<id>',
-    hrisUpdateEmployeeRequestDto: $hrisUpdateEmployeeRequestDto
+    hrisUpdateEmployeeRequestDto: $hrisUpdateEmployeeRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -811,11 +819,12 @@ if ($response->updateResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                       | *string*                                                                                           | :heavy_check_mark:                                                                                 | The account identifier                                                                             |
-| `id`                                                                                               | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
-| `hrisUpdateEmployeeRequestDto`                                                                     | [Components\HrisUpdateEmployeeRequestDto](../../Models/Components/HrisUpdateEmployeeRequestDto.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `hrisUpdateEmployeeRequestDto`                                                                                                                                           | [Components\HrisUpdateEmployeeRequestDto](../../Models/Components/HrisUpdateEmployeeRequestDto.md)                                                                       | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -872,7 +881,8 @@ $hrisInviteEmployeeRequestDto = new Components\HrisInviteEmployeeRequestDto(
 $response = $sdk->hris->inviteEmployee(
     xAccountId: '<id>',
     id: '<id>',
-    hrisInviteEmployeeRequestDto: $hrisInviteEmployeeRequestDto
+    hrisInviteEmployeeRequestDto: $hrisInviteEmployeeRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -883,11 +893,12 @@ if ($response->inviteEmployeeResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                       | *string*                                                                                           | :heavy_check_mark:                                                                                 | The account identifier                                                                             |
-| `id`                                                                                               | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
-| `hrisInviteEmployeeRequestDto`                                                                     | [Components\HrisInviteEmployeeRequestDto](../../Models/Components/HrisInviteEmployeeRequestDto.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `hrisInviteEmployeeRequestDto`                                                                                                                                           | [Components\HrisInviteEmployeeRequestDto](../../Models/Components/HrisInviteEmployeeRequestDto.md)                                                                       | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -945,6 +956,7 @@ $request = new Operations\HrisListEmployeeShiftsRequest(
         startsAfter: '2024-01-15T09:00',
         endsBefore: '2024-01-15T17:00',
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listEmployeeShifts(
@@ -1016,6 +1028,7 @@ $request = new Operations\HrisGetEmployeeShiftRequest(
     xAccountId: '<id>',
     id: '<id>',
     subResourceId: '<id>',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getEmployeeShift(
@@ -1091,6 +1104,7 @@ $request = new Operations\HrisListEmployeeTimeOffRequestsRequest(
         endDate: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
     expand: 'policy',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listEmployeeTimeOffRequests(
@@ -1177,7 +1191,8 @@ $hrisCreateTimeOffRequestDto = new Components\HrisCreateTimeOffRequestDto(
 $response = $sdk->hris->createEmployeeTimeOffRequest(
     xAccountId: '<id>',
     id: '<id>',
-    hrisCreateTimeOffRequestDto: $hrisCreateTimeOffRequestDto
+    hrisCreateTimeOffRequestDto: $hrisCreateTimeOffRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -1188,11 +1203,12 @@ if ($response->createResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `xAccountId`                                                                                     | *string*                                                                                         | :heavy_check_mark:                                                                               | The account identifier                                                                           |
-| `id`                                                                                             | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
-| `hrisCreateTimeOffRequestDto`                                                                    | [Components\HrisCreateTimeOffRequestDto](../../Models/Components/HrisCreateTimeOffRequestDto.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `hrisCreateTimeOffRequestDto`                                                                                                                                            | [Components\HrisCreateTimeOffRequestDto](../../Models/Components/HrisCreateTimeOffRequestDto.md)                                                                         | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -1247,6 +1263,7 @@ $request = new Operations\HrisGetEmployeesTimeOffRequestRequest(
     subResourceId: '<id>',
     fields: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy,unified_custom_fields',
     expand: 'policy',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getEmployeesTimeOffRequest(
@@ -1267,6 +1284,91 @@ if ($response->timeOffResult !== null) {
 ### Response
 
 **[?Operations\HrisGetEmployeesTimeOffRequestResponse](../../Models/Operations/HrisGetEmployeesTimeOffRequestResponse.md)**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\BadRequestResponse          | 400                                | application/json                   |
+| Errors\UnauthorizedResponse        | 401                                | application/json                   |
+| Errors\ForbiddenResponse           | 403                                | application/json                   |
+| Errors\NotFoundResponse            | 404                                | application/json                   |
+| Errors\RequestTimedOutResponse     | 408                                | application/json                   |
+| Errors\ConflictResponse            | 409                                | application/json                   |
+| Errors\PreconditionFailedResponse  | 412                                | application/json                   |
+| Errors\UnprocessableEntityResponse | 422                                | application/json                   |
+| Errors\TooManyRequestsResponse     | 429                                | application/json                   |
+| Errors\InternalServerErrorResponse | 500                                | application/json                   |
+| Errors\NotImplementedResponse      | 501                                | application/json                   |
+| Errors\BadGatewayResponse          | 502                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
+
+## updateEmployeeTimeOffRequest
+
+Update Employee Time Off Request
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="hris_update_employee_time_off_request" method="patch" path="/unified/hris/employees/{id}/time_off/{subResourceId}" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+
+$sdk = client\StackOne::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$request = new Operations\HrisUpdateEmployeeTimeOffRequestRequest(
+    xAccountId: '<id>',
+    id: '<id>',
+    subResourceId: '<id>',
+    prefer: 'heartbeat',
+    hrisCreateTimeOffRequestDto: new Components\HrisCreateTimeOffRequestDto(
+        approverId: '1687-4',
+        startDate: '2021-01-01T01:01:01.000',
+        endDate: '2021-01-01T01:01:01.000',
+        startHalfDay: true,
+        endHalfDay: true,
+        timeOffPolicyId: 'cx280928933',
+        reason: new Components\HrisCreateTimeOffRequestDtoReason(
+            id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+            remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+        ),
+        comment: 'Taking a day off for personal reasons',
+        passthrough: [
+            'other_known_names' => 'John Doe',
+        ],
+    ),
+);
+
+$response = $sdk->hris->updateEmployeeTimeOffRequest(
+    request: $request
+);
+
+if ($response->createResult !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                                               | [Operations\HrisUpdateEmployeeTimeOffRequestRequest](../../Models/Operations/HrisUpdateEmployeeTimeOffRequestRequest.md) | :heavy_check_mark:                                                                                                       | The request object to use for the request.                                                                               |
+
+### Response
+
+**[?Operations\HrisUpdateEmployeeTimeOffRequestResponse](../../Models/Operations/HrisUpdateEmployeeTimeOffRequestResponse.md)**
 
 ### Errors
 
@@ -1315,7 +1417,8 @@ $sdk = client\StackOne::builder()
 $response = $sdk->hris->cancelEmployeeTimeOffRequest(
     xAccountId: '<id>',
     id: '<id>',
-    subResourceId: '<id>'
+    subResourceId: '<id>',
+    prefer: 'heartbeat'
 
 );
 
@@ -1326,100 +1429,16 @@ if ($response->deleteResult !== null) {
 
 ### Parameters
 
-| Parameter              | Type                   | Required               | Description            |
-| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `xAccountId`           | *string*               | :heavy_check_mark:     | The account identifier |
-| `id`                   | *string*               | :heavy_check_mark:     | N/A                    |
-| `subResourceId`        | *string*               | :heavy_check_mark:     | N/A                    |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `subResourceId`                                                                                                                                                          | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
 **[?Operations\HrisCancelEmployeeTimeOffRequestResponse](../../Models/Operations/HrisCancelEmployeeTimeOffRequestResponse.md)**
-
-### Errors
-
-| Error Type                         | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| Errors\BadRequestResponse          | 400                                | application/json                   |
-| Errors\UnauthorizedResponse        | 401                                | application/json                   |
-| Errors\ForbiddenResponse           | 403                                | application/json                   |
-| Errors\NotFoundResponse            | 404                                | application/json                   |
-| Errors\RequestTimedOutResponse     | 408                                | application/json                   |
-| Errors\ConflictResponse            | 409                                | application/json                   |
-| Errors\PreconditionFailedResponse  | 412                                | application/json                   |
-| Errors\UnprocessableEntityResponse | 422                                | application/json                   |
-| Errors\TooManyRequestsResponse     | 429                                | application/json                   |
-| Errors\InternalServerErrorResponse | 500                                | application/json                   |
-| Errors\NotImplementedResponse      | 501                                | application/json                   |
-| Errors\BadGatewayResponse          | 502                                | application/json                   |
-| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
-
-## updateEmployeeTimeOffRequest
-
-Update Employee Time Off Request
-
-### Example Usage
-
-<!-- UsageSnippet language="php" operationID="hris_update_employee_time_off_request" method="patch" path="/unified/hris/employees/{id}/time_off/{subResourceId}" -->
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use StackOne\client;
-use StackOne\client\Models\Components;
-
-$sdk = client\StackOne::builder()
-    ->setSecurity(
-        new Components\Security(
-            username: '',
-            password: '',
-        )
-    )
-    ->build();
-
-$hrisCreateTimeOffRequestDto = new Components\HrisCreateTimeOffRequestDto(
-    approverId: '1687-4',
-    startDate: '2021-01-01T01:01:01.000',
-    endDate: '2021-01-01T01:01:01.000',
-    startHalfDay: true,
-    endHalfDay: true,
-    timeOffPolicyId: 'cx280928933',
-    reason: new Components\HrisCreateTimeOffRequestDtoReason(
-        id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-        remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-    ),
-    comment: 'Taking a day off for personal reasons',
-    passthrough: [
-        'other_known_names' => 'John Doe',
-    ],
-);
-
-$response = $sdk->hris->updateEmployeeTimeOffRequest(
-    xAccountId: '<id>',
-    id: '<id>',
-    subResourceId: '<id>',
-    hrisCreateTimeOffRequestDto: $hrisCreateTimeOffRequestDto
-
-);
-
-if ($response->createResult !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `xAccountId`                                                                                     | *string*                                                                                         | :heavy_check_mark:                                                                               | The account identifier                                                                           |
-| `id`                                                                                             | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
-| `subResourceId`                                                                                  | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
-| `hrisCreateTimeOffRequestDto`                                                                    | [Components\HrisCreateTimeOffRequestDto](../../Models/Components/HrisCreateTimeOffRequestDto.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |
-
-### Response
-
-**[?Operations\HrisUpdateEmployeeTimeOffRequestResponse](../../Models/Operations/HrisUpdateEmployeeTimeOffRequestResponse.md)**
 
 ### Errors
 
@@ -1486,7 +1505,8 @@ $hrisBatchDocumentUploadRequestDto = new Components\HrisBatchDocumentUploadReque
 $response = $sdk->hris->batchUploadEmployeeDocument(
     xAccountId: '<id>',
     id: '<id>',
-    hrisBatchDocumentUploadRequestDto: $hrisBatchDocumentUploadRequestDto
+    hrisBatchDocumentUploadRequestDto: $hrisBatchDocumentUploadRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -1497,11 +1517,12 @@ if ($response->batchResultApiModel !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `xAccountId`                                                                                                 | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The account identifier                                                                                       |
-| `id`                                                                                                         | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `hrisBatchDocumentUploadRequestDto`                                                                          | [Components\HrisBatchDocumentUploadRequestDto](../../Models/Components/HrisBatchDocumentUploadRequestDto.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `hrisBatchDocumentUploadRequestDto`                                                                                                                                      | [Components\HrisBatchDocumentUploadRequestDto](../../Models/Components/HrisBatchDocumentUploadRequestDto.md)                                                             | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -1568,7 +1589,8 @@ $hrisDocumentsUploadRequestDto = new Components\HrisDocumentsUploadRequestDto(
 $response = $sdk->hris->uploadEmployeeDocument(
     xAccountId: '<id>',
     id: '<id>',
-    hrisDocumentsUploadRequestDto: $hrisDocumentsUploadRequestDto
+    hrisDocumentsUploadRequestDto: $hrisDocumentsUploadRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -1579,11 +1601,12 @@ if ($response->writeResultApiModel !== null) {
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                         | *string*                                                                                             | :heavy_check_mark:                                                                                   | The account identifier                                                                               |
-| `id`                                                                                                 | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
-| `hrisDocumentsUploadRequestDto`                                                                      | [Components\HrisDocumentsUploadRequestDto](../../Models/Components/HrisDocumentsUploadRequestDto.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `hrisDocumentsUploadRequestDto`                                                                                                                                          | [Components\HrisDocumentsUploadRequestDto](../../Models/Components/HrisDocumentsUploadRequestDto.md)                                                                     | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -1638,6 +1661,7 @@ $request = new Operations\HrisDownloadEmployeeDocumentRequest(
     subResourceId: '<id>',
     format: 'base64',
     exportFormat: 'text/plain',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->downloadEmployeeDocument(
@@ -1710,6 +1734,7 @@ $request = new Operations\HrisListEmployeeDocumentsRequest(
     filter: new Operations\HrisListEmployeeDocumentsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listEmployeeDocuments(
@@ -1782,6 +1807,7 @@ $request = new Operations\HrisGetEmployeeDocumentRequest(
     id: '<id>',
     subResourceId: '<id>',
     fields: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getEmployeeDocument(
@@ -1853,6 +1879,7 @@ $request = new Operations\HrisListEmployeeCategoriesRequest(
     filter: new Operations\HrisListEmployeeCategoriesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listEmployeeCategories(
@@ -1924,6 +1951,7 @@ $request = new Operations\HrisGetEmployeeDocumentCategoryRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,active,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getEmployeeDocumentCategory(
@@ -1996,6 +2024,7 @@ $request = new Operations\HrisListEmployeeWorkEligibilityRequest(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
     xAccountId: '<id>',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listEmployeeWorkEligibility(
@@ -2091,7 +2120,8 @@ $hrisCreateWorkEligibilityRequestDto = new Components\HrisCreateWorkEligibilityR
 $response = $sdk->hris->createEmployeeWorkEligibilityRequest(
     id: '<id>',
     xAccountId: '<id>',
-    hrisCreateWorkEligibilityRequestDto: $hrisCreateWorkEligibilityRequestDto
+    hrisCreateWorkEligibilityRequestDto: $hrisCreateWorkEligibilityRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -2102,11 +2132,12 @@ if ($response->createResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                             | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `xAccountId`                                                                                                     | *string*                                                                                                         | :heavy_check_mark:                                                                                               | The account identifier                                                                                           |
-| `hrisCreateWorkEligibilityRequestDto`                                                                            | [Components\HrisCreateWorkEligibilityRequestDto](../../Models/Components/HrisCreateWorkEligibilityRequestDto.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `hrisCreateWorkEligibilityRequestDto`                                                                                                                                    | [Components\HrisCreateWorkEligibilityRequestDto](../../Models/Components/HrisCreateWorkEligibilityRequestDto.md)                                                         | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -2160,6 +2191,7 @@ $request = new Operations\HrisGetEmployeesWorkEligibilityRequest(
     subResourceId: '<id>',
     fields: 'id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number,unified_custom_fields',
     xAccountId: '<id>',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getEmployeesWorkEligibility(
@@ -2213,6 +2245,7 @@ require 'vendor/autoload.php';
 
 use StackOne\client;
 use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
 use StackOne\client\Utils;
 
 $sdk = client\StackOne::builder()
@@ -2224,40 +2257,42 @@ $sdk = client\StackOne::builder()
     )
     ->build();
 
-$hrisCreateWorkEligibilityRequestDto = new Components\HrisCreateWorkEligibilityRequestDto(
-    document: new Components\HrisCreateWorkEligibilityRequestDtoDocument(
-        id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-        remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-        name: 'My Document',
-        category: new Components\HrisCreateWorkEligibilityRequestDtoCategory(),
-        categoryId: '6530',
-        createdAt: Utils\Utils::parseDateTime('2021-01-01T01:01:01.000Z'),
-        updatedAt: Utils\Utils::parseDateTime('2021-01-02T01:01:01.000Z'),
-        remoteUrl: 'https://example.com/file.pdf',
-        fileFormat: new Components\HrisCreateWorkEligibilityRequestDtoFileFormat(
-            value: Components\HrisCreateWorkEligibilityRequestDtoDocumentValue::Pdf,
-            sourceValue: 'application/pdf',
-        ),
-    ),
-    issuedBy: new Components\HrisCreateWorkEligibilityRequestDtoIssuedBy(
-        value: Components\HrisCreateWorkEligibilityRequestDtoValue::Us,
-    ),
-    number: '1234567890',
-    subType: 'H1B',
-    type: new Components\HrisCreateWorkEligibilityRequestDtoType(),
-    validFrom: Utils\Utils::parseDateTime('2021-01-01T00:00:00.000Z'),
-    validTo: Utils\Utils::parseDateTime('2021-01-01T00:00:00.000Z'),
-    passthrough: [
-        'other_known_names' => 'John Doe',
-    ],
-);
-
-$response = $sdk->hris->updateEmployeeWorkEligibilityRequest(
+$request = new Operations\HrisUpdateEmployeeWorkEligibilityRequestRequest(
     id: '<id>',
     subResourceId: '<id>',
     xAccountId: '<id>',
-    hrisCreateWorkEligibilityRequestDto: $hrisCreateWorkEligibilityRequestDto
+    prefer: 'heartbeat',
+    hrisCreateWorkEligibilityRequestDto: new Components\HrisCreateWorkEligibilityRequestDto(
+        document: new Components\HrisCreateWorkEligibilityRequestDtoDocument(
+            id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+            remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+            name: 'My Document',
+            category: new Components\HrisCreateWorkEligibilityRequestDtoCategory(),
+            categoryId: '6530',
+            createdAt: Utils\Utils::parseDateTime('2021-01-01T01:01:01.000Z'),
+            updatedAt: Utils\Utils::parseDateTime('2021-01-02T01:01:01.000Z'),
+            remoteUrl: 'https://example.com/file.pdf',
+            fileFormat: new Components\HrisCreateWorkEligibilityRequestDtoFileFormat(
+                value: Components\HrisCreateWorkEligibilityRequestDtoDocumentValue::Pdf,
+                sourceValue: 'application/pdf',
+            ),
+        ),
+        issuedBy: new Components\HrisCreateWorkEligibilityRequestDtoIssuedBy(
+            value: Components\HrisCreateWorkEligibilityRequestDtoValue::Us,
+        ),
+        number: '1234567890',
+        subType: 'H1B',
+        type: new Components\HrisCreateWorkEligibilityRequestDtoType(),
+        validFrom: Utils\Utils::parseDateTime('2021-01-01T00:00:00.000Z'),
+        validTo: Utils\Utils::parseDateTime('2021-01-01T00:00:00.000Z'),
+        passthrough: [
+            'other_known_names' => 'John Doe',
+        ],
+    ),
+);
 
+$response = $sdk->hris->updateEmployeeWorkEligibilityRequest(
+    request: $request
 );
 
 if ($response->statusCode === 200) {
@@ -2267,12 +2302,9 @@ if ($response->statusCode === 200) {
 
 ### Parameters
 
-| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                             | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `subResourceId`                                                                                                  | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `xAccountId`                                                                                                     | *string*                                                                                                         | :heavy_check_mark:                                                                                               | The account identifier                                                                                           |
-| `hrisCreateWorkEligibilityRequestDto`                                                                            | [Components\HrisCreateWorkEligibilityRequestDto](../../Models/Components/HrisCreateWorkEligibilityRequestDto.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| Parameter                                                                                                                                | Type                                                                                                                                     | Required                                                                                                                                 | Description                                                                                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                                               | [Operations\HrisUpdateEmployeeWorkEligibilityRequestRequest](../../Models/Operations/HrisUpdateEmployeeWorkEligibilityRequestRequest.md) | :heavy_check_mark:                                                                                                                       | The request object to use for the request.                                                                                               |
 
 ### Response
 
@@ -2330,6 +2362,7 @@ $request = new Operations\HrisListEmployeeTimeOffBalancesRequest(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
     expand: 'policy',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listEmployeeTimeOffBalances(
@@ -2403,6 +2436,7 @@ $request = new Operations\HrisGetEmployeeTimeOffBalanceRequest(
     subResourceId: '<id>',
     fields: 'id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,is_unlimited,updated_at,unified_custom_fields',
     expand: 'policy',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getEmployeeTimeOffBalance(
@@ -2475,6 +2509,7 @@ $request = new Operations\HrisListEmploymentsRequest(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
     expand: 'groups',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listEmployments(
@@ -2547,6 +2582,7 @@ $request = new Operations\HrisGetEmploymentRequest(
     id: '<id>',
     fields: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups,unified_custom_fields',
     expand: 'groups',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getEmployment(
@@ -2620,6 +2656,7 @@ $request = new Operations\HrisListEmployeeEmploymentsRequest(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
     expand: 'groups',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listEmployeeEmployments(
@@ -2739,7 +2776,8 @@ $hrisCreateEmploymentRequestDto = new Components\HrisCreateEmploymentRequestDto(
 $response = $sdk->hris->createEmployeeEmployment(
     xAccountId: '<id>',
     id: '<id>',
-    hrisCreateEmploymentRequestDto: $hrisCreateEmploymentRequestDto
+    hrisCreateEmploymentRequestDto: $hrisCreateEmploymentRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -2750,11 +2788,12 @@ if ($response->createResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `xAccountId`                                                                                           | *string*                                                                                               | :heavy_check_mark:                                                                                     | The account identifier                                                                                 |
-| `id`                                                                                                   | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `hrisCreateEmploymentRequestDto`                                                                       | [Components\HrisCreateEmploymentRequestDto](../../Models/Components/HrisCreateEmploymentRequestDto.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `hrisCreateEmploymentRequestDto`                                                                                                                                         | [Components\HrisCreateEmploymentRequestDto](../../Models/Components/HrisCreateEmploymentRequestDto.md)                                                                   | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -2809,6 +2848,7 @@ $request = new Operations\HrisGetEmployeeEmploymentRequest(
     subResourceId: '<id>',
     fields: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups,unified_custom_fields',
     expand: 'groups',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getEmployeeEmployment(
@@ -2862,6 +2902,7 @@ require 'vendor/autoload.php';
 
 use StackOne\client;
 use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
 use StackOne\client\Utils;
 
 $sdk = client\StackOne::builder()
@@ -2873,60 +2914,62 @@ $sdk = client\StackOne::builder()
     )
     ->build();
 
-$hrisUpdateEmploymentRequestDto = new Components\HrisUpdateEmploymentRequestDto(
-    unifiedCustomFields: [
-        'my_project_custom_field_1' => 'REF-1236',
-        'my_project_custom_field_2' => 'some other value',
-    ],
-    jobTitle: 'Software Engineer',
-    payRate: '40.00',
-    payPeriod: new Components\HrisUpdateEmploymentRequestDtoPayPeriod(
-        value: Components\HrisUpdateEmploymentRequestDtoValue::Hour,
-        sourceValue: 'Hour',
-    ),
-    payFrequency: new Components\HrisUpdateEmploymentRequestDtoPayFrequency(
-        value: Components\HrisUpdateEmploymentRequestDtoPayFrequencyValue::Hourly,
-        sourceValue: 'Hourly',
-    ),
-    payCurrency: 'USD',
-    effectiveDate: Utils\Utils::parseDateTime('2021-01-01T01:01:01.000Z'),
-    endDate: Utils\Utils::parseDateTime('2021-01-01T01:01:01.000Z'),
-    grade: new Components\HrisUpdateEmploymentRequestDtoGrade(
-        id: '1687-3',
-        remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-        name: '1687-4',
-        description: 'Mid-level employee demonstrating proficiency and autonomy.',
-    ),
-    type: new Components\HrisUpdateEmploymentRequestDtoType(
-        id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-        remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-        label: 'Permanent',
-        type: new Components\HrisUpdateEmploymentRequestDtoTypeType(),
-    ),
-    contractType: new Components\HrisUpdateEmploymentRequestDtoContractType(
-        id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-        remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-        label: 'Full-Time',
-        contractType: new Components\HrisUpdateEmploymentRequestDtoContractTypeContractType(),
-    ),
-    workTime: new Components\HrisUpdateEmploymentRequestDtoWorkTime(
-        duration: 'P0Y0M0DT8H0M0S',
-        period: new Components\HrisUpdateEmploymentRequestDtoPeriod(
-            value: Components\HrisUpdateEmploymentRequestDtoWorkTimeValue::Month,
-        ),
-    ),
-    payrollCode: 'PC1',
-    passthrough: [
-        'other_known_names' => 'John Doe',
-    ],
-);
-
-$response = $sdk->hris->updateEmployeeEmployment(
+$request = new Operations\HrisUpdateEmployeeEmploymentRequest(
     xAccountId: '<id>',
     id: '<id>',
     subResourceId: '<id>',
-    hrisUpdateEmploymentRequestDto: $hrisUpdateEmploymentRequestDto
+    prefer: 'heartbeat',
+    hrisUpdateEmploymentRequestDto: new Components\HrisUpdateEmploymentRequestDto(
+        unifiedCustomFields: [
+            'my_project_custom_field_1' => 'REF-1236',
+            'my_project_custom_field_2' => 'some other value',
+        ],
+        jobTitle: 'Software Engineer',
+        payRate: '40.00',
+        payPeriod: new Components\HrisUpdateEmploymentRequestDtoPayPeriod(
+            value: Components\HrisUpdateEmploymentRequestDtoValue::Hour,
+            sourceValue: 'Hour',
+        ),
+        payFrequency: new Components\HrisUpdateEmploymentRequestDtoPayFrequency(
+            value: Components\HrisUpdateEmploymentRequestDtoPayFrequencyValue::Hourly,
+            sourceValue: 'Hourly',
+        ),
+        payCurrency: 'USD',
+        effectiveDate: Utils\Utils::parseDateTime('2021-01-01T01:01:01.000Z'),
+        endDate: Utils\Utils::parseDateTime('2021-01-01T01:01:01.000Z'),
+        grade: new Components\HrisUpdateEmploymentRequestDtoGrade(
+            id: '1687-3',
+            remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+            name: '1687-4',
+            description: 'Mid-level employee demonstrating proficiency and autonomy.',
+        ),
+        type: new Components\HrisUpdateEmploymentRequestDtoType(
+            id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+            remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+            label: 'Permanent',
+            type: new Components\HrisUpdateEmploymentRequestDtoTypeType(),
+        ),
+        contractType: new Components\HrisUpdateEmploymentRequestDtoContractType(
+            id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+            remoteId: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+            label: 'Full-Time',
+            contractType: new Components\HrisUpdateEmploymentRequestDtoContractTypeContractType(),
+        ),
+        workTime: new Components\HrisUpdateEmploymentRequestDtoWorkTime(
+            duration: 'P0Y0M0DT8H0M0S',
+            period: new Components\HrisUpdateEmploymentRequestDtoPeriod(
+                value: Components\HrisUpdateEmploymentRequestDtoWorkTimeValue::Month,
+            ),
+        ),
+        payrollCode: 'PC1',
+        passthrough: [
+            'other_known_names' => 'John Doe',
+        ],
+    ),
+);
 
+$response = $sdk->hris->updateEmployeeEmployment(
+    request: $request
 );
 
 if ($response->updateResult !== null) {
@@ -2936,12 +2979,9 @@ if ($response->updateResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `xAccountId`                                                                                           | *string*                                                                                               | :heavy_check_mark:                                                                                     | The account identifier                                                                                 |
-| `id`                                                                                                   | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `subResourceId`                                                                                        | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `hrisUpdateEmploymentRequestDto`                                                                       | [Components\HrisUpdateEmploymentRequestDto](../../Models/Components/HrisUpdateEmploymentRequestDto.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                                       | [Operations\HrisUpdateEmployeeEmploymentRequest](../../Models/Operations/HrisUpdateEmployeeEmploymentRequest.md) | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
 
 ### Response
 
@@ -2997,6 +3037,7 @@ $request = new Operations\HrisListGroupsRequest(
     filter: new Operations\HrisListGroupsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listGroups(
@@ -3071,6 +3112,7 @@ $request = new Operations\HrisListDepartmentGroupsRequest(
     filter: new Operations\HrisListDepartmentGroupsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listDepartmentGroups(
@@ -3145,6 +3187,7 @@ $request = new Operations\HrisListCostCenterGroupsRequest(
     filter: new Operations\HrisListCostCenterGroupsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listCostCenterGroups(
@@ -3219,6 +3262,7 @@ $request = new Operations\HrisListTeamGroupsRequest(
     filter: new Operations\HrisListTeamGroupsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listTeamGroups(
@@ -3293,6 +3337,7 @@ $request = new Operations\HrisListDivisionGroupsRequest(
     filter: new Operations\HrisListDivisionGroupsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listDivisionGroups(
@@ -3367,6 +3412,7 @@ $request = new Operations\HrisListCompaniesGroupsRequest(
     filter: new Operations\HrisListCompaniesGroupsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listCompaniesGroups(
@@ -3438,6 +3484,7 @@ $request = new Operations\HrisGetGroupRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getGroup(
@@ -3506,6 +3553,7 @@ $request = new Operations\HrisGetDepartmentGroupRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getDepartmentGroup(
@@ -3574,6 +3622,7 @@ $request = new Operations\HrisGetCostCenterGroupRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getCostCenterGroup(
@@ -3642,6 +3691,7 @@ $request = new Operations\HrisGetTeamGroupRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getTeamGroup(
@@ -3710,6 +3760,7 @@ $request = new Operations\HrisGetDivisionGroupRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getDivisionGroup(
@@ -3778,6 +3829,7 @@ $request = new Operations\HrisGetCompanyGroupRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,full_name,display_name,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getCompanyGroup(
@@ -3849,6 +3901,7 @@ $request = new Operations\HrisListJobsRequest(
     filter: new Operations\HrisListJobsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listJobs(
@@ -3920,6 +3973,7 @@ $request = new Operations\HrisGetJobRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,code,title,description,status,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getJob(
@@ -3991,6 +4045,7 @@ $request = new Operations\HrisListLocationsRequest(
     filter: new Operations\HrisListLocationsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listLocations(
@@ -4062,6 +4117,7 @@ $request = new Operations\HrisGetLocationRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getLocation(
@@ -4133,6 +4189,7 @@ $request = new Operations\HrisListPositionsRequest(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
     status: Operations\QueryParamStatus::Open,
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listPositions(
@@ -4203,6 +4260,7 @@ $sdk = client\StackOne::builder()
 $request = new Operations\HrisGetPositionRequest(
     xAccountId: '<id>',
     id: '<id>',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getPosition(
@@ -4276,6 +4334,7 @@ $request = new Operations\HrisListTimeEntriesRequest(
         startTime: '2020-01-01T00:00:00.000Z',
         endTime: '2020-01-01T00:00:00.000Z',
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listTimeEntries(
@@ -4347,6 +4406,7 @@ $request = new Operations\HrisGetTimeEntriesRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getTimeEntries(
@@ -4416,6 +4476,7 @@ $request = new Operations\HrisListTimeOffRequestsRequest(
     fields: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy,unified_custom_fields',
     filter: null,
     expand: 'policy',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listTimeOffRequests(
@@ -4488,6 +4549,7 @@ $request = new Operations\HrisGetTimeOffRequestRequest(
     id: '<id>',
     fields: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy,unified_custom_fields',
     expand: 'policy',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getTimeOffRequest(
@@ -4560,6 +4622,7 @@ $request = new Operations\HrisListShiftsRequest(
         startsAfter: '2024-01-15T09:00',
         endsBefore: '2024-01-15T17:00',
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listShifts(
@@ -4630,6 +4693,7 @@ $sdk = client\StackOne::builder()
 $request = new Operations\HrisGetShiftRequest(
     xAccountId: '<id>',
     id: '<id>',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getShift(
@@ -4703,6 +4767,7 @@ $request = new Operations\HrisListTimeOffTypesRequest(
     filter: new Operations\HrisListTimeOffTypesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listTimeOffTypes(
@@ -4776,6 +4841,7 @@ $request = new Operations\HrisGetTimeOffTypeRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,active,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getTimeOffType(
@@ -4847,6 +4913,7 @@ $request = new Operations\HrisListTimeOffPoliciesRequest(
     filter: new Operations\HrisListTimeOffPoliciesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listTimeOffPolicies(
@@ -4918,6 +4985,7 @@ $request = new Operations\HrisGetTimeOffPolicyRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getTimeOffPolicy(
@@ -4990,6 +5058,7 @@ $request = new Operations\HrisListEmployeeTimeOffPoliciesRequest(
     filter: new Operations\HrisListEmployeeTimeOffPoliciesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listEmployeeTimeOffPolicies(
@@ -5064,6 +5133,7 @@ $request = new Operations\HrisListBenefitsRequest(
     filter: new Operations\HrisListBenefitsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listBenefits(
@@ -5135,6 +5205,7 @@ $request = new Operations\HrisGetBenefitRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,benefit_type,provider,description,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getBenefit(
@@ -5207,6 +5278,7 @@ $request = new Operations\HrisListEmployeeSkillsRequest(
     filter: new Operations\HrisListEmployeeSkillsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listEmployeeSkills(
@@ -5287,7 +5359,8 @@ $entitySkillsCreateRequestDto = new Components\EntitySkillsCreateRequestDto(
 $response = $sdk->hris->createEmployeeSkill(
     xAccountId: '<id>',
     id: '<id>',
-    entitySkillsCreateRequestDto: $entitySkillsCreateRequestDto
+    entitySkillsCreateRequestDto: $entitySkillsCreateRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -5298,11 +5371,12 @@ if ($response->createResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                       | *string*                                                                                           | :heavy_check_mark:                                                                                 | The account identifier                                                                             |
-| `id`                                                                                               | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
-| `entitySkillsCreateRequestDto`                                                                     | [Components\EntitySkillsCreateRequestDto](../../Models/Components/EntitySkillsCreateRequestDto.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `entitySkillsCreateRequestDto`                                                                                                                                           | [Components\EntitySkillsCreateRequestDto](../../Models/Components/EntitySkillsCreateRequestDto.md)                                                                       | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -5356,6 +5430,7 @@ $request = new Operations\HrisGetEmployeeSkillRequest(
     id: '<id>',
     subResourceId: '<id>',
     fields: 'id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getEmployeeSkill(
@@ -5427,8 +5502,10 @@ $request = new Operations\HrisListEmployeeTasksRequest(
     fields: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
     filter: new Operations\HrisListEmployeeTasksQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
+        createdAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
     expand: 'attachments',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listEmployeeTasks(
@@ -5502,6 +5579,7 @@ $request = new Operations\HrisGetEmployeeTaskRequest(
     subResourceId: '<id>',
     fields: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
     expand: 'attachments',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getEmployeeTask(
@@ -5555,6 +5633,7 @@ require 'vendor/autoload.php';
 
 use StackOne\client;
 use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
 
 $sdk = client\StackOne::builder()
     ->setSecurity(
@@ -5565,19 +5644,21 @@ $sdk = client\StackOne::builder()
     )
     ->build();
 
-$updateTaskRequestDto = new Components\UpdateTaskRequestDto(
-    comment: 'All required documents have been submitted',
-    status: new Components\UpdateTaskRequestDtoStatus(
-        value: Components\UpdateTaskRequestDtoValue::Open,
+$request = new Operations\HrisUpdateEmployeeTaskRequest(
+    xAccountId: '<id>',
+    id: '<id>',
+    subResourceId: '<id>',
+    prefer: 'heartbeat',
+    updateTaskRequestDto: new Components\UpdateTaskRequestDto(
+        comment: 'All required documents have been submitted',
+        status: new Components\UpdateTaskRequestDtoStatus(
+            value: Components\UpdateTaskRequestDtoValue::Open,
+        ),
     ),
 );
 
 $response = $sdk->hris->updateEmployeeTask(
-    xAccountId: '<id>',
-    id: '<id>',
-    subResourceId: '<id>',
-    updateTaskRequestDto: $updateTaskRequestDto
-
+    request: $request
 );
 
 if ($response->updateResult !== null) {
@@ -5587,12 +5668,9 @@ if ($response->updateResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `xAccountId`                                                                       | *string*                                                                           | :heavy_check_mark:                                                                 | The account identifier                                                             |
-| `id`                                                                               | *string*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
-| `subResourceId`                                                                    | *string*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
-| `updateTaskRequestDto`                                                             | [Components\UpdateTaskRequestDto](../../Models/Components/UpdateTaskRequestDto.md) | :heavy_check_mark:                                                                 | N/A                                                                                |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                           | [Operations\HrisUpdateEmployeeTaskRequest](../../Models/Operations/HrisUpdateEmployeeTaskRequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 ### Response
 
@@ -5647,8 +5725,10 @@ $request = new Operations\HrisListTasksRequest(
     fields: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
     filter: new Operations\HrisListTasksQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
+        createdAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
     expand: 'attachments',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listTasks(
@@ -5721,6 +5801,7 @@ $request = new Operations\HrisGetTaskRequest(
     id: '<id>',
     fields: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
     expand: 'attachments',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->hris->getTask(

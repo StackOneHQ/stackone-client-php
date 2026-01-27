@@ -1,5 +1,4 @@
 # Proxy
-(*proxy*)
 
 ## Overview
 
@@ -43,7 +42,8 @@ $proxyRequestBody = new Components\ProxyRequestBody(
 
 $response = $sdk->proxy->proxyRequest(
     xAccountId: '<id>',
-    proxyRequestBody: $proxyRequestBody
+    proxyRequestBody: $proxyRequestBody,
+    prefer: 'heartbeat'
 
 );
 
@@ -54,10 +54,11 @@ if ($response->proxyResponseApiModel !== null) {
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `xAccountId`                                                               | *string*                                                                   | :heavy_check_mark:                                                         | The account identifier                                                     |
-| `proxyRequestBody`                                                         | [Components\ProxyRequestBody](../../Models/Components/ProxyRequestBody.md) | :heavy_check_mark:                                                         | The request body                                                           |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `proxyRequestBody`                                                                                                                                                       | [Components\ProxyRequestBody](../../Models/Components/ProxyRequestBody.md)                                                                                               | :heavy_check_mark:                                                                                                                                                       | The request body                                                                                                                                                         |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 

@@ -58,10 +58,11 @@ class Lms
      *
      * @param  Components\LmsBatchUpsertContentRequestDto  $lmsBatchUpsertContentRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\LmsBatchUpsertContentResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function batchUpsertContent(Components\LmsBatchUpsertContentRequestDto $lmsBatchUpsertContentRequestDto, string $xAccountId, ?Options $options = null): Operations\LmsBatchUpsertContentResponse
+    public function batchUpsertContent(Components\LmsBatchUpsertContentRequestDto $lmsBatchUpsertContentRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\LmsBatchUpsertContentResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -91,6 +92,7 @@ class Lms
         $request = new Operations\LmsBatchUpsertContentRequest(
             xAccountId: $xAccountId,
             lmsBatchUpsertContentRequestDto: $lmsBatchUpsertContentRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/lms/content/batch');
@@ -295,10 +297,11 @@ class Lms
      * @param  Components\LmsCreateAssignmentRequestDto  $lmsCreateAssignmentRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\LmsCreateUserAssignmentResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createUserAssignment(Components\LmsCreateAssignmentRequestDto $lmsCreateAssignmentRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\LmsCreateUserAssignmentResponse
+    public function createUserAssignment(Components\LmsCreateAssignmentRequestDto $lmsCreateAssignmentRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\LmsCreateUserAssignmentResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -329,6 +332,7 @@ class Lms
             xAccountId: $xAccountId,
             id: $id,
             lmsCreateAssignmentRequestDto: $lmsCreateAssignmentRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/lms/users/{id}/assignments', Operations\LmsCreateUserAssignmentRequest::class, $request);
@@ -531,10 +535,11 @@ class Lms
      * @param  Components\LmsCreateCompletionRequestDto  $lmsCreateCompletionRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\LmsCreateUserCompletionResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createUserCompletion(Components\LmsCreateCompletionRequestDto $lmsCreateCompletionRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\LmsCreateUserCompletionResponse
+    public function createUserCompletion(Components\LmsCreateCompletionRequestDto $lmsCreateCompletionRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\LmsCreateUserCompletionResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -565,6 +570,7 @@ class Lms
             xAccountId: $xAccountId,
             id: $id,
             lmsCreateCompletionRequestDto: $lmsCreateCompletionRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/lms/users/{id}/completions', Operations\LmsCreateUserCompletionRequest::class, $request);
@@ -767,10 +773,11 @@ class Lms
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  string  $subResourceId
+     * @param  ?string  $prefer
      * @return Operations\LmsDeleteUserCompletionResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function deleteUserCompletion(string $xAccountId, string $id, string $subResourceId, ?Options $options = null): Operations\LmsDeleteUserCompletionResponse
+    public function deleteUserCompletion(string $xAccountId, string $id, string $subResourceId, ?string $prefer = null, ?Options $options = null): Operations\LmsDeleteUserCompletionResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -801,6 +808,7 @@ class Lms
             xAccountId: $xAccountId,
             id: $id,
             subResourceId: $subResourceId,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/lms/users/{id}/completions/{subResourceId}', Operations\LmsDeleteUserCompletionRequest::class, $request);
@@ -3141,6 +3149,7 @@ class Lms
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             userId: $request != null ? $request->userId : null,
                             remoteUserId: $request != null ? $request->remoteUserId : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -3414,6 +3423,7 @@ class Lms
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -3683,6 +3693,7 @@ class Lms
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -3958,6 +3969,7 @@ class Lms
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -4235,6 +4247,7 @@ class Lms
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -4506,6 +4519,7 @@ class Lms
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -4782,6 +4796,7 @@ class Lms
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             userId: $request != null ? $request->userId : null,
                             remoteUserId: $request != null ? $request->remoteUserId : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -5060,6 +5075,7 @@ class Lms
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -5331,6 +5347,7 @@ class Lms
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -5507,10 +5524,11 @@ class Lms
      *
      * @param  Components\LmsUpsertContentRequestDto  $lmsUpsertContentRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\LmsUpsertContentResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function upsertContent(Components\LmsUpsertContentRequestDto $lmsUpsertContentRequestDto, string $xAccountId, ?Options $options = null): Operations\LmsUpsertContentResponse
+    public function upsertContent(Components\LmsUpsertContentRequestDto $lmsUpsertContentRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\LmsUpsertContentResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -5540,6 +5558,7 @@ class Lms
         $request = new Operations\LmsUpsertContentRequest(
             xAccountId: $xAccountId,
             lmsUpsertContentRequestDto: $lmsUpsertContentRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/lms/content');

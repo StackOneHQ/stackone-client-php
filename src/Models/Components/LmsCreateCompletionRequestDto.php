@@ -87,6 +87,16 @@ class LmsCreateCompletionRequestDto
     public ?string $contentId = null;
 
     /**
+     * The score associated with this completion
+     *
+     * @var ?LmsCreateCompletionRequestDtoScore $score
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('score')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\LmsCreateCompletionRequestDtoScore|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?LmsCreateCompletionRequestDtoScore $score = null;
+
+    /**
      * @param  string  $learningObjectExternalReference
      * @param  ?array<string, mixed>  $passthrough
      * @param  ?LmsCreateCompletionRequestDtoResult  $result
@@ -95,9 +105,10 @@ class LmsCreateCompletionRequestDto
      * @param  ?string  $timeSpent
      * @param  ?string  $contentExternalReference
      * @param  ?string  $contentId
+     * @param  ?LmsCreateCompletionRequestDtoScore  $score
      * @phpstan-pure
      */
-    public function __construct(string $learningObjectExternalReference, ?array $passthrough = null, ?LmsCreateCompletionRequestDtoResult $result = null, ?\DateTime $completedAt = null, ?string $learningObjectId = null, ?string $timeSpent = null, ?string $contentExternalReference = null, ?string $contentId = null)
+    public function __construct(string $learningObjectExternalReference, ?array $passthrough = null, ?LmsCreateCompletionRequestDtoResult $result = null, ?\DateTime $completedAt = null, ?string $learningObjectId = null, ?string $timeSpent = null, ?string $contentExternalReference = null, ?string $contentId = null, ?LmsCreateCompletionRequestDtoScore $score = null)
     {
         $this->learningObjectExternalReference = $learningObjectExternalReference;
         $this->passthrough = $passthrough;
@@ -107,5 +118,6 @@ class LmsCreateCompletionRequestDto
         $this->timeSpent = $timeSpent;
         $this->contentExternalReference = $contentExternalReference;
         $this->contentId = $contentId;
+        $this->score = $score;
     }
 }

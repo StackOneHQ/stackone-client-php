@@ -181,6 +181,16 @@ class LmsUpsertContentRequestDto
     public ?\DateTime $createdAt = null;
 
     /**
+     * Value to pass through to the provider
+     *
+     * @var ?array<string, mixed> $passthrough
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('passthrough')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string, mixed>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $passthrough = null;
+
+    /**
      * The categories associated with this content
      *
      * @var ?array<CreateCategoriesApiModel> $categories
@@ -229,12 +239,13 @@ class LmsUpsertContentRequestDto
      * @param  ?array<AuthorModel>  $authors
      * @param  ?\DateTime  $updatedAt
      * @param  ?\DateTime  $createdAt
+     * @param  ?array<string, mixed>  $passthrough
      * @param  ?array<CreateCategoriesApiModel>  $categories
      * @param  ?array<AdditionalData>  $additionalData
      * @param  ?LmsUpsertContentRequestDtoContentType  $contentType
      * @phpstan-pure
      */
-    public function __construct(string $externalReference, ?array $unifiedCustomFields = null, ?string $title = null, ?string $description = null, ?array $languages = null, ?string $contentUrl = null, ?string $mobileLaunchContentUrl = null, ?string $coverUrl = null, bool|LmsUpsertContentRequestDtoActive2|null $active = null, ?string $duration = null, ?array $skills = null, ?float $order = null, ?string $shortDescription = null, ?array $localizations = null, ?array $tags = null, ?array $authors = null, ?\DateTime $updatedAt = null, ?\DateTime $createdAt = null, ?array $categories = null, ?array $additionalData = null, ?LmsUpsertContentRequestDtoContentType $contentType = null)
+    public function __construct(string $externalReference, ?array $unifiedCustomFields = null, ?string $title = null, ?string $description = null, ?array $languages = null, ?string $contentUrl = null, ?string $mobileLaunchContentUrl = null, ?string $coverUrl = null, bool|LmsUpsertContentRequestDtoActive2|null $active = null, ?string $duration = null, ?array $skills = null, ?float $order = null, ?string $shortDescription = null, ?array $localizations = null, ?array $tags = null, ?array $authors = null, ?\DateTime $updatedAt = null, ?\DateTime $createdAt = null, ?array $passthrough = null, ?array $categories = null, ?array $additionalData = null, ?LmsUpsertContentRequestDtoContentType $contentType = null)
     {
         $this->externalReference = $externalReference;
         $this->unifiedCustomFields = $unifiedCustomFields;
@@ -254,6 +265,7 @@ class LmsUpsertContentRequestDto
         $this->authors = $authors;
         $this->updatedAt = $updatedAt;
         $this->createdAt = $createdAt;
+        $this->passthrough = $passthrough;
         $this->categories = $categories;
         $this->additionalData = $additionalData;
         $this->contentType = $contentType;

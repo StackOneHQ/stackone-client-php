@@ -104,6 +104,15 @@ class Assignment
     public ?\DateTime $createdAt = null;
 
     /**
+     * The date the assignment was assigned
+     *
+     * @var ?\DateTime $assignedAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('assigned_at')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?\DateTime $assignedAt = null;
+
+    /**
      * The date the assignment is due to be completed
      *
      * @var ?\DateTime $dueDate
@@ -209,6 +218,7 @@ class Assignment
      * @param  ?float  $progress
      * @param  ?\DateTime  $updatedAt
      * @param  ?\DateTime  $createdAt
+     * @param  ?\DateTime  $assignedAt
      * @param  ?\DateTime  $dueDate
      * @param  ?AssignmentStatus  $status
      * @param  ?LearningObjectType  $learningObjectType
@@ -221,7 +231,7 @@ class Assignment
      * @param  ?string  $remoteCourseId
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $externalReference = null, ?string $learningObjectId = null, ?string $remoteLearningObjectId = null, ?string $learningObjectExternalReference = null, ?float $progress = null, ?\DateTime $updatedAt = null, ?\DateTime $createdAt = null, ?\DateTime $dueDate = null, ?AssignmentStatus $status = null, ?LearningObjectType $learningObjectType = null, ?string $userId = null, ?string $remoteUserId = null, ?string $certificateUrl = null, ?AssignmentResult1 $result = null, ?\DateTime $completedAt = null, ?string $courseId = null, ?string $remoteCourseId = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $externalReference = null, ?string $learningObjectId = null, ?string $remoteLearningObjectId = null, ?string $learningObjectExternalReference = null, ?float $progress = null, ?\DateTime $updatedAt = null, ?\DateTime $createdAt = null, ?\DateTime $assignedAt = null, ?\DateTime $dueDate = null, ?AssignmentStatus $status = null, ?LearningObjectType $learningObjectType = null, ?string $userId = null, ?string $remoteUserId = null, ?string $certificateUrl = null, ?AssignmentResult1 $result = null, ?\DateTime $completedAt = null, ?string $courseId = null, ?string $remoteCourseId = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -233,6 +243,7 @@ class Assignment
         $this->progress = $progress;
         $this->updatedAt = $updatedAt;
         $this->createdAt = $createdAt;
+        $this->assignedAt = $assignedAt;
         $this->dueDate = $dueDate;
         $this->status = $status;
         $this->learningObjectType = $learningObjectType;

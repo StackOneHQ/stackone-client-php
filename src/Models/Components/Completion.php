@@ -230,6 +230,16 @@ class Completion
     public ?string $remoteCourseId = null;
 
     /**
+     * The score associated with this completion
+     *
+     * @var ?CompletionScore $score
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('score')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\CompletionScore|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?CompletionScore $score = null;
+
+    /**
      * @param  ?string  $id
      * @param  ?string  $remoteId
      * @param  ?array<string, mixed>  $unifiedCustomFields
@@ -253,9 +263,10 @@ class Completion
      * @param  ?string  $remoteContentId
      * @param  ?string  $courseId
      * @param  ?string  $remoteCourseId
+     * @param  ?CompletionScore  $score
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $learningObjectExternalReference = null, ?string $externalReference = null, ?CompletionResult1 $result = null, ?\DateTime $completedAt = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?CompletionLearningObjectType $learningObjectType = null, ?string $learningObjectId = null, ?string $remoteLearningObjectId = null, ?string $userId = null, ?string $remoteUserId = null, ?string $timeSpent = null, ?string $certificateUrl = null, ?string $externalId = null, ?string $contentExternalReference = null, ?string $remoteExternalId = null, ?string $contentId = null, ?string $remoteContentId = null, ?string $courseId = null, ?string $remoteCourseId = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $learningObjectExternalReference = null, ?string $externalReference = null, ?CompletionResult1 $result = null, ?\DateTime $completedAt = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null, ?CompletionLearningObjectType $learningObjectType = null, ?string $learningObjectId = null, ?string $remoteLearningObjectId = null, ?string $userId = null, ?string $remoteUserId = null, ?string $timeSpent = null, ?string $certificateUrl = null, ?string $externalId = null, ?string $contentExternalReference = null, ?string $remoteExternalId = null, ?string $contentId = null, ?string $remoteContentId = null, ?string $courseId = null, ?string $remoteCourseId = null, ?CompletionScore $score = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -280,5 +291,6 @@ class Completion
         $this->remoteContentId = $remoteContentId;
         $this->courseId = $courseId;
         $this->remoteCourseId = $remoteCourseId;
+        $this->score = $score;
     }
 }

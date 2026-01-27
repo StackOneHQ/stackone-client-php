@@ -52,10 +52,11 @@ class Screening
      *
      * @param  Components\ScreeningCreateOrderRequestDto  $screeningCreateOrderRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\ScreeningCreateScreeningOrderResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createScreeningOrder(Components\ScreeningCreateOrderRequestDto $screeningCreateOrderRequestDto, string $xAccountId, ?Options $options = null): Operations\ScreeningCreateScreeningOrderResponse
+    public function createScreeningOrder(Components\ScreeningCreateOrderRequestDto $screeningCreateOrderRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\ScreeningCreateScreeningOrderResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -85,6 +86,7 @@ class Screening
         $request = new Operations\ScreeningCreateScreeningOrderRequest(
             xAccountId: $xAccountId,
             screeningCreateOrderRequestDto: $screeningCreateOrderRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/screening/orders');
@@ -602,6 +604,7 @@ class Screening
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -772,10 +775,11 @@ class Screening
      *
      * @param  Components\ScreeningResultWebhook  $screeningResultWebhook
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\ScreeningWebhookScreeningResultResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function webhookScreeningResult(Components\ScreeningResultWebhook $screeningResultWebhook, string $xAccountId, ?Options $options = null): Operations\ScreeningWebhookScreeningResultResponse
+    public function webhookScreeningResult(Components\ScreeningResultWebhook $screeningResultWebhook, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\ScreeningWebhookScreeningResultResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -805,6 +809,7 @@ class Screening
         $request = new Operations\ScreeningWebhookScreeningResultRequest(
             xAccountId: $xAccountId,
             screeningResultWebhook: $screeningResultWebhook,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/screening/results/webhook');

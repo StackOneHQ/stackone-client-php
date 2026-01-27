@@ -28,13 +28,23 @@ class AtsCreateApplicationRequest
     public Components\AtsCreateApplicationRequestDto $atsCreateApplicationRequestDto;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  Components\AtsCreateApplicationRequestDto  $atsCreateApplicationRequestDto
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, Components\AtsCreateApplicationRequestDto $atsCreateApplicationRequestDto)
+    public function __construct(string $xAccountId, Components\AtsCreateApplicationRequestDto $atsCreateApplicationRequestDto, ?string $prefer = null)
     {
         $this->xAccountId = $xAccountId;
         $this->atsCreateApplicationRequestDto = $atsCreateApplicationRequestDto;
+        $this->prefer = $prefer;
     }
 }

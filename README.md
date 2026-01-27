@@ -74,6 +74,7 @@ $request = new Operations\HrisListEmployeesRequest(
     ),
     expand: 'company,employments,work_location,home_location,groups,skills',
     include: 'avatar_url,avatar,custom_fields,job_description,benefits,bank_details',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->hris->listEmployees(
@@ -189,7 +190,7 @@ if ($response->statusCode === 200) {
 <details open>
 <summary>Available methods</summary>
 
-### [accounting](docs/sdks/accounting/README.md)
+### [Accounting](docs/sdks/accounting/README.md)
 
 * [listCompanies](docs/sdks/accounting/README.md#listcompanies) - List Companies
 * [getCompany](docs/sdks/accounting/README.md#getcompany) - Get Company
@@ -202,7 +203,7 @@ if ($response->statusCode === 200) {
 * [createCompanyJournal](docs/sdks/accounting/README.md#createcompanyjournal) - Create Journal
 * [getCompanyJournal](docs/sdks/accounting/README.md#getcompanyjournal) - Get Journal
 
-### [accounts](docs/sdks/accounts/README.md)
+### [Accounts](docs/sdks/accounts/README.md)
 
 * [listLinkedAccounts](docs/sdks/accounts/README.md#listlinkedaccounts) - List Accounts
 * [getAccount](docs/sdks/accounts/README.md#getaccount) - Get Account
@@ -210,12 +211,14 @@ if ($response->statusCode === 200) {
 * [updateAccount](docs/sdks/accounts/README.md#updateaccount) - Update Account
 * [getAccountMetaInfo](docs/sdks/accounts/README.md#getaccountmetainfo) - Get Account Meta Information
 
-### [actions](docs/sdks/actions/README.md)
+### [Actions](docs/sdks/actions/README.md)
 
 * [listActionsMeta](docs/sdks/actions/README.md#listactionsmeta) - List all actions metadata
+* [searchActions](docs/sdks/actions/README.md#searchactions) - Search connector actions by semantic similarity
+* [buildActionEmbeddings](docs/sdks/actions/README.md#buildactionembeddings) - Rebuild action embeddings for semantic search
 * [rpcAction](docs/sdks/actions/README.md#rpcaction) - Make an RPC call to an action
 
-### [ats](docs/sdks/ats/README.md)
+### [Ats](docs/sdks/ats/README.md)
 
 * [listApplications](docs/sdks/ats/README.md#listapplications) - List Applications
 * [createApplication](docs/sdks/ats/README.md#createapplication) - Create Application
@@ -287,24 +290,24 @@ if ($response->statusCode === 200) {
 * [listBackgroundCheckPackages](docs/sdks/ats/README.md#listbackgroundcheckpackages) - List Background Check Packages
 * [createBackgroundCheckPackage](docs/sdks/ats/README.md#createbackgroundcheckpackage) - Create Background Check Package
 * [getBackgroundCheckPackage](docs/sdks/ats/README.md#getbackgroundcheckpackage) - Get Background Check Package
-* [deleteBackgroundCheckPackage](docs/sdks/ats/README.md#deletebackgroundcheckpackage) - Delete Background Check Package
 * [updateBackgroundCheckPackage](docs/sdks/ats/README.md#updatebackgroundcheckpackage) - Update Background Check Package
+* [deleteBackgroundCheckPackage](docs/sdks/ats/README.md#deletebackgroundcheckpackage) - Delete Background Check Package
 * [orderBackgroundCheckRequest](docs/sdks/ats/README.md#orderbackgroundcheckrequest) - Order Background Check Request
 * [updateBackgroundCheckResult](docs/sdks/ats/README.md#updatebackgroundcheckresult) - Update Background Check Result
 * [listApplicationDocumentCategories](docs/sdks/ats/README.md#listapplicationdocumentcategories) - List Application Document Categories
 * [getApplicationDocumentCategory](docs/sdks/ats/README.md#getapplicationdocumentcategory) - Get Application Document Category
 
-### [connectors](docs/sdks/connectors/README.md)
-
-* [listConnectorsMeta](docs/sdks/connectors/README.md#listconnectorsmeta) - List Connector Meta Information
-* [getConnectorMeta](docs/sdks/connectors/README.md#getconnectormeta) - Get Connector Meta Information
-
-### [connectSessions](docs/sdks/connectsessions/README.md)
+### [ConnectSessions](docs/sdks/connectsessions/README.md)
 
 * [createConnectSession](docs/sdks/connectsessions/README.md#createconnectsession) - Create Connect Session
 * [authenticateConnectSession](docs/sdks/connectsessions/README.md#authenticateconnectsession) - Authenticate Connect Session
 
-### [crm](docs/sdks/crm/README.md)
+### [Connectors](docs/sdks/connectors/README.md)
+
+* [listConnectorsMeta](docs/sdks/connectors/README.md#listconnectorsmeta) - List Connector Meta Information
+* [getConnectorMeta](docs/sdks/connectors/README.md#getconnectormeta) - Get Connector Meta Information
+
+### [Crm](docs/sdks/crm/README.md)
 
 * [listContacts](docs/sdks/crm/README.md#listcontacts) - List Contacts
 * [createContact](docs/sdks/crm/README.md#createcontact) - Create Contact
@@ -317,7 +320,7 @@ if ($response->statusCode === 200) {
 * [listContactCustomFieldDefinitions](docs/sdks/crm/README.md#listcontactcustomfielddefinitions) - List Contact Custom Field Definitions
 * [getContactCustomFieldDefinition](docs/sdks/crm/README.md#getcontactcustomfielddefinition) - Get Contact Custom Field Definition
 
-### [documents](docs/sdks/documents/README.md)
+### [Documents](docs/sdks/documents/README.md)
 
 * [downloadFile](docs/sdks/documents/README.md#downloadfile) - Download File
 * [uploadFile](docs/sdks/documents/README.md#uploadfile) - Upload File
@@ -328,7 +331,7 @@ if ($response->statusCode === 200) {
 * [listDrives](docs/sdks/documents/README.md#listdrives) - List Drives
 * [getDrive](docs/sdks/documents/README.md#getdrive) - Get Drive
 
-### [hris](docs/sdks/hris/README.md)
+### [Hris](docs/sdks/hris/README.md)
 
 * [listCompanies](docs/sdks/hris/README.md#listcompanies) - List Companies
 * [getCompany](docs/sdks/hris/README.md#getcompany) - Get Company
@@ -344,8 +347,8 @@ if ($response->statusCode === 200) {
 * [listEmployeeTimeOffRequests](docs/sdks/hris/README.md#listemployeetimeoffrequests) - List Employee Time Off Requests
 * [createEmployeeTimeOffRequest](docs/sdks/hris/README.md#createemployeetimeoffrequest) - Create Employee Time Off Request
 * [getEmployeesTimeOffRequest](docs/sdks/hris/README.md#getemployeestimeoffrequest) - Get Employees Time Off Request
-* [cancelEmployeeTimeOffRequest](docs/sdks/hris/README.md#cancelemployeetimeoffrequest) - Cancel Employee Time Off Request
 * [updateEmployeeTimeOffRequest](docs/sdks/hris/README.md#updateemployeetimeoffrequest) - Update Employee Time Off Request
+* [cancelEmployeeTimeOffRequest](docs/sdks/hris/README.md#cancelemployeetimeoffrequest) - Cancel Employee Time Off Request
 * [batchUploadEmployeeDocument](docs/sdks/hris/README.md#batchuploademployeedocument) - Batch Upload Employee Document
 * [uploadEmployeeDocument](docs/sdks/hris/README.md#uploademployeedocument) - Upload Employee Document
 * [downloadEmployeeDocument](docs/sdks/hris/README.md#downloademployeedocument) - Download Employee Document
@@ -405,12 +408,12 @@ if ($response->statusCode === 200) {
 * [listTasks](docs/sdks/hris/README.md#listtasks) - List Tasks
 * [getTask](docs/sdks/hris/README.md#gettask) - Get Task
 
-### [iam](docs/sdks/iam/README.md)
+### [Iam](docs/sdks/iam/README.md)
 
 * [listUsers](docs/sdks/iam/README.md#listusers) - List Users
 * [getUser](docs/sdks/iam/README.md#getuser) - Get User
-* [deleteUser](docs/sdks/iam/README.md#deleteuser) - Delete User
 * [updateUser](docs/sdks/iam/README.md#updateuser) - Update User
+* [deleteUser](docs/sdks/iam/README.md#deleteuser) - Delete User
 * [listRoles](docs/sdks/iam/README.md#listroles) - List Roles
 * [getRole](docs/sdks/iam/README.md#getrole) - Get Role
 * [listGroups](docs/sdks/iam/README.md#listgroups) - List Groups
@@ -418,7 +421,7 @@ if ($response->statusCode === 200) {
 * [listPolicies](docs/sdks/iam/README.md#listpolicies) - List Policies
 * [getPolicy](docs/sdks/iam/README.md#getpolicy) - Get Policy
 
-### [lms](docs/sdks/lms/README.md)
+### [Lms](docs/sdks/lms/README.md)
 
 * [listCourses](docs/sdks/lms/README.md#listcourses) - List Courses
 * [getCourse](docs/sdks/lms/README.md#getcourse) - Get Course
@@ -426,8 +429,8 @@ if ($response->statusCode === 200) {
 * [createUserAssignment](docs/sdks/lms/README.md#createuserassignment) - Create User Assignment
 * [getUserAssignment](docs/sdks/lms/README.md#getuserassignment) - Get User Assignment
 * [batchUpsertContent](docs/sdks/lms/README.md#batchupsertcontent) - Batch Upsert External Linking Learning Objects
-* [listContent](docs/sdks/lms/README.md#listcontent) - List Content
 * [upsertContent](docs/sdks/lms/README.md#upsertcontent) - Upsert External Linking Learning Objects
+* [listContent](docs/sdks/lms/README.md#listcontent) - List Content
 * [getContent](docs/sdks/lms/README.md#getcontent) - Get Content
 * [listUserCompletions](docs/sdks/lms/README.md#listusercompletions) - List User Completions
 * [createUserCompletion](docs/sdks/lms/README.md#createusercompletion) - Create User Completion
@@ -444,7 +447,7 @@ if ($response->statusCode === 200) {
 * [listAssignments](docs/sdks/lms/README.md#listassignments) - List Assignments
 * [getAssignment](docs/sdks/lms/README.md#getassignment) - Get Assignment
 
-### [marketing](docs/sdks/marketing/README.md)
+### [Marketing](docs/sdks/marketing/README.md)
 
 * [listEmailTemplates](docs/sdks/marketing/README.md#listemailtemplates) - List Email Templates
 * [createEmailTemplate](docs/sdks/marketing/README.md#createemailtemplate) - Create Email Templates
@@ -473,13 +476,13 @@ if ($response->statusCode === 200) {
 * [getContentBlock](docs/sdks/marketing/README.md#getcontentblock) - Get Content Blocks
 * [updateContentBlock](docs/sdks/marketing/README.md#updatecontentblock) - Update Content Block
 
-### [mcp](docs/sdks/mcp/README.md)
+### [Mcp](docs/sdks/mcp/README.md)
 
 * [mcpGet](docs/sdks/mcp/README.md#mcpget) - Open MCP SSE stream
 * [mcpPost](docs/sdks/mcp/README.md#mcppost) - Send MCP JSON-RPC message
 * [mcpDelete](docs/sdks/mcp/README.md#mcpdelete) - Delete MCP session
 
-### [messaging](docs/sdks/messaging/README.md)
+### [Messaging](docs/sdks/messaging/README.md)
 
 * [listConversations](docs/sdks/messaging/README.md#listconversations) - List Conversations
 * [createConversation](docs/sdks/messaging/README.md#createconversation) - Create Conversation
@@ -493,25 +496,25 @@ if ($response->statusCode === 200) {
 * [getMessage](docs/sdks/messaging/README.md#getmessage) - Get Message
 * [sendMessage](docs/sdks/messaging/README.md#sendmessage) - Send Message
 
-### [proxy](docs/sdks/proxy/README.md)
+### [Proxy](docs/sdks/proxy/README.md)
 
 * [proxyRequest](docs/sdks/proxy/README.md#proxyrequest) - Proxy Request
 
-### [requestLogs](docs/sdks/requestlogs/README.md)
+### [RequestLogs](docs/sdks/requestlogs/README.md)
 
 * [listStepLogs](docs/sdks/requestlogs/README.md#liststeplogs) - List Step Logs
 * [getLog](docs/sdks/requestlogs/README.md#getlog) - Get Log
 * [listLogs](docs/sdks/requestlogs/README.md#listlogs) - List Logs
 * [listPlatformLogs](docs/sdks/requestlogs/README.md#listplatformlogs) - List Platform Logs
 
-### [screening](docs/sdks/screening/README.md)
+### [Screening](docs/sdks/screening/README.md)
 
 * [listScreeningPackages](docs/sdks/screening/README.md#listscreeningpackages) - List Screening Packages
 * [getScreeningPackage](docs/sdks/screening/README.md#getscreeningpackage) - Get Screening Package
 * [webhookScreeningResult](docs/sdks/screening/README.md#webhookscreeningresult) - Webhook Screening Result
 * [createScreeningOrder](docs/sdks/screening/README.md#createscreeningorder) - Create Screening Order
 
-### [ticketing](docs/sdks/ticketing/README.md)
+### [Ticketing](docs/sdks/ticketing/README.md)
 
 * [listTickets](docs/sdks/ticketing/README.md#listtickets) - List Tickets
 * [createTicket](docs/sdks/ticketing/README.md#createticket) - Create Ticket
@@ -570,6 +573,10 @@ $request = new Operations\StackoneListActionsMetaRequest(
     ),
     include: [
         Operations\StackoneListActionsMetaQueryParamInclude::ActionDetails,
+    ],
+    search: 'employee',
+    exclude: [
+        Operations\Exclude::Actions,
     ],
 );
 

@@ -84,13 +84,13 @@ class JobPosting
     public ?string $jobId = null;
 
     /**
-     * Provider's unique identifier of the job posting
+     * Provider's unique identifier of the job
      *
-     * @var ?string $remoteJobPostingId
+     * @var ?string $remoteJobId
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('remote_job_posting_id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('remote_job_id')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $remoteJobPostingId = null;
+    public ?string $remoteJobId = null;
 
     /**
      *
@@ -191,7 +191,7 @@ class JobPosting
      * @param  ?Internal  $internal
      * @param  ?JobPostingStatus  $status
      * @param  ?string  $jobId
-     * @param  ?string  $remoteJobPostingId
+     * @param  ?string  $remoteJobId
      * @param  ?JobPostingContent  $content
      * @param  ?array<JobPostingCompensation>  $compensation
      * @param  ?JobPostingEmploymentType  $employmentType
@@ -204,7 +204,7 @@ class JobPosting
      * @param  ?\DateTime  $updatedAt
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $title = null, ?array $locations = null, ?Internal $internal = null, ?JobPostingStatus $status = null, ?string $jobId = null, ?string $remoteJobPostingId = null, ?JobPostingContent $content = null, ?array $compensation = null, ?JobPostingEmploymentType $employmentType = null, ?JobPostingEmploymentContractType $employmentContractType = null, ?string $externalUrl = null, ?string $externalApplyUrl = null, ?array $questionnaires = null, ?\DateTime $startDate = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null)
+    public function __construct(?string $id = null, ?string $remoteId = null, ?array $unifiedCustomFields = null, ?string $title = null, ?array $locations = null, ?Internal $internal = null, ?JobPostingStatus $status = null, ?string $jobId = null, ?string $remoteJobId = null, ?JobPostingContent $content = null, ?array $compensation = null, ?JobPostingEmploymentType $employmentType = null, ?JobPostingEmploymentContractType $employmentContractType = null, ?string $externalUrl = null, ?string $externalApplyUrl = null, ?array $questionnaires = null, ?\DateTime $startDate = null, ?\DateTime $createdAt = null, ?\DateTime $updatedAt = null)
     {
         $this->id = $id;
         $this->remoteId = $remoteId;
@@ -214,7 +214,7 @@ class JobPosting
         $this->internal = $internal;
         $this->status = $status;
         $this->jobId = $jobId;
-        $this->remoteJobPostingId = $remoteJobPostingId;
+        $this->remoteJobId = $remoteJobId;
         $this->content = $content;
         $this->compensation = $compensation;
         $this->employmentType = $employmentType;

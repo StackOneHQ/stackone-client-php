@@ -52,10 +52,11 @@ class Crm
      *
      * @param  Components\CrmCreateContactRequestDto  $crmCreateContactRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\CrmCreateContactResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createContact(Components\CrmCreateContactRequestDto $crmCreateContactRequestDto, string $xAccountId, ?Options $options = null): Operations\CrmCreateContactResponse
+    public function createContact(Components\CrmCreateContactRequestDto $crmCreateContactRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\CrmCreateContactResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -85,6 +86,7 @@ class Crm
         $request = new Operations\CrmCreateContactRequest(
             xAccountId: $xAccountId,
             crmCreateContactRequestDto: $crmCreateContactRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/crm/contacts');
@@ -1271,6 +1273,7 @@ class Crm
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -1538,6 +1541,7 @@ class Crm
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -1806,6 +1810,7 @@ class Crm
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             include: $request != null ? $request->include : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -2073,6 +2078,7 @@ class Crm
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -2244,10 +2250,11 @@ class Crm
      * @param  Components\CrmCreateContactRequestDto  $crmCreateContactRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\CrmUpdateContactResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateContact(Components\CrmCreateContactRequestDto $crmCreateContactRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\CrmUpdateContactResponse
+    public function updateContact(Components\CrmCreateContactRequestDto $crmCreateContactRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\CrmUpdateContactResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -2278,6 +2285,7 @@ class Crm
             xAccountId: $xAccountId,
             id: $id,
             crmCreateContactRequestDto: $crmCreateContactRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/crm/contacts/{id}', Operations\CrmUpdateContactRequest::class, $request);

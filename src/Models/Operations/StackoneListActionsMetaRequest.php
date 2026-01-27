@@ -12,15 +12,6 @@ use StackOne\client\Utils\SpeakeasyMetadata;
 class StackoneListActionsMetaRequest
 {
     /**
-     * The page number of the results to fetch
-     *
-     * @var ?string $page
-     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=page')]
-    public ?string $page = null;
-
-    /**
      * The number of results per page (default value is 25)
      *
      * @var ?string $pageSize
@@ -53,6 +44,22 @@ class StackoneListActionsMetaRequest
     public ?array $include = null;
 
     /**
+     * Text search across provider names, action labels, and action descriptions
+     *
+     * @var ?string $search
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=search')]
+    public ?string $search = null;
+
+    /**
+     * Data to exclude from the response
+     *
+     * @var ?array<Exclude> $exclude
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=exclude')]
+    public ?array $exclude = null;
+
+    /**
      * The relation to group the results by
      *
      * @var ?string $groupBy
@@ -61,21 +68,23 @@ class StackoneListActionsMetaRequest
     public ?string $groupBy = null;
 
     /**
-     * @param  ?string  $page
      * @param  ?string  $pageSize
      * @param  ?string  $next
      * @param  ?string  $groupBy
      * @param  ?StackoneListActionsMetaQueryParamFilter  $filter
      * @param  ?array<StackoneListActionsMetaQueryParamInclude>  $include
+     * @param  ?string  $search
+     * @param  ?array<Exclude>  $exclude
      * @phpstan-pure
      */
-    public function __construct(?string $page = null, ?string $pageSize = null, ?string $next = null, ?StackoneListActionsMetaQueryParamFilter $filter = null, ?array $include = null, ?string $groupBy = 'connector')
+    public function __construct(?string $pageSize = null, ?string $next = null, ?StackoneListActionsMetaQueryParamFilter $filter = null, ?array $include = null, ?string $search = null, ?array $exclude = null, ?string $groupBy = 'connector')
     {
-        $this->page = $page;
         $this->pageSize = $pageSize;
         $this->next = $next;
         $this->filter = $filter;
         $this->include = $include;
+        $this->search = $search;
+        $this->exclude = $exclude;
         $this->groupBy = $groupBy;
     }
 }

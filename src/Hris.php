@@ -53,10 +53,11 @@ class Hris
      * @param  Components\HrisBatchDocumentUploadRequestDto  $hrisBatchDocumentUploadRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\HrisBatchUploadEmployeeDocumentResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function batchUploadEmployeeDocument(Components\HrisBatchDocumentUploadRequestDto $hrisBatchDocumentUploadRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\HrisBatchUploadEmployeeDocumentResponse
+    public function batchUploadEmployeeDocument(Components\HrisBatchDocumentUploadRequestDto $hrisBatchDocumentUploadRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\HrisBatchUploadEmployeeDocumentResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -87,6 +88,7 @@ class Hris
             xAccountId: $xAccountId,
             id: $id,
             hrisBatchDocumentUploadRequestDto: $hrisBatchDocumentUploadRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/documents/upload/batch', Operations\HrisBatchUploadEmployeeDocumentRequest::class, $request);
@@ -285,10 +287,11 @@ class Hris
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  string  $subResourceId
+     * @param  ?string  $prefer
      * @return Operations\HrisCancelEmployeeTimeOffRequestResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function cancelEmployeeTimeOffRequest(string $xAccountId, string $id, string $subResourceId, ?Options $options = null): Operations\HrisCancelEmployeeTimeOffRequestResponse
+    public function cancelEmployeeTimeOffRequest(string $xAccountId, string $id, string $subResourceId, ?string $prefer = null, ?Options $options = null): Operations\HrisCancelEmployeeTimeOffRequestResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -319,6 +322,7 @@ class Hris
             xAccountId: $xAccountId,
             id: $id,
             subResourceId: $subResourceId,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/time_off/{subResourceId}', Operations\HrisCancelEmployeeTimeOffRequestRequest::class, $request);
@@ -519,10 +523,11 @@ class Hris
      *
      * @param  Components\HrisCreateEmployeeRequestDto  $hrisCreateEmployeeRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\HrisCreateEmployeeResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createEmployee(Components\HrisCreateEmployeeRequestDto $hrisCreateEmployeeRequestDto, string $xAccountId, ?Options $options = null): Operations\HrisCreateEmployeeResponse
+    public function createEmployee(Components\HrisCreateEmployeeRequestDto $hrisCreateEmployeeRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\HrisCreateEmployeeResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -552,6 +557,7 @@ class Hris
         $request = new Operations\HrisCreateEmployeeRequest(
             xAccountId: $xAccountId,
             hrisCreateEmployeeRequestDto: $hrisCreateEmployeeRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees');
@@ -750,10 +756,11 @@ class Hris
      * @param  Components\HrisCreateEmploymentRequestDto  $hrisCreateEmploymentRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\HrisCreateEmployeeEmploymentResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createEmployeeEmployment(Components\HrisCreateEmploymentRequestDto $hrisCreateEmploymentRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\HrisCreateEmployeeEmploymentResponse
+    public function createEmployeeEmployment(Components\HrisCreateEmploymentRequestDto $hrisCreateEmploymentRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\HrisCreateEmployeeEmploymentResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -784,6 +791,7 @@ class Hris
             xAccountId: $xAccountId,
             id: $id,
             hrisCreateEmploymentRequestDto: $hrisCreateEmploymentRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/employments', Operations\HrisCreateEmployeeEmploymentRequest::class, $request);
@@ -982,10 +990,11 @@ class Hris
      * @param  Components\EntitySkillsCreateRequestDto  $entitySkillsCreateRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\HrisCreateEmployeeSkillResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createEmployeeSkill(Components\EntitySkillsCreateRequestDto $entitySkillsCreateRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\HrisCreateEmployeeSkillResponse
+    public function createEmployeeSkill(Components\EntitySkillsCreateRequestDto $entitySkillsCreateRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\HrisCreateEmployeeSkillResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -1016,6 +1025,7 @@ class Hris
             xAccountId: $xAccountId,
             id: $id,
             entitySkillsCreateRequestDto: $entitySkillsCreateRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/skills', Operations\HrisCreateEmployeeSkillRequest::class, $request);
@@ -1214,10 +1224,11 @@ class Hris
      * @param  Components\HrisCreateTimeOffRequestDto  $hrisCreateTimeOffRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\HrisCreateEmployeeTimeOffRequestResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createEmployeeTimeOffRequest(Components\HrisCreateTimeOffRequestDto $hrisCreateTimeOffRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\HrisCreateEmployeeTimeOffRequestResponse
+    public function createEmployeeTimeOffRequest(Components\HrisCreateTimeOffRequestDto $hrisCreateTimeOffRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\HrisCreateEmployeeTimeOffRequestResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -1248,6 +1259,7 @@ class Hris
             xAccountId: $xAccountId,
             id: $id,
             hrisCreateTimeOffRequestDto: $hrisCreateTimeOffRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/time_off', Operations\HrisCreateEmployeeTimeOffRequestRequest::class, $request);
@@ -1446,10 +1458,11 @@ class Hris
      * @param  Components\HrisCreateWorkEligibilityRequestDto  $hrisCreateWorkEligibilityRequestDto
      * @param  string  $id
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\HrisCreateEmployeeWorkEligibilityRequestResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createEmployeeWorkEligibilityRequest(Components\HrisCreateWorkEligibilityRequestDto $hrisCreateWorkEligibilityRequestDto, string $id, string $xAccountId, ?Options $options = null): Operations\HrisCreateEmployeeWorkEligibilityRequestResponse
+    public function createEmployeeWorkEligibilityRequest(Components\HrisCreateWorkEligibilityRequestDto $hrisCreateWorkEligibilityRequestDto, string $id, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\HrisCreateEmployeeWorkEligibilityRequestResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -1480,6 +1493,7 @@ class Hris
             id: $id,
             xAccountId: $xAccountId,
             hrisCreateWorkEligibilityRequestDto: $hrisCreateWorkEligibilityRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/work_eligibility', Operations\HrisCreateEmployeeWorkEligibilityRequestRequest::class, $request);
@@ -8740,10 +8754,11 @@ class Hris
      * @param  Components\HrisInviteEmployeeRequestDto  $hrisInviteEmployeeRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\HrisInviteEmployeeResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function inviteEmployee(Components\HrisInviteEmployeeRequestDto $hrisInviteEmployeeRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\HrisInviteEmployeeResponse
+    public function inviteEmployee(Components\HrisInviteEmployeeRequestDto $hrisInviteEmployeeRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\HrisInviteEmployeeResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -8774,6 +8789,7 @@ class Hris
             xAccountId: $xAccountId,
             id: $id,
             hrisInviteEmployeeRequestDto: $hrisInviteEmployeeRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/invite', Operations\HrisInviteEmployeeRequest::class, $request);
@@ -9068,6 +9084,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -9335,6 +9352,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -9602,6 +9620,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -9869,6 +9888,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -10136,6 +10156,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -10403,6 +10424,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -10670,6 +10692,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -10937,6 +10960,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -11205,6 +11229,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -11474,6 +11499,7 @@ class Hris
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             expand: $request != null ? $request->expand : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -11742,6 +11768,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -12010,6 +12037,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -12279,6 +12307,7 @@ class Hris
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             expand: $request != null ? $request->expand : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -12548,6 +12577,7 @@ class Hris
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             expand: $request != null ? $request->expand : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -12816,6 +12846,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -13085,6 +13116,7 @@ class Hris
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             expand: $request != null ? $request->expand : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -13353,6 +13385,7 @@ class Hris
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             xAccountId: $request != null ? $request->xAccountId : '',
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -13622,6 +13655,7 @@ class Hris
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             expand: $request != null ? $request->expand : null,
                             include: $request != null ? $request->include : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -13890,6 +13924,7 @@ class Hris
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             expand: $request != null ? $request->expand : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -14157,6 +14192,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -14424,6 +14460,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -14691,6 +14728,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -14959,6 +14997,7 @@ class Hris
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             status: $request != null ? $request->status : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -15226,6 +15265,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -15494,6 +15534,7 @@ class Hris
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             expand: $request != null ? $request->expand : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -15761,6 +15802,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -16028,6 +16070,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -16295,6 +16338,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -16563,6 +16607,7 @@ class Hris
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             expand: $request != null ? $request->expand : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -16832,6 +16877,7 @@ class Hris
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -17004,10 +17050,11 @@ class Hris
      * @param  Components\HrisUpdateEmployeeRequestDto  $hrisUpdateEmployeeRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\HrisUpdateEmployeeResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateEmployee(Components\HrisUpdateEmployeeRequestDto $hrisUpdateEmployeeRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\HrisUpdateEmployeeResponse
+    public function updateEmployee(Components\HrisUpdateEmployeeRequestDto $hrisUpdateEmployeeRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\HrisUpdateEmployeeResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -17038,6 +17085,7 @@ class Hris
             xAccountId: $xAccountId,
             id: $id,
             hrisUpdateEmployeeRequestDto: $hrisUpdateEmployeeRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}', Operations\HrisUpdateEmployeeRequest::class, $request);
@@ -17233,14 +17281,11 @@ class Hris
     /**
      * Update Employee Employment
      *
-     * @param  Components\HrisUpdateEmploymentRequestDto  $hrisUpdateEmploymentRequestDto
-     * @param  string  $xAccountId
-     * @param  string  $id
-     * @param  string  $subResourceId
+     * @param  Operations\HrisUpdateEmployeeEmploymentRequest  $request
      * @return Operations\HrisUpdateEmployeeEmploymentResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateEmployeeEmployment(Components\HrisUpdateEmploymentRequestDto $hrisUpdateEmploymentRequestDto, string $xAccountId, string $id, string $subResourceId, ?Options $options = null): Operations\HrisUpdateEmployeeEmploymentResponse
+    public function updateEmployeeEmployment(Operations\HrisUpdateEmployeeEmploymentRequest $request, ?Options $options = null): Operations\HrisUpdateEmployeeEmploymentResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -17267,12 +17312,6 @@ class Hris
                 '408',
             ];
         }
-        $request = new Operations\HrisUpdateEmployeeEmploymentRequest(
-            xAccountId: $xAccountId,
-            id: $id,
-            subResourceId: $subResourceId,
-            hrisUpdateEmploymentRequestDto: $hrisUpdateEmploymentRequestDto,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/employments/{subResourceId}', Operations\HrisUpdateEmployeeEmploymentRequest::class, $request);
         $urlOverride = null;
@@ -17467,14 +17506,11 @@ class Hris
     /**
      * Update Employee Task
      *
-     * @param  Components\UpdateTaskRequestDto  $updateTaskRequestDto
-     * @param  string  $xAccountId
-     * @param  string  $id
-     * @param  string  $subResourceId
+     * @param  Operations\HrisUpdateEmployeeTaskRequest  $request
      * @return Operations\HrisUpdateEmployeeTaskResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateEmployeeTask(Components\UpdateTaskRequestDto $updateTaskRequestDto, string $xAccountId, string $id, string $subResourceId, ?Options $options = null): Operations\HrisUpdateEmployeeTaskResponse
+    public function updateEmployeeTask(Operations\HrisUpdateEmployeeTaskRequest $request, ?Options $options = null): Operations\HrisUpdateEmployeeTaskResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -17501,12 +17537,6 @@ class Hris
                 '408',
             ];
         }
-        $request = new Operations\HrisUpdateEmployeeTaskRequest(
-            xAccountId: $xAccountId,
-            id: $id,
-            subResourceId: $subResourceId,
-            updateTaskRequestDto: $updateTaskRequestDto,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/tasks/{subResourceId}', Operations\HrisUpdateEmployeeTaskRequest::class, $request);
         $urlOverride = null;
@@ -17701,14 +17731,11 @@ class Hris
     /**
      * Update Employee Time Off Request
      *
-     * @param  Components\HrisCreateTimeOffRequestDto  $hrisCreateTimeOffRequestDto
-     * @param  string  $xAccountId
-     * @param  string  $id
-     * @param  string  $subResourceId
+     * @param  Operations\HrisUpdateEmployeeTimeOffRequestRequest  $request
      * @return Operations\HrisUpdateEmployeeTimeOffRequestResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateEmployeeTimeOffRequest(Components\HrisCreateTimeOffRequestDto $hrisCreateTimeOffRequestDto, string $xAccountId, string $id, string $subResourceId, ?Options $options = null): Operations\HrisUpdateEmployeeTimeOffRequestResponse
+    public function updateEmployeeTimeOffRequest(Operations\HrisUpdateEmployeeTimeOffRequestRequest $request, ?Options $options = null): Operations\HrisUpdateEmployeeTimeOffRequestResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -17735,12 +17762,6 @@ class Hris
                 '408',
             ];
         }
-        $request = new Operations\HrisUpdateEmployeeTimeOffRequestRequest(
-            xAccountId: $xAccountId,
-            id: $id,
-            subResourceId: $subResourceId,
-            hrisCreateTimeOffRequestDto: $hrisCreateTimeOffRequestDto,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/time_off/{subResourceId}', Operations\HrisUpdateEmployeeTimeOffRequestRequest::class, $request);
         $urlOverride = null;
@@ -17935,14 +17956,11 @@ class Hris
     /**
      * Update Employee Work Eligibility Request
      *
-     * @param  Components\HrisCreateWorkEligibilityRequestDto  $hrisCreateWorkEligibilityRequestDto
-     * @param  string  $id
-     * @param  string  $subResourceId
-     * @param  string  $xAccountId
+     * @param  Operations\HrisUpdateEmployeeWorkEligibilityRequestRequest  $request
      * @return Operations\HrisUpdateEmployeeWorkEligibilityRequestResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateEmployeeWorkEligibilityRequest(Components\HrisCreateWorkEligibilityRequestDto $hrisCreateWorkEligibilityRequestDto, string $id, string $subResourceId, string $xAccountId, ?Options $options = null): Operations\HrisUpdateEmployeeWorkEligibilityRequestResponse
+    public function updateEmployeeWorkEligibilityRequest(Operations\HrisUpdateEmployeeWorkEligibilityRequestRequest $request, ?Options $options = null): Operations\HrisUpdateEmployeeWorkEligibilityRequestResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -17969,12 +17987,6 @@ class Hris
                 '408',
             ];
         }
-        $request = new Operations\HrisUpdateEmployeeWorkEligibilityRequestRequest(
-            id: $id,
-            subResourceId: $subResourceId,
-            xAccountId: $xAccountId,
-            hrisCreateWorkEligibilityRequestDto: $hrisCreateWorkEligibilityRequestDto,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/work_eligibility/{subResourceId}', Operations\HrisUpdateEmployeeWorkEligibilityRequestRequest::class, $request);
         $urlOverride = null;
@@ -18163,10 +18175,11 @@ class Hris
      * @param  Components\HrisDocumentsUploadRequestDto  $hrisDocumentsUploadRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\HrisUploadEmployeeDocumentResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function uploadEmployeeDocument(Components\HrisDocumentsUploadRequestDto $hrisDocumentsUploadRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\HrisUploadEmployeeDocumentResponse
+    public function uploadEmployeeDocument(Components\HrisDocumentsUploadRequestDto $hrisDocumentsUploadRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\HrisUploadEmployeeDocumentResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -18197,6 +18210,7 @@ class Hris
             xAccountId: $xAccountId,
             id: $id,
             hrisDocumentsUploadRequestDto: $hrisDocumentsUploadRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/documents/upload', Operations\HrisUploadEmployeeDocumentRequest::class, $request);

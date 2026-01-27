@@ -28,13 +28,23 @@ class AtsCreateJobRequest
     public Components\AtsCreateJobRequestDto $atsCreateJobRequestDto;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  Components\AtsCreateJobRequestDto  $atsCreateJobRequestDto
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, Components\AtsCreateJobRequestDto $atsCreateJobRequestDto)
+    public function __construct(string $xAccountId, Components\AtsCreateJobRequestDto $atsCreateJobRequestDto, ?string $prefer = null)
     {
         $this->xAccountId = $xAccountId;
         $this->atsCreateJobRequestDto = $atsCreateJobRequestDto;
+        $this->prefer = $prefer;
     }
 }

@@ -28,13 +28,23 @@ class ScreeningWebhookScreeningResultRequest
     public Components\ScreeningResultWebhook $screeningResultWebhook;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  Components\ScreeningResultWebhook  $screeningResultWebhook
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, Components\ScreeningResultWebhook $screeningResultWebhook)
+    public function __construct(string $xAccountId, Components\ScreeningResultWebhook $screeningResultWebhook, ?string $prefer = null)
     {
         $this->xAccountId = $xAccountId;
         $this->screeningResultWebhook = $screeningResultWebhook;
+        $this->prefer = $prefer;
     }
 }

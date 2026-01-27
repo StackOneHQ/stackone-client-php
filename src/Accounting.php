@@ -53,10 +53,11 @@ class Accounting
      * @param  Components\AccountingJournalBatchCreateRequestDto  $accountingJournalBatchCreateRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AccountingBatchCreateCompanyJournalsResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function batchCreateCompanyJournals(Components\AccountingJournalBatchCreateRequestDto $accountingJournalBatchCreateRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AccountingBatchCreateCompanyJournalsResponse
+    public function batchCreateCompanyJournals(Components\AccountingJournalBatchCreateRequestDto $accountingJournalBatchCreateRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AccountingBatchCreateCompanyJournalsResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -87,6 +88,7 @@ class Accounting
             xAccountId: $xAccountId,
             id: $id,
             accountingJournalBatchCreateRequestDto: $accountingJournalBatchCreateRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/accounting/companies/{id}/journals/batch', Operations\AccountingBatchCreateCompanyJournalsRequest::class, $request);
@@ -285,10 +287,11 @@ class Accounting
      * @param  Components\AccountingJournalCreateRequestDto  $accountingJournalCreateRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AccountingCreateCompanyJournalResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createCompanyJournal(Components\AccountingJournalCreateRequestDto $accountingJournalCreateRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AccountingCreateCompanyJournalResponse
+    public function createCompanyJournal(Components\AccountingJournalCreateRequestDto $accountingJournalCreateRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AccountingCreateCompanyJournalResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -319,6 +322,7 @@ class Accounting
             xAccountId: $xAccountId,
             id: $id,
             accountingJournalCreateRequestDto: $accountingJournalCreateRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/accounting/companies/{id}/journals', Operations\AccountingCreateCompanyJournalRequest::class, $request);
@@ -1505,6 +1509,7 @@ class Accounting
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -1773,6 +1778,7 @@ class Accounting
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -2041,6 +2047,7 @@ class Accounting
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -2309,6 +2316,7 @@ class Accounting
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };

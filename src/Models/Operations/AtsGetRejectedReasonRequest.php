@@ -27,6 +27,14 @@ class AtsGetRejectedReasonRequest
     public string $id;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
      *
      * @var ?bool $raw
@@ -53,15 +61,17 @@ class AtsGetRejectedReasonRequest
     /**
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @param  ?bool  $raw
      * @param  ?array<string, mixed>  $proxy
      * @param  ?string  $fields
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, ?bool $raw = null, ?array $proxy = null, ?string $fields = null)
+    public function __construct(string $xAccountId, string $id, ?string $prefer = null, ?bool $raw = null, ?array $proxy = null, ?string $fields = null)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
+        $this->prefer = $prefer;
         $this->raw = $raw;
         $this->proxy = $proxy;
         $this->fields = $fields;

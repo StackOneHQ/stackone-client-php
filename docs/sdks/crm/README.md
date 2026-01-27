@@ -1,5 +1,4 @@
 # Crm
-(*crm*)
 
 ## Overview
 
@@ -49,6 +48,7 @@ $request = new Operations\CrmListContactsRequest(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
     include: 'custom_fields',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->crm->listContacts(
@@ -150,7 +150,8 @@ $crmCreateContactRequestDto = new Components\CrmCreateContactRequestDto(
 
 $response = $sdk->crm->createContact(
     xAccountId: '<id>',
-    crmCreateContactRequestDto: $crmCreateContactRequestDto
+    crmCreateContactRequestDto: $crmCreateContactRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -161,10 +162,11 @@ if ($response->contactResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                   | *string*                                                                                       | :heavy_check_mark:                                                                             | The account identifier                                                                         |
-| `crmCreateContactRequestDto`                                                                   | [Components\CrmCreateContactRequestDto](../../Models/Components/CrmCreateContactRequestDto.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `crmCreateContactRequestDto`                                                                                                                                             | [Components\CrmCreateContactRequestDto](../../Models/Components/CrmCreateContactRequestDto.md)                                                                           | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -218,6 +220,7 @@ $request = new Operations\CrmGetContactRequest(
     id: '<id>',
     fields: 'id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at,unified_custom_fields',
     include: 'custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->crm->getContact(
@@ -317,7 +320,8 @@ $crmCreateContactRequestDto = new Components\CrmCreateContactRequestDto(
 $response = $sdk->crm->updateContact(
     xAccountId: '<id>',
     id: '<id>',
-    crmCreateContactRequestDto: $crmCreateContactRequestDto
+    crmCreateContactRequestDto: $crmCreateContactRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -328,11 +332,12 @@ if ($response->contactResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                   | *string*                                                                                       | :heavy_check_mark:                                                                             | The account identifier                                                                         |
-| `id`                                                                                           | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `crmCreateContactRequestDto`                                                                   | [Components\CrmCreateContactRequestDto](../../Models/Components/CrmCreateContactRequestDto.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `crmCreateContactRequestDto`                                                                                                                                             | [Components\CrmCreateContactRequestDto](../../Models/Components/CrmCreateContactRequestDto.md)                                                                           | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -388,6 +393,7 @@ $request = new Operations\CrmListAccountsRequest(
     filter: new Operations\CrmListAccountsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->crm->listAccounts(
@@ -459,6 +465,7 @@ $request = new Operations\CrmGetAccountRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->crm->getAccount(
@@ -530,6 +537,7 @@ $request = new Operations\CrmListListsRequest(
     filter: new Operations\CrmListListsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->crm->listLists(
@@ -601,6 +609,7 @@ $request = new Operations\CrmGetListRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,created_at,updated_at,items,type,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->crm->getList(
@@ -672,6 +681,7 @@ $request = new Operations\CrmListContactCustomFieldDefinitionsRequest(
     filter: new Operations\CrmListContactCustomFieldDefinitionsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->crm->listContactCustomFieldDefinitions(
@@ -747,6 +757,7 @@ $request = new Operations\CrmGetContactCustomFieldDefinitionRequest(
     filter: new Operations\CrmGetContactCustomFieldDefinitionQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->crm->getContactCustomFieldDefinition(

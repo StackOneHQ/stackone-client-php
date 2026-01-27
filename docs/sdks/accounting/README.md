@@ -1,5 +1,4 @@
 # Accounting
-(*accounting*)
 
 ## Overview
 
@@ -48,6 +47,7 @@ $request = new Operations\AccountingListCompaniesRequest(
     filter: new Operations\AccountingListCompaniesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->accounting->listCompanies(
@@ -119,6 +119,7 @@ $request = new Operations\AccountingGetCompanyRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,base_currency,fiscal_year_start_month,fiscal_year_start_day,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->accounting->getCompany(
@@ -188,6 +189,7 @@ $request = new Operations\AccountingListCompanyAccountsRequest(
     id: '<id>',
     fields: 'id,remote_id,company_id,remote_company_id,code,name,type,active,unified_custom_fields',
     filter: null,
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->accounting->listCompanyAccounts(
@@ -260,6 +262,7 @@ $request = new Operations\AccountingGetCompanyAccountRequest(
     id: '<id>',
     subResourceId: '<id>',
     fields: 'id,remote_id,company_id,remote_company_id,code,name,type,active,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->accounting->getCompanyAccount(
@@ -332,6 +335,7 @@ $request = new Operations\AccountingListCompanyTaxRatesRequest(
     filter: new Operations\AccountingListCompanyTaxRatesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->accounting->listCompanyTaxRates(
@@ -404,6 +408,7 @@ $request = new Operations\AccountingGetCompanyTaxRateRequest(
     id: '<id>',
     subResourceId: '<id>',
     fields: 'id,remote_id,company_id,remote_company_id,name,code,percentage,active,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->accounting->getCompanyTaxRate(
@@ -474,7 +479,8 @@ $accountingJournalBatchCreateRequestDto = new Components\AccountingJournalBatchC
 $response = $sdk->accounting->batchCreateCompanyJournals(
     xAccountId: '<id>',
     id: '<id>',
-    accountingJournalBatchCreateRequestDto: $accountingJournalBatchCreateRequestDto
+    accountingJournalBatchCreateRequestDto: $accountingJournalBatchCreateRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -485,11 +491,12 @@ if ($response->batchResultApiModel !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                                           | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | The account identifier                                                                                                 |
-| `id`                                                                                                                   | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
-| `accountingJournalBatchCreateRequestDto`                                                                               | [Components\AccountingJournalBatchCreateRequestDto](../../Models/Components/AccountingJournalBatchCreateRequestDto.md) | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `accountingJournalBatchCreateRequestDto`                                                                                                                                 | [Components\AccountingJournalBatchCreateRequestDto](../../Models/Components/AccountingJournalBatchCreateRequestDto.md)                                                   | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -543,6 +550,7 @@ $request = new Operations\AccountingListCompanyJournalsRequest(
     id: '<id>',
     fields: 'id,remote_id,company_id,remote_company_id,reference,memo,transaction_date,status,lines,created_at,updated_at,posted_at,unified_custom_fields',
     filter: null,
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->accounting->listCompanyJournals(
@@ -633,7 +641,8 @@ $accountingJournalCreateRequestDto = new Components\AccountingJournalCreateReque
 $response = $sdk->accounting->createCompanyJournal(
     xAccountId: '<id>',
     id: '<id>',
-    accountingJournalCreateRequestDto: $accountingJournalCreateRequestDto
+    accountingJournalCreateRequestDto: $accountingJournalCreateRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -644,11 +653,12 @@ if ($response->createResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `xAccountId`                                                                                                 | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The account identifier                                                                                       |
-| `id`                                                                                                         | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `accountingJournalCreateRequestDto`                                                                          | [Components\AccountingJournalCreateRequestDto](../../Models/Components/AccountingJournalCreateRequestDto.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `accountingJournalCreateRequestDto`                                                                                                                                      | [Components\AccountingJournalCreateRequestDto](../../Models/Components/AccountingJournalCreateRequestDto.md)                                                             | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -702,6 +712,7 @@ $request = new Operations\AccountingGetCompanyJournalRequest(
     id: '<id>',
     subResourceId: '<id>',
     fields: 'id,remote_id,company_id,remote_company_id,reference,memo,transaction_date,status,lines,created_at,updated_at,posted_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->accounting->getCompanyJournal(
