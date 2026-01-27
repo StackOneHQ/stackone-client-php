@@ -35,15 +35,25 @@ class HrisCreateEmployeeSkillRequest
     public Components\EntitySkillsCreateRequestDto $entitySkillsCreateRequestDto;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  Components\EntitySkillsCreateRequestDto  $entitySkillsCreateRequestDto
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, Components\EntitySkillsCreateRequestDto $entitySkillsCreateRequestDto)
+    public function __construct(string $xAccountId, string $id, Components\EntitySkillsCreateRequestDto $entitySkillsCreateRequestDto, ?string $prefer = null)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
         $this->entitySkillsCreateRequestDto = $entitySkillsCreateRequestDto;
+        $this->prefer = $prefer;
     }
 }

@@ -28,13 +28,23 @@ class LmsBatchUpsertContentRequest
     public Components\LmsBatchUpsertContentRequestDto $lmsBatchUpsertContentRequestDto;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  Components\LmsBatchUpsertContentRequestDto  $lmsBatchUpsertContentRequestDto
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, Components\LmsBatchUpsertContentRequestDto $lmsBatchUpsertContentRequestDto)
+    public function __construct(string $xAccountId, Components\LmsBatchUpsertContentRequestDto $lmsBatchUpsertContentRequestDto, ?string $prefer = null)
     {
         $this->xAccountId = $xAccountId;
         $this->lmsBatchUpsertContentRequestDto = $lmsBatchUpsertContentRequestDto;
+        $this->prefer = $prefer;
     }
 }

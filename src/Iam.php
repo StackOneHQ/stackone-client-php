@@ -52,10 +52,11 @@ class Iam
      *
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\IamDeleteUserResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function deleteUser(string $xAccountId, string $id, ?Options $options = null): Operations\IamDeleteUserResponse
+    public function deleteUser(string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\IamDeleteUserResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -85,6 +86,7 @@ class Iam
         $request = new Operations\IamDeleteUserRequest(
             xAccountId: $xAccountId,
             id: $id,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/iam/users/{id}', Operations\IamDeleteUserRequest::class, $request);
@@ -1275,6 +1277,7 @@ class Iam
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             expand: $request != null ? $request->expand : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -1543,6 +1546,7 @@ class Iam
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             expand: $request != null ? $request->expand : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -1811,6 +1815,7 @@ class Iam
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             expand: $request != null ? $request->expand : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -2079,6 +2084,7 @@ class Iam
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             expand: $request != null ? $request->expand : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -2250,10 +2256,11 @@ class Iam
      * @param  Components\IamUpdateUserRequestDto  $iamUpdateUserRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\IamUpdateUserResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateUser(Components\IamUpdateUserRequestDto $iamUpdateUserRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\IamUpdateUserResponse
+    public function updateUser(Components\IamUpdateUserRequestDto $iamUpdateUserRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\IamUpdateUserResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -2284,6 +2291,7 @@ class Iam
             xAccountId: $xAccountId,
             id: $id,
             iamUpdateUserRequestDto: $iamUpdateUserRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/iam/users/{id}', Operations\IamUpdateUserRequest::class, $request);

@@ -35,15 +35,25 @@ class AtsUploadApplicationDocumentRequest
     public Components\AtsDocumentsUploadRequestDto $atsDocumentsUploadRequestDto;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  Components\AtsDocumentsUploadRequestDto  $atsDocumentsUploadRequestDto
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, Components\AtsDocumentsUploadRequestDto $atsDocumentsUploadRequestDto)
+    public function __construct(string $xAccountId, string $id, Components\AtsDocumentsUploadRequestDto $atsDocumentsUploadRequestDto, ?string $prefer = null)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
         $this->atsDocumentsUploadRequestDto = $atsDocumentsUploadRequestDto;
+        $this->prefer = $prefer;
     }
 }

@@ -39,15 +39,27 @@ class AuthenticationMetaItem
     public ?string $key = null;
 
     /**
+     * The required scopes for this authentication method
+     *
+     * @var ?array<string> $requiredScopes
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('required_scopes')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $requiredScopes = null;
+
+    /**
      * @param  ?string  $type
      * @param  ?string  $label
      * @param  ?string  $key
+     * @param  ?array<string>  $requiredScopes
      * @phpstan-pure
      */
-    public function __construct(?string $type = null, ?string $label = null, ?string $key = null)
+    public function __construct(?string $type = null, ?string $label = null, ?string $key = null, ?array $requiredScopes = null)
     {
         $this->type = $type;
         $this->label = $label;
         $this->key = $key;
+        $this->requiredScopes = $requiredScopes;
     }
 }

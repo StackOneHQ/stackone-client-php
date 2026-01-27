@@ -42,17 +42,27 @@ class HrisUpdateEmployeeTaskRequest
     public Components\UpdateTaskRequestDto $updateTaskRequestDto;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  string  $subResourceId
      * @param  Components\UpdateTaskRequestDto  $updateTaskRequestDto
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, string $subResourceId, Components\UpdateTaskRequestDto $updateTaskRequestDto)
+    public function __construct(string $xAccountId, string $id, string $subResourceId, Components\UpdateTaskRequestDto $updateTaskRequestDto, ?string $prefer = null)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
         $this->subResourceId = $subResourceId;
         $this->updateTaskRequestDto = $updateTaskRequestDto;
+        $this->prefer = $prefer;
     }
 }

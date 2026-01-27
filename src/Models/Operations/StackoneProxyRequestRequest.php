@@ -29,13 +29,23 @@ class StackoneProxyRequestRequest
     public Components\ProxyRequestBody $proxyRequestBody;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  Components\ProxyRequestBody  $proxyRequestBody
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, Components\ProxyRequestBody $proxyRequestBody)
+    public function __construct(string $xAccountId, Components\ProxyRequestBody $proxyRequestBody, ?string $prefer = null)
     {
         $this->xAccountId = $xAccountId;
         $this->proxyRequestBody = $proxyRequestBody;
+        $this->prefer = $prefer;
     }
 }

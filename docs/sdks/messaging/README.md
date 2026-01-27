@@ -1,5 +1,4 @@
 # Messaging
-(*messaging*)
 
 ## Overview
 
@@ -49,6 +48,7 @@ $request = new Operations\MessagingListConversationsRequest(
     filter: new Operations\MessagingListConversationsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->messaging->listConversations(
@@ -126,7 +126,8 @@ $messagingCreateConversationRequestDto = new Components\MessagingCreateConversat
 
 $response = $sdk->messaging->createConversation(
     xAccountId: '<id>',
-    messagingCreateConversationRequestDto: $messagingCreateConversationRequestDto
+    messagingCreateConversationRequestDto: $messagingCreateConversationRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -137,10 +138,11 @@ if ($response->createResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                            | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                                         | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | The account identifier                                                                                               |
-| `messagingCreateConversationRequestDto`                                                                              | [Components\MessagingCreateConversationRequestDto](../../Models/Components/MessagingCreateConversationRequestDto.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `messagingCreateConversationRequestDto`                                                                                                                                  | [Components\MessagingCreateConversationRequestDto](../../Models/Components/MessagingCreateConversationRequestDto.md)                                                     | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -193,6 +195,7 @@ $request = new Operations\MessagingGetConversationRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,participants,name,private,created_at,last_message_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->messaging->getConversation(
@@ -263,6 +266,7 @@ $request = new Operations\MessagingDownloadMessagingAttachmentRequest(
     subResourceId: '<id>',
     format: 'base64',
     exportFormat: 'text/plain',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->messaging->downloadMessagingAttachment(
@@ -335,6 +339,7 @@ $request = new Operations\MessagingListAttachmentsRequest(
     filter: new Operations\MessagingListAttachmentsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->messaging->listAttachments(
@@ -407,6 +412,7 @@ $request = new Operations\MessagingGetAttachmentRequest(
     id: '<id>',
     subResourceId: '<id>',
     fields: 'id,remote_id,file_name,file_size,file_type,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->messaging->getAttachment(
@@ -478,6 +484,7 @@ $request = new Operations\MessagingListUsersRequest(
     filter: new Operations\MessagingListUsersQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->messaging->listUsers(
@@ -549,6 +556,7 @@ $request = new Operations\MessagingGetUserRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,email,username,name,first_name,last_name,bot,active,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->messaging->getUser(
@@ -621,6 +629,7 @@ $request = new Operations\MessagingListConversationMessagesRequest(
     filter: new Operations\MessagingListConversationMessagesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->messaging->listConversationMessages(
@@ -692,6 +701,7 @@ $request = new Operations\MessagingGetMessageRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,content,parent_message_id,remote_parent_message_id,attachments,author,created_at,updated_at,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->messaging->getMessage(
@@ -763,7 +773,8 @@ $messagingMessageSendRequestDto = new Components\MessagingMessageSendRequestDto(
 
 $response = $sdk->messaging->sendMessage(
     xAccountId: '<id>',
-    messagingMessageSendRequestDto: $messagingMessageSendRequestDto
+    messagingMessageSendRequestDto: $messagingMessageSendRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -774,10 +785,11 @@ if ($response->createResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `xAccountId`                                                                                           | *string*                                                                                               | :heavy_check_mark:                                                                                     | The account identifier                                                                                 |
-| `messagingMessageSendRequestDto`                                                                       | [Components\MessagingMessageSendRequestDto](../../Models/Components/MessagingMessageSendRequestDto.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `messagingMessageSendRequestDto`                                                                                                                                         | [Components\MessagingMessageSendRequestDto](../../Models/Components/MessagingMessageSendRequestDto.md)                                                                   | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 

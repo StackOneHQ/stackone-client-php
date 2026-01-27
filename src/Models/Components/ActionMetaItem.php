@@ -68,14 +68,24 @@ class ActionMetaItem
     public ?array $authentication = null;
 
     /**
-     * The operation details for the action
+     * The action details for the action
      *
-     * @var ?array<string, mixed> $operationDetails
+     * @var ?array<string, mixed> $actionDetails
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('operation_details')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('action_details')]
     #[\Speakeasy\Serializer\Annotation\Type('array<string, mixed>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $operationDetails = null;
+    public ?array $actionDetails = null;
+
+    /**
+     * The required scopes for the action
+     *
+     * @var ?array<string> $requiredScopes
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('required_scopes')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $requiredScopes = null;
 
     /**
      * @param  ?string  $id
@@ -84,10 +94,11 @@ class ActionMetaItem
      * @param  ?string  $schemaType
      * @param  ?array<string>  $tags
      * @param  ?array<AuthenticationMetaItem>  $authentication
-     * @param  ?array<string, mixed>  $operationDetails
+     * @param  ?array<string, mixed>  $actionDetails
+     * @param  ?array<string>  $requiredScopes
      * @phpstan-pure
      */
-    public function __construct(?string $id = null, ?string $label = null, ?string $description = null, ?string $schemaType = null, ?array $tags = null, ?array $authentication = null, ?array $operationDetails = null)
+    public function __construct(?string $id = null, ?string $label = null, ?string $description = null, ?string $schemaType = null, ?array $tags = null, ?array $authentication = null, ?array $actionDetails = null, ?array $requiredScopes = null)
     {
         $this->id = $id;
         $this->label = $label;
@@ -95,6 +106,7 @@ class ActionMetaItem
         $this->schemaType = $schemaType;
         $this->tags = $tags;
         $this->authentication = $authentication;
-        $this->operationDetails = $operationDetails;
+        $this->actionDetails = $actionDetails;
+        $this->requiredScopes = $requiredScopes;
     }
 }

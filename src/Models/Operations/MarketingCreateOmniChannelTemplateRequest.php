@@ -28,13 +28,23 @@ class MarketingCreateOmniChannelTemplateRequest
     public Components\MarketingCreateTemplateRequestDto $marketingCreateTemplateRequestDto;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  Components\MarketingCreateTemplateRequestDto  $marketingCreateTemplateRequestDto
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, Components\MarketingCreateTemplateRequestDto $marketingCreateTemplateRequestDto)
+    public function __construct(string $xAccountId, Components\MarketingCreateTemplateRequestDto $marketingCreateTemplateRequestDto, ?string $prefer = null)
     {
         $this->xAccountId = $xAccountId;
         $this->marketingCreateTemplateRequestDto = $marketingCreateTemplateRequestDto;
+        $this->prefer = $prefer;
     }
 }

@@ -1038,6 +1038,7 @@ class Documents
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -1309,6 +1310,7 @@ class Documents
                             folderId: $request != null ? $request->folderId : null,
                             nestedItems: $request != null ? $request->nestedItems : null,
                             include: $request != null ? $request->include : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -1579,6 +1581,7 @@ class Documents
                             folderId: $request != null ? $request->folderId : null,
                             nestedItems: $request != null ? $request->nestedItems : null,
                             include: $request != null ? $request->include : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -1750,10 +1753,11 @@ class Documents
      * @param  Components\UnifiedUploadRequestDto  $unifiedUploadRequestDto
      * @param  string  $xAccountId
      * @param  ?string  $xStackoneApiSessionToken
+     * @param  ?string  $prefer
      * @return Operations\DocumentsUploadFileResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function uploadFile(Components\UnifiedUploadRequestDto $unifiedUploadRequestDto, string $xAccountId, ?string $xStackoneApiSessionToken = null, ?Options $options = null): Operations\DocumentsUploadFileResponse
+    public function uploadFile(Components\UnifiedUploadRequestDto $unifiedUploadRequestDto, string $xAccountId, ?string $xStackoneApiSessionToken = null, ?string $prefer = null, ?Options $options = null): Operations\DocumentsUploadFileResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -1784,6 +1788,7 @@ class Documents
             xAccountId: $xAccountId,
             unifiedUploadRequestDto: $unifiedUploadRequestDto,
             xStackoneApiSessionToken: $xStackoneApiSessionToken,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/documents/files/upload');

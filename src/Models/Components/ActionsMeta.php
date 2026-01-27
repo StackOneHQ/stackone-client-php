@@ -12,6 +12,24 @@ namespace StackOne\client\Models\Components;
 class ActionsMeta
 {
     /**
+     * The account ID this metadata applies to (only present when filtering by account_ids)
+     *
+     * @var ?string $accountId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('account_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $accountId = null;
+
+    /**
+     * The integration ID this metadata applies to (only present when filtering by account_ids)
+     *
+     * @var ?string $integrationId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('integration_id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $integrationId = null;
+
+    /**
      * The version of the actions metadata
      *
      * @var ?string $version
@@ -57,6 +75,15 @@ class ActionsMeta
     public ?string $description = null;
 
     /**
+     * The release stage of the connector (e.g., ga, beta, preview). By default, StackOne organizations only have access to connectors in the 'ga' stage. To get access to 'beta' or 'preview' stage connectors, please contact support.
+     *
+     * @var ?string $releaseStage
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('release_stage')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $releaseStage = null;
+
+    /**
      * The authentication methods supported by the provider
      *
      * @var ?array<AuthenticationMetaItem> $authentication
@@ -65,6 +92,16 @@ class ActionsMeta
     #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\AuthenticationMetaItem>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $authentication = null;
+
+    /**
+     * The list of scope definitions available for this provider
+     *
+     * @var ?array<ScopeDefinitionMetaItem> $scopeDefinitions
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('scope_definitions')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\StackOne\client\Models\Components\ScopeDefinitionMetaItem>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $scopeDefinitions = null;
 
     /**
      * The list of actions available for this provider
@@ -77,23 +114,31 @@ class ActionsMeta
     public ?array $actions = null;
 
     /**
+     * @param  ?string  $accountId
+     * @param  ?string  $integrationId
      * @param  ?string  $version
      * @param  ?string  $name
      * @param  ?string  $key
      * @param  ?string  $icon
      * @param  ?string  $description
+     * @param  ?string  $releaseStage
      * @param  ?array<AuthenticationMetaItem>  $authentication
+     * @param  ?array<ScopeDefinitionMetaItem>  $scopeDefinitions
      * @param  ?array<ActionMetaItem>  $actions
      * @phpstan-pure
      */
-    public function __construct(?string $version = null, ?string $name = null, ?string $key = null, ?string $icon = null, ?string $description = null, ?array $authentication = null, ?array $actions = null)
+    public function __construct(?string $accountId = null, ?string $integrationId = null, ?string $version = null, ?string $name = null, ?string $key = null, ?string $icon = null, ?string $description = null, ?string $releaseStage = null, ?array $authentication = null, ?array $scopeDefinitions = null, ?array $actions = null)
     {
+        $this->accountId = $accountId;
+        $this->integrationId = $integrationId;
         $this->version = $version;
         $this->name = $name;
         $this->key = $key;
         $this->icon = $icon;
         $this->description = $description;
+        $this->releaseStage = $releaseStage;
         $this->authentication = $authentication;
+        $this->scopeDefinitions = $scopeDefinitions;
         $this->actions = $actions;
     }
 }

@@ -52,10 +52,11 @@ class Ats
      *
      * @param  Components\AtsCreateApplicationRequestDto  $atsCreateApplicationRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\AtsCreateApplicationResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createApplication(Components\AtsCreateApplicationRequestDto $atsCreateApplicationRequestDto, string $xAccountId, ?Options $options = null): Operations\AtsCreateApplicationResponse
+    public function createApplication(Components\AtsCreateApplicationRequestDto $atsCreateApplicationRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\AtsCreateApplicationResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -85,6 +86,7 @@ class Ats
         $request = new Operations\AtsCreateApplicationRequest(
             xAccountId: $xAccountId,
             atsCreateApplicationRequestDto: $atsCreateApplicationRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/applications');
@@ -283,10 +285,11 @@ class Ats
      * @param  Components\AtsCreateNotesRequestDto  $atsCreateNotesRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AtsCreateApplicationNoteResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createApplicationNote(Components\AtsCreateNotesRequestDto $atsCreateNotesRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AtsCreateApplicationNoteResponse
+    public function createApplicationNote(Components\AtsCreateNotesRequestDto $atsCreateNotesRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AtsCreateApplicationNoteResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -317,6 +320,7 @@ class Ats
             xAccountId: $xAccountId,
             id: $id,
             atsCreateNotesRequestDto: $atsCreateNotesRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/applications/{id}/notes', Operations\AtsCreateApplicationNoteRequest::class, $request);
@@ -514,10 +518,11 @@ class Ats
      *
      * @param  Components\AtsCreateBackgroundCheckPackagesRequestDto  $atsCreateBackgroundCheckPackagesRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\AtsCreateBackgroundCheckPackageResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createBackgroundCheckPackage(Components\AtsCreateBackgroundCheckPackagesRequestDto $atsCreateBackgroundCheckPackagesRequestDto, string $xAccountId, ?Options $options = null): Operations\AtsCreateBackgroundCheckPackageResponse
+    public function createBackgroundCheckPackage(Components\AtsCreateBackgroundCheckPackagesRequestDto $atsCreateBackgroundCheckPackagesRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\AtsCreateBackgroundCheckPackageResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -547,6 +552,7 @@ class Ats
         $request = new Operations\AtsCreateBackgroundCheckPackageRequest(
             xAccountId: $xAccountId,
             atsCreateBackgroundCheckPackagesRequestDto: $atsCreateBackgroundCheckPackagesRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/background_checks/packages');
@@ -744,10 +750,11 @@ class Ats
      *
      * @param  Components\AtsCreateCandidateRequestDto  $atsCreateCandidateRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\AtsCreateCandidateResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createCandidate(Components\AtsCreateCandidateRequestDto $atsCreateCandidateRequestDto, string $xAccountId, ?Options $options = null): Operations\AtsCreateCandidateResponse
+    public function createCandidate(Components\AtsCreateCandidateRequestDto $atsCreateCandidateRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\AtsCreateCandidateResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -777,6 +784,7 @@ class Ats
         $request = new Operations\AtsCreateCandidateRequest(
             xAccountId: $xAccountId,
             atsCreateCandidateRequestDto: $atsCreateCandidateRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/candidates');
@@ -975,10 +983,11 @@ class Ats
      * @param  Components\AtsCreateNotesRequestDto  $atsCreateNotesRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AtsCreateCandidateNoteResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createCandidateNote(Components\AtsCreateNotesRequestDto $atsCreateNotesRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AtsCreateCandidateNoteResponse
+    public function createCandidateNote(Components\AtsCreateNotesRequestDto $atsCreateNotesRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AtsCreateCandidateNoteResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -1009,6 +1018,7 @@ class Ats
             xAccountId: $xAccountId,
             id: $id,
             atsCreateNotesRequestDto: $atsCreateNotesRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/candidates/{id}/notes', Operations\AtsCreateCandidateNoteRequest::class, $request);
@@ -1207,10 +1217,11 @@ class Ats
      * @param  Components\AtsCreateNotesRequestDto  $atsCreateNotesRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AtsCreateInterviewNoteResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createInterviewNote(Components\AtsCreateNotesRequestDto $atsCreateNotesRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AtsCreateInterviewNoteResponse
+    public function createInterviewNote(Components\AtsCreateNotesRequestDto $atsCreateNotesRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AtsCreateInterviewNoteResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -1241,6 +1252,7 @@ class Ats
             xAccountId: $xAccountId,
             id: $id,
             atsCreateNotesRequestDto: $atsCreateNotesRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/interviews/{id}/notes', Operations\AtsCreateInterviewNoteRequest::class, $request);
@@ -1438,10 +1450,11 @@ class Ats
      *
      * @param  Components\AtsCreateJobRequestDto  $atsCreateJobRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\AtsCreateJobResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createJob(Components\AtsCreateJobRequestDto $atsCreateJobRequestDto, string $xAccountId, ?Options $options = null): Operations\AtsCreateJobResponse
+    public function createJob(Components\AtsCreateJobRequestDto $atsCreateJobRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\AtsCreateJobResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -1471,6 +1484,7 @@ class Ats
         $request = new Operations\AtsCreateJobRequest(
             xAccountId: $xAccountId,
             atsCreateJobRequestDto: $atsCreateJobRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/jobs');
@@ -1668,10 +1682,11 @@ class Ats
      *
      * @param  Components\AtsCreateOfferRequestDto  $atsCreateOfferRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\AtsCreateOfferResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createOffer(Components\AtsCreateOfferRequestDto $atsCreateOfferRequestDto, string $xAccountId, ?Options $options = null): Operations\AtsCreateOfferResponse
+    public function createOffer(Components\AtsCreateOfferRequestDto $atsCreateOfferRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\AtsCreateOfferResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -1701,6 +1716,7 @@ class Ats
         $request = new Operations\AtsCreateOfferRequest(
             xAccountId: $xAccountId,
             atsCreateOfferRequestDto: $atsCreateOfferRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/offers');
@@ -1898,10 +1914,11 @@ class Ats
      *
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AtsDeleteBackgroundCheckPackageResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function deleteBackgroundCheckPackage(string $xAccountId, string $id, ?Options $options = null): Operations\AtsDeleteBackgroundCheckPackageResponse
+    public function deleteBackgroundCheckPackage(string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AtsDeleteBackgroundCheckPackageResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -1931,6 +1948,7 @@ class Ats
         $request = new Operations\AtsDeleteBackgroundCheckPackageRequest(
             xAccountId: $xAccountId,
             id: $id,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/background_checks/packages/{id}', Operations\AtsDeleteBackgroundCheckPackageRequest::class, $request);
@@ -8612,6 +8630,7 @@ class Ats
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             filter: $request != null ? $request->filter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -8879,6 +8898,7 @@ class Ats
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -9146,6 +9166,7 @@ class Ats
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -9415,6 +9436,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -9684,6 +9706,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -9953,6 +9976,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -10221,6 +10245,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -10492,6 +10517,7 @@ class Ats
                             expand: $request != null ? $request->expand : null,
                             include: $request != null ? $request->include : null,
                             jobId: $request != null ? $request->jobId : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -10761,6 +10787,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -11030,6 +11057,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -11297,6 +11325,7 @@ class Ats
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -11564,6 +11593,7 @@ class Ats
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -11831,6 +11861,7 @@ class Ats
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -12100,6 +12131,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -12369,6 +12401,7 @@ class Ats
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
                             include: $request != null ? $request->include : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -12637,6 +12670,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -12907,6 +12941,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -13176,6 +13211,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -13445,6 +13481,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -13712,6 +13749,7 @@ class Ats
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -13981,6 +14019,7 @@ class Ats
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
                             include: $request != null ? $request->include : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -14251,6 +14290,7 @@ class Ats
                             syncToken: $request != null ? $request->syncToken : null,
                             expand: $request != null ? $request->expand : null,
                             include: $request != null ? $request->include : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -14518,6 +14558,7 @@ class Ats
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -14786,6 +14827,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -15054,6 +15096,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -15322,6 +15365,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -15590,6 +15634,7 @@ class Ats
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
                             syncToken: $request != null ? $request->syncToken : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -15761,10 +15806,11 @@ class Ats
      * @param  Components\AtsMoveApplicationRequestDto  $atsMoveApplicationRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AtsMoveApplicationResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function moveApplication(Components\AtsMoveApplicationRequestDto $atsMoveApplicationRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AtsMoveApplicationResponse
+    public function moveApplication(Components\AtsMoveApplicationRequestDto $atsMoveApplicationRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AtsMoveApplicationResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -15795,6 +15841,7 @@ class Ats
             xAccountId: $xAccountId,
             id: $id,
             atsMoveApplicationRequestDto: $atsMoveApplicationRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/applications/{id}/move', Operations\AtsMoveApplicationRequest::class, $request);
@@ -15992,10 +16039,11 @@ class Ats
      *
      * @param  Components\AtsCreateCandidatesAssessmentsRequestDto  $atsCreateCandidatesAssessmentsRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\AtsOrderAssessmentsRequestResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function orderAssessmentsRequest(Components\AtsCreateCandidatesAssessmentsRequestDto $atsCreateCandidatesAssessmentsRequestDto, string $xAccountId, ?Options $options = null): Operations\AtsOrderAssessmentsRequestResponse
+    public function orderAssessmentsRequest(Components\AtsCreateCandidatesAssessmentsRequestDto $atsCreateCandidatesAssessmentsRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\AtsOrderAssessmentsRequestResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -16025,6 +16073,7 @@ class Ats
         $request = new Operations\AtsOrderAssessmentsRequestRequest(
             xAccountId: $xAccountId,
             atsCreateCandidatesAssessmentsRequestDto: $atsCreateCandidatesAssessmentsRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/assessments/orders');
@@ -16222,10 +16271,11 @@ class Ats
      *
      * @param  Components\AtsCreateBackgroundCheckOrderRequestDto  $atsCreateBackgroundCheckOrderRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\AtsOrderBackgroundCheckRequestResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function orderBackgroundCheckRequest(Components\AtsCreateBackgroundCheckOrderRequestDto $atsCreateBackgroundCheckOrderRequestDto, string $xAccountId, ?Options $options = null): Operations\AtsOrderBackgroundCheckRequestResponse
+    public function orderBackgroundCheckRequest(Components\AtsCreateBackgroundCheckOrderRequestDto $atsCreateBackgroundCheckOrderRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\AtsOrderBackgroundCheckRequestResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -16255,6 +16305,7 @@ class Ats
         $request = new Operations\AtsOrderBackgroundCheckRequestRequest(
             xAccountId: $xAccountId,
             atsCreateBackgroundCheckOrderRequestDto: $atsCreateBackgroundCheckOrderRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/background_checks/orders');
@@ -16453,10 +16504,11 @@ class Ats
      * @param  Components\AtsRejectApplicationRequestDto  $atsRejectApplicationRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AtsRejectApplicationResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function rejectApplication(Components\AtsRejectApplicationRequestDto $atsRejectApplicationRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AtsRejectApplicationResponse
+    public function rejectApplication(Components\AtsRejectApplicationRequestDto $atsRejectApplicationRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AtsRejectApplicationResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -16487,6 +16539,7 @@ class Ats
             xAccountId: $xAccountId,
             id: $id,
             atsRejectApplicationRequestDto: $atsRejectApplicationRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/applications/{id}/reject', Operations\AtsRejectApplicationRequest::class, $request);
@@ -16685,10 +16738,11 @@ class Ats
      * @param  Components\AtsUpdateApplicationRequestDto  $atsUpdateApplicationRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AtsUpdateApplicationResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateApplication(Components\AtsUpdateApplicationRequestDto $atsUpdateApplicationRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AtsUpdateApplicationResponse
+    public function updateApplication(Components\AtsUpdateApplicationRequestDto $atsUpdateApplicationRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AtsUpdateApplicationResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -16719,6 +16773,7 @@ class Ats
             xAccountId: $xAccountId,
             id: $id,
             atsUpdateApplicationRequestDto: $atsUpdateApplicationRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/applications/{id}', Operations\AtsUpdateApplicationRequest::class, $request);
@@ -16914,14 +16969,11 @@ class Ats
     /**
      * Update Application Note
      *
-     * @param  Components\AtsUpdateNotesRequestDto  $atsUpdateNotesRequestDto
-     * @param  string  $xAccountId
-     * @param  string  $id
-     * @param  string  $subResourceId
+     * @param  Operations\AtsUpdateApplicationNoteRequest  $request
      * @return Operations\AtsUpdateApplicationNoteResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateApplicationNote(Components\AtsUpdateNotesRequestDto $atsUpdateNotesRequestDto, string $xAccountId, string $id, string $subResourceId, ?Options $options = null): Operations\AtsUpdateApplicationNoteResponse
+    public function updateApplicationNote(Operations\AtsUpdateApplicationNoteRequest $request, ?Options $options = null): Operations\AtsUpdateApplicationNoteResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -16948,12 +17000,6 @@ class Ats
                 '408',
             ];
         }
-        $request = new Operations\AtsUpdateApplicationNoteRequest(
-            xAccountId: $xAccountId,
-            id: $id,
-            subResourceId: $subResourceId,
-            atsUpdateNotesRequestDto: $atsUpdateNotesRequestDto,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/applications/{id}/notes/{subResourceId}', Operations\AtsUpdateApplicationNoteRequest::class, $request);
         $urlOverride = null;
@@ -17151,10 +17197,11 @@ class Ats
      * @param  Components\AtsUpdateCandidatesAssessmentsResultsRequestDto  $atsUpdateCandidatesAssessmentsResultsRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AtsUpdateAssessmentsResultResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateAssessmentsResult(Components\AtsUpdateCandidatesAssessmentsResultsRequestDto $atsUpdateCandidatesAssessmentsResultsRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AtsUpdateAssessmentsResultResponse
+    public function updateAssessmentsResult(Components\AtsUpdateCandidatesAssessmentsResultsRequestDto $atsUpdateCandidatesAssessmentsResultsRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AtsUpdateAssessmentsResultResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -17185,6 +17232,7 @@ class Ats
             xAccountId: $xAccountId,
             id: $id,
             atsUpdateCandidatesAssessmentsResultsRequestDto: $atsUpdateCandidatesAssessmentsResultsRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/assessments/orders/{id}/result', Operations\AtsUpdateAssessmentsResultRequest::class, $request);
@@ -17383,10 +17431,11 @@ class Ats
      * @param  Components\AtsUpdateBackgroundCheckPackagesRequestDto  $atsUpdateBackgroundCheckPackagesRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AtsUpdateBackgroundCheckPackageResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateBackgroundCheckPackage(Components\AtsUpdateBackgroundCheckPackagesRequestDto $atsUpdateBackgroundCheckPackagesRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AtsUpdateBackgroundCheckPackageResponse
+    public function updateBackgroundCheckPackage(Components\AtsUpdateBackgroundCheckPackagesRequestDto $atsUpdateBackgroundCheckPackagesRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AtsUpdateBackgroundCheckPackageResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -17417,6 +17466,7 @@ class Ats
             xAccountId: $xAccountId,
             id: $id,
             atsUpdateBackgroundCheckPackagesRequestDto: $atsUpdateBackgroundCheckPackagesRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/background_checks/packages/{id}', Operations\AtsUpdateBackgroundCheckPackageRequest::class, $request);
@@ -17615,10 +17665,11 @@ class Ats
      * @param  Components\AtsUpdateBackgroundCheckResultRequestDto  $atsUpdateBackgroundCheckResultRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AtsUpdateBackgroundCheckResultResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateBackgroundCheckResult(Components\AtsUpdateBackgroundCheckResultRequestDto $atsUpdateBackgroundCheckResultRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AtsUpdateBackgroundCheckResultResponse
+    public function updateBackgroundCheckResult(Components\AtsUpdateBackgroundCheckResultRequestDto $atsUpdateBackgroundCheckResultRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AtsUpdateBackgroundCheckResultResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -17649,6 +17700,7 @@ class Ats
             xAccountId: $xAccountId,
             id: $id,
             atsUpdateBackgroundCheckResultRequestDto: $atsUpdateBackgroundCheckResultRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/background_checks/orders/{id}/result', Operations\AtsUpdateBackgroundCheckResultRequest::class, $request);
@@ -17847,10 +17899,11 @@ class Ats
      * @param  Components\AtsUpdateCandidateRequestDto  $atsUpdateCandidateRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AtsUpdateCandidateResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateCandidate(Components\AtsUpdateCandidateRequestDto $atsUpdateCandidateRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AtsUpdateCandidateResponse
+    public function updateCandidate(Components\AtsUpdateCandidateRequestDto $atsUpdateCandidateRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AtsUpdateCandidateResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -17881,6 +17934,7 @@ class Ats
             xAccountId: $xAccountId,
             id: $id,
             atsUpdateCandidateRequestDto: $atsUpdateCandidateRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/candidates/{id}', Operations\AtsUpdateCandidateRequest::class, $request);
@@ -18076,14 +18130,11 @@ class Ats
     /**
      * Update Interview Note
      *
-     * @param  Components\AtsUpdateNotesRequestDto  $atsUpdateNotesRequestDto
-     * @param  string  $xAccountId
-     * @param  string  $id
-     * @param  string  $subResourceId
+     * @param  Operations\AtsUpdateInterviewNoteRequest  $request
      * @return Operations\AtsUpdateInterviewNoteResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateInterviewNote(Components\AtsUpdateNotesRequestDto $atsUpdateNotesRequestDto, string $xAccountId, string $id, string $subResourceId, ?Options $options = null): Operations\AtsUpdateInterviewNoteResponse
+    public function updateInterviewNote(Operations\AtsUpdateInterviewNoteRequest $request, ?Options $options = null): Operations\AtsUpdateInterviewNoteResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -18110,12 +18161,6 @@ class Ats
                 '408',
             ];
         }
-        $request = new Operations\AtsUpdateInterviewNoteRequest(
-            xAccountId: $xAccountId,
-            id: $id,
-            subResourceId: $subResourceId,
-            atsUpdateNotesRequestDto: $atsUpdateNotesRequestDto,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/interviews/{id}/notes/{subResourceId}', Operations\AtsUpdateInterviewNoteRequest::class, $request);
         $urlOverride = null;
@@ -18313,10 +18358,11 @@ class Ats
      * @param  Components\AtsUpdateJobRequestDto  $atsUpdateJobRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AtsUpdateJobResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function updateJob(Components\AtsUpdateJobRequestDto $atsUpdateJobRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AtsUpdateJobResponse
+    public function updateJob(Components\AtsUpdateJobRequestDto $atsUpdateJobRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AtsUpdateJobResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -18347,6 +18393,7 @@ class Ats
             xAccountId: $xAccountId,
             id: $id,
             atsUpdateJobRequestDto: $atsUpdateJobRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/jobs/{id}', Operations\AtsUpdateJobRequest::class, $request);
@@ -18545,10 +18592,11 @@ class Ats
      * @param  Components\AtsDocumentsUploadRequestDto  $atsDocumentsUploadRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
+     * @param  ?string  $prefer
      * @return Operations\AtsUploadApplicationDocumentResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function uploadApplicationDocument(Components\AtsDocumentsUploadRequestDto $atsDocumentsUploadRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AtsUploadApplicationDocumentResponse
+    public function uploadApplicationDocument(Components\AtsDocumentsUploadRequestDto $atsDocumentsUploadRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AtsUploadApplicationDocumentResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -18579,6 +18627,7 @@ class Ats
             xAccountId: $xAccountId,
             id: $id,
             atsDocumentsUploadRequestDto: $atsDocumentsUploadRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/applications/{id}/documents/upload', Operations\AtsUploadApplicationDocumentRequest::class, $request);

@@ -35,15 +35,25 @@ class AtsUpdateBackgroundCheckResultRequest
     public Components\AtsUpdateBackgroundCheckResultRequestDto $atsUpdateBackgroundCheckResultRequestDto;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  Components\AtsUpdateBackgroundCheckResultRequestDto  $atsUpdateBackgroundCheckResultRequestDto
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, Components\AtsUpdateBackgroundCheckResultRequestDto $atsUpdateBackgroundCheckResultRequestDto)
+    public function __construct(string $xAccountId, string $id, Components\AtsUpdateBackgroundCheckResultRequestDto $atsUpdateBackgroundCheckResultRequestDto, ?string $prefer = null)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
         $this->atsUpdateBackgroundCheckResultRequestDto = $atsUpdateBackgroundCheckResultRequestDto;
+        $this->prefer = $prefer;
     }
 }

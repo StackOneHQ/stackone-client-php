@@ -35,15 +35,25 @@ class MarketingUpdateEmailTemplateRequest
     public Components\MarketingCreateEmailTemplateRequestDto $marketingCreateEmailTemplateRequestDto;
 
     /**
+     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+     *
+     * @var ?string $prefer
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
+    public ?string $prefer = null;
+
+    /**
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  Components\MarketingCreateEmailTemplateRequestDto  $marketingCreateEmailTemplateRequestDto
+     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, Components\MarketingCreateEmailTemplateRequestDto $marketingCreateEmailTemplateRequestDto)
+    public function __construct(string $xAccountId, string $id, Components\MarketingCreateEmailTemplateRequestDto $marketingCreateEmailTemplateRequestDto, ?string $prefer = null)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
         $this->marketingCreateEmailTemplateRequestDto = $marketingCreateEmailTemplateRequestDto;
+        $this->prefer = $prefer;
     }
 }

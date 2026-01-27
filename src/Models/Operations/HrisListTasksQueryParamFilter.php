@@ -21,11 +21,21 @@ class HrisListTasksQueryParamFilter
     public ?\DateTime $updatedAfter = null;
 
     /**
+     * Use a string with a date to only select results created after that given date
+     *
+     * @var ?\DateTime $createdAfter
+     */
+    #[SpeakeasyMetadata('queryParam:name=created_after,dateTimeFormat=Y-m-d\TH:i:s.up')]
+    public ?\DateTime $createdAfter = null;
+
+    /**
      * @param  ?\DateTime  $updatedAfter
+     * @param  ?\DateTime  $createdAfter
      * @phpstan-pure
      */
-    public function __construct(?\DateTime $updatedAfter = null)
+    public function __construct(?\DateTime $updatedAfter = null, ?\DateTime $createdAfter = null)
     {
         $this->updatedAfter = $updatedAfter;
+        $this->createdAfter = $createdAfter;
     }
 }

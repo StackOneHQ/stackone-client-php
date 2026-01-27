@@ -1,5 +1,4 @@
 # Lms
-(*lms*)
 
 ## Overview
 
@@ -11,8 +10,8 @@
 * [createUserAssignment](#createuserassignment) - Create User Assignment
 * [getUserAssignment](#getuserassignment) - Get User Assignment
 * [batchUpsertContent](#batchupsertcontent) - Batch Upsert External Linking Learning Objects
-* [listContent](#listcontent) - List Content
 * [upsertContent](#upsertcontent) - Upsert External Linking Learning Objects
+* [listContent](#listcontent) - List Content
 * [getContent](#getcontent) - Get Content
 * [listUserCompletions](#listusercompletions) - List User Completions
 * [createUserCompletion](#createusercompletion) - Create User Completion
@@ -63,6 +62,7 @@ $request = new Operations\LmsListCoursesRequest(
     filter: new Operations\LmsListCoursesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->lms->listCourses(
@@ -136,6 +136,7 @@ $request = new Operations\LmsGetCourseRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->lms->getCourse(
@@ -208,12 +209,13 @@ $sdk = client\StackOne::builder()
 $request = new Operations\LmsListUserAssignmentsRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at,unified_custom_fields',
+    fields: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,assigned_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at,unified_custom_fields',
     filter: new Operations\LmsListUserAssignmentsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
     userId: 'c28xyrc55866bvuv',
     remoteUserId: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->lms->listUserAssignments(
@@ -291,7 +293,7 @@ $lmsCreateAssignmentRequestDto = new Components\LmsCreateAssignmentRequestDto(
     ],
     learningObjectId: 'e3gd34-23tr21-er234-345er56',
     progress: 40,
-    createdAt: Utils\Utils::parseDateTime('2021-07-21T14:00:00.000Z'),
+    assignedAt: Utils\Utils::parseDateTime('2021-07-21T14:00:00.000Z'),
     dueDate: Utils\Utils::parseDateTime('2021-07-21T14:00:00.000Z'),
     status: new Components\LmsCreateAssignmentRequestDtoStatus(
         value: Components\LmsCreateAssignmentRequestDtoValue::InProgress,
@@ -302,7 +304,8 @@ $lmsCreateAssignmentRequestDto = new Components\LmsCreateAssignmentRequestDto(
 $response = $sdk->lms->createUserAssignment(
     xAccountId: '<id>',
     id: '<id>',
-    lmsCreateAssignmentRequestDto: $lmsCreateAssignmentRequestDto
+    lmsCreateAssignmentRequestDto: $lmsCreateAssignmentRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -313,11 +316,12 @@ if ($response->createResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                         | *string*                                                                                             | :heavy_check_mark:                                                                                   | The account identifier                                                                               |
-| `id`                                                                                                 | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
-| `lmsCreateAssignmentRequestDto`                                                                      | [Components\LmsCreateAssignmentRequestDto](../../Models/Components/LmsCreateAssignmentRequestDto.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `lmsCreateAssignmentRequestDto`                                                                                                                                          | [Components\LmsCreateAssignmentRequestDto](../../Models/Components/LmsCreateAssignmentRequestDto.md)                                                                     | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -374,6 +378,7 @@ $request = new Operations\LmsGetUserAssignmentRequest(
     xAccountId: '<id>',
     id: '<id>',
     subResourceId: '<id>',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->lms->getUserAssignment(
@@ -517,7 +522,8 @@ $lmsBatchUpsertContentRequestDto = new Components\LmsBatchUpsertContentRequestDt
 
 $response = $sdk->lms->batchUpsertContent(
     xAccountId: '<id>',
-    lmsBatchUpsertContentRequestDto: $lmsBatchUpsertContentRequestDto
+    lmsBatchUpsertContentRequestDto: $lmsBatchUpsertContentRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -528,92 +534,15 @@ if ($response->batchResultApiModel !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                             | *string*                                                                                                 | :heavy_check_mark:                                                                                       | The account identifier                                                                                   |
-| `lmsBatchUpsertContentRequestDto`                                                                        | [Components\LmsBatchUpsertContentRequestDto](../../Models/Components/LmsBatchUpsertContentRequestDto.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `lmsBatchUpsertContentRequestDto`                                                                                                                                        | [Components\LmsBatchUpsertContentRequestDto](../../Models/Components/LmsBatchUpsertContentRequestDto.md)                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
 **[?Operations\LmsBatchUpsertContentResponse](../../Models/Operations/LmsBatchUpsertContentResponse.md)**
-
-### Errors
-
-| Error Type                         | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| Errors\BadRequestResponse          | 400                                | application/json                   |
-| Errors\UnauthorizedResponse        | 401                                | application/json                   |
-| Errors\ForbiddenResponse           | 403                                | application/json                   |
-| Errors\NotFoundResponse            | 404                                | application/json                   |
-| Errors\RequestTimedOutResponse     | 408                                | application/json                   |
-| Errors\ConflictResponse            | 409                                | application/json                   |
-| Errors\PreconditionFailedResponse  | 412                                | application/json                   |
-| Errors\UnprocessableEntityResponse | 422                                | application/json                   |
-| Errors\TooManyRequestsResponse     | 429                                | application/json                   |
-| Errors\InternalServerErrorResponse | 500                                | application/json                   |
-| Errors\NotImplementedResponse      | 501                                | application/json                   |
-| Errors\BadGatewayResponse          | 502                                | application/json                   |
-| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
-
-## listContent
-
-Retrieve a list of content type learning objects. 
-
-These are the most granular learning objects (e.g. video, document, podcast) on a platform. 
-
-Only content objects for which the platform supports progress and completion tracking are returned.
-
-### Example Usage
-
-<!-- UsageSnippet language="php" operationID="lms_list_content" method="get" path="/unified/lms/content" -->
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use StackOne\client;
-use StackOne\client\Models\Components;
-use StackOne\client\Models\Operations;
-use StackOne\client\Utils;
-
-$sdk = client\StackOne::builder()
-    ->setSecurity(
-        new Components\Security(
-            username: '',
-            password: '',
-        )
-    )
-    ->build();
-
-$request = new Operations\LmsListContentRequest(
-    xAccountId: '<id>',
-    fields: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors,unified_custom_fields',
-    filter: new Operations\LmsListContentQueryParamFilter(
-        updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
-    ),
-);
-
-$responses = $sdk->lms->listContent(
-    request: $request
-);
-
-
-foreach ($responses as $response) {
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `$request`                                                                           | [Operations\LmsListContentRequest](../../Models/Operations/LmsListContentRequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-
-### Response
-
-**[?Operations\LmsListContentResponse](../../Models/Operations/LmsListContentResponse.md)**
 
 ### Errors
 
@@ -708,6 +637,9 @@ $lmsUpsertContentRequestDto = new Components\LmsUpsertContentRequestDto(
     ],
     updatedAt: Utils\Utils::parseDateTime('2021-07-21T14:00:00.000Z'),
     createdAt: Utils\Utils::parseDateTime('2021-07-21T14:00:00.000Z'),
+    passthrough: [
+        'other_known_names' => 'John Doe',
+    ],
     externalReference: 'SOFTWARE-ENG-LV1-TRAINING-VIDEO-1',
     categories: [
         new Components\CreateCategoriesApiModel(
@@ -733,7 +665,8 @@ $lmsUpsertContentRequestDto = new Components\LmsUpsertContentRequestDto(
 
 $response = $sdk->lms->upsertContent(
     xAccountId: '<id>',
-    lmsUpsertContentRequestDto: $lmsUpsertContentRequestDto
+    lmsUpsertContentRequestDto: $lmsUpsertContentRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -744,14 +677,94 @@ if ($response->upsertResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                   | *string*                                                                                       | :heavy_check_mark:                                                                             | The account identifier                                                                         |
-| `lmsUpsertContentRequestDto`                                                                   | [Components\LmsUpsertContentRequestDto](../../Models/Components/LmsUpsertContentRequestDto.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `lmsUpsertContentRequestDto`                                                                                                                                             | [Components\LmsUpsertContentRequestDto](../../Models/Components/LmsUpsertContentRequestDto.md)                                                                           | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
 **[?Operations\LmsUpsertContentResponse](../../Models/Operations/LmsUpsertContentResponse.md)**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\BadRequestResponse          | 400                                | application/json                   |
+| Errors\UnauthorizedResponse        | 401                                | application/json                   |
+| Errors\ForbiddenResponse           | 403                                | application/json                   |
+| Errors\NotFoundResponse            | 404                                | application/json                   |
+| Errors\RequestTimedOutResponse     | 408                                | application/json                   |
+| Errors\ConflictResponse            | 409                                | application/json                   |
+| Errors\PreconditionFailedResponse  | 412                                | application/json                   |
+| Errors\UnprocessableEntityResponse | 422                                | application/json                   |
+| Errors\TooManyRequestsResponse     | 429                                | application/json                   |
+| Errors\InternalServerErrorResponse | 500                                | application/json                   |
+| Errors\NotImplementedResponse      | 501                                | application/json                   |
+| Errors\BadGatewayResponse          | 502                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
+
+## listContent
+
+Retrieve a list of content type learning objects. 
+
+These are the most granular learning objects (e.g. video, document, podcast) on a platform. 
+
+Only content objects for which the platform supports progress and completion tracking are returned.
+
+### Example Usage
+
+<!-- UsageSnippet language="php" operationID="lms_list_content" method="get" path="/unified/lms/content" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+use StackOne\client\Utils;
+
+$sdk = client\StackOne::builder()
+    ->setSecurity(
+        new Components\Security(
+            username: '',
+            password: '',
+        )
+    )
+    ->build();
+
+$request = new Operations\LmsListContentRequest(
+    xAccountId: '<id>',
+    fields: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors,unified_custom_fields',
+    filter: new Operations\LmsListContentQueryParamFilter(
+        updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
+    ),
+    prefer: 'heartbeat',
+);
+
+$responses = $sdk->lms->listContent(
+    request: $request
+);
+
+
+foreach ($responses as $response) {
+    if ($response->statusCode === 200) {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `$request`                                                                           | [Operations\LmsListContentRequest](../../Models/Operations/LmsListContentRequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+
+### Response
+
+**[?Operations\LmsListContentResponse](../../Models/Operations/LmsListContentResponse.md)**
 
 ### Errors
 
@@ -804,6 +817,7 @@ $request = new Operations\LmsGetContentRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->lms->getContent(
@@ -874,10 +888,11 @@ $sdk = client\StackOne::builder()
 $request = new Operations\LmsListUserCompletionsRequest(
     xAccountId: '<id>',
     id: '<id>',
-    fields: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url,unified_custom_fields',
+    fields: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url,score,unified_custom_fields',
     filter: new Operations\LmsListUserCompletionsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->lms->listUserCompletions(
@@ -954,13 +969,18 @@ $lmsCreateCompletionRequestDto = new Components\LmsCreateCompletionRequestDto(
     completedAt: Utils\Utils::parseDateTime('2021-07-21T14:00:00.000Z'),
     learningObjectId: 'e3gd34-23tr21-er234-345er56',
     timeSpent: 'PT1H30M45S',
+    score: new Components\LmsCreateCompletionRequestDtoScore(
+        percentage: 87,
+        rawValue: '87 / 100',
+    ),
     learningObjectExternalReference: 'learning-content-123',
 );
 
 $response = $sdk->lms->createUserCompletion(
     xAccountId: '<id>',
     id: '<id>',
-    lmsCreateCompletionRequestDto: $lmsCreateCompletionRequestDto
+    lmsCreateCompletionRequestDto: $lmsCreateCompletionRequestDto,
+    prefer: 'heartbeat'
 
 );
 
@@ -971,11 +991,12 @@ if ($response->createResult !== null) {
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `xAccountId`                                                                                         | *string*                                                                                             | :heavy_check_mark:                                                                                   | The account identifier                                                                               |
-| `id`                                                                                                 | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
-| `lmsCreateCompletionRequestDto`                                                                      | [Components\LmsCreateCompletionRequestDto](../../Models/Components/LmsCreateCompletionRequestDto.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `lmsCreateCompletionRequestDto`                                                                                                                                          | [Components\LmsCreateCompletionRequestDto](../../Models/Components/LmsCreateCompletionRequestDto.md)                                                                     | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -1030,6 +1051,7 @@ $request = new Operations\LmsGetUserCompletionRequest(
     xAccountId: '<id>',
     id: '<id>',
     subResourceId: '<id>',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->lms->getUserCompletion(
@@ -1100,7 +1122,8 @@ $sdk = client\StackOne::builder()
 $response = $sdk->lms->deleteUserCompletion(
     xAccountId: '<id>',
     id: '<id>',
-    subResourceId: '<id>'
+    subResourceId: '<id>',
+    prefer: 'heartbeat'
 
 );
 
@@ -1111,11 +1134,12 @@ if ($response->deleteResult !== null) {
 
 ### Parameters
 
-| Parameter              | Type                   | Required               | Description            |
-| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `xAccountId`           | *string*               | :heavy_check_mark:     | The account identifier |
-| `id`                   | *string*               | :heavy_check_mark:     | N/A                    |
-| `subResourceId`        | *string*               | :heavy_check_mark:     | N/A                    |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `subResourceId`                                                                                                                                                          | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -1167,10 +1191,11 @@ $sdk = client\StackOne::builder()
 
 $request = new Operations\LmsListCompletionsRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url,unified_custom_fields',
+    fields: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url,score,unified_custom_fields',
     filter: new Operations\LmsListCompletionsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->lms->listCompletions(
@@ -1241,6 +1266,7 @@ $sdk = client\StackOne::builder()
 $request = new Operations\LmsGetCompletionRequest(
     xAccountId: '<id>',
     id: '<id>',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->lms->getCompletion(
@@ -1309,6 +1335,7 @@ $request = new Operations\LmsGetCategoryRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,active,hierarchy,level,language,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->lms->getCategory(
@@ -1380,6 +1407,7 @@ $request = new Operations\LmsListCategoriesRequest(
     filter: new Operations\LmsListCategoriesQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->lms->listCategories(
@@ -1451,6 +1479,7 @@ $request = new Operations\LmsListUsersRequest(
     xAccountId: '<id>',
     fields: 'id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name,unified_custom_fields',
     filter: null,
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->lms->listUsers(
@@ -1522,6 +1551,7 @@ $request = new Operations\LmsGetUserRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->lms->getUser(
@@ -1590,6 +1620,7 @@ $request = new Operations\LmsGetSkillRequest(
     xAccountId: '<id>',
     id: '<id>',
     fields: 'id,remote_id,name,active,hierarchy,language,unified_custom_fields',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->lms->getSkill(
@@ -1661,6 +1692,7 @@ $request = new Operations\LmsListSkillsRequest(
     filter: new Operations\LmsListSkillsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->lms->listSkills(
@@ -1735,12 +1767,13 @@ $sdk = client\StackOne::builder()
 
 $request = new Operations\LmsListAssignmentsRequest(
     xAccountId: '<id>',
-    fields: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at,unified_custom_fields',
+    fields: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,assigned_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at,unified_custom_fields',
     filter: new Operations\LmsListAssignmentsQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
     ),
     userId: 'c28xyrc55866bvuv',
     remoteUserId: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
+    prefer: 'heartbeat',
 );
 
 $responses = $sdk->lms->listAssignments(
@@ -1815,6 +1848,7 @@ $sdk = client\StackOne::builder()
 $request = new Operations\LmsGetAssignmentRequest(
     xAccountId: '<id>',
     id: '<id>',
+    prefer: 'heartbeat',
 );
 
 $response = $sdk->lms->getAssignment(

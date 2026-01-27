@@ -52,10 +52,11 @@ class Messaging
      *
      * @param  Components\MessagingCreateConversationRequestDto  $messagingCreateConversationRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\MessagingCreateConversationResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function createConversation(Components\MessagingCreateConversationRequestDto $messagingCreateConversationRequestDto, string $xAccountId, ?Options $options = null): Operations\MessagingCreateConversationResponse
+    public function createConversation(Components\MessagingCreateConversationRequestDto $messagingCreateConversationRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\MessagingCreateConversationResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -85,6 +86,7 @@ class Messaging
         $request = new Operations\MessagingCreateConversationRequest(
             xAccountId: $xAccountId,
             messagingCreateConversationRequestDto: $messagingCreateConversationRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/messaging/conversations');
@@ -1492,6 +1494,7 @@ class Messaging
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -1760,6 +1763,7 @@ class Messaging
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -2027,6 +2031,7 @@ class Messaging
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -2294,6 +2299,7 @@ class Messaging
                             pageSize: $request != null ? $request->pageSize : null,
                             next: $nextCursor,
                             updatedAfter: $request != null ? $request->updatedAfter : null,
+                            prefer: $request != null ? $request->prefer : null,
                         ),
                     );
                 };
@@ -2464,10 +2470,11 @@ class Messaging
      *
      * @param  Components\MessagingMessageSendRequestDto  $messagingMessageSendRequestDto
      * @param  string  $xAccountId
+     * @param  ?string  $prefer
      * @return Operations\MessagingSendMessageResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function sendMessage(Components\MessagingMessageSendRequestDto $messagingMessageSendRequestDto, string $xAccountId, ?Options $options = null): Operations\MessagingSendMessageResponse
+    public function sendMessage(Components\MessagingMessageSendRequestDto $messagingMessageSendRequestDto, string $xAccountId, ?string $prefer = null, ?Options $options = null): Operations\MessagingSendMessageResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -2497,6 +2504,7 @@ class Messaging
         $request = new Operations\MessagingSendMessageRequest(
             xAccountId: $xAccountId,
             messagingMessageSendRequestDto: $messagingMessageSendRequestDto,
+            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/messaging/messages');
