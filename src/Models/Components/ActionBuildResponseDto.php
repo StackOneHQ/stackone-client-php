@@ -21,12 +21,22 @@ class ActionBuildResponseDto
     public ActionBuildResponseDtoStatus $status;
 
     /**
-     * Number of actions indexed
+     * Status message
      *
-     * @var float $actionsIndexed
+     * @var ?string $message
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('message')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $message = null;
+
+    /**
+     * Number of actions indexed (only for synchronous builds)
+     *
+     * @var ?float $actionsIndexed
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('actions_indexed')]
-    public float $actionsIndexed;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?float $actionsIndexed = null;
 
     /**
      * Connector filter applied
@@ -48,14 +58,16 @@ class ActionBuildResponseDto
 
     /**
      * @param  ActionBuildResponseDtoStatus  $status
-     * @param  float  $actionsIndexed
+     * @param  ?string  $message
+     * @param  ?float  $actionsIndexed
      * @param  ?string  $connectorFilter
      * @param  ?string  $error
      * @phpstan-pure
      */
-    public function __construct(ActionBuildResponseDtoStatus $status, float $actionsIndexed, ?string $connectorFilter = null, ?string $error = null)
+    public function __construct(ActionBuildResponseDtoStatus $status, ?string $message = null, ?float $actionsIndexed = null, ?string $connectorFilter = null, ?string $error = null)
     {
         $this->status = $status;
+        $this->message = $message;
         $this->actionsIndexed = $actionsIndexed;
         $this->connectorFilter = $connectorFilter;
         $this->error = $error;

@@ -82,9 +82,9 @@ if ($response->statusCode === 200) {
 
 Send JSON-RPC request to the MCP server over HTTP streaming transport
 
-### Example Usage
+### Example Usage: initialize
 
-<!-- UsageSnippet language="php" operationID="stackone_mcp_post" method="post" path="/mcp" -->
+<!-- UsageSnippet language="php" operationID="stackone_mcp_post" method="post" path="/mcp" example="initialize" -->
 ```php
 declare(strict_types=1);
 
@@ -99,6 +99,82 @@ $sdk = client\StackOne::builder()->build();
 $jsonRpcMessageDto = new Components\JsonRpcMessageDto(
     jsonrpc: '2.0',
     method: 'initialize',
+    params: new Components\Params(),
+    id: new Components\Id(),
+);
+$requestSecurity = new Operations\StackoneMcpPostSecurity(
+    basic: new Components\SchemeBasic(
+        username: '',
+        password: '',
+    ),
+);
+
+$response = $sdk->mcp->mcpPost(
+    security: $requestSecurity,
+    jsonRpcMessageDto: $jsonRpcMessageDto,
+    xAccountId: '<id>'
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+### Example Usage: toolsCall
+
+<!-- UsageSnippet language="php" operationID="stackone_mcp_post" method="post" path="/mcp" example="toolsCall" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+
+$sdk = client\StackOne::builder()->build();
+
+$jsonRpcMessageDto = new Components\JsonRpcMessageDto(
+    jsonrpc: '2.0',
+    method: 'tools/call',
+    params: new Components\Params(),
+    id: new Components\Id(),
+);
+$requestSecurity = new Operations\StackoneMcpPostSecurity(
+    basic: new Components\SchemeBasic(
+        username: '',
+        password: '',
+    ),
+);
+
+$response = $sdk->mcp->mcpPost(
+    security: $requestSecurity,
+    jsonRpcMessageDto: $jsonRpcMessageDto,
+    xAccountId: '<id>'
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+### Example Usage: toolsList
+
+<!-- UsageSnippet language="php" operationID="stackone_mcp_post" method="post" path="/mcp" example="toolsList" -->
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use StackOne\client;
+use StackOne\client\Models\Components;
+use StackOne\client\Models\Operations;
+
+$sdk = client\StackOne::builder()->build();
+
+$jsonRpcMessageDto = new Components\JsonRpcMessageDto(
+    jsonrpc: '2.0',
+    method: 'tools/list',
     params: new Components\Params(),
     id: new Components\Id(),
 );

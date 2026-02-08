@@ -12,6 +12,7 @@ namespace StackOne\client\Models\Components;
 /** Build status */
 enum ActionBuildResponseDtoStatus: string
 {
+    case Accepted = 'accepted';
     case Success = 'success';
     case Error = 'error';
 }

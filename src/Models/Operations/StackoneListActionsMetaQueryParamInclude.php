@@ -12,4 +12,5 @@ namespace StackOne\client\Models\Operations;
 enum StackoneListActionsMetaQueryParamInclude: string
 {
     case ActionDetails = 'action_details';
+    case AuthenticationGuides = 'authentication_guides';
 }
