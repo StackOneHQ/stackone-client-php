@@ -49,17 +49,29 @@ class AuthenticationMetaItem
     public ?array $requiredScopes = null;
 
     /**
+     * The support information for this authentication method, including configuration and account linking guides
+     *
+     * @var ?Support $support
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('support')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Support|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Support $support = null;
+
+    /**
      * @param  ?string  $type
      * @param  ?string  $label
      * @param  ?string  $key
      * @param  ?array<string>  $requiredScopes
+     * @param  ?Support  $support
      * @phpstan-pure
      */
-    public function __construct(?string $type = null, ?string $label = null, ?string $key = null, ?array $requiredScopes = null)
+    public function __construct(?string $type = null, ?string $label = null, ?string $key = null, ?array $requiredScopes = null, ?Support $support = null)
     {
         $this->type = $type;
         $this->label = $label;
         $this->key = $key;
         $this->requiredScopes = $requiredScopes;
+        $this->support = $support;
     }
 }
