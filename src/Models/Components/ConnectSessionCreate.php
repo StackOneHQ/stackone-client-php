@@ -102,6 +102,16 @@ class ConnectSessionCreate
     public ?string $integrationId = null;
 
     /**
+     * The scopes restrictions, if any, for the token generated from this connect session
+     *
+     * @var ?Scopes $scopes
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('scopes')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Scopes|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Scopes $scopes = null;
+
+    /**
      * How long the session should be valid for in seconds
      *
      * @var ?float $expiresIn
@@ -130,6 +140,24 @@ class ConnectSessionCreate
     public ?Type $type = null;
 
     /**
+     * Whether the account created from this connect session should be shared or limited to just the calling end_user_id
+     *
+     * @var ?bool $shared
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('shared')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $shared = null;
+
+    /**
+     * Whether to relink to an existing account if one exists with the same tenant id and provider
+     *
+     * @var ?bool $relink
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('relink')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $relink = null;
+
+    /**
      * @param  string  $originOwnerId
      * @param  string  $originOwnerName
      * @param  ?array<Categories>  $categories
@@ -143,9 +171,12 @@ class ConnectSessionCreate
      * @param  ?string  $label
      * @param  ?Type  $type
      * @param  ?string  $integrationId
+     * @param  ?bool  $shared
+     * @param  ?bool  $relink
+     * @param  ?Scopes  $scopes
      * @phpstan-pure
      */
-    public function __construct(string $originOwnerId, string $originOwnerName, ?array $categories = null, ?string $provider = null, ?string $providerVersion = null, ?string $originUsername = null, ?string $accountId = null, ?Metadata $metadata = null, ?string $label = null, ?string $integrationId = null, ?float $expiresIn = 1800, ?bool $multiple = false, ?Type $type = Type::Production)
+    public function __construct(string $originOwnerId, string $originOwnerName, ?array $categories = null, ?string $provider = null, ?string $providerVersion = null, ?string $originUsername = null, ?string $accountId = null, ?Metadata $metadata = null, ?string $label = null, ?string $integrationId = null, ?Scopes $scopes = null, ?float $expiresIn = 1800, ?bool $multiple = false, ?Type $type = Type::Production, ?bool $shared = true, ?bool $relink = true)
     {
         $this->originOwnerId = $originOwnerId;
         $this->originOwnerName = $originOwnerName;
@@ -157,8 +188,11 @@ class ConnectSessionCreate
         $this->metadata = $metadata;
         $this->label = $label;
         $this->integrationId = $integrationId;
+        $this->scopes = $scopes;
         $this->expiresIn = $expiresIn;
         $this->multiple = $multiple;
         $this->type = $type;
+        $this->shared = $shared;
+        $this->relink = $relink;
     }
 }

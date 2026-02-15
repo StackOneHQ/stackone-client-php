@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 3759371f-a095-4585-b437-50529a0eb248
 management:
-  docChecksum: 211a6b3d60eb0e5ddb0d6e19d33bbe32
+  docChecksum: b05c47dd38fcac8aa37b7b59b5532837
   docVersion: 1.0.0
-  speakeasyVersion: 1.709.0
-  generationVersion: 2.811.4
-  releaseVersion: 0.28.6
-  configChecksum: 9c80e489a51c588e7a4ebe501a944e7a
+  speakeasyVersion: 1.717.0
+  generationVersion: 2.824.1
+  releaseVersion: 0.28.7
+  configChecksum: ab3405db7d036979affeb98c8edf9427
   repoURL: https://github.com/StackOneHQ/stackone-client-php.git
   installationURL: https://github.com/StackOneHQ/stackone-client-php
   published: true
 persistentEdits:
-  generation_id: 2c5799b3-c3a5-468e-ad7f-58b1747576a8
-  pristine_commit_hash: cb7510c6b626490f70518ffc11da35282de8ca19
-  pristine_tree_hash: a9b97b8cc3b89759bf98003d3a60b0b10dccafeb
+  generation_id: 0d9f6333-1e88-4cbd-9a50-14f248a05c07
+  pristine_commit_hash: d76b7528d1e2abc693d49698170be2e02985393e
+  pristine_tree_hash: 7805e4b246aa11b0563ca3f8fc48465ed19c5a80
 features:
   php:
     additionalProperties: 0.1.0
@@ -1360,8 +1360,8 @@ trackedFiles:
     pristine_git_object: 262c36523f7202109a081fbcd5ba7f632de8f3c4
   docs/Models/Components/ConnectSessionCreate.md:
     id: cddb06b02141
-    last_write_checksum: sha1:451f92821bbca25c90fcdcd2e0127d7442c1f41b
-    pristine_git_object: 016163f87ecc2664976936445f5f0559e63d5503
+    last_write_checksum: sha1:1e0eb95e34cb9e8d746b88200dba6323bc7560ef
+    pristine_git_object: 455b543cf34109a5b7cbacafd3e4559831cdb53f
   docs/Models/Components/ConnectSessionMetadata.md:
     id: 28ecff71ccaf
     last_write_checksum: sha1:61864582c467e0cbf55ccaa47c61b04e48b64a4a
@@ -4824,8 +4824,8 @@ trackedFiles:
     pristine_git_object: 9aa50b041f003f131c294bd28a5220a18fedf58b
   docs/Models/Components/LinkedAccount.md:
     id: 537880ce9fbe
-    last_write_checksum: sha1:396f5f08f09bca8c815da410d266f6f9d7e9673d
-    pristine_git_object: ee83bcbacca737d900d7d9aab79d4c6c4873bb59
+    last_write_checksum: sha1:42a27b2d82c889b75a760b9d5d6fded66a19d84e
+    pristine_git_object: 5f32c66537778631a8439401a6aa390bb4abd727
   docs/Models/Components/LinkedAccountMeta.md:
     id: df89e679d7a1
     last_write_checksum: sha1:33bed89489507912453c70e065a6079d65d5af8a
@@ -5352,8 +5352,8 @@ trackedFiles:
     pristine_git_object: ff183d1b34f6ba7765477534742a00330932e208
   docs/Models/Components/PatchAccountExternalDto.md:
     id: 91b0c484b0dc
-    last_write_checksum: sha1:6db6efc5ffb8325018314fc0e4d5156fd26f53fc
-    pristine_git_object: b49a8252baa8b27c8200c05e82ff0e2334e07b66
+    last_write_checksum: sha1:879c52e16d99cfb0d6bc13c311228f796076eac6
+    pristine_git_object: 981b863c0c44dd6a1b64a66a48a5e31d40b7c5c0
   docs/Models/Components/PatchAccountExternalDtoCredentials.md:
     id: caba9d90cf85
     last_write_checksum: sha1:2ce065671980f7a036785f00c7c69b6bcea920a0
@@ -5706,6 +5706,10 @@ trackedFiles:
     id: ea0b44f1aa66
     last_write_checksum: sha1:822ea693cfedfb9b6ccc3198c633f124053f0664
     pristine_git_object: 4f7e576e995bb826c585261a5bd73153e638334d
+  docs/Models/Components/Scopes.md:
+    id: 425af7ff027d
+    last_write_checksum: sha1:a28fb89e77493c0d86dd557abde177826ac15b97
+    pristine_git_object: 09dd3a0e30d6c28d8242e6c5215ea97e4b298320
   docs/Models/Components/Score.md:
     id: 95d30b9c9074
     last_write_checksum: sha1:fca8698ed46bf38233154a07f7160865d1fbdf34
@@ -11092,8 +11096,8 @@ trackedFiles:
     pristine_git_object: 97ec288a72dc2715bed792595edef0e9adfce9f1
   src/Models/Components/ConnectSessionCreate.php:
     id: 4ba9124057e2
-    last_write_checksum: sha1:92c078e85c9c0d3fe70b530029d94d3b3d5b77b6
-    pristine_git_object: 67721afd9b57f6edc55466fdd8e9bed6b9ee1571
+    last_write_checksum: sha1:27d0e9e3f516dc684b40738b1a802f44958ec149
+    pristine_git_object: d3d74e9061a0b8e2839555e3c7fda34cf1fa2e88
   src/Models/Components/ConnectSessionMetadata.php:
     id: 1cf8b258526b
     last_write_checksum: sha1:5ca4b2b212bb151850e3337d1fb9375565bc6dbd
@@ -13852,8 +13856,8 @@ trackedFiles:
     pristine_git_object: 025739588ef6ed035dfc9a52c0ccb75246cc0a96
   src/Models/Components/LinkedAccount.php:
     id: 5f2cebadb6e4
-    last_write_checksum: sha1:350f6be13ecd83974060d918c730add2e29fc316
-    pristine_git_object: aa944305a22525cd99285f7c3ebf5332c175f361
+    last_write_checksum: sha1:35e6680f7e57ae594298bbdb13a0b9bf77683823
+    pristine_git_object: 8b2ed36fa7e662fe785088fdebe2754e0438f846
   src/Models/Components/LinkedAccountMeta.php:
     id: 1ac4fddea251
     last_write_checksum: sha1:89af135df3cdfdf4386813eb60a8f94f7c4a4e40
@@ -14296,8 +14300,8 @@ trackedFiles:
     pristine_git_object: f92f1dcf1ed270192d5117d4716e5561da969f87
   src/Models/Components/PatchAccountExternalDto.php:
     id: 69764def36e8
-    last_write_checksum: sha1:f0b28e8a82d20f6c6fe5fc5f6e3a4bc4646643a2
-    pristine_git_object: c3dcebfce0a18282590bbe731f150204c2c34913
+    last_write_checksum: sha1:509e092b0ef9fc89f419e5bae0fda5af0be68cb0
+    pristine_git_object: 57ee96098be0f7fef257ed3b1854e786c5da8b04
   src/Models/Components/PatchAccountExternalDtoCredentials.php:
     id: 600ccd4d592a
     last_write_checksum: sha1:7b167c7cb4153da9f8a39a10e7d0061fe2a1146d
@@ -14606,6 +14610,10 @@ trackedFiles:
     id: e410d44d0720
     last_write_checksum: sha1:90a891c7a5fc784ef4c54f4bf7826c484e46cbf9
     pristine_git_object: 7f46d62e465c69d5d42eed1d5f8c672b8a608e4b
+  src/Models/Components/Scopes.php:
+    id: c9a79069e1c4
+    last_write_checksum: sha1:be943cf4fe4a2f31a06d422afc6d2c2fe4ccd81b
+    pristine_git_object: b69920fbf2eee004e41cc74a7e65c823b744be20
   src/Models/Components/Score.php:
     id: "477583907373"
     last_write_checksum: sha1:45ca302aa74152643bd7e584be48ff965e3cbe16
@@ -18560,16 +18568,16 @@ trackedFiles:
     pristine_git_object: 6d5f369eb0bd3a2c082acaa39f1abb72b95cdd9d
   src/SDKConfiguration.php:
     id: 9d60ab0bec0b
-    last_write_checksum: sha1:44e80a3262a500ff819a91f8b7b4e891d26c62aa
-    pristine_git_object: e1fd1e59bdd6e4a03478059cef76ab567524f449
+    last_write_checksum: sha1:9f75dd1f07fcf660f80172a9761396716e2157b1
+    pristine_git_object: af1dbc3b4379150c15a15570909f254e1eeec469
   src/Screening.php:
     id: e65c3c49d712
     last_write_checksum: sha1:d614f46016e4de20854c167153e64b769d10320f
     pristine_git_object: 06725a69fbcdcf586c255407d8eca971e27cc74f
   src/StackOne.php:
     id: fb113b4d766d
-    last_write_checksum: sha1:132522ada4b122f17f65e58c2e1ddae1e2dc2ecc
-    pristine_git_object: 2caa6bca91038a3bb86120aefe32152f0a7641a8
+    last_write_checksum: sha1:d86bb5eec7ef7f336f466bc25a91a2dc94a873b5
+    pristine_git_object: cfcb57d9e78e6c1d03550cde9f2bb3f258260fd2
   src/StackOneBuilder.php:
     id: cbab8510f6db
     last_write_checksum: sha1:0ec635b7d914915a87d60d40c7a8f1a2de39c510
@@ -18722,7 +18730,7 @@ examples:
   stackone_create_connect_session:
     speakeasy-default-stackone-create-connect-session:
       requestBody:
-        application/json: {"categories": ["ats", "hris", "ticketing", "crm", "iam", "marketing", "lms", "iam", "documents", "ticketing", "screening", "messaging", "accounting", "scheduling"], "origin_owner_id": "<id>", "origin_owner_name": "<value>", "expires_in": 1800, "multiple": false, "type": "production"}
+        application/json: {"categories": ["ats", "hris", "ticketing", "crm", "iam", "marketing", "lms", "iam", "documents", "ticketing", "screening", "messaging", "accounting", "scheduling"], "origin_owner_id": "<id>", "origin_owner_name": "<value>", "expires_in": 1800, "multiple": false, "type": "production", "shared": true, "relink": true}
       responses:
         "201":
           application/json: {"id": 203.83, "organization_id": "9266.53", "project_id": "<id>", "categories": ["ats", "hris", "hris-legacy", "crm", "iam", "marketing", "lms", "crm", "documents", "ticketing", "screening", "messaging", "accounting", "scheduling"], "origin_owner_id": "<id>", "origin_owner_name": "<value>", "created_at": "2023-01-24T01:30:32.862Z", "external_trigger_token": "f0bc3d88-2178-5423-8c81-b81d6c9da824", "type": "test", "token": "<value>", "auth_link_url": "https://difficult-avalanche.info"}
@@ -29637,7 +29645,7 @@ examples:
           application/json: {"statusCode": 502, "message": "Bad Gateway", "timestamp": "2023-05-30T00:00:00.000Z"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Php SDK Changes:\n* `stackone->connect sessions->createConnectSession()`:  `response.organizationId` **Changed** (Breaking ⚠️)\n* `stackone->connect sessions->authenticateConnectSession()`:  `response.organizationId` **Changed** (Breaking ⚠️)\n* `stackone->actions->buildActionEmbeddings()`:  `response` **Changed** (Breaking ⚠️)\n* `stackone->actions->listActionsMeta()`: \n  *  `request->include` **Changed**\n  *  `response.data[]->authentication[]->support` **Added**\n"
+releaseNotes: "## Php SDK Changes:\n* `stackone->connect sessions->createConnectSession()`:  `request` **Changed**\n* `stackone->accounts->listLinkedAccounts()`:  `response.[]->shared` **Added**\n* `stackone->accounts->getAccount()`:  `response.shared` **Added**\n* `stackone->accounts->deleteAccount()`:  `response.shared` **Added**\n* `stackone->accounts->updateAccount()`: \n  *  `request.patchAccountExternalDto->shared` **Added**\n  *  `response.shared` **Added**\n"
 generatedFiles:
   - .gitattributes
   - USAGE.md

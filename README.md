@@ -10,7 +10,18 @@
 <!-- Start Summary [summary] -->
 ## Summary
 
-Accounting: The documentation for the StackOne Unified API - ACCOUNTING
+Accounting: The documentation for the StackOne API
+The documentation for the StackOne Unified API - HRIS
+The documentation for the StackOne Unified API - ATS
+The documentation for the StackOne Unified API - LMS
+The documentation for the StackOne Unified API - IAM
+The documentation for the StackOne Unified API - CRM
+The documentation for the StackOne Unified API - MARKETING
+The documentation for the StackOne Unified API - TICKETING
+The documentation for the StackOne Unified API - DOCUMENTS
+The documentation for the StackOne Unified API - SCREENING
+The documentation for the StackOne Unified API - MESSAGING
+The documentation for the StackOne Unified API - ACCOUNTING
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
