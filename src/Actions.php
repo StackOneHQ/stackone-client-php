@@ -516,11 +516,12 @@ class Actions
      *
      * Makes a remote procedure call to the specified action
      *
-     * @param  Components\ActionsRpcRequestDto  $request
+     * @param  Components\ActionsRpcRequestDto  $actionsRpcRequestDto
+     * @param  string  $xAccountId
      * @return Operations\StackoneRpcActionResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function rpcAction(Components\ActionsRpcRequestDto $request, ?Options $options = null): Operations\StackoneRpcActionResponse
+    public function rpcAction(Components\ActionsRpcRequestDto $actionsRpcRequestDto, string $xAccountId, ?Options $options = null): Operations\StackoneRpcActionResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -547,15 +548,23 @@ class Actions
                 '408',
             ];
         }
+        $request = new Operations\StackoneRpcActionRequest(
+            xAccountId: $xAccountId,
+            actionsRpcRequestDto: $actionsRpcRequestDto,
+        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/actions/rpc');
         $urlOverride = null;
         $httpOptions = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'request', 'json');
+        $body = Utils\Utils::serializeRequestBody($request, 'actionsRpcRequestDto', 'json');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
         $httpOptions = array_merge_recursive($httpOptions, $body);
+        $httpOptions = array_merge_recursive($httpOptions, Utils\Utils::getHeaders($request));
+        if (! array_key_exists('headers', $httpOptions)) {
+            $httpOptions['headers'] = [];
+        }
         $httpOptions['headers']['Accept'] = 'application/json';
         $httpOptions['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);

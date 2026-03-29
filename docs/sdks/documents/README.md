@@ -43,7 +43,6 @@ $request = new Operations\DocumentsDownloadFileRequest(
     id: '<id>',
     format: 'base64',
     exportFormat: 'text/plain',
-    prefer: 'heartbeat',
 );
 
 $response = $sdk->documents->downloadFile(
@@ -128,8 +127,7 @@ $unifiedUploadRequestDto = new Components\UnifiedUploadRequestDto(
 
 $response = $sdk->documents->uploadFile(
     xAccountId: '<id>',
-    unifiedUploadRequestDto: $unifiedUploadRequestDto,
-    prefer: 'heartbeat'
+    unifiedUploadRequestDto: $unifiedUploadRequestDto
 
 );
 
@@ -140,12 +138,11 @@ if ($response->writeResultApiModel !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `xAccountId`                                                                                                                                                             | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
-| `unifiedUploadRequestDto`                                                                                                                                                | [Components\UnifiedUploadRequestDto](../../Models/Components/UnifiedUploadRequestDto.md)                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
-| `xStackoneApiSessionToken`                                                                                                                                               | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | The session token                                                                                                                                                        |                                                                                                                                                                          |
-| `prefer`                                                                                                                                                                 | *?string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `xAccountId`                                                                             | *string*                                                                                 | :heavy_check_mark:                                                                       | The account identifier                                                                   |
+| `unifiedUploadRequestDto`                                                                | [Components\UnifiedUploadRequestDto](../../Models/Components/UnifiedUploadRequestDto.md) | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| `xStackoneApiSessionToken`                                                               | *?string*                                                                                | :heavy_minus_sign:                                                                       | The session token                                                                        |
 
 ### Response
 
@@ -353,6 +350,7 @@ $request = new Operations\DocumentsListFoldersRequest(
     fields: 'id,remote_id,name,description,url,size,path,owner_id,remote_owner_id,parent_folder_id,remote_parent_folder_id,drive_id,remote_drive_id,created_at,updated_at,has_content,has_children,is_root,all_parent_folder_ids,remote_all_parent_folder_ids,unified_custom_fields',
     filter: new Operations\DocumentsListFoldersQueryParamFilter(
         updatedAfter: Utils\Utils::parseDateTime('2020-01-01T00:00:00.000Z'),
+        name: 'Engineering',
         driveId: '1234567890',
         folderId: '1234567890',
     ),

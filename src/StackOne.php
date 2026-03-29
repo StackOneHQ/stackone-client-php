@@ -10,7 +10,21 @@ namespace StackOne\client;
 
 
 
-/** StackOne - Accounting: The documentation for the StackOne Unified API - ACCOUNTING */
+/**
+ * StackOne - Accounting: The documentation for the StackOne API
+ *
+ * The documentation for the StackOne Unified API - HRIS
+ * The documentation for the StackOne Unified API - ATS
+ * The documentation for the StackOne Unified API - LMS
+ * The documentation for the StackOne Unified API - IAM
+ * The documentation for the StackOne Unified API - CRM
+ * The documentation for the StackOne Unified API - MARKETING
+ * The documentation for the StackOne Unified API - TICKETING
+ * The documentation for the StackOne Unified API - DOCUMENTS
+ * The documentation for the StackOne Unified API - SCREENING
+ * The documentation for the StackOne Unified API - MESSAGING
+ * The documentation for the StackOne Unified API - ACCOUNTING
+ */
 class StackOne
 {
     public const SERVERS = [
@@ -53,18 +67,18 @@ class StackOne
     public Mcp $mcp;
 
     /**
-     * Routing API requests through StackOne directly to the underlying provider.
-     *
-     * @var Proxy $$proxy
-     */
-    public Proxy $proxy;
-
-    /**
      * Retrieve Actions metadata and definitions.
      *
      * @var Actions $$actions
      */
     public Actions $actions;
+
+    /**
+     * Routing API requests through StackOne directly to the underlying provider.
+     *
+     * @var Proxy $$proxy
+     */
+    public Proxy $proxy;
 
     public Hris $hris;
 
@@ -109,8 +123,8 @@ class StackOne
         $this->requestLogs = new RequestLogs($this->sdkConfiguration);
         $this->connectors = new Connectors($this->sdkConfiguration);
         $this->mcp = new Mcp($this->sdkConfiguration);
-        $this->proxy = new Proxy($this->sdkConfiguration);
         $this->actions = new Actions($this->sdkConfiguration);
+        $this->proxy = new Proxy($this->sdkConfiguration);
         $this->hris = new Hris($this->sdkConfiguration);
         $this->ats = new Ats($this->sdkConfiguration);
         $this->lms = new Lms($this->sdkConfiguration);

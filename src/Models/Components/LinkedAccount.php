@@ -125,6 +125,14 @@ class LinkedAccount
     public ?LinkedAccountType $type = null;
 
     /**
+     *
+     * @var ?bool $shared
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('shared')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $shared = null;
+
+    /**
      * @param  string  $id
      * @param  string  $provider
      * @param  Status  $status
@@ -139,9 +147,10 @@ class LinkedAccount
      * @param  ?array<string, mixed>  $setupInformation
      * @param  ?string  $label
      * @param  ?LinkedAccountType  $type
+     * @param  ?bool  $shared
      * @phpstan-pure
      */
-    public function __construct(string $id, string $provider, Status $status, string $originOwnerId, string $originOwnerName, \DateTime $createdAt, \DateTime $updatedAt, ?string $providerName = null, ?array $statusReasons = null, ?string $originUsername = null, ?Credentials $credentials = null, ?array $setupInformation = null, ?string $label = null, ?LinkedAccountType $type = null)
+    public function __construct(string $id, string $provider, Status $status, string $originOwnerId, string $originOwnerName, \DateTime $createdAt, \DateTime $updatedAt, ?string $providerName = null, ?array $statusReasons = null, ?string $originUsername = null, ?Credentials $credentials = null, ?array $setupInformation = null, ?string $label = null, ?LinkedAccountType $type = null, ?bool $shared = null)
     {
         $this->id = $id;
         $this->provider = $provider;
@@ -157,5 +166,6 @@ class LinkedAccount
         $this->setupInformation = $setupInformation;
         $this->label = $label;
         $this->type = $type;
+        $this->shared = $shared;
     }
 }

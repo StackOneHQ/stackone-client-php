@@ -10,7 +10,6 @@ namespace StackOne\client;
 
 use Speakeasy\Serializer\DeserializationContext;
 use StackOne\client\Hooks\HookContext;
-use StackOne\client\Models\Components;
 use StackOne\client\Models\Operations;
 use StackOne\client\Utils\Options;
 use StackOne\client\Utils\Retry;
@@ -491,14 +490,11 @@ class Mcp
      * Send JSON-RPC request to the MCP server over HTTP streaming transport
      *
      * @param  Operations\StackoneMcpPostSecurity  $security
-     * @param  Components\JsonRpcMessageDto  $jsonRpcMessageDto
-     * @param  ?string  $xAccountId
-     * @param  mixed  $xAccountIdQueryParameter
-     * @param  ?string  $mcpSessionId
+     * @param  Operations\StackoneMcpPostRequest  $request
      * @return Operations\StackoneMcpPostResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function mcpPost(Operations\StackoneMcpPostSecurity $security, Components\JsonRpcMessageDto $jsonRpcMessageDto, ?string $xAccountId = null, mixed $xAccountIdQueryParameter = null, ?string $mcpSessionId = null, ?Options $options = null): Operations\StackoneMcpPostResponse
+    public function mcpPost(Operations\StackoneMcpPostSecurity $security, Operations\StackoneMcpPostRequest $request, ?Options $options = null): Operations\StackoneMcpPostResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -525,12 +521,6 @@ class Mcp
                 '408',
             ];
         }
-        $request = new Operations\StackoneMcpPostRequest(
-            jsonRpcMessageDto: $jsonRpcMessageDto,
-            xAccountId: $xAccountId,
-            xAccountIdQueryParameter: $xAccountIdQueryParameter,
-            mcpSessionId: $mcpSessionId,
-        );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/mcp');
         $urlOverride = null;

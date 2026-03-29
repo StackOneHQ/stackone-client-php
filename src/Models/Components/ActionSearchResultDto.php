@@ -12,12 +12,12 @@ namespace StackOne\client\Models\Components;
 class ActionSearchResultDto
 {
     /**
-     * Unique action identifier
+     * Action identifier (e.g. "slack_send_message")
      *
-     * @var string $actionName
+     * @var string $actionId
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('action_name')]
-    public string $actionName;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('action_id')]
+    public string $actionId;
 
     /**
      * Connector key
@@ -26,6 +26,22 @@ class ActionSearchResultDto
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('connector_key')]
     public string $connectorKey;
+
+    /**
+     * Connector version
+     *
+     * @var string $connectorVersion
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('connector_version')]
+    public string $connectorVersion;
+
+    /**
+     * Action type (e.g. "custom", "create", "list")
+     *
+     * @var string $actionType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('action_type')]
+    public string $actionType;
 
     /**
      * Cosine similarity score (0-1)
@@ -60,21 +76,36 @@ class ActionSearchResultDto
     public string $projectId;
 
     /**
-     * @param  string  $actionName
+     * MCP-compatible JSON Schema describing the action input parameters
+     *
+     * @var InputSchema $inputSchema
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('input_schema')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\InputSchema')]
+    public InputSchema $inputSchema;
+
+    /**
+     * @param  string  $actionId
      * @param  string  $connectorKey
+     * @param  string  $connectorVersion
+     * @param  string  $actionType
      * @param  float  $similarityScore
      * @param  string  $label
      * @param  string  $description
      * @param  string  $projectId
+     * @param  InputSchema  $inputSchema
      * @phpstan-pure
      */
-    public function __construct(string $actionName, string $connectorKey, float $similarityScore, string $label, string $description, string $projectId)
+    public function __construct(string $actionId, string $connectorKey, string $connectorVersion, string $actionType, float $similarityScore, string $label, string $description, string $projectId, InputSchema $inputSchema)
     {
-        $this->actionName = $actionName;
+        $this->actionId = $actionId;
         $this->connectorKey = $connectorKey;
+        $this->connectorVersion = $connectorVersion;
+        $this->actionType = $actionType;
         $this->similarityScore = $similarityScore;
         $this->label = $label;
         $this->description = $description;
         $this->projectId = $projectId;
+        $this->inputSchema = $inputSchema;
     }
 }

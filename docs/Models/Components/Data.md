@@ -1,6 +1,6 @@
 # Data
 
-The response data from the provider. Can be an object, array, or primitive value.
+The response data from the action RPC call
 
 
 ## Supported Types
@@ -21,32 +21,5 @@ array $value = /* values here */
 * @var array<array<string, mixed>>
 */
 array $value = /* values here */
-```
-
-### `string`
-
-```php
-/**
-* @var string
-*/
-string $value = /* values here */
-```
-
-### `float`
-
-```php
-/**
-* @var float
-*/
-float $value = /* values here */
-```
-
-### `bool`
-
-```php
-/**
-* @var bool
-*/
-bool $value = /* values here */
 ```
 

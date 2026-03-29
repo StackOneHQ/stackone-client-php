@@ -35,14 +35,6 @@ class DocumentsDownloadFileRequest
     public ?string $xStackoneApiSessionToken = null;
 
     /**
-     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
-     *
-     * @var ?string $prefer
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
-    public ?string $prefer = null;
-
-    /**
      * The format to download the file in
      *
      * @var ?string $format
@@ -62,17 +54,15 @@ class DocumentsDownloadFileRequest
      * @param  string  $xAccountId
      * @param  string  $id
      * @param  ?string  $xStackoneApiSessionToken
-     * @param  ?string  $prefer
      * @param  ?string  $format
      * @param  ?string  $exportFormat
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, string $id, ?string $xStackoneApiSessionToken = null, ?string $prefer = null, ?string $format = null, ?string $exportFormat = null)
+    public function __construct(string $xAccountId, string $id, ?string $xStackoneApiSessionToken = null, ?string $format = null, ?string $exportFormat = null)
     {
         $this->xAccountId = $xAccountId;
         $this->id = $id;
         $this->xStackoneApiSessionToken = $xStackoneApiSessionToken;
-        $this->prefer = $prefer;
         $this->format = $format;
         $this->exportFormat = $exportFormat;
     }

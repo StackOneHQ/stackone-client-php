@@ -96,11 +96,14 @@ use StackOne\client\Models\Operations;
 
 $sdk = client\StackOne::builder()->build();
 
-$jsonRpcMessageDto = new Components\JsonRpcMessageDto(
-    jsonrpc: '2.0',
-    method: 'initialize',
-    params: new Components\Params(),
-    id: new Components\Id(),
+$request = new Operations\StackoneMcpPostRequest(
+    xAccountId: '<id>',
+    jsonRpcMessageDto: new Components\JsonRpcMessageDto(
+        jsonrpc: '2.0',
+        method: 'initialize',
+        params: new Components\Params(),
+        id: new Components\Id(),
+    ),
 );
 $requestSecurity = new Operations\StackoneMcpPostSecurity(
     basic: new Components\SchemeBasic(
@@ -110,10 +113,8 @@ $requestSecurity = new Operations\StackoneMcpPostSecurity(
 );
 
 $response = $sdk->mcp->mcpPost(
-    security: $requestSecurity,
-    jsonRpcMessageDto: $jsonRpcMessageDto,
-    xAccountId: '<id>'
-
+    request: $request,
+    security: $requestSecurity
 );
 
 if ($response->statusCode === 200) {
@@ -134,11 +135,14 @@ use StackOne\client\Models\Operations;
 
 $sdk = client\StackOne::builder()->build();
 
-$jsonRpcMessageDto = new Components\JsonRpcMessageDto(
-    jsonrpc: '2.0',
-    method: 'tools/call',
-    params: new Components\Params(),
-    id: new Components\Id(),
+$request = new Operations\StackoneMcpPostRequest(
+    xAccountId: '<id>',
+    jsonRpcMessageDto: new Components\JsonRpcMessageDto(
+        jsonrpc: '2.0',
+        method: 'tools/call',
+        params: new Components\Params(),
+        id: new Components\Id(),
+    ),
 );
 $requestSecurity = new Operations\StackoneMcpPostSecurity(
     basic: new Components\SchemeBasic(
@@ -148,10 +152,8 @@ $requestSecurity = new Operations\StackoneMcpPostSecurity(
 );
 
 $response = $sdk->mcp->mcpPost(
-    security: $requestSecurity,
-    jsonRpcMessageDto: $jsonRpcMessageDto,
-    xAccountId: '<id>'
-
+    request: $request,
+    security: $requestSecurity
 );
 
 if ($response->statusCode === 200) {
@@ -172,11 +174,14 @@ use StackOne\client\Models\Operations;
 
 $sdk = client\StackOne::builder()->build();
 
-$jsonRpcMessageDto = new Components\JsonRpcMessageDto(
-    jsonrpc: '2.0',
-    method: 'tools/list',
-    params: new Components\Params(),
-    id: new Components\Id(),
+$request = new Operations\StackoneMcpPostRequest(
+    xAccountId: '<id>',
+    jsonRpcMessageDto: new Components\JsonRpcMessageDto(
+        jsonrpc: '2.0',
+        method: 'tools/list',
+        params: new Components\Params(),
+        id: new Components\Id(),
+    ),
 );
 $requestSecurity = new Operations\StackoneMcpPostSecurity(
     basic: new Components\SchemeBasic(
@@ -186,10 +191,8 @@ $requestSecurity = new Operations\StackoneMcpPostSecurity(
 );
 
 $response = $sdk->mcp->mcpPost(
-    security: $requestSecurity,
-    jsonRpcMessageDto: $jsonRpcMessageDto,
-    xAccountId: '<id>'
-
+    request: $request,
+    security: $requestSecurity
 );
 
 if ($response->statusCode === 200) {
@@ -199,13 +202,10 @@ if ($response->statusCode === 200) {
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `security`                                                                                               | [Operations\StackoneMcpPostSecurity](../../Models/Operations/StackoneMcpPostSecurity.md)                 | :heavy_check_mark:                                                                                       | The security requirements to use for the request.                                                        |
-| `jsonRpcMessageDto`                                                                                      | [Components\JsonRpcMessageDto](../../Models/Components/JsonRpcMessageDto.md)                             | :heavy_check_mark:                                                                                       | JSON-RPC 2.0 message                                                                                     |
-| `xAccountId`                                                                                             | *?string*                                                                                                | :heavy_minus_sign:                                                                                       | Account secure id for the target provider account (optional if x-account-id query parameter is provided) |
-| `xAccountIdQueryParameter`                                                                               | *mixed*                                                                                                  | :heavy_minus_sign:                                                                                       | Account secure id (alternative to x-account-id header)                                                   |
-| `mcpSessionId`                                                                                           | *?string*                                                                                                | :heavy_minus_sign:                                                                                       | Session id; omit for initialize, include for subsequent calls                                            |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `$request`                                                                               | [Operations\StackoneMcpPostRequest](../../Models/Operations/StackoneMcpPostRequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `security`                                                                               | [Operations\StackoneMcpPostSecurity](../../Models/Operations/StackoneMcpPostSecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
 
 ### Response
 

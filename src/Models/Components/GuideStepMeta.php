@@ -38,15 +38,50 @@ class GuideStepMeta
     public ?array $list = null;
 
     /**
+     * When true, the step should display scopes
+     *
+     * @var ?bool $displayScopes
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('displayScopes')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $displayScopes = null;
+
+    /**
+     * The scopes for which this step is applicable
+     *
+     * @var ?array<string> $applicableScopes
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('applicableScopes')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $applicableScopes = null;
+
+    /**
+     * An image for the step
+     *
+     * @var ?Image $image
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('image')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\Image|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Image $image = null;
+
+    /**
      * @param  string  $title
      * @param  string  $content
      * @param  ?array<string>  $list
+     * @param  ?bool  $displayScopes
+     * @param  ?array<string>  $applicableScopes
+     * @param  ?Image  $image
      * @phpstan-pure
      */
-    public function __construct(string $title, string $content, ?array $list = null)
+    public function __construct(string $title, string $content, ?array $list = null, ?bool $displayScopes = null, ?array $applicableScopes = null, ?Image $image = null)
     {
         $this->title = $title;
         $this->content = $content;
         $this->list = $list;
+        $this->displayScopes = $displayScopes;
+        $this->applicableScopes = $applicableScopes;
+        $this->image = $image;
     }
 }

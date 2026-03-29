@@ -18592,11 +18592,10 @@ class Ats
      * @param  Components\AtsDocumentsUploadRequestDto  $atsDocumentsUploadRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
-     * @param  ?string  $prefer
      * @return Operations\AtsUploadApplicationDocumentResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function uploadApplicationDocument(Components\AtsDocumentsUploadRequestDto $atsDocumentsUploadRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\AtsUploadApplicationDocumentResponse
+    public function uploadApplicationDocument(Components\AtsDocumentsUploadRequestDto $atsDocumentsUploadRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\AtsUploadApplicationDocumentResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -18627,7 +18626,6 @@ class Ats
             xAccountId: $xAccountId,
             id: $id,
             atsDocumentsUploadRequestDto: $atsDocumentsUploadRequestDto,
-            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/ats/applications/{id}/documents/upload', Operations\AtsUploadApplicationDocumentRequest::class, $request);

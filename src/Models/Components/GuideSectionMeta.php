@@ -48,17 +48,41 @@ class GuideSectionMeta
     public ?array $steps = null;
 
     /**
+     * The scopes for which this section is applicable
+     *
+     * @var ?array<string> $applicableScopes
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('applicableScopes')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $applicableScopes = null;
+
+    /**
+     * An image for the section
+     *
+     * @var ?GuideSectionMetaImage $image
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('image')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\GuideSectionMetaImage|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?GuideSectionMetaImage $image = null;
+
+    /**
      * @param  string  $title
      * @param  string  $content
      * @param  ?array<string>  $list
      * @param  ?array<GuideStepMeta>  $steps
+     * @param  ?array<string>  $applicableScopes
+     * @param  ?GuideSectionMetaImage  $image
      * @phpstan-pure
      */
-    public function __construct(string $title, string $content, ?array $list = null, ?array $steps = null)
+    public function __construct(string $title, string $content, ?array $list = null, ?array $steps = null, ?array $applicableScopes = null, ?GuideSectionMetaImage $image = null)
     {
         $this->title = $title;
         $this->content = $content;
         $this->list = $list;
         $this->steps = $steps;
+        $this->applicableScopes = $applicableScopes;
+        $this->image = $image;
     }
 }

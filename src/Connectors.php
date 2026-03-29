@@ -47,15 +47,17 @@ class Connectors
     }
 
     /**
-     * Get Connector Meta Information
+     * Get Connector Meta Information (Legacy)
      *
      * @param  string  $provider
      * @param  ?string  $include
      * @return Operations\StackoneGetConnectorMetaResponse
      * @throws \StackOne\client\Models\Errors\SDKException
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     public function getConnectorMeta(string $provider, ?string $include = null, ?Options $options = null): Operations\StackoneGetConnectorMetaResponse
     {
+        trigger_error('Method '.__METHOD__.' is deprecated', E_USER_DEPRECATED);
         $retryConfig = null;
         if ($options) {
             $retryConfig = $options->retryConfig;
@@ -260,14 +262,16 @@ class Connectors
     }
 
     /**
-     * List Connector Meta Information
+     * List Connector Meta Information (Legacy)
      *
      * @param  ?string  $include
      * @return Operations\StackoneListConnectorsMetaResponse
      * @throws \StackOne\client\Models\Errors\SDKException
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     public function listConnectorsMeta(?string $include = null, ?Options $options = null): Operations\StackoneListConnectorsMetaResponse
     {
+        trigger_error('Method '.__METHOD__.' is deprecated', E_USER_DEPRECATED);
         $retryConfig = null;
         if ($options) {
             $retryConfig = $options->retryConfig;

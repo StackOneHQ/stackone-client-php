@@ -53,11 +53,10 @@ class Hris
      * @param  Components\HrisBatchDocumentUploadRequestDto  $hrisBatchDocumentUploadRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
-     * @param  ?string  $prefer
      * @return Operations\HrisBatchUploadEmployeeDocumentResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function batchUploadEmployeeDocument(Components\HrisBatchDocumentUploadRequestDto $hrisBatchDocumentUploadRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\HrisBatchUploadEmployeeDocumentResponse
+    public function batchUploadEmployeeDocument(Components\HrisBatchDocumentUploadRequestDto $hrisBatchDocumentUploadRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\HrisBatchUploadEmployeeDocumentResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -88,7 +87,6 @@ class Hris
             xAccountId: $xAccountId,
             id: $id,
             hrisBatchDocumentUploadRequestDto: $hrisBatchDocumentUploadRequestDto,
-            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/documents/upload/batch', Operations\HrisBatchUploadEmployeeDocumentRequest::class, $request);
@@ -18175,11 +18173,10 @@ class Hris
      * @param  Components\HrisDocumentsUploadRequestDto  $hrisDocumentsUploadRequestDto
      * @param  string  $xAccountId
      * @param  string  $id
-     * @param  ?string  $prefer
      * @return Operations\HrisUploadEmployeeDocumentResponse
      * @throws \StackOne\client\Models\Errors\SDKException
      */
-    public function uploadEmployeeDocument(Components\HrisDocumentsUploadRequestDto $hrisDocumentsUploadRequestDto, string $xAccountId, string $id, ?string $prefer = null, ?Options $options = null): Operations\HrisUploadEmployeeDocumentResponse
+    public function uploadEmployeeDocument(Components\HrisDocumentsUploadRequestDto $hrisDocumentsUploadRequestDto, string $xAccountId, string $id, ?Options $options = null): Operations\HrisUploadEmployeeDocumentResponse
     {
         $retryConfig = null;
         if ($options) {
@@ -18210,7 +18207,6 @@ class Hris
             xAccountId: $xAccountId,
             id: $id,
             hrisDocumentsUploadRequestDto: $hrisDocumentsUploadRequestDto,
-            prefer: $prefer,
         );
         $baseUrl = $this->sdkConfiguration->getTemplatedServerUrl();
         $url = Utils\Utils::generateUrl($baseUrl, '/unified/hris/employees/{id}/documents/upload', Operations\HrisUploadEmployeeDocumentRequest::class, $request);

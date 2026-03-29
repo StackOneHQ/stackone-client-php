@@ -60,19 +60,43 @@ class ActionsRpcRequestDto
     public ?array $body = null;
 
     /**
+     * Override the account-level defender enabled setting for this request. Deprecated: use defender_config instead.
+     *
+     * @var ?bool $defenderEnabled
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('defender_enabled')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $defenderEnabled = null;
+
+    /**
+     * Per-request defender configuration. Takes precedence over defender_enabled and project settings.
+     *
+     * @var ?DefenderConfig $defenderConfig
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('defender_config')]
+    #[\Speakeasy\Serializer\Annotation\Type('\StackOne\client\Models\Components\DefenderConfig|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?DefenderConfig $defenderConfig = null;
+
+    /**
      * @param  string  $action
      * @param  ?array<string, mixed>  $path
      * @param  ?Query  $query
      * @param  ?array<string, mixed>  $headers
      * @param  ?array<string, mixed>  $body
+     * @param  ?bool  $defenderEnabled
+     * @param  ?DefenderConfig  $defenderConfig
      * @phpstan-pure
      */
-    public function __construct(string $action, ?array $path = null, ?Query $query = null, ?array $body = null, ?array $headers = null)
+    public function __construct(string $action, ?array $path = null, ?Query $query = null, ?array $body = null, ?bool $defenderEnabled = null, ?DefenderConfig $defenderConfig = null, ?array $headers = null)
     {
         $this->action = $action;
         $this->path = $path;
         $this->query = $query;
         $this->headers = $headers;
         $this->body = $body;
+        $this->defenderEnabled = $defenderEnabled;
+        $this->defenderConfig = $defenderConfig;
     }
 }

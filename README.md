@@ -10,7 +10,18 @@
 <!-- Start Summary [summary] -->
 ## Summary
 
-Accounting: The documentation for the StackOne Unified API - ACCOUNTING
+Accounting: The documentation for the StackOne API
+The documentation for the StackOne Unified API - HRIS
+The documentation for the StackOne Unified API - ATS
+The documentation for the StackOne Unified API - LMS
+The documentation for the StackOne Unified API - IAM
+The documentation for the StackOne Unified API - CRM
+The documentation for the StackOne Unified API - MARKETING
+The documentation for the StackOne Unified API - TICKETING
+The documentation for the StackOne Unified API - DOCUMENTS
+The documentation for the StackOne Unified API - SCREENING
+The documentation for the StackOne Unified API - MESSAGING
+The documentation for the StackOne Unified API - ACCOUNTING
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -209,7 +220,7 @@ if ($response->statusCode === 200) {
 * [getAccount](docs/sdks/accounts/README.md#getaccount) - Get Account
 * [deleteAccount](docs/sdks/accounts/README.md#deleteaccount) - Delete Account
 * [updateAccount](docs/sdks/accounts/README.md#updateaccount) - Update Account
-* [getAccountMetaInfo](docs/sdks/accounts/README.md#getaccountmetainfo) - Get Account Meta Information
+* [~~getAccountMetaInfo~~](docs/sdks/accounts/README.md#getaccountmetainfo) - Get Account Meta Information (Legacy) :warning: **Deprecated**
 
 ### [Actions](docs/sdks/actions/README.md)
 
@@ -302,10 +313,10 @@ if ($response->statusCode === 200) {
 * [createConnectSession](docs/sdks/connectsessions/README.md#createconnectsession) - Create Connect Session
 * [authenticateConnectSession](docs/sdks/connectsessions/README.md#authenticateconnectsession) - Authenticate Connect Session
 
-### [Connectors](docs/sdks/connectors/README.md)
+### [~~Connectors~~](docs/sdks/connectors/README.md)
 
-* [listConnectorsMeta](docs/sdks/connectors/README.md#listconnectorsmeta) - List Connector Meta Information
-* [getConnectorMeta](docs/sdks/connectors/README.md#getconnectormeta) - Get Connector Meta Information
+* [~~listConnectorsMeta~~](docs/sdks/connectors/README.md#listconnectorsmeta) - List Connector Meta Information (Legacy) :warning: **Deprecated**
+* [~~getConnectorMeta~~](docs/sdks/connectors/README.md#getconnectormeta) - Get Connector Meta Information (Legacy) :warning: **Deprecated**
 
 ### [Crm](docs/sdks/crm/README.md)
 
@@ -496,9 +507,9 @@ if ($response->statusCode === 200) {
 * [getMessage](docs/sdks/messaging/README.md#getmessage) - Get Message
 * [sendMessage](docs/sdks/messaging/README.md#sendmessage) - Send Message
 
-### [Proxy](docs/sdks/proxy/README.md)
+### [~~Proxy~~](docs/sdks/proxy/README.md)
 
-* [proxyRequest](docs/sdks/proxy/README.md#proxyrequest) - Proxy Request
+* [~~proxyRequest~~](docs/sdks/proxy/README.md#proxyrequest) - Proxy Request (Legacy) :warning: **Deprecated**
 
 ### [RequestLogs](docs/sdks/requestlogs/README.md)
 

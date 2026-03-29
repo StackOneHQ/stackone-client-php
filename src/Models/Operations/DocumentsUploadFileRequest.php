@@ -36,25 +36,15 @@ class DocumentsUploadFileRequest
     public ?string $xStackoneApiSessionToken = null;
 
     /**
-     * Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
-     *
-     * @var ?string $prefer
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=Prefer')]
-    public ?string $prefer = null;
-
-    /**
      * @param  string  $xAccountId
      * @param  Components\UnifiedUploadRequestDto  $unifiedUploadRequestDto
      * @param  ?string  $xStackoneApiSessionToken
-     * @param  ?string  $prefer
      * @phpstan-pure
      */
-    public function __construct(string $xAccountId, Components\UnifiedUploadRequestDto $unifiedUploadRequestDto, ?string $xStackoneApiSessionToken = null, ?string $prefer = null)
+    public function __construct(string $xAccountId, Components\UnifiedUploadRequestDto $unifiedUploadRequestDto, ?string $xStackoneApiSessionToken = null)
     {
         $this->xAccountId = $xAccountId;
         $this->unifiedUploadRequestDto = $unifiedUploadRequestDto;
         $this->xStackoneApiSessionToken = $xStackoneApiSessionToken;
-        $this->prefer = $prefer;
     }
 }

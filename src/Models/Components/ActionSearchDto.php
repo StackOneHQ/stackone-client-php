@@ -38,15 +38,26 @@ class ActionSearchDto
     public ?float $topK = null;
 
     /**
+     * Minimum similarity score threshold (0-1). Results below this score are filtered out.
+     *
+     * @var ?float $minSimilarity
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('min_similarity')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?float $minSimilarity = null;
+
+    /**
      * @param  string  $query
      * @param  ?string  $connector
      * @param  ?float  $topK
+     * @param  ?float  $minSimilarity
      * @phpstan-pure
      */
-    public function __construct(string $query, ?string $connector = null, ?float $topK = 100)
+    public function __construct(string $query, ?string $connector = null, ?float $topK = 100, ?float $minSimilarity = 0.4)
     {
         $this->query = $query;
         $this->connector = $connector;
         $this->topK = $topK;
+        $this->minSimilarity = $minSimilarity;
     }
 }

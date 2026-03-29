@@ -10,7 +10,7 @@ Chart of accounts.
 * [getAccount](#getaccount) - Get Account
 * [deleteAccount](#deleteaccount) - Delete Account
 * [updateAccount](#updateaccount) - Update Account
-* [getAccountMetaInfo](#getaccountmetainfo) - Get Account Meta Information
+* [~~getAccountMetaInfo~~](#getaccountmetainfo) - Get Account Meta Information (Legacy) :warning: **Deprecated**
 
 ## listLinkedAccounts
 
@@ -266,9 +266,11 @@ if ($response->linkedAccount !== null) {
 | Errors\BadGatewayResponse          | 502                                | application/json                   |
 | Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
-## getAccountMetaInfo
+## ~~getAccountMetaInfo~~
 
-Get Account Meta Information
+Get Account Meta Information (Legacy)
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

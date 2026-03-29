@@ -38,7 +38,7 @@ class ConnectSessionCreate
     public ?array $categories = null;
 
     /**
-     * The provider to connect to
+     * The provider to connect to. When used with provider_version, ensures the hub renders on the specific auth config required. Alternatively, use integration_id to target a specific auth config directly.
      *
      * @var ?string $provider
      */
@@ -47,7 +47,7 @@ class ConnectSessionCreate
     public ?string $provider = null;
 
     /**
-     * The provider version to connect to
+     * The provider version to connect to. Must be used together with provider to target a specific auth config. Alternatively, use integration_id to target a specific auth config directly.
      *
      * @var ?string $providerVersion
      */
@@ -93,7 +93,7 @@ class ConnectSessionCreate
     public ?string $label = null;
 
     /**
-     * The integration ID associated with this connect session
+     * The ID of the specific Auth Config to use for this connect session. When provided, the hub will render on this specific auth config. This is an alternative to using provider and provider_version together.
      *
      * @var ?string $integrationId
      */

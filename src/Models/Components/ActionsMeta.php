@@ -84,6 +84,16 @@ class ActionsMeta
     public ?string $releaseStage = null;
 
     /**
+     * The categories associated with this provider (e.g., hris, ats, crm)
+     *
+     * @var ?array<string> $categories
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('categories')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $categories = null;
+
+    /**
      * The authentication methods supported by the provider
      *
      * @var ?array<AuthenticationMetaItem> $authentication
@@ -122,12 +132,13 @@ class ActionsMeta
      * @param  ?string  $icon
      * @param  ?string  $description
      * @param  ?string  $releaseStage
+     * @param  ?array<string>  $categories
      * @param  ?array<AuthenticationMetaItem>  $authentication
      * @param  ?array<ScopeDefinitionMetaItem>  $scopeDefinitions
      * @param  ?array<ActionMetaItem>  $actions
      * @phpstan-pure
      */
-    public function __construct(?string $accountId = null, ?string $integrationId = null, ?string $version = null, ?string $name = null, ?string $key = null, ?string $icon = null, ?string $description = null, ?string $releaseStage = null, ?array $authentication = null, ?array $scopeDefinitions = null, ?array $actions = null)
+    public function __construct(?string $accountId = null, ?string $integrationId = null, ?string $version = null, ?string $name = null, ?string $key = null, ?string $icon = null, ?string $description = null, ?string $releaseStage = null, ?array $categories = null, ?array $authentication = null, ?array $scopeDefinitions = null, ?array $actions = null)
     {
         $this->accountId = $accountId;
         $this->integrationId = $integrationId;
@@ -137,6 +148,7 @@ class ActionsMeta
         $this->icon = $icon;
         $this->description = $description;
         $this->releaseStage = $releaseStage;
+        $this->categories = $categories;
         $this->authentication = $authentication;
         $this->scopeDefinitions = $scopeDefinitions;
         $this->actions = $actions;

@@ -464,14 +464,16 @@ class Accounts
     }
 
     /**
-     * Get Account Meta Information
+     * Get Account Meta Information (Legacy)
      *
      * @param  string  $id
      * @return Operations\StackoneGetAccountMetaInfoResponse
      * @throws \StackOne\client\Models\Errors\SDKException
+     * @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     public function getAccountMetaInfo(string $id, ?Options $options = null): Operations\StackoneGetAccountMetaInfoResponse
     {
+        trigger_error('Method '.__METHOD__.' is deprecated', E_USER_DEPRECATED);
         $retryConfig = null;
         if ($options) {
             $retryConfig = $options->retryConfig;

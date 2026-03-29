@@ -244,7 +244,7 @@ $sdk = client\StackOne::builder()
     )
     ->build();
 
-$request = new Components\ActionsRpcRequestDto(
+$actionsRpcRequestDto = new Components\ActionsRpcRequestDto(
     action: 'create_employee',
     path: [
         'id' => '123',
@@ -258,10 +258,18 @@ $request = new Components\ActionsRpcRequestDto(
     body: [
         'data' => 'example',
     ],
+    defenderConfig: new Components\DefenderConfig(
+        enabled: true,
+        blockHighRisk: false,
+        useTier1Classification: true,
+        useTier2Classification: true,
+    ),
 );
 
 $response = $sdk->actions->rpcAction(
-    request: $request
+    xAccountId: '<id>',
+    actionsRpcRequestDto: $actionsRpcRequestDto
+
 );
 
 if ($response->actionsRpcResponse !== null) {
@@ -273,7 +281,8 @@ if ($response->actionsRpcResponse !== null) {
 
 | Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
 | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `$request`                                                                         | [Components\ActionsRpcRequestDto](../../Models/Components/ActionsRpcRequestDto.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `xAccountId`                                                                       | *string*                                                                           | :heavy_check_mark:                                                                 | The account identifier                                                             |
+| `actionsRpcRequestDto`                                                             | [Components\ActionsRpcRequestDto](../../Models/Components/ActionsRpcRequestDto.md) | :heavy_check_mark:                                                                 | N/A                                                                                |
 
 ### Response
 

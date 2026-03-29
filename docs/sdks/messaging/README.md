@@ -266,7 +266,6 @@ $request = new Operations\MessagingDownloadMessagingAttachmentRequest(
     subResourceId: '<id>',
     format: 'base64',
     exportFormat: 'text/plain',
-    prefer: 'heartbeat',
 );
 
 $response = $sdk->messaging->downloadMessagingAttachment(

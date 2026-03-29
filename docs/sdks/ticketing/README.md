@@ -702,7 +702,6 @@ $request = new Operations\TicketingDownloadTicketingAttachmentRequest(
     subResourceId: '<id>',
     format: 'base64',
     exportFormat: 'text/plain',
-    prefer: 'heartbeat',
 );
 
 $response = $sdk->ticketing->downloadTicketingAttachment(

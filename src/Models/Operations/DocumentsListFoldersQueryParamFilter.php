@@ -21,6 +21,14 @@ class DocumentsListFoldersQueryParamFilter
     public ?\DateTime $updatedAfter = null;
 
     /**
+     * Search if the name of the folder contains the string
+     *
+     * @var ?string $name
+     */
+    #[SpeakeasyMetadata('queryParam:name=name')]
+    public ?string $name = null;
+
+    /**
      * Use to only include Folders within the specified Drive
      *
      * @var ?string $driveId
@@ -38,13 +46,15 @@ class DocumentsListFoldersQueryParamFilter
 
     /**
      * @param  ?\DateTime  $updatedAfter
+     * @param  ?string  $name
      * @param  ?string  $driveId
      * @param  ?string  $folderId
      * @phpstan-pure
      */
-    public function __construct(?\DateTime $updatedAfter = null, ?string $driveId = null, ?string $folderId = null)
+    public function __construct(?\DateTime $updatedAfter = null, ?string $name = null, ?string $driveId = null, ?string $folderId = null)
     {
         $this->updatedAfter = $updatedAfter;
+        $this->name = $name;
         $this->driveId = $driveId;
         $this->folderId = $folderId;
     }

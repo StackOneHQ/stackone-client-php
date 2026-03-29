@@ -29,6 +29,14 @@ class StackoneMcpPostRequest
     public ?string $xAccountId = null;
 
     /**
+     * Tool registration mode: "individual" (default) registers each action as a separate tool; "search_execute" registers two tools for search-and-execute flow
+     *
+     * @var ?ToolMode $toolMode
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=tool-mode')]
+    public ?ToolMode $toolMode = null;
+
+    /**
      * Account secure id (alternative to x-account-id header)
      *
      * @var mixed $xAccountIdQueryParameter
@@ -47,14 +55,16 @@ class StackoneMcpPostRequest
     /**
      * @param  Components\JsonRpcMessageDto  $jsonRpcMessageDto
      * @param  ?string  $xAccountId
+     * @param  ?ToolMode  $toolMode
      * @param  mixed  $xAccountIdQueryParameter
      * @param  ?string  $mcpSessionId
      * @phpstan-pure
      */
-    public function __construct(Components\JsonRpcMessageDto $jsonRpcMessageDto, ?string $xAccountId = null, mixed $xAccountIdQueryParameter = null, ?string $mcpSessionId = null)
+    public function __construct(Components\JsonRpcMessageDto $jsonRpcMessageDto, ?string $xAccountId = null, ?ToolMode $toolMode = null, mixed $xAccountIdQueryParameter = null, ?string $mcpSessionId = null)
     {
         $this->jsonRpcMessageDto = $jsonRpcMessageDto;
         $this->xAccountId = $xAccountId;
+        $this->toolMode = $toolMode;
         $this->xAccountIdQueryParameter = $xAccountIdQueryParameter;
         $this->mcpSessionId = $mcpSessionId;
     }
